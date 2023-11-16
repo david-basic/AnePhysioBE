@@ -1,8 +1,15 @@
 package hr.dbasic.anephysiobe.configuration;
 
+import com.nimbusds.jose.jwk.JWKSet;
+import com.nimbusds.jose.jwk.RSAKey;
+import com.nimbusds.jose.jwk.source.ImmutableJWKSet;
+import hr.dbasic.anephysiobe.configuration.properties.JwtProperties;
+import hr.dbasic.anephysiobe.configuration.properties.RsaKeyProperties;
 import hr.dbasic.anephysiobe.controllers.AuthController;
 import hr.dbasic.anephysiobe.filters.ExceptionCatchFilter;
+import hr.dbasic.anephysiobe.filters.JwtAuthFilter;
 import hr.dbasic.anephysiobe.repositories.UserRepositoryMongo;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -14,12 +21,15 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
-import org.springframework.security.config.annotation.web.configurers.LogoutConfigurer;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.oauth2.jwt.JwtDecoder;
+import org.springframework.security.oauth2.jwt.JwtEncoder;
+import org.springframework.security.oauth2.jwt.NimbusJwtDecoder;
+import org.springframework.security.oauth2.jwt.NimbusJwtEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.authentication.logout.LogoutFilter;
@@ -32,33 +42,44 @@ import java.util.List;
 @Configuration
 @EnableWebSecurity
 @EnableMethodSecurity
+@EnableConfigurationProperties({RsaKeyProperties.class, JwtProperties.class})
 public class WebSecurityConfig {
-
+    
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
-
+    
     @Bean
     public UserDetailsService userDetailsService(UserRepositoryMongo userRepositoryMongo) {
         return username -> userRepositoryMongo.findByUsername(username)
                 .orElseThrow(() -> new UsernameNotFoundException("Username %s is not registered!".formatted(username)));
     }
-
+    
+    @Bean
+    JwtEncoder jwtEncoder(RsaKeyProperties rsaKeyProperties) {
+        RSAKey key = new RSAKey.Builder(rsaKeyProperties.publicRsaKey()).privateKey(rsaKeyProperties.privateRsaKey()).build();
+        return new NimbusJwtEncoder(new ImmutableJWKSet<>(new JWKSet(key)));
+    }
+    
+    @Bean
+    public JwtDecoder jwtDecoder(RsaKeyProperties rsaKeyProperties) {
+        return NimbusJwtDecoder.withPublicKey(rsaKeyProperties.publicRsaKey()).build();
+    }
+    
     @Bean
     public AuthenticationProvider authenticationProvider(UserDetailsService userDetailsService, PasswordEncoder passwordEncoder) {
-        DaoAuthenticationProvider authenticationProvider = new DaoAuthenticationProvider();
-        authenticationProvider.setUserDetailsService(userDetailsService);
-        authenticationProvider.setPasswordEncoder(passwordEncoder);
-
-        return authenticationProvider;
+        DaoAuthenticationProvider daoAuthenticationProvider = new DaoAuthenticationProvider();
+        daoAuthenticationProvider.setUserDetailsService(userDetailsService);
+        daoAuthenticationProvider.setPasswordEncoder(passwordEncoder);
+        return daoAuthenticationProvider;
     }
-
+    
     @Bean
     public AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration) throws Exception {
         return authenticationConfiguration.getAuthenticationManager();
     }
-
+    
     @Bean
     public CorsConfiguration corsConfiguration() {
         CorsConfiguration corsConfiguration = new CorsConfiguration();
@@ -66,37 +87,30 @@ public class WebSecurityConfig {
         corsConfiguration.setAllowedHeaders(List.of("*"));
         corsConfiguration.setAllowedMethods(List.of("*"));
         corsConfiguration.setAllowCredentials(true);
-
+        
         return corsConfiguration;
     }
-
+    
     @Bean
     public CorsConfigurationSource corsConfigurationSource(CorsConfiguration corsConfiguration) {
         UrlBasedCorsConfigurationSource corsConfigurationSource = new UrlBasedCorsConfigurationSource();
         corsConfigurationSource.registerCorsConfiguration("/**", corsConfiguration);
         return corsConfigurationSource;
     }
-
+    
     @Bean
-    public SecurityFilterChain filterChain(HttpSecurity http, CorsConfiguration corsConfiguration, AuthenticationManager authenticationManager, AuthenticationProvider authenticationProvider, ExceptionCatchFilter exceptionCatchFilter) throws Exception {
-        http
+    public SecurityFilterChain securityFilterChain(HttpSecurity http, CorsConfiguration corsConfiguration, AuthenticationManager authenticationManager, AuthenticationProvider authenticationProvider, JwtAuthFilter jwtAuthFilter, ExceptionCatchFilter exceptionCatchFilter) throws Exception {
+        return http
                 .csrf(AbstractHttpConfigurer::disable)
                 .cors(Customizer.withDefaults())
-                .authorizeHttpRequests((requests) -> requests
+                .authorizeHttpRequests(requests -> requests
                         .requestMatchers(AuthController.AuthMappings.authRequestMapping + "/**").permitAll()
                         .anyRequest().authenticated()
                 )
-                .sessionManagement(httpSecuritySessionManagementConfigurer -> httpSecuritySessionManagementConfigurer.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authenticationProvider(authenticationProvider)
                 .addFilterBefore(exceptionCatchFilter, LogoutFilter.class)
-                .formLogin((form) -> form
-                        .loginProcessingUrl(AuthController.AuthMappings.authRequestMapping + AuthController.AuthMappings.loginPostMapping)
-                        .permitAll()
-                )
-                .logout(LogoutConfigurer::permitAll);
-
-        return http.build();
+                .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)
+                .build();
     }
-
-
 }

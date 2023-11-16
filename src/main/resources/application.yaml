@@ -1,0 +1,23 @@
+spring:
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: anephysio
+server:
+  port: 8080
+logging:
+  level:
+    org:
+      springframework:
+        security: TRACE
+hr:
+  dbasic:
+    anephysiobe:
+      security:
+        rsa:
+          private-key: classpath:keys/private.pem
+          public-key: classpath:keys/public.pem
+        jwt:
+          validity-duration-in-ms: 3600000 # 1h
+          refresh-validity-duration-in-ms: 86400000 # one day

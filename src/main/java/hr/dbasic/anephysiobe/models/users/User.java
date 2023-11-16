@@ -1,5 +1,6 @@
 package hr.dbasic.anephysiobe.models.users;
 
+import hr.dbasic.anephysiobe.models.RefreshToken;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.*;
@@ -68,6 +69,8 @@ public class User implements UserDetails {
     @NotNull(message = "User has to have at least 1 role!")
     @DBRef
     private UserRole role;
+    
+    private RefreshToken refreshToken;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
