@@ -70,6 +70,7 @@ public class User implements UserDetails {
     @DBRef
     private UserRole role;
     
+    @DBRef
     private RefreshToken refreshToken;
 
     @Override

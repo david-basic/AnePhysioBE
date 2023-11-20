@@ -12,9 +12,9 @@ import org.springframework.web.servlet.HandlerExceptionResolver;
 @Component
 @RequiredArgsConstructor
 public class ExceptionCatchFilter extends OncePerRequestFilter {
-
+    
     private final HandlerExceptionResolver handlerExceptionResolver;
-
+    
     @Override
     protected void doFilterInternal(@NonNull HttpServletRequest request, @NonNull HttpServletResponse response, @NonNull FilterChain filterChain) {
         try {

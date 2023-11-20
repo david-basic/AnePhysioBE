@@ -6,6 +6,7 @@ import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDateTime;
@@ -34,7 +35,6 @@ public class RefreshToken {
     
     private LocalDateTime expireDateTime;
     
-    @NotNull(message = "Token has to have a user bound to it!")
     private User user;
     
     public Boolean isExpired() {

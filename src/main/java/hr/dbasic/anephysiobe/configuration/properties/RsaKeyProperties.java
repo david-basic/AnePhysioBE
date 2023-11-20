@@ -9,6 +9,6 @@ import java.security.interfaces.RSAPublicKey;
 @Validated
 @ConfigurationProperties(prefix = "hr.dbasic.anephysiobe.security.rsa")
 public record RsaKeyProperties(
-        RSAPublicKey publicRsaKey,
-        RSAPrivateKey privateRsaKey) {
+        RSAPublicKey publicKey,
+        RSAPrivateKey privateKey) {
 }

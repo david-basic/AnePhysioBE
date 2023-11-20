@@ -51,6 +51,22 @@ public class WebSecurityConfig {
     }
     
     @Bean
+    public SecurityFilterChain securityFilterChain(HttpSecurity http, CorsConfiguration corsConfiguration, AuthenticationManager authenticationManager, AuthenticationProvider authenticationProvider, JwtAuthFilter jwtAuthFilter, ExceptionCatchFilter exceptionCatchFilter) throws Exception {
+        return http
+                .csrf(AbstractHttpConfigurer::disable)
+                .cors(Customizer.withDefaults())
+                .authorizeHttpRequests(requests -> requests
+                        .requestMatchers(AuthController.AuthMappings.authRequestMapping + "/**").permitAll()
+                        .anyRequest().authenticated()
+                )
+                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+                .authenticationProvider(authenticationProvider)
+                .addFilterBefore(exceptionCatchFilter, LogoutFilter.class)
+                .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)
+                .build();
+    }
+    
+    @Bean
     public UserDetailsService userDetailsService(UserRepositoryMongo userRepositoryMongo) {
         return username -> userRepositoryMongo.findByUsername(username)
                 .orElseThrow(() -> new UsernameNotFoundException("Username %s is not registered!".formatted(username)));
@@ -58,13 +74,13 @@ public class WebSecurityConfig {
     
     @Bean
     JwtEncoder jwtEncoder(RsaKeyProperties rsaKeyProperties) {
-        RSAKey key = new RSAKey.Builder(rsaKeyProperties.publicRsaKey()).privateKey(rsaKeyProperties.privateRsaKey()).build();
+        RSAKey key = new RSAKey.Builder(rsaKeyProperties.publicKey()).privateKey(rsaKeyProperties.privateKey()).build();
         return new NimbusJwtEncoder(new ImmutableJWKSet<>(new JWKSet(key)));
     }
     
     @Bean
     public JwtDecoder jwtDecoder(RsaKeyProperties rsaKeyProperties) {
-        return NimbusJwtDecoder.withPublicKey(rsaKeyProperties.publicRsaKey()).build();
+        return NimbusJwtDecoder.withPublicKey(rsaKeyProperties.publicKey()).build();
     }
     
     @Bean
@@ -98,19 +114,4 @@ public class WebSecurityConfig {
         return corsConfigurationSource;
     }
     
-    @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http, CorsConfiguration corsConfiguration, AuthenticationManager authenticationManager, AuthenticationProvider authenticationProvider, JwtAuthFilter jwtAuthFilter, ExceptionCatchFilter exceptionCatchFilter) throws Exception {
-        return http
-                .csrf(AbstractHttpConfigurer::disable)
-                .cors(Customizer.withDefaults())
-                .authorizeHttpRequests(requests -> requests
-                        .requestMatchers(AuthController.AuthMappings.authRequestMapping + "/**").permitAll()
-                        .anyRequest().authenticated()
-                )
-                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-                .authenticationProvider(authenticationProvider)
-                .addFilterBefore(exceptionCatchFilter, LogoutFilter.class)
-                .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class)
-                .build();
-    }
 }
