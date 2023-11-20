@@ -35,7 +35,7 @@ public class AppAdvice {
     }
     
     @ExceptionHandler(MethodArgumentTypeMismatchException.class)
-    public ResponseEntity<ApiErrorResponse> handleMethodArgumentTypeMismatchException(HttpServletRequest request, MethodArgumentTypeMismatchException e) {
+    public ResponseEntity<ApiErrorResponse> handleMethodArgumentTypeMismatchException(HttpServletRequest request) {
         return ResponseEntity
                 .status(HttpStatus.BAD_REQUEST)
                 .body(
@@ -142,7 +142,7 @@ public class AppAdvice {
     }
     
     @ExceptionHandler({IllegalStateException.class, Exception.class})
-    public ResponseEntity<ApiErrorResponse> handleException(HttpServletRequest request, Exception e) {
+    public ResponseEntity<ApiErrorResponse> handleException(HttpServletRequest request) {
         return ResponseEntity
                 .status(HttpStatus.INTERNAL_SERVER_ERROR)
                 .body(
