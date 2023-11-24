@@ -7,4 +7,5 @@ import lombok.NoArgsConstructor;
 public class AppMappings {
     public static final String apiMapping = "/api/v1";
     public static final String apiAuthRequestMapping = apiMapping + "/user-management";
+    public static final String apiDepartmentRequestMapping = apiMapping + "/department-management";
 }
