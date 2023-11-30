@@ -13,10 +13,8 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.Collection;
-import java.util.Date;
-import java.util.HashSet;
 import java.util.Set;
 
 @NoArgsConstructor(force = true)
@@ -34,12 +32,12 @@ public class User implements UserDetails {
     private String id;
 
     @CreatedDate
-    private Date createDate;
+    private LocalDate createDate;
 
     @LastModifiedDate
-    private Date updateDate;
+    private LocalDate updateDate;
 
-    private Date deleteDate;
+    private LocalDate deleteDate;
 
     @ToString.Include
     @NotNull(message = "First name must exist!")
