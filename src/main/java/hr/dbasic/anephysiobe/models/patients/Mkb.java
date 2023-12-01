@@ -24,6 +24,7 @@ public class Mkb implements Serializable {
     @NotNull(message = "Mkb must have a display name!")
     private String displayName;
     
+    @Builder.Default
     private Boolean isLeadingMkb = false;
     
     public Mkb(String code, String displayName) {

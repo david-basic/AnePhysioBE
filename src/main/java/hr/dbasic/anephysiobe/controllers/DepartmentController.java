@@ -1,10 +1,8 @@
 package hr.dbasic.anephysiobe.controllers;
 
-import hr.dbasic.anephysiobe.dto.responses.ApiResponse;
 import hr.dbasic.anephysiobe.mappings.AppMappings;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController

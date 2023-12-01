@@ -1,6 +1,5 @@
 package hr.dbasic.anephysiobe.repositories;
 
-import hr.dbasic.anephysiobe.models.patients.County;
 import hr.dbasic.anephysiobe.models.patients.Patient;
 import hr.dbasic.anephysiobe.models.patients.PatientAddress;
 import org.springframework.data.mongodb.repository.MongoRepository;

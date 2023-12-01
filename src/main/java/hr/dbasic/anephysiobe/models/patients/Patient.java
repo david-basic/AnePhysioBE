@@ -1,5 +1,6 @@
 package hr.dbasic.anephysiobe.models.patients;
 
+import hr.dbasic.anephysiobe.models.doctors.Doctor;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.*;
@@ -21,6 +22,7 @@ import java.util.List;
 @ToString(doNotUseGetters = true, onlyExplicitlyIncluded = true)
 @Document("patients")
 public class Patient {
+    
     @Id
     private String id;
     
@@ -41,8 +43,10 @@ public class Patient {
     private LocalDate dob;
     
     @NotNull(message = "Patient must have at least 1 MKB!")
+    @DBRef
     private List<Mkb> patientMkbs;
     
+    @DBRef
     private List<PatientOperation> operations;
     
     @NotNull(message = "Patient must have admission date!")
@@ -52,7 +56,7 @@ public class Patient {
     @DBRef
     private PatientAddress patientAddress;
     
-    @NotNull(message = "Patient must have a leading doctor attachet!")
+    @NotNull(message = "Patient must have a leading doctor attached!")
     @DBRef
     private Doctor leadingDoctor;
     

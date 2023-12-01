@@ -39,6 +39,6 @@ public class PatientAddress {
     @ZipCodeLength
     private Integer zipCode;
     
-    @NotNull(message = "Patient must be input!")
+    @DBRef
     private Patient patient;
 }
