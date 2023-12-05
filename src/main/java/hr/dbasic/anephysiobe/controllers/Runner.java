@@ -1,10 +1,12 @@
 package hr.dbasic.anephysiobe.controllers;
 
+import hr.dbasic.anephysiobe.models.doctors.Doctor;
 import hr.dbasic.anephysiobe.models.patients.County;
 import hr.dbasic.anephysiobe.models.patients.CountyEnum;
 import hr.dbasic.anephysiobe.models.patients.Mkb;
 import hr.dbasic.anephysiobe.models.patients.MkbCodes;
 import hr.dbasic.anephysiobe.repositories.CountyRepositoryMongo;
+import hr.dbasic.anephysiobe.repositories.DoctorRepositoryMongo;
 import hr.dbasic.anephysiobe.repositories.MkbRepositoryMongo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
@@ -19,6 +21,7 @@ public class Runner implements CommandLineRunner {
     
     private final MkbRepositoryMongo mkbRepositoryMongo;
     private final CountyRepositoryMongo countyRepositoryMongo;
+    private final DoctorRepositoryMongo doctorRepositoryMongo;
     
     @Override
     public void run(String... args) {
@@ -61,5 +64,16 @@ public class Runner implements CommandLineRunner {
 //                        county21
 //                )
 //        );
+        
+        Doctor doc1 = Doctor.builder().firstName("Pero").lastName("Perić").title("prim.").build();
+        Doctor doc2 = Doctor.builder().firstName("Tom").lastName("Tomić").build();
+        Doctor doc3 = Doctor.builder().firstName("Ifo").lastName("Ifić").title("doc.").build();
+        
+//        doctorRepositoryMongo.saveAll(
+//                List.of(
+//                        doc1, doc2, doc3
+//                )
+//        );
+    
     }
 }

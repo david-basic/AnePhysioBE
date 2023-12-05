@@ -11,7 +11,6 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @AllArgsConstructor
 @NoArgsConstructor(force = true)
 @EqualsAndHashCode(doNotUseGetters = true, onlyExplicitlyIncluded = true)
-@ToString(doNotUseGetters = true, onlyExplicitlyIncluded = true)
 @Document("doctors")
 public class Doctor {
     
@@ -24,13 +23,15 @@ public class Doctor {
     @NotNull(message = "Doctor has to have a last name!")
     private String lastName;
     
-    @NotNull(message = "Doctor has to have a title!")
     private String title;
-    
-    @NotNull(message = "Doctor has to have a rank!")
-    private String rank; // specijalizant / specijalist
     
     @Builder.Default
     private Boolean isDepartmentLead = false; // voditelj odjela, false po defaultu ako se ne definira drugačije
     
+    @Override
+    public String toString() {
+        return title.isBlank() ?
+                firstName + " " + lastName + ", dr. med." :
+                title + ", " + firstName + " " + lastName + ", dr. med.";
+    }
 }
