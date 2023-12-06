@@ -1,5 +1,6 @@
-package hr.dbasic.anephysiobe.models;
+package hr.dbasic.anephysiobe.models.departments;
 
+import hr.dbasic.anephysiobe.models.Box;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
 import org.springframework.data.annotation.Id;
@@ -15,17 +16,23 @@ import java.util.List;
 @Setter
 @EqualsAndHashCode(doNotUseGetters = true, onlyExplicitlyIncluded = true)
 @ToString(doNotUseGetters = true, onlyExplicitlyIncluded = true)
-@Document("boxes")
-public class Box {
+@Document("departments")
+public class Department {
     
     @Id
     private String id;
     
-    @NotNull(message = "Box has to have a name!")
+    @NotNull(message = "Department has to have a name!")
     private String name;
     
-    @DBRef
-    @NotNull(message = "Box has to have at least one bed!")
-    private List<Bed> bedList;
+    @NotNull(message = "Department has to have a shorthand")
+    private String shorthand;
     
+    @DBRef
+    @NotNull(message = "Department has to have at least one box!")
+    private List<Box> boxes;
+    
+    @DBRef
+    @NotNull(message = "Department has to have a locality attached!")
+    private DepartmentLocality locality;
 }

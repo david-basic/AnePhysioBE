@@ -1,12 +1,9 @@
-package hr.dbasic.anephysiobe.models;
+package hr.dbasic.anephysiobe.models.patients;
 
-import hr.dbasic.anephysiobe.models.patients.Patient;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
-
-import java.util.Objects;
 
 @AllArgsConstructor
 @NoArgsConstructor(force = true)
@@ -15,16 +12,15 @@ import java.util.Objects;
 @Setter
 @EqualsAndHashCode(doNotUseGetters = true, onlyExplicitlyIncluded = true)
 @ToString(doNotUseGetters = true, onlyExplicitlyIncluded = true)
-@Document("beds")
-public class Bed {
-    
+@Document("genders")
+public class Sex {
     @Id
     private String id;
     
-    @DBRef
-    private Patient patient;
+    @NotNull(message = "Sex must have a name!")
+    private String name;
     
-    public Boolean bedIsEmpty() {
-        return Objects.isNull(patient);
-    }
+    @ToString.Include
+    @NotNull(message = "Sex must have a display name!")
+    private String displayName;
 }

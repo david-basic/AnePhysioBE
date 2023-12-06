@@ -18,10 +18,10 @@ public class County {
     @Id
     private String id;
     
-    @ToString.Include
     @NotNull(message = "County must have a name!")
     private String name;
     
+    @ToString.Include
     @NotNull(message = "County must have a display name!")
     private String displayName;
 }

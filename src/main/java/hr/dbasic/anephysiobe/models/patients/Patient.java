@@ -10,6 +10,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.math.BigInteger;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.Period;
 import java.util.List;
 
@@ -42,6 +43,9 @@ public class Patient {
     @NotNull(message = "Patient must have a date of birth!")
     private LocalDate dob;
     
+    @NotNull(message = "Patient must have a sex!")
+    private Sex sex;
+    
     @NotNull(message = "Patient must have at least 1 MKB!")
     @DBRef
     private List<Mkb> patientMkbs;
@@ -49,8 +53,8 @@ public class Patient {
     @DBRef
     private List<PatientOperation> operations;
     
-    @NotNull(message = "Patient must have admission date!")
-    private LocalDate admissionDate;
+    @NotNull(message = "Patient must have admission date time defined!")
+    private LocalDateTime admissionDateTime;
     
     @NotNull(message = "Patient must have an address attached!")
     @DBRef

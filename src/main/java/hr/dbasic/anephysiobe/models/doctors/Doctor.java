@@ -25,6 +25,9 @@ public class Doctor {
     
     private String title;
     
+    @NotNull(message = "Doctor has to have a role, e.g. spec. anesteziologije, reanim. i intenzivne med.")
+    private String role;
+    
     @Builder.Default
     private Boolean isDepartmentLead = false; // voditelj odjela, false po defaultu ako se ne definira drugačije
     
