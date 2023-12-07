@@ -13,7 +13,9 @@ public class DepartmentToDepartmentResponseDtoConverter implements Converter<Dep
         return new DepartmentResponseDto(
                 source.getId(),
                 source.getName(),
-                source.getBoxes()
+                source.getShorthand(),
+                source.getBoxes(),
+                source.getLocality()
         );
     }
 }

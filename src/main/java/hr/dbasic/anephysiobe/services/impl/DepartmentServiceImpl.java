@@ -2,6 +2,8 @@ package hr.dbasic.anephysiobe.services.impl;
 
 import hr.dbasic.anephysiobe.converters.DepartmentToDepartmentResponseDtoConverter;
 import hr.dbasic.anephysiobe.dto.responses.DepartmentResponseDto;
+import hr.dbasic.anephysiobe.exceptions.EntityNotFoundException;
+import hr.dbasic.anephysiobe.models.departments.Department;
 import hr.dbasic.anephysiobe.repositories.DepartmentRepositoryMongo;
 import hr.dbasic.anephysiobe.services.DepartmentService;
 import lombok.RequiredArgsConstructor;
@@ -20,5 +22,11 @@ public class DepartmentServiceImpl implements DepartmentService {
         return departmentRepositoryMongo.findAll().stream().map(
                 departmentToDepartmentResponseDtoConverter::convert
         ).toList();
+    }
+    
+    @Override
+    public DepartmentResponseDto getDepartmentById(String id) {
+        Department foundDept = departmentRepositoryMongo.findById(id).orElseThrow(EntityNotFoundException.supplier("Department"));
+        return departmentToDepartmentResponseDtoConverter.convert(foundDept);
     }
 }

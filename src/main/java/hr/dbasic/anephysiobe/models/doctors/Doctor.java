@@ -29,7 +29,7 @@ public class Doctor {
     private String role;
     
     @Builder.Default
-    private Boolean isDepartmentLead = false; // voditelj odjela, false po defaultu ako se ne definira drugačije
+    private Boolean isDepartmentLead = false;
     
     @Override
     public String toString() {

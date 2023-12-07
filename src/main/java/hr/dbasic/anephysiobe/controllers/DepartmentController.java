@@ -8,9 +8,7 @@ import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -21,7 +19,7 @@ public class DepartmentController {
     
     private final DepartmentService departmentService;
     
-    @PostMapping(DepartmentMappings.getAllDepartmentsGetMapping)
+    @GetMapping(DepartmentMappings.getAllDepartmentsGetMapping)
     public ResponseEntity<ApiResponse<List<DepartmentResponseDto>>> getAllDepartments() {
         return ResponseEntity.ok(
                 ApiResponse.ok(
@@ -31,9 +29,21 @@ public class DepartmentController {
         );
     }
     
+    @GetMapping(DepartmentMappings.getDepartmentByIdGetMapping)
+    public ResponseEntity<ApiResponse<DepartmentResponseDto>> getDepartmentById(@PathVariable String id) {
+        return ResponseEntity.ok(
+                ApiResponse.ok(
+                        "Department fetched successfully",
+                        departmentService.getDepartmentById(id)
+                )
+        );
+    }
+    
+    
     @NoArgsConstructor(access = AccessLevel.PRIVATE)
     public static class DepartmentMappings {
         public static final String departmentRequestMapping = AppMappings.apiDepartmentRequestMapping + "/dept";
         public static final String getAllDepartmentsGetMapping = "";
+        public static final String getDepartmentByIdGetMapping = "/{id}";
     }
 }

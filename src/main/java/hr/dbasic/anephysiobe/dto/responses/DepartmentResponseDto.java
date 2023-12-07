@@ -1,6 +1,7 @@
 package hr.dbasic.anephysiobe.dto.responses;
 
 import hr.dbasic.anephysiobe.models.Box;
+import hr.dbasic.anephysiobe.models.departments.DepartmentLocality;
 import lombok.Builder;
 
 import java.util.List;
@@ -9,6 +10,8 @@ import java.util.List;
 public record DepartmentResponseDto(
         String id,
         String name,
-        List<Box> boxes
+        String shorthand,
+        List<Box> boxes,
+        DepartmentLocality locality
 ) {
 }

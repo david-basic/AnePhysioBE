@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface DepartmentService {
     List<DepartmentResponseDto> getAllDepartments();
+    DepartmentResponseDto getDepartmentById(String id);
 }
