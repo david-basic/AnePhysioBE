@@ -27,11 +27,6 @@ public class Mkb implements Serializable {
     @Builder.Default
     private Boolean isLeadingMkb = false;
     
-    public Mkb(String code, String displayName) {
-        this.code = code;
-        this.displayName = displayName;
-    }
-    
     @Override
     public String toString() {
         return code + " " + displayName;

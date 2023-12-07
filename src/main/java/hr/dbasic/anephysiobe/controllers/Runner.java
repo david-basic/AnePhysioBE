@@ -19,6 +19,7 @@ import java.time.Month;
 import java.util.ArrayList;
 import java.util.List;
 
+@SuppressWarnings({"CommentedOutCode", "SpellCheckingInspection"})
 @Component
 @RequiredArgsConstructor
 public class Runner implements CommandLineRunner {
@@ -32,6 +33,8 @@ public class Runner implements CommandLineRunner {
     private final PatientRepositoryMongo patientRepositoryMongo;
     private final PatientAddressRepositoryMongo patientAddressRepositoryMongo;
     private final DepartmentRepositoryMongo departmentRepositoryMongo;
+    private final BoxRepositoryMongo boxRepositoryMongo;
+    private final BedRepositoryMongo bedRepositoryMongo;
     
     @Override
     public void run(String... args) {
@@ -45,8 +48,8 @@ public class Runner implements CommandLineRunner {
 //        );
         
         List<Mkb> mkbs = new ArrayList<>();
-        for (MkbCodes mkbCodes : MkbCodes.values()) {
-//            mkbs.add(new Mkb(mkbCodes.getCode(), mkbCodes.getDisplayName()));
+        for (MkbCodes mkbCode : MkbCodes.values()) {
+            mkbs.add(Mkb.builder().code(mkbCode.getCode()).displayName(mkbCode.getDisplayName()).build());
         }
         //mkbRepositoryMongo.saveAll(mkbs);
         
@@ -174,40 +177,106 @@ public class Runner implements CommandLineRunner {
         Bed b7 = Bed.builder().build();
         Bed b8 = Bed.builder().build();
         Bed b9 = Bed.builder().patient(p5).build();
+        Bed b10 = Bed.builder().build();
+        Bed b11 = Bed.builder().patient(p6).build();
+        Bed b12 = Bed.builder().patient(p7).build();
+        Bed b13 = Bed.builder().build();
+        Bed b14 = Bed.builder().patient(p8).build();
+        Bed b15 = Bed.builder().patient(p9).build();
+        Bed b16 = Bed.builder().patient(p10).build();
+        Bed b17 = Bed.builder().patient(p11).build();
+        Bed b18 = Bed.builder().patient(p12).build();
+        Bed b19 = Bed.builder().patient(p13).build();
+        Bed b20 = Bed.builder().patient(p14).build();
+        Bed b21 = Bed.builder().patient(p15).build();
+        Bed b22 = Bed.builder().patient(p16).build();
+        Bed b23 = Bed.builder().build();
+        Bed b24 = Bed.builder().build();
+        Bed b25 = Bed.builder().build();
+        Bed b26 = Bed.builder().build();
+        Bed b27 = Bed.builder().build();
+        Bed b28 = Bed.builder().patient(p17).build();
+        Bed b29 = Bed.builder().build();
+        Bed b30 = Bed.builder().build();
+//        bedRepositoryMongo.saveAll(
+//                List.of(
+//                        b1, b2, b3, b4, b5, b6, b7, b8, b9, b10, b11, b12, b13, b14, b15, b16, b17, b18, b19, b20, b21, b22, b23, b24, b25, b26, b27, b28, b29, b30
+//                )
+//        );
         
+        // jil susak beds
+        List<Bed> bedsForOpciBoxSus = new ArrayList<>();
+        bedsForOpciBoxSus.add(b1);
+        bedsForOpciBoxSus.add(b2);
+        bedsForOpciBoxSus.add(b3);
+        bedsForOpciBoxSus.add(b4);
+        bedsForOpciBoxSus.add(b5);
+        bedsForOpciBoxSus.add(b6);
+        bedsForOpciBoxSus.add(b7);
+        bedsForOpciBoxSus.add(b8);
+        List<Bed> bedsForIzolacijaSus = new ArrayList<>();
+        bedsForIzolacijaSus.add(b9);
+        bedsForIzolacijaSus.add(b10);
+        List<Bed> bedsForSepticniSus = new ArrayList<>();
+        bedsForSepticniSus.add(b11);
+        
+        //jil rijeka beds
         List<Bed> box1beds = new ArrayList<>();
-        box1beds.add(b7);
+        box1beds.add(b12);
+        box1beds.add(b13);
+        box1beds.add(b14);
+        box1beds.add(b15);
         List<Bed> box2beds = new ArrayList<>();
-        box2beds.add(b8);
+        box2beds.add(b16);
+        box2beds.add(b17);
+        box2beds.add(b18);
+        box2beds.add(b19);
         List<Bed> izolacija1beds = new ArrayList<>();
-        izolacija1beds.add(b9);
+        izolacija1beds.add(b20);
+        List<Bed> septicni1beds = new ArrayList<>();
+        septicni1beds.add(b21);
         
+        //crc beds
+        List<Bed> box1beds2 = new ArrayList<>();
+        box1beds2.add(b22);
+        box1beds2.add(b23);
+        box1beds2.add(b24);
+        box1beds2.add(b25);
+        List<Bed> izo2 = new ArrayList<>();
+        izo2.add(b26);
+        List<Bed> sept2 = new ArrayList<>();
+        sept2.add(b27);
+        
+        //kardio jil beds
+        List<Bed> justBox = new ArrayList<>();
+        justBox.add(b28);
+        justBox.add(b29);
+        justBox.add(b30);
+        
+        // jil rijeka
         Box box1 = Box.builder().name("Box 1").bedList(box1beds).build();
         Box box2 = Box.builder().name("Box 2").bedList(box2beds).build();
         Box box3 = Box.builder().name("Izolacija").bedList(izolacija1beds).build();
-        Box box4 = Box.builder().name("Septični").bedList().build();
+        Box box4 = Box.builder().name("Septični").bedList(septicni1beds).build();
         
-        Box box5 = Box.builder().name("Box 1").bedList().build();
-        Box box6 = Box.builder().name("Izolacija").bedList().build();
-        Box box7 = Box.builder().name("Septični").bedList().build();
+        //crc
+        Box box5 = Box.builder().name("Box 1").bedList(box1beds2).build();
+        Box box6 = Box.builder().name("Izolacija").bedList(izo2).build();
+        Box box7 = Box.builder().name("Septični").bedList(sept2).build();
         
-        List<Bed> bedsForOpciBox = new ArrayList<>();
-        bedsForOpciBox.add(b1);
-        bedsForOpciBox.add(b2);
-        bedsForOpciBox.add(b3);
-        bedsForOpciBox.add(b4);
+        // jil susak
+        Box box8 = Box.builder().name("Opći box").bedList(bedsForOpciBoxSus).build();
+        Box box9 = Box.builder().name("Izolacija").bedList(bedsForIzolacijaSus).build();
+        Box box10 = Box.builder().name("Septični").bedList(bedsForSepticniSus).build();
         
-        List<Bed> bedsForIzolacija = new ArrayList<>();
-        bedsForIzolacija.add(b5);
+        //kardio jil
+        Box box11 = Box.builder().name("Box").bedList(justBox).build();
+//        boxRepositoryMongo.saveAll(
+//                List.of(
+//                        box1, box2, box3, box4, box5, box6, box7, box8, box9, box10, box11
+//                )
+//        );
         
-        List<Bed> bedsForSepticni = new ArrayList<>();
-        bedsForSepticni.add(b6);
-        
-        Box box8 = Box.builder().name("Opći box").bedList(bedsForOpciBox).build();
-        Box box9 = Box.builder().name("Izolacija").bedList(bedsForIzolacija).build();
-        Box box10 = Box.builder().name("Septični").bedList(bedsForSepticni).build();
-        
-        Box box11 = Box.builder().name("Box").bedList().build();
         
         List<Box> jilRijekaBoxes = new ArrayList<>();
         jilRijekaBoxes.add(box1);

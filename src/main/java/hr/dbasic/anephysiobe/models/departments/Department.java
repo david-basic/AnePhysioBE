@@ -2,6 +2,7 @@ package hr.dbasic.anephysiobe.models.departments;
 
 import hr.dbasic.anephysiobe.models.Box;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
@@ -23,6 +24,7 @@ public class Department {
     private String id;
     
     @NotNull(message = "Department has to have a name!")
+    @Size(min = 3, message = "Department name has to be at least 3 characters long!")
     private String name;
     
     @NotNull(message = "Department has to have a shorthand")
