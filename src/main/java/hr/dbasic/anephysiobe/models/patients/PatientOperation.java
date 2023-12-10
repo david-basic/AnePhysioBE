@@ -27,8 +27,6 @@ public class PatientOperation {
     @NotNull(message = "Operation has to have a procedure date!")
     private LocalDate procedureDate;
     
-    private String procedureDescription;
-    
     @DBRef
     private Patient patient;
     

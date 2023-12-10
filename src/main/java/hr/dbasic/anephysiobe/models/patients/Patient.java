@@ -46,6 +46,10 @@ public class Patient {
     @NotNull(message = "Patient must have a sex!")
     private Sex sex;
     
+    @NotNull(message = "Patient must have a leading MKB!")
+    @DBRef
+    private Mkb leadingMkb;
+    
     @NotNull(message = "Patient must have at least 1 MKB!")
     @DBRef
     private List<Mkb> patientMkbs;
