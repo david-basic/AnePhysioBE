@@ -128,15 +128,15 @@ public class Runner implements CommandLineRunner {
 //                )
 //        );
         
-        PatientOperation op1 = PatientOperation.builder().procedureName("Amputacija potkoljenice").procedureDate().build(); //opci susak
-        PatientOperation op2 = PatientOperation.builder().procedureName("Dekompresivna kraniotomija").procedureDate().build(); // opci susak
-        PatientOperation op3 = PatientOperation.builder().procedureName("Postavljanje V-V ECMO").procedureDate().build(); // izolacija susak
-        PatientOperation op4 = PatientOperation.builder().procedureName("Commando operacija, kirurška traheotomija").procedureDate().build(); // jil rijeka box1
-        PatientOperation op5 = PatientOperation.builder().procedureName("").procedureDate().build(); // jil rijeka box1
-        PatientOperation op6 = PatientOperation.builder().procedureName("").procedureDate().build(); // jil rijeka box2
-        PatientOperation op7 = PatientOperation.builder().procedureName("").procedureDate().build(); // jil rijeka box2
-        PatientOperation op8 = PatientOperation.builder().procedureName("").procedureDate().build(); // jil rijeka box2
-        PatientOperation op9 = PatientOperation.builder().procedureName("").procedureDate().build(); // jil rijeka septicni
+        PatientOperation op1 = PatientOperation.builder().procedureName("Amputacija potkoljenice").procedureDate(LocalDate.of(2023, Month.NOVEMBER, 28)).build(); //opci susak
+        PatientOperation op2 = PatientOperation.builder().procedureName("Dekompresivna kraniotomija").procedureDate(LocalDate.of(2023, Month.NOVEMBER,30)).build(); // opci susak
+        PatientOperation op3 = PatientOperation.builder().procedureName("Postavljanje V-V ECMO").procedureDate(LocalDate.of(2023, Month.OCTOBER, 28)).build(); // izolacija susak
+        PatientOperation op4 = PatientOperation.builder().procedureName("Commando operacija, kirurška traheotomija").procedureDate(LocalDate.of(2023, Month.DECEMBER, 2)).build(); // jil rijeka box1
+        PatientOperation op5 = PatientOperation.builder().procedureName().procedureDate(LocalDate.of(2023, Month.DECEMBER, 5)).build(); // jil rijeka box1
+        PatientOperation op6 = PatientOperation.builder().procedureName().procedureDate(LocalDate.of(2023, Month.DECEMBER, 3)).build(); // jil rijeka box2
+        PatientOperation op7 = PatientOperation.builder().procedureName().procedureDate(LocalDate.of(2023, Month.NOVEMBER, 30)).build(); // jil rijeka box2
+        PatientOperation op8 = PatientOperation.builder().procedureName().procedureDate(LocalDate.of(2023, Month.SEPTEMBER, 15)).build(); // jil rijeka box2
+        PatientOperation op9 = PatientOperation.builder().procedureName().procedureDate(LocalDate.of(2023, Month.OCTOBER, 6)).build(); // jil rijeka septicni
 //        patientOperationRepositoryMongo.saveAll(
 //                List.of(
 //                        op1,op2,op3,op4,op5,op6,op7,op8,op9
