@@ -338,5 +338,14 @@ public class Runner implements CommandLineRunner {
                         dep1, dep2, dep3, dep4
                 )
         );
+        
+        doc1.setDepartment(dep1);
+        doc2.setDepartment(dep2);
+        doc3.setDepartment(dep3);
+        doctorRepositoryMongo.saveAll(
+                List.of(
+                        doc1, doc2, doc3
+                )
+        );
     }
 }

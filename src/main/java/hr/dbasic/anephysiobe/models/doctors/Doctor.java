@@ -1,8 +1,10 @@
 package hr.dbasic.anephysiobe.models.doctors;
 
+import hr.dbasic.anephysiobe.models.departments.Department;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Builder
@@ -27,6 +29,9 @@ public class Doctor {
     
     @NotNull(message = "Doctor has to have a role, e.g. spec. anesteziologije, reanim. i intenzivne med.")
     private String role;
+    
+    @DBRef
+    private Department department;
     
     @Builder.Default
     private Boolean isDepartmentLead = false;
