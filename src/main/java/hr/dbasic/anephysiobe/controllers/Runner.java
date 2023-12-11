@@ -133,7 +133,7 @@ public class Runner implements CommandLineRunner {
         PatientOperation op5 = PatientOperation.builder().procedureName("Kirurška traheotomija").procedureDate(LocalDate.of(2023, Month.DECEMBER, 5)).build(); // jil rijeka box1
         patientOperationRepositoryMongo.saveAll(
                 List.of(
-                        op1,op2,op3,op4,op5
+                        op1, op2, op3, op4, op5
                 )
         );
         
@@ -165,23 +165,23 @@ public class Runner implements CommandLineRunner {
                 )
         );
         
-        pa1.setPatient(p1);
-        pa2.setPatient(p2);
-        pa3.setPatient(p3);
-        pa4.setPatient(p4);
-        pa5.setPatient(p5);
-        pa6.setPatient(p6);
-        pa7.setPatient(p7);
-        pa8.setPatient(p8);
-        pa9.setPatient(p9);
-        pa10.setPatient(p10);
-        pa11.setPatient(p11);
-        pa12.setPatient(p12);
-        pa13.setPatient(p13);
-        pa14.setPatient(p14);
-        pa15.setPatient(p15);
-        pa16.setPatient(p16);
-        pa17.setPatient(p17);
+        pa1.setPatients(List.of(p1));
+        pa2.setPatients(List.of(p2));
+        pa3.setPatients(List.of(p3));
+        pa4.setPatients(List.of(p4));
+        pa5.setPatients(List.of(p5));
+        pa6.setPatients(List.of(p6));
+        pa7.setPatients(List.of(p7));
+        pa8.setPatients(List.of(p8));
+        pa9.setPatients(List.of(p9));
+        pa10.setPatients(List.of(p10));
+        pa11.setPatients(List.of(p11));
+        pa12.setPatients(List.of(p12));
+        pa13.setPatients(List.of(p13));
+        pa14.setPatients(List.of(p14));
+        pa15.setPatients(List.of(p15));
+        pa16.setPatients(List.of(p16));
+        pa17.setPatients(List.of(p17));
         patientAddressRepositoryMongo.saveAll(
                 List.of(
                         pa1, pa2, pa3, pa4, pa5, pa6, pa7, pa8, pa9, pa10, pa11, pa12, pa13, pa14, pa15, pa16, pa17
@@ -194,9 +194,9 @@ public class Runner implements CommandLineRunner {
         op4.setPatient(p7);
         op5.setPatient(p8);
         patientOperationRepositoryMongo.saveAll(
-            List.of(
-                    op1,op2,op3,op4,op5
-            )
+                List.of(
+                        op1, op2, op3, op4, op5
+                )
         );
         
         Bed b1 = Bed.builder().patient(p1).build();
