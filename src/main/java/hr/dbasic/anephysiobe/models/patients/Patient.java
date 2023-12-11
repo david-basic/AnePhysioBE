@@ -44,6 +44,7 @@ public class Patient {
     private LocalDate dob;
     
     @NotNull(message = "Patient must have a sex!")
+    @DBRef
     private Sex sex;
     
     @NotNull(message = "Patient must have a leading MKB!")
