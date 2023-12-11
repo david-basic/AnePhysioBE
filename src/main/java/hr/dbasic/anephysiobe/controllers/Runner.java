@@ -45,17 +45,17 @@ public class Runner implements CommandLineRunner {
         
         Sex female = Sex.builder().name(SexEnum.FEMALE.name()).displayName(SexEnum.FEMALE.getDisplayName()).build();
         Sex male = Sex.builder().name(SexEnum.MALE.name()).displayName(SexEnum.MALE.getDisplayName()).build();
-        sexRepositoryMongo.saveAll(
-                List.of(
-                        female, male
-                )
-        );
+//        sexRepositoryMongo.saveAll(
+//                List.of(
+//                        female, male
+//                )
+//        );
         
         List<Mkb> mkbs = new ArrayList<>();
         for (MkbCodes mkbCode : MkbCodes.values()) {
             mkbs.add(Mkb.builder().code(mkbCode.getCode()).displayName(mkbCode.getDisplayName()).build());
         }
-        mkbRepositoryMongo.saveAll(mkbs);
+//        mkbRepositoryMongo.saveAll(mkbs);
         
         County bjelo_bilo = County.builder().name(CountyEnum.BJELOVARSKO_BILOGORSKA.name()).displayName(CountyEnum.BJELOVARSKO_BILOGORSKA.getDisplayName()).build();
         County brod_pos = County.builder().name(CountyEnum.BRODSKO_POSAVSKA.name()).displayName(CountyEnum.BRODSKO_POSAVSKA.getDisplayName()).build();
@@ -78,30 +78,30 @@ public class Runner implements CommandLineRunner {
         County zadar = County.builder().name(CountyEnum.ZADARSKA.name()).displayName(CountyEnum.ZADARSKA.getDisplayName()).build();
         County zagreba = County.builder().name(CountyEnum.ZAGREBACKA.name()).displayName(CountyEnum.ZAGREBACKA.getDisplayName()).build();
         County grad_zagre = County.builder().name(CountyEnum.GRAD_ZAGREB.name()).displayName(CountyEnum.GRAD_ZAGREB.getDisplayName()).build();
-        countyRepositoryMongo.saveAll(
-                List.of(
-                        bjelo_bilo, brod_pos, dubr_nere, istr, karlov, kopr_kriz, krap_zag, lic_senj, medim, osje_bara,
-                        poze_slav, prim_gor, sis_mos, spli_dal, sib_kni, vara, viro_podr, vuko_sri, zadar, zagreba,
-                        grad_zagre
-                )
-        );
+//        countyRepositoryMongo.saveAll(
+//                List.of(
+//                        bjelo_bilo, brod_pos, dubr_nere, istr, karlov, kopr_kriz, krap_zag, lic_senj, medim, osje_bara,
+//                        poze_slav, prim_gor, sis_mos, spli_dal, sib_kni, vara, viro_podr, vuko_sri, zadar, zagreba,
+//                        grad_zagre
+//                )
+//        );
         
         Doctor doc1 = Doctor.builder().firstName("Pero").lastName("Perić").title("prim.").role("spec. anesteziologije, reanim. i intenzivne med.").build();
         Doctor doc2 = Doctor.builder().firstName("Tom").lastName("Tomić").role("spec. anesteziologije, reanim. i intenzivne med.").build();
         Doctor doc3 = Doctor.builder().firstName("Ifo").lastName("Ifić").title("doc.").role("spec. anesteziologije, reanim. i intenzivne med.").build();
-        doctorRepositoryMongo.saveAll(
-                List.of(
-                        doc1, doc2, doc3
-                )
-        );
+//        doctorRepositoryMongo.saveAll(
+//                List.of(
+//                        doc1, doc2, doc3
+//                )
+//        );
         
         DepartmentLocality loc1 = DepartmentLocality.builder().name(LocalityEnum.SUSAK.name()).displayName(LocalityEnum.SUSAK.getDisplayName()).build();
         DepartmentLocality loc2 = DepartmentLocality.builder().name(LocalityEnum.RIJEKA.name()).displayName(LocalityEnum.RIJEKA.getDisplayName()).build();
-        departmentLocalityRepositoryMongo.saveAll(
-                List.of(
-                        loc1, loc2
-                )
-        );
+//        departmentLocalityRepositoryMongo.saveAll(
+//                List.of(
+//                        loc1, loc2
+//                )
+//        );
         
         PatientAddress pa1 = PatientAddress.builder().address("Trg Petra Krešimira IV 5").county(grad_zagre).city("Zagreb").zipCode(10000).build();
         PatientAddress pa2 = PatientAddress.builder().address("Ulica Kneza Branimira 12").county(spli_dal).city("Split").zipCode(21000).build();
@@ -120,22 +120,22 @@ public class Runner implements CommandLineRunner {
         PatientAddress pa15 = PatientAddress.builder().address("Trg Stjepana Radića 6").county(vuko_sri).city("Vinkovci").zipCode(32000).build();
         PatientAddress pa16 = PatientAddress.builder().address("Mihanovićeva ulica 14").county(grad_zagre).city("Zagreb").zipCode(10000).build();
         PatientAddress pa17 = PatientAddress.builder().address("Dr. Ante Starčevića 29").county(sib_kni).city("Šibenik").zipCode(22100).build();
-        patientAddressRepositoryMongo.saveAll(
-                List.of(
-                        pa1, pa2, pa3, pa4, pa5, pa6, pa7, pa8, pa9, pa10, pa11, pa12, pa13, pa14, pa15, pa16, pa17
-                )
-        );
+//        patientAddressRepositoryMongo.saveAll(
+//                List.of(
+//                        pa1, pa2, pa3, pa4, pa5, pa6, pa7, pa8, pa9, pa10, pa11, pa12, pa13, pa14, pa15, pa16, pa17
+//                )
+//        );
         
         PatientOperation op1 = PatientOperation.builder().procedureName("Amputacija potkoljenice").procedureDate(LocalDate.of(2023, Month.NOVEMBER, 28)).build(); //opci susak
         PatientOperation op2 = PatientOperation.builder().procedureName("Dekompresivna kraniotomija").procedureDate(LocalDate.of(2023, Month.NOVEMBER, 30)).build(); // opci susak
         PatientOperation op3 = PatientOperation.builder().procedureName("Postavljanje V-V ECMO").procedureDate(LocalDate.of(2023, Month.OCTOBER, 28)).build(); // izolacija susak
         PatientOperation op4 = PatientOperation.builder().procedureName("Commando operacija, kirurška traheotomija").procedureDate(LocalDate.of(2023, Month.DECEMBER, 2)).build(); // jil rijeka box1
         PatientOperation op5 = PatientOperation.builder().procedureName("Kirurška traheotomija").procedureDate(LocalDate.of(2023, Month.DECEMBER, 5)).build(); // jil rijeka box1
-        patientOperationRepositoryMongo.saveAll(
-                List.of(
-                        op1, op2, op3, op4, op5
-                )
-        );
+//        patientOperationRepositoryMongo.saveAll(
+//                List.of(
+//                        op1, op2, op3, op4, op5
+//                )
+//        );
         
         
         Mkb defaultLeadingMkb = mkbRepositoryMongo.findMkbByCode(MkbCodes.A41_9.getCode()).orElseThrow(EntityNotFoundException::new);
@@ -159,11 +159,11 @@ public class Runner implements CommandLineRunner {
         Patient p15 = Patient.builder().firstName("Ukras").lastName("Bornić").identificationNumber(randomNumberService.generateRandomBigInteger()).dob(LocalDate.of(1997, Month.DECEMBER, 7)).sex(male).leadingMkb(defaultLeadingMkb).patientMkbs(defaultMkbsList).admissionDateTime(LocalDateTime.of(2023, Month.NOVEMBER, 6, 9, 30)).patientAddress(pa15).leadingDoctor(doc2).build();
         Patient p16 = Patient.builder().firstName("Borna").lastName("Ukrasnić").identificationNumber(randomNumberService.generateRandomBigInteger()).dob(LocalDate.of(2001, Month.NOVEMBER, 18)).sex(male).leadingMkb(defaultLeadingMkb).patientMkbs(defaultMkbsList).admissionDateTime(LocalDateTime.of(2023, Month.SEPTEMBER, 21, 13, 50)).patientAddress(pa16).leadingDoctor(doc1).build();
         Patient p17 = Patient.builder().firstName("Zvjezdica").lastName("Zvikić").identificationNumber(randomNumberService.generateRandomBigInteger()).dob(LocalDate.of(2002, Month.DECEMBER, 8)).sex(female).leadingMkb(defaultLeadingMkb).patientMkbs(defaultMkbsList).admissionDateTime(LocalDateTime.of(2023, Month.OCTOBER, 28, 12, 15)).patientAddress(pa17).leadingDoctor(doc3).build();
-        patientRepositoryMongo.saveAll(
-                List.of(
-                        p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17
-                )
-        );
+//        patientRepositoryMongo.saveAll(
+//                List.of(
+//                        p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17
+//                )
+//        );
         
         pa1.setPatients(List.of(p1));
         pa2.setPatients(List.of(p2));
@@ -182,22 +182,22 @@ public class Runner implements CommandLineRunner {
         pa15.setPatients(List.of(p15));
         pa16.setPatients(List.of(p16));
         pa17.setPatients(List.of(p17));
-        patientAddressRepositoryMongo.saveAll(
-                List.of(
-                        pa1, pa2, pa3, pa4, pa5, pa6, pa7, pa8, pa9, pa10, pa11, pa12, pa13, pa14, pa15, pa16, pa17
-                )
-        );
+//        patientAddressRepositoryMongo.saveAll(
+//                List.of(
+//                        pa1, pa2, pa3, pa4, pa5, pa6, pa7, pa8, pa9, pa10, pa11, pa12, pa13, pa14, pa15, pa16, pa17
+//                )
+//        );
         
         op1.setPatient(p3);
         op2.setPatient(p4);
         op3.setPatient(p5);
         op4.setPatient(p7);
         op5.setPatient(p8);
-        patientOperationRepositoryMongo.saveAll(
-                List.of(
-                        op1, op2, op3, op4, op5
-                )
-        );
+//        patientOperationRepositoryMongo.saveAll(
+//                List.of(
+//                        op1, op2, op3, op4, op5
+//                )
+//        );
         
         Bed b1 = Bed.builder().patient(p1).build();
         Bed b2 = Bed.builder().patient(p2).build();
@@ -229,11 +229,11 @@ public class Runner implements CommandLineRunner {
         Bed b28 = Bed.builder().patient(p17).build();
         Bed b29 = Bed.builder().build();
         Bed b30 = Bed.builder().build();
-        bedRepositoryMongo.saveAll(
-                List.of(
-                        b1, b2, b3, b4, b5, b6, b7, b8, b9, b10, b11, b12, b13, b14, b15, b16, b17, b18, b19, b20, b21, b22, b23, b24, b25, b26, b27, b28, b29, b30
-                )
-        );
+//        bedRepositoryMongo.saveAll(
+//                List.of(
+//                        b1, b2, b3, b4, b5, b6, b7, b8, b9, b10, b11, b12, b13, b14, b15, b16, b17, b18, b19, b20, b21, b22, b23, b24, b25, b26, b27, b28, b29, b30
+//                )
+//        );
         
         // jil susak beds
         List<Bed> bedsForOpciBoxSus = new ArrayList<>();
@@ -304,11 +304,11 @@ public class Runner implements CommandLineRunner {
         
         //kardio jil
         Box box11 = Box.builder().name("Box").bedList(justBox).build();
-        boxRepositoryMongo.saveAll(
-                List.of(
-                        box1, box2, box3, box4, box5, box6, box7, box8, box9, box10, box11
-                )
-        );
+//        boxRepositoryMongo.saveAll(
+//                List.of(
+//                        box1, box2, box3, box4, box5, box6, box7, box8, box9, box10, box11
+//                )
+//        );
         
         List<Box> jilRijekaBoxes = new ArrayList<>();
         jilRijekaBoxes.add(box1);
@@ -333,19 +333,19 @@ public class Runner implements CommandLineRunner {
         Department dep2 = Department.builder().name("COVID respiratorni centar").boxes(crcBoxes).shorthand("CRC").locality(loc2).build();
         Department dep3 = Department.builder().name("Jedinica intenzivnog liječenja Sušak").boxes(jilSusakBoxes).shorthand("JIL Sušak").locality(loc1).build();
         Department dep4 = Department.builder().name("Jedinica intenzivnog liječenja kardiokirurških bolesnika").boxes(kardioJilBoxes).shorthand("Kardio JIL").locality(loc1).build();
-        departmentRepositoryMongo.saveAll(
-                List.of(
-                        dep1, dep2, dep3, dep4
-                )
-        );
+//        departmentRepositoryMongo.saveAll(
+//                List.of(
+//                        dep1, dep2, dep3, dep4
+//                )
+//        );
         
         doc1.setDepartment(dep1);
         doc2.setDepartment(dep2);
         doc3.setDepartment(dep3);
-        doctorRepositoryMongo.saveAll(
-                List.of(
-                        doc1, doc2, doc3
-                )
-        );
+//        doctorRepositoryMongo.saveAll(
+//                List.of(
+//                        doc1, doc2, doc3
+//                )
+//        );
     }
 }

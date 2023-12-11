@@ -17,9 +17,7 @@ public class PatientAddressServiceImpl implements PatientAddressService {
     
     @Override
     public void addPatientToAddress(Patient patient, PatientAddress patientAddress) {
-        patientAddressRepositoryMongo.findPatientAddressByAddress(patientAddress.getAddress()).ifPresentOrElse(address -> {
-            address.getPatients().add(patient);
-        }, () -> {
+        patientAddressRepositoryMongo.findPatientAddressByAddress(patientAddress.getAddress()).ifPresentOrElse(address -> address.getPatients().add(patient), () -> {
             PatientAddress pa = PatientAddress.builder()
                     .address(patientAddress.getAddress())
                     .county(patientAddress.getCounty())
