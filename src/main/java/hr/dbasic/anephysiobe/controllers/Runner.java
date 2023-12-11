@@ -9,6 +9,7 @@ import hr.dbasic.anephysiobe.models.departments.LocalityEnum;
 import hr.dbasic.anephysiobe.models.doctors.Doctor;
 import hr.dbasic.anephysiobe.models.patients.*;
 import hr.dbasic.anephysiobe.repositories.*;
+import hr.dbasic.anephysiobe.services.MkbService;
 import hr.dbasic.anephysiobe.services.RandomNumberService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
@@ -37,6 +38,7 @@ public class Runner implements CommandLineRunner {
     private final BoxRepositoryMongo boxRepositoryMongo;
     private final BedRepositoryMongo bedRepositoryMongo;
     private final PatientOperationRepositoryMongo patientOperationRepositoryMongo;
+    private final MkbService mkbService;
     
     @Override
     public void run(String... args) {
@@ -132,7 +134,7 @@ public class Runner implements CommandLineRunner {
         PatientOperation op2 = PatientOperation.builder().procedureName("Dekompresivna kraniotomija").procedureDate(LocalDate.of(2023, Month.NOVEMBER,30)).build(); // opci susak
         PatientOperation op3 = PatientOperation.builder().procedureName("Postavljanje V-V ECMO").procedureDate(LocalDate.of(2023, Month.OCTOBER, 28)).build(); // izolacija susak
         PatientOperation op4 = PatientOperation.builder().procedureName("Commando operacija, kirurška traheotomija").procedureDate(LocalDate.of(2023, Month.DECEMBER, 2)).build(); // jil rijeka box1
-        PatientOperation op5 = PatientOperation.builder().procedureName().procedureDate(LocalDate.of(2023, Month.DECEMBER, 5)).build(); // jil rijeka box1
+        PatientOperation op5 = PatientOperation.builder().procedureName("Kirurška traheotomija").procedureDate(LocalDate.of(2023, Month.DECEMBER, 5)).build(); // jil rijeka box1
         PatientOperation op6 = PatientOperation.builder().procedureName().procedureDate(LocalDate.of(2023, Month.DECEMBER, 3)).build(); // jil rijeka box2
         PatientOperation op7 = PatientOperation.builder().procedureName().procedureDate(LocalDate.of(2023, Month.NOVEMBER, 30)).build(); // jil rijeka box2
         PatientOperation op8 = PatientOperation.builder().procedureName().procedureDate(LocalDate.of(2023, Month.SEPTEMBER, 15)).build(); // jil rijeka box2
@@ -154,7 +156,7 @@ public class Runner implements CommandLineRunner {
         Patient p4 = Patient.builder().firstName("Borko").lastName("Borić").identificationNumber(randomNumberService.generateRandomBigInteger()).dob(LocalDate.of(1992, Month.OCTOBER, 15)).sex(male).leadingMkb(defaultLeadingMkb).patientMkbs(defaultMkbsList).operations(List.of(op2)).admissionDateTime(LocalDateTime.of(2023, Month.OCTOBER, 12, 13, 20)).patientAddress(pa4).leadingDoctor(doc1).build();
         Patient p5 = Patient.builder().firstName("David").lastName("Davidić").identificationNumber(randomNumberService.generateRandomBigInteger()).dob(LocalDate.of(1993, Month.APRIL, 18)).sex(male).leadingMkb(defaultLeadingMkb).patientMkbs(defaultMkbsList).operations(List.of(op3)).admissionDateTime(LocalDateTime.of(2023, Month.NOVEMBER, 7, 9, 45)).patientAddress(pa5).leadingDoctor(doc2).build();
         Patient p6 = Patient.builder().firstName("Iva").lastName("Ivić").identificationNumber(randomNumberService.generateRandomBigInteger()).dob(LocalDate.of(1943, Month.OCTOBER, 8)).sex(female).leadingMkb(defaultLeadingMkb).patientMkbs(defaultMkbsList).admissionDateTime(LocalDateTime.of(2023, Month.SEPTEMBER, 7, 16, 0)).patientAddress(pa6).leadingDoctor(doc3).build();
-        Patient p7 = Patient.builder().firstName("Matija").lastName("Mirkić").identificationNumber(randomNumberService.generateRandomBigInteger()).dob(LocalDate.of(1956, Month.MAY, 8)).sex(male).leadingMkb(mkbRepositoryMongo.findMkbByCode(MkbCodes.C01.getCode()).orElseThrow(EntityNotFoundException::new)).patientMkbs(List.of(mkbRepositoryMongo.findMkbByCode(MkbCodes.C01.getCode()).orElseThrow(EntityNotFoundException::new))).operations(List.of(op4)).admissionDateTime(LocalDateTime.of(2023, Month.OCTOBER, 24, 10, 10)).patientAddress(pa7).leadingDoctor(doc1).build();
+        Patient p7 = Patient.builder().firstName("Matija").lastName("Mirkić").identificationNumber(randomNumberService.generateRandomBigInteger()).dob(LocalDate.of(1956, Month.MAY, 8)).sex(male).leadingMkb(mkbService.findMkbByCode(MkbCodes.C01)).patientMkbs(List.of(mkbService.findMkbByCode(MkbCodes.C01))).operations(List.of(op4)).admissionDateTime(LocalDateTime.of(2023, Month.OCTOBER, 24, 10, 10)).patientAddress(pa7).leadingDoctor(doc1).build();
         Patient p8 = Patient.builder().firstName("Mirko").lastName("Matijić").identificationNumber(randomNumberService.generateRandomBigInteger()).dob(LocalDate.of(1969, Month.JULY, 30)).sex(male).leadingMkb(defaultLeadingMkb).patientMkbs(defaultMkbsList).operations(List.of(op5)).admissionDateTime(LocalDateTime.of(2023, Month.SEPTEMBER, 13, 14, 30)).patientAddress(pa8).leadingDoctor(doc1).build();
         Patient p9 = Patient.builder().firstName("Perica").lastName("Mirkić").identificationNumber(randomNumberService.generateRandomBigInteger()).dob(LocalDate.of(1975, Month.OCTOBER, 8)).sex(male).leadingMkb(defaultLeadingMkb).patientMkbs(defaultMkbsList).admissionDateTime(LocalDateTime.of(2023, Month.NOVEMBER, 1, 11, 55)).patientAddress(pa9).leadingDoctor(doc2).build();
         Patient p10 = Patient.builder().firstName("Mirko").lastName("Nikolić").identificationNumber(randomNumberService.generateRandomBigInteger()).dob(LocalDate.of(1979, Month.JUNE, 29)).sex(male).leadingMkb(defaultLeadingMkb).patientMkbs(defaultMkbsList).operations(List.of(op6)).admissionDateTime(LocalDateTime.of(2023, Month.OCTOBER, 8, 12, 40)).patientAddress(pa10).leadingDoctor(doc3).build();
