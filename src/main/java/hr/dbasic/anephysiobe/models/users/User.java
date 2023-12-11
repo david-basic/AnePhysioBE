@@ -1,6 +1,5 @@
 package hr.dbasic.anephysiobe.models.users;
 
-import hr.dbasic.anephysiobe.models.RefreshToken;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.*;

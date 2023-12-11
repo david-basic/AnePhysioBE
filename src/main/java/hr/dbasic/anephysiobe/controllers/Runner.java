@@ -21,7 +21,7 @@ import java.time.Month;
 import java.util.ArrayList;
 import java.util.List;
 
-@SuppressWarnings({"CommentedOutCode", "SpellCheckingInspection"})
+@SuppressWarnings({"SpellCheckingInspection"})
 @Component
 @RequiredArgsConstructor
 public class Runner implements CommandLineRunner {

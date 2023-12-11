@@ -13,7 +13,7 @@ import java.io.Serializable;
 @Getter
 @Setter
 @EqualsAndHashCode(doNotUseGetters = true, onlyExplicitlyIncluded = true)
-@Document("mkbList")
+@Document("mkbs")
 public class Mkb implements Serializable {
     @Id
     private String id;

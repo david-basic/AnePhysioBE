@@ -1,4 +1,4 @@
-package hr.dbasic.anephysiobe.models;
+package hr.dbasic.anephysiobe.models.users;
 
 import hr.dbasic.anephysiobe.models.users.User;
 import lombok.*;

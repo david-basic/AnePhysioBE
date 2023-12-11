@@ -3,7 +3,7 @@ package hr.dbasic.anephysiobe.services.impl;
 import hr.dbasic.anephysiobe.configuration.properties.JwtProperties;
 import hr.dbasic.anephysiobe.exceptions.InvalidRefreshTokenException;
 import hr.dbasic.anephysiobe.exceptions.RefreshTokenExpiredException;
-import hr.dbasic.anephysiobe.models.RefreshToken;
+import hr.dbasic.anephysiobe.models.users.RefreshToken;
 import hr.dbasic.anephysiobe.repositories.RefreshTokenRepositoryMongo;
 import hr.dbasic.anephysiobe.services.RefreshTokenService;
 import lombok.RequiredArgsConstructor;
