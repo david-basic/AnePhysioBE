@@ -14,7 +14,6 @@ import java.util.Objects;
 @Getter
 @Setter
 @EqualsAndHashCode(doNotUseGetters = true, onlyExplicitlyIncluded = true)
-@ToString(doNotUseGetters = true, onlyExplicitlyIncluded = true)
 @Document("beds")
 public class Bed {
     

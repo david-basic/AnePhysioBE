@@ -17,7 +17,6 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor(force = true)
 @EqualsAndHashCode(doNotUseGetters = true, onlyExplicitlyIncluded = true)
-@ToString(doNotUseGetters = true, onlyExplicitlyIncluded = true)
 @Document("patientAddresses")
 public class PatientAddress {
     
@@ -43,4 +42,9 @@ public class PatientAddress {
     
     @DBRef
     private List<Patient> patients;
+    
+    @Override
+    public String toString() {
+        return address + ", " + zipCode + ", " + city + ", " + county;
+    }
 }
