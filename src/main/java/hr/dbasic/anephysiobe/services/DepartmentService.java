@@ -1,6 +1,6 @@
 package hr.dbasic.anephysiobe.services;
 
-import hr.dbasic.anephysiobe.dto.responses.DepartmentResponseDto;
+import hr.dbasic.anephysiobe.dto.responses.departmentResponse.DepartmentResponseDto;
 
 import java.util.List;
 

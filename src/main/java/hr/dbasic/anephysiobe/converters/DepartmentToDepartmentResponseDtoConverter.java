@@ -1,16 +1,14 @@
 package hr.dbasic.anephysiobe.converters;
 
-import hr.dbasic.anephysiobe.dto.BedDto;
-import hr.dbasic.anephysiobe.dto.BoxDto;
-import hr.dbasic.anephysiobe.dto.PatientDto;
-import hr.dbasic.anephysiobe.dto.responses.DepartmentResponseDto;
-import hr.dbasic.anephysiobe.models.Box;
+import hr.dbasic.anephysiobe.dto.responses.departmentResponse.DRBedDto;
+import hr.dbasic.anephysiobe.dto.responses.departmentResponse.DRBoxDto;
+import hr.dbasic.anephysiobe.dto.responses.departmentResponse.DRPatientDto;
+import hr.dbasic.anephysiobe.dto.responses.departmentResponse.DepartmentResponseDto;
 import hr.dbasic.anephysiobe.models.departments.Department;
 import lombok.NonNull;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
 
-import java.util.List;
 import java.util.Objects;
 
 @Component
@@ -21,13 +19,13 @@ public class DepartmentToDepartmentResponseDtoConverter implements Converter<Dep
                 source.getId(),
                 source.getName(),
                 source.getShorthand(),
-                source.getBoxes().stream().map(box -> BoxDto.builder()
+                source.getBoxes().stream().map(box -> DRBoxDto.builder()
                         .id(box.getId())
                         .name(box.getName())
-                        .beds(box.getBedList().stream().map(bed -> BedDto.builder()
+                        .beds(box.getBedList().stream().map(bed -> DRBedDto.builder()
                                 .id(bed.getId())
                                 .patient(Objects.isNull(bed.getPatient()) ?
-                                                 null : PatientDto.builder()
+                                                 null : DRPatientDto.builder()
                                         .id(bed.getPatient().getId())
                                         .firstName(bed.getPatient().getFirstName())
                                         .lastName(bed.getPatient().getLastName())

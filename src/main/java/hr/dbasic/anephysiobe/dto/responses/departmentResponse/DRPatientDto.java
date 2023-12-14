@@ -1,9 +1,9 @@
-package hr.dbasic.anephysiobe.dto;
+package hr.dbasic.anephysiobe.dto.responses.departmentResponse;
 
 import lombok.Builder;
 
 @Builder
-public record PatientDto(
+public record DRPatientDto(
         String id,
         String firstName,
         String lastName

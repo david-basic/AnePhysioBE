@@ -1,7 +1,7 @@
 package hr.dbasic.anephysiobe.controllers;
 
 import hr.dbasic.anephysiobe.dto.responses.ApiResponse;
-import hr.dbasic.anephysiobe.dto.responses.DepartmentResponseDto;
+import hr.dbasic.anephysiobe.dto.responses.departmentResponse.DepartmentResponseDto;
 import hr.dbasic.anephysiobe.mappings.AppMappings;
 import hr.dbasic.anephysiobe.services.DepartmentService;
 import lombok.AccessLevel;

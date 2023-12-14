@@ -1,7 +1,7 @@
 package hr.dbasic.anephysiobe.services.impl;
 
 import hr.dbasic.anephysiobe.converters.DepartmentToDepartmentResponseDtoConverter;
-import hr.dbasic.anephysiobe.dto.responses.DepartmentResponseDto;
+import hr.dbasic.anephysiobe.dto.responses.departmentResponse.DepartmentResponseDto;
 import hr.dbasic.anephysiobe.exceptions.EntityNotFoundException;
 import hr.dbasic.anephysiobe.models.departments.Department;
 import hr.dbasic.anephysiobe.repositories.DepartmentRepositoryMongo;

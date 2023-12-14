@@ -1,6 +1,5 @@
-package hr.dbasic.anephysiobe.dto.responses;
+package hr.dbasic.anephysiobe.dto.responses.departmentResponse;
 
-import hr.dbasic.anephysiobe.dto.BoxDto;
 import hr.dbasic.anephysiobe.models.departments.DepartmentLocality;
 import lombok.Builder;
 
@@ -11,7 +10,7 @@ public record DepartmentResponseDto(
         String id,
         String name,
         String shorthand,
-        List<BoxDto> boxes,
+        List<DRBoxDto> boxes,
         DepartmentLocality locality
 ) {
 }
