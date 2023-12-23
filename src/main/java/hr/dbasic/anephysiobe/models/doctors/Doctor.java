@@ -25,7 +25,8 @@ public class Doctor {
     @NotNull(message = "Doctor has to have a last name!")
     private String lastName;
     
-    private String title;
+    @Builder.Default
+    private String title = "";
     
     @NotNull(message = "Doctor has to have a role, e.g. spec. anesteziologije, reanim. i intenzivne med.")
     private String role;
