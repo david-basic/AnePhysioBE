@@ -9,6 +9,8 @@ import lombok.NonNull;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
 
+import java.util.Objects;
+
 @Component
 public class PatientToPatientResponseDtoConverter implements Converter<Patient, PatientResponseDto> {
     @Override
@@ -22,7 +24,7 @@ public class PatientToPatientResponseDtoConverter implements Converter<Patient, 
                 source.getSex(),
                 source.getLeadingMkb(),
                 source.getPatientMkbs(),
-                source.getOperations().stream().map(op -> PRPatientOperationDto.builder()
+                Objects.isNull(source.getOperations()) ? null : source.getOperations().stream().map(op -> PRPatientOperationDto.builder()
                         .id(op.getId())
                         .procedureName(op.getProcedureName())
                         .procedureDate(op.getProcedureDate())
