@@ -1,10 +1,7 @@
 package hr.dbasic.anephysiobe.repositories;
 
 import hr.dbasic.anephysiobe.models.users.User;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
 import org.springframework.data.mongodb.repository.MongoRepository;
-import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 

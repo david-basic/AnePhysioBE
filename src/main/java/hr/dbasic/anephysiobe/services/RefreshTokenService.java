@@ -1,6 +1,6 @@
 package hr.dbasic.anephysiobe.services;
 
-import hr.dbasic.anephysiobe.models.RefreshToken;
+import hr.dbasic.anephysiobe.models.users.RefreshToken;
 
 public interface RefreshTokenService {
     RefreshToken createRefreshToken();

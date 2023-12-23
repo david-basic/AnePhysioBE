@@ -10,7 +10,7 @@ import org.springframework.core.convert.converter.Converter;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 @Component
 @RequiredArgsConstructor
@@ -22,7 +22,7 @@ public class RegisterRequestDtoToUserConverter implements Converter<RegisterRequ
     @Override
     public User convert(@NonNull RegisterRequestDto source) {
         return User.builder()
-                .createDate(new Date())
+                .createDate(LocalDate.now())
                 .firstName(source.firstName())
                 .lastName(source.lastName())
                 .username(source.username())

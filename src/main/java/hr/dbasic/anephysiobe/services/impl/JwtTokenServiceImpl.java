@@ -8,7 +8,6 @@ import hr.dbasic.anephysiobe.models.users.User;
 import hr.dbasic.anephysiobe.services.JwtTokenService;
 import hr.dbasic.anephysiobe.utils.ReflectionUtils;
 import lombok.RequiredArgsConstructor;
-import lombok.val;
 import org.springframework.security.oauth2.jwt.*;
 import org.springframework.stereotype.Service;
 

@@ -6,7 +6,7 @@ import hr.dbasic.anephysiobe.dto.requests.LoginRequestDto;
 import hr.dbasic.anephysiobe.dto.requests.RefreshTokenRequestDto;
 import hr.dbasic.anephysiobe.dto.requests.RegisterRequestDto;
 import hr.dbasic.anephysiobe.dto.responses.AuthResponseDto;
-import hr.dbasic.anephysiobe.models.RefreshToken;
+import hr.dbasic.anephysiobe.models.users.RefreshToken;
 import hr.dbasic.anephysiobe.models.users.User;
 import hr.dbasic.anephysiobe.repositories.UserRepositoryMongo;
 import hr.dbasic.anephysiobe.services.AuthService;
