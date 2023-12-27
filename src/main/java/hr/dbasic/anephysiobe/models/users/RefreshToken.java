@@ -1,6 +1,5 @@
 package hr.dbasic.anephysiobe.models.users;
 
-import hr.dbasic.anephysiobe.models.users.User;
 import lombok.*;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;

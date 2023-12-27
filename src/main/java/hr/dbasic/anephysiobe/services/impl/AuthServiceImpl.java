@@ -8,6 +8,7 @@ import hr.dbasic.anephysiobe.dto.requests.RegisterRequestDto;
 import hr.dbasic.anephysiobe.dto.responses.AuthResponseDto;
 import hr.dbasic.anephysiobe.models.users.RefreshToken;
 import hr.dbasic.anephysiobe.models.users.User;
+import hr.dbasic.anephysiobe.repositories.RefreshTokenRepositoryMongo;
 import hr.dbasic.anephysiobe.repositories.UserRepositoryMongo;
 import hr.dbasic.anephysiobe.services.AuthService;
 import hr.dbasic.anephysiobe.services.RefreshTokenService;
@@ -31,6 +32,7 @@ public class AuthServiceImpl implements AuthService {
     private final AuthenticationManager authenticationManager;
     private final RefreshTokenService refreshTokenService;
     private final UserToAuthResponseDtoConverter userToAuthResponseDtoConverter;
+    private final RefreshTokenRepositoryMongo refreshTokenRepositoryMongo;
     
     @Transactional
     @Override
@@ -39,6 +41,8 @@ public class AuthServiceImpl implements AuthService {
         User user = Objects.requireNonNull(registerRequestDtoToUserConverter.convert(registerRequestDto));
         RefreshToken refreshToken = refreshTokenService.createRefreshToken();
         user.setRefreshToken(refreshToken);
+        refreshToken.setUser(user);
+        refreshTokenRepositoryMongo.save(refreshToken);
         userRepositoryMongo.save(user);
     }
     
