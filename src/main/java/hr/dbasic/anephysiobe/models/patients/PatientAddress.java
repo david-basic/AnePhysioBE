@@ -45,6 +45,6 @@ public class PatientAddress {
     
     @Override
     public String toString() {
-        return address + ", " + zipCode + ", " + city + ", " + county;
+        return address + ", " + zipCode + ", " + city + ", " + county.getDisplayName();
     }
 }

@@ -8,6 +8,6 @@ import java.time.LocalDate;
 public record PRPatientOperationDto(
         String id,
         String procedureName,
-        LocalDate procedureDate
+        String procedureDate
 ) {
 }

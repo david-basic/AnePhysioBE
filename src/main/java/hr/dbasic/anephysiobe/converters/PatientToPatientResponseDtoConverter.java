@@ -9,6 +9,7 @@ import lombok.NonNull;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
 
+import java.time.format.DateTimeFormatter;
 import java.util.Objects;
 
 @Component
@@ -20,17 +21,17 @@ public class PatientToPatientResponseDtoConverter implements Converter<Patient, 
                 source.getIdentificationNumber(),
                 source.getFirstName(),
                 source.getLastName(),
-                source.getDob(),
+                DateTimeFormatter.ISO_LOCAL_DATE.format(source.getDob()),
                 source.getSex(),
                 source.getLeadingMkb(),
                 source.getPatientMkbs(),
                 Objects.isNull(source.getOperations()) ? null : source.getOperations().stream().map(op -> PRPatientOperationDto.builder()
                         .id(op.getId())
                         .procedureName(op.getProcedureName())
-                        .procedureDate(op.getProcedureDate())
+                        .procedureDate(DateTimeFormatter.ISO_LOCAL_DATE.format(op.getProcedureDate()))
                         .build()
                 ).toList(),
-                source.getAdmissionDateTime(),
+                DateTimeFormatter.ISO_LOCAL_DATE_TIME.format(source.getAdmissionDateTime()),
                 PRPatientAddressDto.builder()
                         .id(source.getId())
                         .fullAddress(source.getPatientAddress().toString())
