@@ -49,11 +49,11 @@ public class Patient {
     
     @NotNull(message = "Patient must have a leading MKB!")
     @DBRef
-    private Mkb leadingMkb;
+    private PatientMkb leadingMkb;
     
     @NotNull(message = "Patient must have at least 1 MKB!")
     @DBRef
-    private List<Mkb> patientMkbs;
+    private List<PatientMkb> patientMkbs;
     
     @DBRef
     private List<PatientOperation> operations;
