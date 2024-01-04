@@ -7,6 +7,7 @@ import hr.dbasic.anephysiobe.models.departments.DepartmentLocality;
 import hr.dbasic.anephysiobe.models.departments.LocalityEnum;
 import hr.dbasic.anephysiobe.models.doctors.Doctor;
 import hr.dbasic.anephysiobe.models.patients.*;
+import hr.dbasic.anephysiobe.models.patients.mkbcodes.*;
 import hr.dbasic.anephysiobe.repositories.*;
 import hr.dbasic.anephysiobe.services.MkbService;
 import hr.dbasic.anephysiobe.services.RandomNumberService;
@@ -51,9 +52,85 @@ public class Runner implements CommandLineRunner {
 //        );
         
         List<Mkb> mkbs = new ArrayList<>();
-        for (MkbCodes mkbCode : MkbCodes.values()) {
+        for (MkbCodesA mkbCode : MkbCodesA.values()) {
             mkbs.add(Mkb.builder().code(mkbCode.getCode()).displayName(mkbCode.getDisplayName()).build());
         }
+        for (MkbCodesB mkbCode : MkbCodesB.values()) {
+            mkbs.add(Mkb.builder().code(mkbCode.getCode()).displayName(mkbCode.getDisplayName()).build());
+        }
+        for (MkbCodesC mkbCode : MkbCodesC.values()) {
+            mkbs.add(Mkb.builder().code(mkbCode.getCode()).displayName(mkbCode.getDisplayName()).build());
+        }
+        for (MkbCodesD mkbCode : MkbCodesD.values()) {
+            mkbs.add(Mkb.builder().code(mkbCode.getCode()).displayName(mkbCode.getDisplayName()).build());
+        }
+        for (MkbCodesE mkbCode : MkbCodesE.values()) {
+            mkbs.add(Mkb.builder().code(mkbCode.getCode()).displayName(mkbCode.getDisplayName()).build());
+        }
+        for (MkbCodesF mkbCode : MkbCodesF.values()) {
+            mkbs.add(Mkb.builder().code(mkbCode.getCode()).displayName(mkbCode.getDisplayName()).build());
+        }
+        for (MkbCodesG mkbCode : MkbCodesG.values()) {
+            mkbs.add(Mkb.builder().code(mkbCode.getCode()).displayName(mkbCode.getDisplayName()).build());
+        }
+        for (MkbCodesH mkbCode : MkbCodesH.values()) {
+            mkbs.add(Mkb.builder().code(mkbCode.getCode()).displayName(mkbCode.getDisplayName()).build());
+        }
+        for (MkbCodesI mkbCode : MkbCodesI.values()) {
+            mkbs.add(Mkb.builder().code(mkbCode.getCode()).displayName(mkbCode.getDisplayName()).build());
+        }
+        for (MkbCodesJ mkbCode : MkbCodesJ.values()) {
+            mkbs.add(Mkb.builder().code(mkbCode.getCode()).displayName(mkbCode.getDisplayName()).build());
+        }
+        for (MkbCodesK mkbCode : MkbCodesK.values()) {
+            mkbs.add(Mkb.builder().code(mkbCode.getCode()).displayName(mkbCode.getDisplayName()).build());
+        }
+        for (MkbCodesL mkbCode : MkbCodesL.values()) {
+            mkbs.add(Mkb.builder().code(mkbCode.getCode()).displayName(mkbCode.getDisplayName()).build());
+        }
+        for (MkbCodesM mkbCode : MkbCodesM.values()) {
+            mkbs.add(Mkb.builder().code(mkbCode.getCode()).displayName(mkbCode.getDisplayName()).build());
+        }
+        for (MkbCodesN mkbCode : MkbCodesN.values()) {
+            mkbs.add(Mkb.builder().code(mkbCode.getCode()).displayName(mkbCode.getDisplayName()).build());
+        }
+        for (MkbCodesO mkbCode : MkbCodesO.values()) {
+            mkbs.add(Mkb.builder().code(mkbCode.getCode()).displayName(mkbCode.getDisplayName()).build());
+        }
+        for (MkbCodesP mkbCode : MkbCodesP.values()) {
+            mkbs.add(Mkb.builder().code(mkbCode.getCode()).displayName(mkbCode.getDisplayName()).build());
+        }
+        for (MkbCodesQ mkbCode : MkbCodesQ.values()) {
+            mkbs.add(Mkb.builder().code(mkbCode.getCode()).displayName(mkbCode.getDisplayName()).build());
+        }
+        for (MkbCodesR mkbCode : MkbCodesR.values()) {
+            mkbs.add(Mkb.builder().code(mkbCode.getCode()).displayName(mkbCode.getDisplayName()).build());
+        }
+        for (MkbCodesS mkbCode : MkbCodesS.values()) {
+            mkbs.add(Mkb.builder().code(mkbCode.getCode()).displayName(mkbCode.getDisplayName()).build());
+        }
+        for (MkbCodesT mkbCode : MkbCodesT.values()) {
+            mkbs.add(Mkb.builder().code(mkbCode.getCode()).displayName(mkbCode.getDisplayName()).build());
+        }
+        for (MkbCodesU mkbCode : MkbCodesU.values()) {
+            mkbs.add(Mkb.builder().code(mkbCode.getCode()).displayName(mkbCode.getDisplayName()).build());
+        }
+        for (MkbCodesV mkbCode : MkbCodesV.values()) {
+            mkbs.add(Mkb.builder().code(mkbCode.getCode()).displayName(mkbCode.getDisplayName()).build());
+        }
+        for (MkbCodesW mkbCode : MkbCodesW.values()) {
+            mkbs.add(Mkb.builder().code(mkbCode.getCode()).displayName(mkbCode.getDisplayName()).build());
+        }
+        for (MkbCodesX mkbCode : MkbCodesX.values()) {
+            mkbs.add(Mkb.builder().code(mkbCode.getCode()).displayName(mkbCode.getDisplayName()).build());
+        }
+        for (MkbCodesY mkbCode : MkbCodesY.values()) {
+            mkbs.add(Mkb.builder().code(mkbCode.getCode()).displayName(mkbCode.getDisplayName()).build());
+        }
+        for (MkbCodesZ mkbCode : MkbCodesZ.values()) {
+            mkbs.add(Mkb.builder().code(mkbCode.getCode()).displayName(mkbCode.getDisplayName()).build());
+        }
+        
 //        mkbRepositoryMongo.saveAll(mkbs);
         
         County bjelo_bilo = County.builder().name(CountyEnum.BJELOVARSKO_BILOGORSKA.name()).displayName(CountyEnum.BJELOVARSKO_BILOGORSKA.getDisplayName()).build();
@@ -137,23 +214,23 @@ public class Runner implements CommandLineRunner {
 //        );
         
         
-        PatientMkb pm1 = PatientMkb.builder().mkbCode(mkbService.findMkbByCode(MkbCodes.A41_9)).build();
-        PatientMkb pm2 = PatientMkb.builder().mkbCode(mkbService.findMkbByCode(MkbCodes.A41_9)).build();
-        PatientMkb pm3 = PatientMkb.builder().mkbCode(mkbService.findMkbByCode(MkbCodes.A41_9)).build();
-        PatientMkb pm4 = PatientMkb.builder().mkbCode(mkbService.findMkbByCode(MkbCodes.A41_9)).build();
-        PatientMkb pm5 = PatientMkb.builder().mkbCode(mkbService.findMkbByCode(MkbCodes.A41_9)).build();
-        PatientMkb pm6 = PatientMkb.builder().mkbCode(mkbService.findMkbByCode(MkbCodes.A41_9)).build();
-        PatientMkb pm7 = PatientMkb.builder().mkbCode(mkbService.findMkbByCode(MkbCodes.C01)).build();
-        PatientMkb pm8 = PatientMkb.builder().mkbCode(mkbService.findMkbByCode(MkbCodes.A41_9)).build();
-        PatientMkb pm9 = PatientMkb.builder().mkbCode(mkbService.findMkbByCode(MkbCodes.A41_9)).build();
-        PatientMkb pm10 = PatientMkb.builder().mkbCode(mkbService.findMkbByCode(MkbCodes.A41_9)).build();
-        PatientMkb pm11 = PatientMkb.builder().mkbCode(mkbService.findMkbByCode(MkbCodes.A41_9)).build();
-        PatientMkb pm12 = PatientMkb.builder().mkbCode(mkbService.findMkbByCode(MkbCodes.A41_9)).build();
-        PatientMkb pm13 = PatientMkb.builder().mkbCode(mkbService.findMkbByCode(MkbCodes.A41_9)).build();
-        PatientMkb pm14 = PatientMkb.builder().mkbCode(mkbService.findMkbByCode(MkbCodes.A41_9)).build();
-        PatientMkb pm15 = PatientMkb.builder().mkbCode(mkbService.findMkbByCode(MkbCodes.A41_9)).build();
-        PatientMkb pm16 = PatientMkb.builder().mkbCode(mkbService.findMkbByCode(MkbCodes.A41_9)).build();
-        PatientMkb pm17 = PatientMkb.builder().mkbCode(mkbService.findMkbByCode(MkbCodes.A41_9)).build();
+        PatientMkb pm1 = PatientMkb.builder().mkbCode(mkbService.findMkbByCode(MkbCodesA.A41_9.getCode())).build();
+        PatientMkb pm2 = PatientMkb.builder().mkbCode(mkbService.findMkbByCode(MkbCodesA.A41_9.getCode())).build();
+        PatientMkb pm3 = PatientMkb.builder().mkbCode(mkbService.findMkbByCode(MkbCodesA.A41_9.getCode())).build();
+        PatientMkb pm4 = PatientMkb.builder().mkbCode(mkbService.findMkbByCode(MkbCodesA.A41_9.getCode())).build();
+        PatientMkb pm5 = PatientMkb.builder().mkbCode(mkbService.findMkbByCode(MkbCodesA.A41_9.getCode())).build();
+        PatientMkb pm6 = PatientMkb.builder().mkbCode(mkbService.findMkbByCode(MkbCodesA.A41_9.getCode())).build();
+        PatientMkb pm7 = PatientMkb.builder().mkbCode(mkbService.findMkbByCode(MkbCodesC.C01.getCode())).build();
+        PatientMkb pm8 = PatientMkb.builder().mkbCode(mkbService.findMkbByCode(MkbCodesA.A41_9.getCode())).build();
+        PatientMkb pm9 = PatientMkb.builder().mkbCode(mkbService.findMkbByCode(MkbCodesA.A41_9.getCode())).build();
+        PatientMkb pm10 = PatientMkb.builder().mkbCode(mkbService.findMkbByCode(MkbCodesA.A41_9.getCode())).build();
+        PatientMkb pm11 = PatientMkb.builder().mkbCode(mkbService.findMkbByCode(MkbCodesA.A41_9.getCode())).build();
+        PatientMkb pm12 = PatientMkb.builder().mkbCode(mkbService.findMkbByCode(MkbCodesA.A41_9.getCode())).build();
+        PatientMkb pm13 = PatientMkb.builder().mkbCode(mkbService.findMkbByCode(MkbCodesA.A41_9.getCode())).build();
+        PatientMkb pm14 = PatientMkb.builder().mkbCode(mkbService.findMkbByCode(MkbCodesA.A41_9.getCode())).build();
+        PatientMkb pm15 = PatientMkb.builder().mkbCode(mkbService.findMkbByCode(MkbCodesA.A41_9.getCode())).build();
+        PatientMkb pm16 = PatientMkb.builder().mkbCode(mkbService.findMkbByCode(MkbCodesA.A41_9.getCode())).build();
+        PatientMkb pm17 = PatientMkb.builder().mkbCode(mkbService.findMkbByCode(MkbCodesA.A41_9.getCode())).build();
 //        patientMkbRepositoryMongo.saveAll(
 //                List.of(
 //                        pm1, pm2, pm3, pm4, pm5, pm6, pm7, pm8, pm8, pm10, pm11, pm12, pm13, pm14, pm15, pm16, pm17

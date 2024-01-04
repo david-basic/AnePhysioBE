@@ -27,10 +27,10 @@ public class PatientMkb implements Serializable {
     private Patient patient;
     
     @Builder.Default
-    private String displayName = mkbCode.getCode() +  " " + mkbCode.getDisplayName();
+    private String displayName = "";
     
     @Override
     public String toString() {
-        return displayName;
+        return displayName.isBlank() ? mkbCode.toString() : displayName;
     }
 }
