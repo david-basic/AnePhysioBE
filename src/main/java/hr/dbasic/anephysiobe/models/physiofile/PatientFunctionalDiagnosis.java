@@ -1,8 +1,7 @@
 package hr.dbasic.anephysiobe.models.physiofile;
 
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
 
 @Builder
 @Getter
@@ -11,13 +10,10 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @NoArgsConstructor(force = true)
 @EqualsAndHashCode(doNotUseGetters = true, onlyExplicitlyIncluded = true)
 @ToString(doNotUseGetters = true, onlyExplicitlyIncluded = true)
-@Document("assessments")
-public class Assessment {
+public class PatientFunctionalDiagnosis {
+    @NotNull(message = "Functional diagnosis has to have a name!")
+    private String name;
     
-    @Id
-    private String id;
-    
-    private Rass rass;
-    
-    private String notes;
+    @Builder.Default
+    private Boolean selected = false;
 }

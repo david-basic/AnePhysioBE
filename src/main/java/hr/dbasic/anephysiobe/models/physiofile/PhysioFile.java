@@ -22,15 +22,14 @@ public class PhysioFile {
     @Id
     private String id;
     
-    @NotNull
+    @NotNull(message = "Person who opened the file has to be defined on the file!")
     private String fileOpenedBy;
     
     @NotNull(message = "Patient has to exist on the file!")
     @DBRef
     private Patient patient;
     
-    @DBRef
-    private List<FunctionalDiagnosis> functionalDiagnosis;
+    private List<PatientFunctionalDiagnosis> patientFunctionalDiagnoses;
     
     @DBRef
     private Assessment assessment;
@@ -43,8 +42,7 @@ public class PhysioFile {
     
     private String notes;
     
-    @DBRef
-    private List<ProcedureData> procedureData;
+    private List<PatientProcedureData> patientProcedureData;
     
     @DBRef
     private PhysioTest physioTest;
