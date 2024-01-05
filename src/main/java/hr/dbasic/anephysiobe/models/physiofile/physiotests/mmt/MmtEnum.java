@@ -1,4 +1,4 @@
-package hr.dbasic.anephysiobe.models.physiofile;
+package hr.dbasic.anephysiobe.models.physiofile.physiotests.mmt;
 
 import lombok.Getter;
 

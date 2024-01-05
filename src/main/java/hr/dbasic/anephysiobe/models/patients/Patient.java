@@ -1,6 +1,6 @@
 package hr.dbasic.anephysiobe.models.patients;
 
-import hr.dbasic.anephysiobe.models.doctors.Doctor;
+import hr.dbasic.anephysiobe.models.departments.Doctor;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.*;

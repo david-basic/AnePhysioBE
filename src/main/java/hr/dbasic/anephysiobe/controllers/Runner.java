@@ -1,11 +1,11 @@
 package hr.dbasic.anephysiobe.controllers;
 
-import hr.dbasic.anephysiobe.models.Bed;
-import hr.dbasic.anephysiobe.models.Box;
+import hr.dbasic.anephysiobe.models.departments.Bed;
+import hr.dbasic.anephysiobe.models.departments.Box;
 import hr.dbasic.anephysiobe.models.departments.Department;
 import hr.dbasic.anephysiobe.models.departments.DepartmentLocality;
 import hr.dbasic.anephysiobe.models.departments.LocalityEnum;
-import hr.dbasic.anephysiobe.models.doctors.Doctor;
+import hr.dbasic.anephysiobe.models.departments.Doctor;
 import hr.dbasic.anephysiobe.models.patients.*;
 import hr.dbasic.anephysiobe.models.patients.mkbcodes.*;
 import hr.dbasic.anephysiobe.repositories.*;
@@ -130,7 +130,6 @@ public class Runner implements CommandLineRunner {
         for (MkbCodesZ mkbCode : MkbCodesZ.values()) {
             mkbs.add(Mkb.builder().code(mkbCode.getCode()).displayName(mkbCode.getDisplayName()).build());
         }
-        
 //        mkbRepositoryMongo.saveAll(mkbs);
         
         County bjelo_bilo = County.builder().name(CountyEnum.BJELOVARSKO_BILOGORSKA.name()).displayName(CountyEnum.BJELOVARSKO_BILOGORSKA.getDisplayName()).build();

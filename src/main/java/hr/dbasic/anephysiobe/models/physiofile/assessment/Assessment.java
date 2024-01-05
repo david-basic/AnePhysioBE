@@ -1,6 +1,5 @@
-package hr.dbasic.anephysiobe.models.physiofile;
+package hr.dbasic.anephysiobe.models.physiofile.assessment;
 
-import jakarta.validation.constraints.NotNull;
 import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -12,12 +11,13 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @NoArgsConstructor(force = true)
 @EqualsAndHashCode(doNotUseGetters = true, onlyExplicitlyIncluded = true)
 @ToString(doNotUseGetters = true, onlyExplicitlyIncluded = true)
-@Document("procedures")
-public class Procedure {
+@Document("assessments")
+public class Assessment {
+    
     @Id
     private String id;
     
-    @NotNull(message = "Procedure has to have a name!")
-    @ToString.Include
-    private String name;
+    private Rass rass;
+    
+    private String notes;
 }

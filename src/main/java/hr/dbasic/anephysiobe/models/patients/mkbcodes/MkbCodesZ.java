@@ -5,7 +5,7 @@ import lombok.Getter;
 @Getter
 public enum MkbCodesZ {
     
-    
+    ;
     
     private final String displayName;
     private final String code;

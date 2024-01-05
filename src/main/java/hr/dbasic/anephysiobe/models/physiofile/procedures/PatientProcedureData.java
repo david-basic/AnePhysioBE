@@ -1,4 +1,4 @@
-package hr.dbasic.anephysiobe.models.physiofile;
+package hr.dbasic.anephysiobe.models.physiofile.procedures;
 
 import jakarta.validation.constraints.NotNull;
 import lombok.*;

@@ -1,6 +1,6 @@
 package hr.dbasic.anephysiobe.repositories;
 
-import hr.dbasic.anephysiobe.models.doctors.Doctor;
+import hr.dbasic.anephysiobe.models.departments.Doctor;
 import hr.dbasic.anephysiobe.models.patients.Patient;
 import lombok.NonNull;
 import org.springframework.data.mongodb.repository.MongoRepository;

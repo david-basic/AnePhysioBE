@@ -1,4 +1,4 @@
-package hr.dbasic.anephysiobe.models.doctors;
+package hr.dbasic.anephysiobe.models.departments;
 
 import hr.dbasic.anephysiobe.models.departments.Department;
 import jakarta.validation.constraints.NotNull;

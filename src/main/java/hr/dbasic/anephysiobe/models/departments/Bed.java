@@ -1,12 +1,12 @@
-package hr.dbasic.anephysiobe.models;
+package hr.dbasic.anephysiobe.models.departments;
 
-import jakarta.validation.constraints.NotNull;
+import hr.dbasic.anephysiobe.models.patients.Patient;
 import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.util.List;
+import java.util.Objects;
 
 @AllArgsConstructor
 @NoArgsConstructor(force = true)
@@ -14,18 +14,16 @@ import java.util.List;
 @Getter
 @Setter
 @EqualsAndHashCode(doNotUseGetters = true, onlyExplicitlyIncluded = true)
-@ToString(doNotUseGetters = true, onlyExplicitlyIncluded = true)
-@Document("boxes")
-public class Box {
+@Document("beds")
+public class Bed {
     
     @Id
     private String id;
     
-    @NotNull(message = "Box has to have a name!")
-    private String name;
-    
     @DBRef
-    @NotNull(message = "Box has to have at least one bed!")
-    private List<Bed> bedList;
+    private Patient patient;
     
+    public Boolean bedIsEmpty() {
+        return Objects.isNull(patient);
+    }
 }

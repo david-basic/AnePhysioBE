@@ -1,4 +1,4 @@
-package hr.dbasic.anephysiobe.models.physiofile;
+package hr.dbasic.anephysiobe.models.physiofile.physiotests;
 
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;

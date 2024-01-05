@@ -1,4 +1,4 @@
-package hr.dbasic.anephysiobe.models.physiofile;
+package hr.dbasic.anephysiobe.models.physiofile.physiotests.cpax;
 
 import jakarta.validation.constraints.NotNull;
 import lombok.*;

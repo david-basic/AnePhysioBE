@@ -1,6 +1,10 @@
 package hr.dbasic.anephysiobe.models.physiofile;
 
 import hr.dbasic.anephysiobe.models.patients.Patient;
+import hr.dbasic.anephysiobe.models.physiofile.assessment.Assessment;
+import hr.dbasic.anephysiobe.models.physiofile.functionaldiagnoses.PatientFunctionalDiagnosis;
+import hr.dbasic.anephysiobe.models.physiofile.physiotests.PhysioTest;
+import hr.dbasic.anephysiobe.models.physiofile.procedures.PatientProcedureData;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
 import org.springframework.data.annotation.Id;

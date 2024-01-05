@@ -1,5 +1,6 @@
-package hr.dbasic.anephysiobe.models.physiofile;
+package hr.dbasic.anephysiobe.models.physiofile.physiotests.cpax;
 
+import hr.dbasic.anephysiobe.models.physiofile.physiotests.cpax.AspectOfPhysicality;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
 

@@ -1,7 +1,7 @@
 package hr.dbasic.anephysiobe.models.departments;
 
+import hr.dbasic.anephysiobe.models.departments.Bed;
 import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
 import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
@@ -16,24 +16,17 @@ import java.util.List;
 @Setter
 @EqualsAndHashCode(doNotUseGetters = true, onlyExplicitlyIncluded = true)
 @ToString(doNotUseGetters = true, onlyExplicitlyIncluded = true)
-@Document("departments")
-public class Department {
+@Document("boxes")
+public class Box {
     
     @Id
     private String id;
     
-    @NotNull(message = "Department has to have a name!")
-    @Size(min = 3, message = "Department name has to be at least 3 characters long!")
+    @NotNull(message = "Box has to have a name!")
     private String name;
     
-    @NotNull(message = "Department has to have a shorthand")
-    private String shorthand;
-    
     @DBRef
-    @NotNull(message = "Department has to have at least one box!")
-    private List<Box> boxes;
+    @NotNull(message = "Box has to have at least one bed!")
+    private List<Bed> bedList;
     
-    @DBRef
-    @NotNull(message = "Department has to have a locality attached!")
-    private DepartmentLocality locality;
 }
