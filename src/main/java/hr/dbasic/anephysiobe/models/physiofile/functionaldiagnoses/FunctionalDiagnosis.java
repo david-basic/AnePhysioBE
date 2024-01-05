@@ -17,7 +17,7 @@ public class FunctionalDiagnosis {
     @Id
     private String id;
     
-    @NotNull(message = "Functional diagnosis has to have a name!")
+    @NotNull(message = "Functional diagnosis has to have a description!")
     @ToString.Include
-    private String name;
+    private String description;
 }

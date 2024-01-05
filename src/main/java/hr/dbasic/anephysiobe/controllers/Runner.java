@@ -8,7 +8,12 @@ import hr.dbasic.anephysiobe.models.departments.LocalityEnum;
 import hr.dbasic.anephysiobe.models.departments.Doctor;
 import hr.dbasic.anephysiobe.models.patients.*;
 import hr.dbasic.anephysiobe.models.patients.mkbcodes.*;
+import hr.dbasic.anephysiobe.models.physiofile.PhysioFile;
+import hr.dbasic.anephysiobe.models.physiofile.functionaldiagnoses.FunctionalDiagnosesEnum;
+import hr.dbasic.anephysiobe.models.physiofile.functionaldiagnoses.FunctionalDiagnosis;
+import hr.dbasic.anephysiobe.models.physiofile.functionaldiagnoses.PatientFunctionalDiagnosis;
 import hr.dbasic.anephysiobe.repositories.*;
+import hr.dbasic.anephysiobe.services.FunctionalDiagnosisService;
 import hr.dbasic.anephysiobe.services.MkbService;
 import hr.dbasic.anephysiobe.services.RandomNumberService;
 import lombok.RequiredArgsConstructor;
@@ -39,6 +44,8 @@ public class Runner implements CommandLineRunner {
     private final BedRepositoryMongo bedRepositoryMongo;
     private final PatientOperationRepositoryMongo patientOperationRepositoryMongo;
     private final MkbService mkbService;
+    private final FunctionalDiagnosisRepositoryMongo functionalDiagnosisRepositoryMongo;
+    private final FunctionalDiagnosisService functionalDiagnosisService;
     
     @Override
     public void run(String... args) {
@@ -465,7 +472,169 @@ public class Runner implements CommandLineRunner {
 //                        doc1, doc2, doc3
 //                )
 //        );
-
+        
+        
+        List<FunctionalDiagnosis> fds = new ArrayList<>();
+        for (FunctionalDiagnosesEnum fd : FunctionalDiagnosesEnum.values()) {
+            fds.add(FunctionalDiagnosis.builder().description(fd.toString()).build());
+        }
+//        functionalDiagnosisRepositoryMongo.saveAll(fds);
+        
+        
+        List<PatientFunctionalDiagnosis> pfd1 = new ArrayList<>();
+        pfd1.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_1.getDescription()).selected(true).build());
+        pfd1.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_2.getDescription()).build());
+        pfd1.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_3.getDescription()).selected(true).build());
+        pfd1.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_4.getDescription()).selected(true).build());
+        pfd1.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_5.getDescription()).build());
+        pfd1.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_6.getDescription()).selected(true).build());
+        
+        List<PatientFunctionalDiagnosis> pfd2 = new ArrayList<>();
+        pfd2.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_1.getDescription()).build());
+        pfd2.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_2.getDescription()).build());
+        pfd2.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_3.getDescription()).build());
+        pfd2.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_4.getDescription()).selected(true).build());
+        pfd2.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_5.getDescription()).build());
+        pfd2.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_6.getDescription()).selected(true).build());
+        
+        List<PatientFunctionalDiagnosis> pfd3 = new ArrayList<>();
+        pfd3.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_1.getDescription()).build());
+        pfd3.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_2.getDescription()).selected(true).build());
+        pfd3.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_3.getDescription()).build());
+        pfd3.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_4.getDescription()).selected(true).build());
+        pfd3.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_5.getDescription()).build());
+        pfd3.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_6.getDescription()).selected(true).build());
+        
+        List<PatientFunctionalDiagnosis> pfd4 = new ArrayList<>();
+        pfd4.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_1.getDescription()).build());
+        pfd4.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_2.getDescription()).build());
+        pfd4.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_3.getDescription()).build());
+        pfd4.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_4.getDescription()).build());
+        pfd4.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_5.getDescription()).build());
+        pfd4.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_6.getDescription()).selected(true).build());
+        
+        List<PatientFunctionalDiagnosis> pfd5 = new ArrayList<>();
+        pfd5.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_1.getDescription()).build());
+        pfd5.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_2.getDescription()).build());
+        pfd5.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_3.getDescription()).build());
+        pfd5.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_4.getDescription()).selected(true).build());
+        pfd5.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_5.getDescription()).build());
+        pfd5.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_6.getDescription()).selected(true).build());
+        
+        List<PatientFunctionalDiagnosis> pfd6 = new ArrayList<>();
+        pfd6.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_1.getDescription()).build());
+        pfd6.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_2.getDescription()).build());
+        pfd6.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_3.getDescription()).build());
+        pfd6.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_4.getDescription()).selected(true).build());
+        pfd6.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_5.getDescription()).build());
+        pfd6.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_6.getDescription()).selected(true).build());
+        
+        List<PatientFunctionalDiagnosis> pfd7 = new ArrayList<>();
+        pfd7.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_1.getDescription()).build());
+        pfd7.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_2.getDescription()).build());
+        pfd7.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_3.getDescription()).build());
+        pfd7.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_4.getDescription()).build());
+        pfd7.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_5.getDescription()).build());
+        pfd7.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_6.getDescription()).selected(true).build());
+        
+        List<PatientFunctionalDiagnosis> pfd8 = new ArrayList<>();
+        pfd8.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_1.getDescription()).selected(true).build());
+        pfd8.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_2.getDescription()).build());
+        pfd8.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_3.getDescription()).selected(true).build());
+        pfd8.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_4.getDescription()).selected(true).build());
+        pfd8.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_5.getDescription()).build());
+        pfd8.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_6.getDescription()).selected(true).build());
+        
+        List<PatientFunctionalDiagnosis> pfd9 = new ArrayList<>();
+        pfd9.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_1.getDescription()).build());
+        pfd9.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_2.getDescription()).build());
+        pfd9.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_3.getDescription()).build());
+        pfd9.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_4.getDescription()).selected(true).build());
+        pfd9.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_5.getDescription()).build());
+        pfd9.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_6.getDescription()).build());
+        
+        List<PatientFunctionalDiagnosis> pfd10 = new ArrayList<>();
+        pfd10.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_1.getDescription()).build());
+        pfd10.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_2.getDescription()).build());
+        pfd10.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_3.getDescription()).build());
+        pfd10.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_4.getDescription()).selected(true).build());
+        pfd10.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_5.getDescription()).build());
+        pfd10.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_6.getDescription()).build());
+        
+        List<PatientFunctionalDiagnosis> pfd11 = new ArrayList<>();
+        pfd11.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_1.getDescription()).build());
+        pfd11.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_2.getDescription()).selected(true).build());
+        pfd11.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_3.getDescription()).build());
+        pfd11.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_4.getDescription()).selected(true).build());
+        pfd11.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_5.getDescription()).build());
+        pfd11.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_6.getDescription()).selected(true).build());
+        
+        List<PatientFunctionalDiagnosis> pfd12 = new ArrayList<>();
+        pfd12.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_1.getDescription()).build());
+        pfd12.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_2.getDescription()).selected(true).build());
+        pfd12.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_3.getDescription()).build());
+        pfd12.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_4.getDescription()).selected(true).build());
+        pfd12.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_5.getDescription()).build());
+        pfd12.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_6.getDescription()).selected(true).build());
+        
+        List<PatientFunctionalDiagnosis> pfd13 = new ArrayList<>();
+        pfd13.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_1.getDescription()).selected(true).build());
+        pfd13.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_2.getDescription()).build());
+        pfd13.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_3.getDescription()).selected(true).build());
+        pfd13.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_4.getDescription()).selected(true).build());
+        pfd13.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_5.getDescription()).build());
+        pfd13.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_6.getDescription()).selected(true).build());
+        
+        List<PatientFunctionalDiagnosis> pfd14 = new ArrayList<>();
+        pfd14.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_1.getDescription()).build());
+        pfd14.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_2.getDescription()).build());
+        pfd14.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_3.getDescription()).build());
+        pfd14.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_4.getDescription()).selected(true).build());
+        pfd14.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_5.getDescription()).build());
+        pfd14.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_6.getDescription()).build());
+        
+        List<PatientFunctionalDiagnosis> pfd15 = new ArrayList<>();
+        pfd15.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_1.getDescription()).build());
+        pfd15.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_2.getDescription()).selected(true).build());
+        pfd15.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_3.getDescription()).build());
+        pfd15.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_4.getDescription()).selected(true).build());
+        pfd15.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_5.getDescription()).build());
+        pfd15.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_6.getDescription()).selected(true).build());
+        
+        List<PatientFunctionalDiagnosis> pfd16 = new ArrayList<>();
+        pfd16.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_1.getDescription()).selected(true).build());
+        pfd16.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_2.getDescription()).build());
+        pfd16.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_3.getDescription()).selected(true).build());
+        pfd16.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_4.getDescription()).selected(true).build());
+        pfd16.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_5.getDescription()).build());
+        pfd16.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_6.getDescription()).selected(true).build());
+        
+        List<PatientFunctionalDiagnosis> pfd17 = new ArrayList<>();
+        pfd17.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_1.getDescription()).build());
+        pfd17.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_2.getDescription()).selected(true).build());
+        pfd17.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_3.getDescription()).build());
+        pfd17.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_4.getDescription()).selected(true).build());
+        pfd17.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_5.getDescription()).build());
+        pfd17.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_6.getDescription()).selected(true).build());
+        
+        
+        PhysioFile physioFile1 = PhysioFile.builder().fileOpenedBy("Iva Mikolić").patient(p1).patientFunctionalDiagnoses(pfd1).assessment().build();
+        PhysioFile physioFile2 = PhysioFile.builder().fileOpenedBy("David Bašić").patient(p2).patientFunctionalDiagnoses(pfd2).assessment().build();
+        PhysioFile physioFile3 = PhysioFile.builder().fileOpenedBy("Iva Mikolić").patient(p3).patientFunctionalDiagnoses(pfd3).assessment().build();
+        PhysioFile physioFile4 = PhysioFile.builder().fileOpenedBy("Iva Mikolić").patient(p4).patientFunctionalDiagnoses(pfd4).assessment().build();
+        PhysioFile physioFile5 = PhysioFile.builder().fileOpenedBy("Iva Mikolić").patient(p5).patientFunctionalDiagnoses(pfd5).assessment().build();
+        PhysioFile physioFile6 = PhysioFile.builder().fileOpenedBy("Iva Mikolić").patient(p6).patientFunctionalDiagnoses(pfd6).assessment().build();
+        PhysioFile physioFile7 = PhysioFile.builder().fileOpenedBy("Iva Mikolić").patient(p7).patientFunctionalDiagnoses(pfd7).assessment().build();
+        PhysioFile physioFile8 = PhysioFile.builder().fileOpenedBy("Iva Mikolić").patient(p8).patientFunctionalDiagnoses(pfd8).assessment().build();
+        PhysioFile physioFile9 = PhysioFile.builder().fileOpenedBy("David Bašić").patient(p9).patientFunctionalDiagnoses(pfd9).assessment().build();
+        PhysioFile physioFile10 = PhysioFile.builder().fileOpenedBy("David Bašić").patient(p10).patientFunctionalDiagnoses(pfd10).assessment().build();
+        PhysioFile physioFile11 = PhysioFile.builder().fileOpenedBy("David Bašić").patient(p11).patientFunctionalDiagnoses(pfd11).assessment().build();
+        PhysioFile physioFile12 = PhysioFile.builder().fileOpenedBy("David Bašić").patient(p12).patientFunctionalDiagnoses(pfd12).assessment().build();
+        PhysioFile physioFile13 = PhysioFile.builder().fileOpenedBy("David Bašić").patient(p13).patientFunctionalDiagnoses(pfd13).assessment().build();
+        PhysioFile physioFile14 = PhysioFile.builder().fileOpenedBy("David Bašić").patient(p14).patientFunctionalDiagnoses(pfd14).assessment().build();
+        PhysioFile physioFile15 = PhysioFile.builder().fileOpenedBy("Iva Mikolić").patient(p15).patientFunctionalDiagnoses(pfd15).assessment().build();
+        PhysioFile physioFile16 = PhysioFile.builder().fileOpenedBy("Iva Mikolić").patient(p16).patientFunctionalDiagnoses(pfd16).assessment().build();
+        PhysioFile physioFile17 = PhysioFile.builder().fileOpenedBy("Iva Mikolić").patient(p17).patientFunctionalDiagnoses(pfd17).assessment().build();
 
     
 

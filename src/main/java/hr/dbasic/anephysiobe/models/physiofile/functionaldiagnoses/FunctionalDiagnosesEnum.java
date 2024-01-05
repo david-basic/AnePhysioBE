@@ -12,14 +12,14 @@ public enum FunctionalDiagnosesEnum {
     FD_5("Imobilizacija uvjetovana operativnim postupkom"),
     FD_6("Politrauma");
     
-    private final String name;
+    private final String description;
     
-    FunctionalDiagnosesEnum(String name) {
-        this.name = name;
+    FunctionalDiagnosesEnum(String description) {
+        this.description = description;
     }
     
     @Override
     public String toString() {
-        return name;
+        return description;
     }
 }
