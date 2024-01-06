@@ -47,7 +47,7 @@ public class PhysioFile implements Serializable {
     
     private String notes;
     
-    private List<PatientProcedure> patientProcedureData;
+    private List<PatientProcedure> patientProcedures;
     
     @DBRef
     private PhysioTest physioTest;

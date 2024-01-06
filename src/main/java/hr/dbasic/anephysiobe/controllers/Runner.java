@@ -24,6 +24,7 @@ import hr.dbasic.anephysiobe.models.physiofile.plans.PatientPlan;
 import hr.dbasic.anephysiobe.models.physiofile.plans.Plan;
 import hr.dbasic.anephysiobe.models.physiofile.plans.PlansEnum;
 import hr.dbasic.anephysiobe.models.physiofile.procedures.PatientProcedure;
+import hr.dbasic.anephysiobe.models.physiofile.procedures.Procedure;
 import hr.dbasic.anephysiobe.models.physiofile.procedures.ProceduresEnum;
 import hr.dbasic.anephysiobe.repositories.*;
 import hr.dbasic.anephysiobe.services.FunctionalDiagnosisService;
@@ -66,6 +67,7 @@ public class Runner implements CommandLineRunner {
     private final PlanRepositoryMongo planRepositoryMongo;
     private final PhysioTestRepositoryMongo physioTestRepositoryMongo;
     private final PhysioFileRepositoryMongo physioFileRepositoryMongo;
+    private final ProcedureRepositoryMongo procedureRepositoryMongo;
     
     @Override
     public void run(String... args) {
@@ -748,56 +750,63 @@ public class Runner implements CommandLineRunner {
         PatientPlan pp16 = PatientPlan.patientPlanBuilder().type(pl2.getType()).description(pl2.getDescription()).build();
         PatientPlan pp17 = PatientPlan.patientPlanBuilder().type(pl2.getType()).description(pl2.getDescription()).build();
         
+        List<Procedure> procList = new ArrayList<>();
+        for (ProceduresEnum proc : ProceduresEnum.values()) {
+            procList.add(Procedure.builder().description(proc.getDescription()).build());
+        }
+//        procedureRepositoryMongo.saveAll(procList);
+        
+        
         List<PatientProcedure> ppd1 = new ArrayList<>();
-        ppd1.add(PatientProcedure.patientProcedureBuilder().date(LocalDateTime.of(2023, Month.DECEMBER, 15, 0, 0)).description(ProceduresEnum.P_1.getDescription()).build());
+        ppd1.add(PatientProcedure.patientProcedureBuilder().date(LocalDateTime.of(2023, Month.DECEMBER, 15, 0, 0)).description(ProceduresEnum.P_1.getDescription()).workingTherapists("Mikolić, Bašić").build());
         
         List<PatientProcedure> ppd2 = new ArrayList<>();
-        ppd2.add(PatientProcedure.patientProcedureBuilder().date(LocalDateTime.of(2023, Month.DECEMBER, 16, 0, 0)).description(ProceduresEnum.P_1.getDescription()).build());
+        ppd2.add(PatientProcedure.patientProcedureBuilder().date(LocalDateTime.of(2023, Month.DECEMBER, 16, 0, 0)).description(ProceduresEnum.P_1.getDescription()).workingTherapists("Mikolić").build());
         
         List<PatientProcedure> ppd3 = new ArrayList<>();
-        ppd3.add(PatientProcedure.patientProcedureBuilder().date(LocalDateTime.of(2023, Month.DECEMBER, 17, 0, 0)).description(ProceduresEnum.P_1.getDescription()).build());
+        ppd3.add(PatientProcedure.patientProcedureBuilder().date(LocalDateTime.of(2023, Month.DECEMBER, 17, 0, 0)).description(ProceduresEnum.P_1.getDescription()).workingTherapists("Mikolić").build());
         
         List<PatientProcedure> ppd4 = new ArrayList<>();
-        ppd4.add(PatientProcedure.patientProcedureBuilder().date(LocalDateTime.of(2023, Month.DECEMBER, 18, 0, 0)).description(ProceduresEnum.P_1.getDescription()).build());
+        ppd4.add(PatientProcedure.patientProcedureBuilder().date(LocalDateTime.of(2023, Month.DECEMBER, 18, 0, 0)).description(ProceduresEnum.P_1.getDescription()).workingTherapists("Mikolić").build());
         
         List<PatientProcedure> ppd5 = new ArrayList<>();
-        ppd5.add(PatientProcedure.patientProcedureBuilder().date(LocalDateTime.of(2023, Month.DECEMBER, 19, 0, 0)).description(ProceduresEnum.P_1.getDescription()).build());
+        ppd5.add(PatientProcedure.patientProcedureBuilder().date(LocalDateTime.of(2023, Month.DECEMBER, 19, 0, 0)).description(ProceduresEnum.P_1.getDescription()).workingTherapists("Mikolić").build());
         
         List<PatientProcedure> ppd6 = new ArrayList<>();
-        ppd6.add(PatientProcedure.patientProcedureBuilder().date(LocalDateTime.of(2023, Month.DECEMBER, 20, 0, 0)).description(ProceduresEnum.P_1.getDescription()).build());
+        ppd6.add(PatientProcedure.patientProcedureBuilder().date(LocalDateTime.of(2023, Month.DECEMBER, 20, 0, 0)).description(ProceduresEnum.P_1.getDescription()).workingTherapists("Mikolić").build());
         
         List<PatientProcedure> ppd7 = new ArrayList<>();
-        ppd7.add(PatientProcedure.patientProcedureBuilder().date(LocalDateTime.of(2023, Month.DECEMBER, 21, 0, 0)).description(ProceduresEnum.P_1.getDescription()).build());
+        ppd7.add(PatientProcedure.patientProcedureBuilder().date(LocalDateTime.of(2023, Month.DECEMBER, 21, 0, 0)).description(ProceduresEnum.P_1.getDescription()).workingTherapists("Mikolić").build());
         
         List<PatientProcedure> ppd8 = new ArrayList<>();
-        ppd8.add(PatientProcedure.patientProcedureBuilder().date(LocalDateTime.of(2023, Month.DECEMBER, 22, 0, 0)).description(ProceduresEnum.P_1.getDescription()).build());
+        ppd8.add(PatientProcedure.patientProcedureBuilder().date(LocalDateTime.of(2023, Month.DECEMBER, 22, 0, 0)).description(ProceduresEnum.P_1.getDescription()).workingTherapists("Mikolić").build());
         
         List<PatientProcedure> ppd9 = new ArrayList<>();
-        ppd9.add(PatientProcedure.patientProcedureBuilder().date(LocalDateTime.of(2023, Month.DECEMBER, 23, 0, 0)).description(ProceduresEnum.P_1.getDescription()).build());
+        ppd9.add(PatientProcedure.patientProcedureBuilder().date(LocalDateTime.of(2023, Month.DECEMBER, 23, 0, 0)).description(ProceduresEnum.P_1.getDescription()).workingTherapists("Mikolić").build());
         
         List<PatientProcedure> ppd10 = new ArrayList<>();
-        ppd10.add(PatientProcedure.patientProcedureBuilder().date(LocalDateTime.of(2023, Month.DECEMBER, 24, 0, 0)).description(ProceduresEnum.P_1.getDescription()).build());
+        ppd10.add(PatientProcedure.patientProcedureBuilder().date(LocalDateTime.of(2023, Month.DECEMBER, 24, 0, 0)).description(ProceduresEnum.P_1.getDescription()).workingTherapists("Mikolić").build());
         
         List<PatientProcedure> ppd11 = new ArrayList<>();
-        ppd11.add(PatientProcedure.patientProcedureBuilder().date(LocalDateTime.of(2023, Month.DECEMBER, 25, 0, 0)).description(ProceduresEnum.P_1.getDescription()).build());
+        ppd11.add(PatientProcedure.patientProcedureBuilder().date(LocalDateTime.of(2023, Month.DECEMBER, 25, 0, 0)).description(ProceduresEnum.P_1.getDescription()).workingTherapists("Mikolić").build());
         
         List<PatientProcedure> ppd12 = new ArrayList<>();
-        ppd12.add(PatientProcedure.patientProcedureBuilder().date(LocalDateTime.of(2023, Month.DECEMBER, 26, 0, 0)).description(ProceduresEnum.P_1.getDescription()).build());
+        ppd12.add(PatientProcedure.patientProcedureBuilder().date(LocalDateTime.of(2023, Month.DECEMBER, 26, 0, 0)).description(ProceduresEnum.P_1.getDescription()).workingTherapists("Mikolić").build());
         
         List<PatientProcedure> ppd13 = new ArrayList<>();
-        ppd13.add(PatientProcedure.patientProcedureBuilder().date(LocalDateTime.of(2023, Month.DECEMBER, 27, 0, 0)).description(ProceduresEnum.P_1.getDescription()).build());
+        ppd13.add(PatientProcedure.patientProcedureBuilder().date(LocalDateTime.of(2023, Month.DECEMBER, 27, 0, 0)).description(ProceduresEnum.P_1.getDescription()).workingTherapists("Mikolić").build());
         
         List<PatientProcedure> ppd14 = new ArrayList<>();
-        ppd14.add(PatientProcedure.patientProcedureBuilder().date(LocalDateTime.of(2023, Month.DECEMBER, 28, 0, 0)).description(ProceduresEnum.P_1.getDescription()).build());
+        ppd14.add(PatientProcedure.patientProcedureBuilder().date(LocalDateTime.of(2023, Month.DECEMBER, 28, 0, 0)).description(ProceduresEnum.P_1.getDescription()).workingTherapists("Mikolić").build());
         
         List<PatientProcedure> ppd15 = new ArrayList<>();
-        ppd15.add(PatientProcedure.patientProcedureBuilder().date(LocalDateTime.of(2023, Month.DECEMBER, 29, 0, 0)).description(ProceduresEnum.P_1.getDescription()).build());
+        ppd15.add(PatientProcedure.patientProcedureBuilder().date(LocalDateTime.of(2023, Month.DECEMBER, 29, 0, 0)).description(ProceduresEnum.P_1.getDescription()).workingTherapists("Mikolić").build());
         
         List<PatientProcedure> ppd16 = new ArrayList<>();
-        ppd16.add(PatientProcedure.patientProcedureBuilder().date(LocalDateTime.of(2023, Month.DECEMBER, 30, 0, 0)).description(ProceduresEnum.P_1.getDescription()).build());
+        ppd16.add(PatientProcedure.patientProcedureBuilder().date(LocalDateTime.of(2023, Month.DECEMBER, 30, 0, 0)).description(ProceduresEnum.P_1.getDescription()).workingTherapists("Mikolić").build());
         
         List<PatientProcedure> ppd17 = new ArrayList<>();
-        ppd17.add(PatientProcedure.patientProcedureBuilder().date(LocalDateTime.of(2023, Month.DECEMBER, 31, 0, 0)).description(ProceduresEnum.P_1.getDescription()).build());
+        ppd17.add(PatientProcedure.patientProcedureBuilder().date(LocalDateTime.of(2023, Month.DECEMBER, 31, 0, 0)).description(ProceduresEnum.P_1.getDescription()).workingTherapists("Mikolić").build());
         
         PhysioTest pt1 = PhysioTest.builder().cpax(null).gcs(null).mmt(null).vas(null).build();
         PhysioTest pt2 = PhysioTest.builder().cpax(null).gcs(null).mmt(null).vas(null).build();
@@ -822,23 +831,23 @@ public class Runner implements CommandLineRunner {
 //                )
 //        );
         
-        PhysioFile physioFile1 = PhysioFile.builder().fileOpenedBy("Iva Mikolić").patient(p1).patientFunctionalDiagnoses(pfd1).assessment(a1).patientGoal(pg1).patientPlan(pp1).notes("/").patientProcedureData(ppd1).physioTest(pt1).build();
-        PhysioFile physioFile2 = PhysioFile.builder().fileOpenedBy("David Bašić").patient(p2).patientFunctionalDiagnoses(pfd2).assessment(a2).patientGoal(pg2).patientPlan(pp2).notes("/").patientProcedureData(ppd2).physioTest(pt2).build();
-        PhysioFile physioFile3 = PhysioFile.builder().fileOpenedBy("Iva Mikolić").patient(p3).patientFunctionalDiagnoses(pfd3).assessment(a3).patientGoal(pg3).patientPlan(pp3).notes("/").patientProcedureData(ppd3).physioTest(pt3).build();
-        PhysioFile physioFile4 = PhysioFile.builder().fileOpenedBy("Iva Mikolić").patient(p4).patientFunctionalDiagnoses(pfd4).assessment(a4).patientGoal(pg4).patientPlan(pp4).notes("/").patientProcedureData(ppd4).physioTest(pt4).build();
-        PhysioFile physioFile5 = PhysioFile.builder().fileOpenedBy("Iva Mikolić").patient(p5).patientFunctionalDiagnoses(pfd5).assessment(a5).patientGoal(pg5).patientPlan(pp5).notes("/").patientProcedureData(ppd5).physioTest(pt5).build();
-        PhysioFile physioFile6 = PhysioFile.builder().fileOpenedBy("Iva Mikolić").patient(p6).patientFunctionalDiagnoses(pfd6).assessment(a6).patientGoal(pg6).patientPlan(pp6).notes("/").patientProcedureData(ppd6).physioTest(pt6).build();
-        PhysioFile physioFile7 = PhysioFile.builder().fileOpenedBy("Iva Mikolić").patient(p7).patientFunctionalDiagnoses(pfd7).assessment(a7).patientGoal(pg7).patientPlan(pp7).notes("/").patientProcedureData(ppd7).physioTest(pt7).build();
-        PhysioFile physioFile8 = PhysioFile.builder().fileOpenedBy("Iva Mikolić").patient(p8).patientFunctionalDiagnoses(pfd8).assessment(a8).patientGoal(pg8).patientPlan(pp8).notes("/").patientProcedureData(ppd8).physioTest(pt8).build();
-        PhysioFile physioFile9 = PhysioFile.builder().fileOpenedBy("David Bašić").patient(p9).patientFunctionalDiagnoses(pfd9).assessment(a9).patientGoal(pg9).patientPlan(pp9).notes("/").patientProcedureData(ppd9).physioTest(pt9).build();
-        PhysioFile physioFile10 = PhysioFile.builder().fileOpenedBy("David Bašić").patient(p10).patientFunctionalDiagnoses(pfd10).assessment(a10).patientGoal(pg10).patientPlan(pp10).notes("/").patientProcedureData(ppd10).physioTest(pt10).build();
-        PhysioFile physioFile11 = PhysioFile.builder().fileOpenedBy("David Bašić").patient(p11).patientFunctionalDiagnoses(pfd11).assessment(a11).patientGoal(pg11).patientPlan(pp11).notes("/").patientProcedureData(ppd11).physioTest(pt11).build();
-        PhysioFile physioFile12 = PhysioFile.builder().fileOpenedBy("David Bašić").patient(p12).patientFunctionalDiagnoses(pfd12).assessment(a12).patientGoal(pg12).patientPlan(pp12).notes("/").patientProcedureData(ppd12).physioTest(pt12).build();
-        PhysioFile physioFile13 = PhysioFile.builder().fileOpenedBy("David Bašić").patient(p13).patientFunctionalDiagnoses(pfd13).assessment(a13).patientGoal(pg13).patientPlan(pp13).notes("/").patientProcedureData(ppd13).physioTest(pt13).build();
-        PhysioFile physioFile14 = PhysioFile.builder().fileOpenedBy("David Bašić").patient(p14).patientFunctionalDiagnoses(pfd14).assessment(a14).patientGoal(pg14).patientPlan(pp14).notes("/").patientProcedureData(ppd14).physioTest(pt14).build();
-        PhysioFile physioFile15 = PhysioFile.builder().fileOpenedBy("Iva Mikolić").patient(p15).patientFunctionalDiagnoses(pfd15).assessment(a15).patientGoal(pg15).patientPlan(pp15).notes("/").patientProcedureData(ppd15).physioTest(pt15).build();
-        PhysioFile physioFile16 = PhysioFile.builder().fileOpenedBy("Iva Mikolić").patient(p16).patientFunctionalDiagnoses(pfd16).assessment(a16).patientGoal(pg16).patientPlan(pp16).notes("/").patientProcedureData(ppd16).physioTest(pt16).build();
-        PhysioFile physioFile17 = PhysioFile.builder().fileOpenedBy("Iva Mikolić").patient(p17).patientFunctionalDiagnoses(pfd17).assessment(a17).patientGoal(pg17).patientPlan(pp17).notes("/").patientProcedureData(ppd17).physioTest(pt17).build();
+        PhysioFile physioFile1 = PhysioFile.builder().fileOpenedBy("Iva Mikolić").patient(p1).patientFunctionalDiagnoses(pfd1).assessment(a1).patientGoal(pg1).patientPlan(pp1).notes("/").patientProcedures(ppd1).physioTest(pt1).build();
+        PhysioFile physioFile2 = PhysioFile.builder().fileOpenedBy("David Bašić").patient(p2).patientFunctionalDiagnoses(pfd2).assessment(a2).patientGoal(pg2).patientPlan(pp2).notes("/").patientProcedures(ppd2).physioTest(pt2).build();
+        PhysioFile physioFile3 = PhysioFile.builder().fileOpenedBy("Iva Mikolić").patient(p3).patientFunctionalDiagnoses(pfd3).assessment(a3).patientGoal(pg3).patientPlan(pp3).notes("/").patientProcedures(ppd3).physioTest(pt3).build();
+        PhysioFile physioFile4 = PhysioFile.builder().fileOpenedBy("Iva Mikolić").patient(p4).patientFunctionalDiagnoses(pfd4).assessment(a4).patientGoal(pg4).patientPlan(pp4).notes("/").patientProcedures(ppd4).physioTest(pt4).build();
+        PhysioFile physioFile5 = PhysioFile.builder().fileOpenedBy("Iva Mikolić").patient(p5).patientFunctionalDiagnoses(pfd5).assessment(a5).patientGoal(pg5).patientPlan(pp5).notes("/").patientProcedures(ppd5).physioTest(pt5).build();
+        PhysioFile physioFile6 = PhysioFile.builder().fileOpenedBy("Iva Mikolić").patient(p6).patientFunctionalDiagnoses(pfd6).assessment(a6).patientGoal(pg6).patientPlan(pp6).notes("/").patientProcedures(ppd6).physioTest(pt6).build();
+        PhysioFile physioFile7 = PhysioFile.builder().fileOpenedBy("Iva Mikolić").patient(p7).patientFunctionalDiagnoses(pfd7).assessment(a7).patientGoal(pg7).patientPlan(pp7).notes("/").patientProcedures(ppd7).physioTest(pt7).build();
+        PhysioFile physioFile8 = PhysioFile.builder().fileOpenedBy("Iva Mikolić").patient(p8).patientFunctionalDiagnoses(pfd8).assessment(a8).patientGoal(pg8).patientPlan(pp8).notes("/").patientProcedures(ppd8).physioTest(pt8).build();
+        PhysioFile physioFile9 = PhysioFile.builder().fileOpenedBy("David Bašić").patient(p9).patientFunctionalDiagnoses(pfd9).assessment(a9).patientGoal(pg9).patientPlan(pp9).notes("/").patientProcedures(ppd9).physioTest(pt9).build();
+        PhysioFile physioFile10 = PhysioFile.builder().fileOpenedBy("David Bašić").patient(p10).patientFunctionalDiagnoses(pfd10).assessment(a10).patientGoal(pg10).patientPlan(pp10).notes("/").patientProcedures(ppd10).physioTest(pt10).build();
+        PhysioFile physioFile11 = PhysioFile.builder().fileOpenedBy("David Bašić").patient(p11).patientFunctionalDiagnoses(pfd11).assessment(a11).patientGoal(pg11).patientPlan(pp11).notes("/").patientProcedures(ppd11).physioTest(pt11).build();
+        PhysioFile physioFile12 = PhysioFile.builder().fileOpenedBy("David Bašić").patient(p12).patientFunctionalDiagnoses(pfd12).assessment(a12).patientGoal(pg12).patientPlan(pp12).notes("/").patientProcedures(ppd12).physioTest(pt12).build();
+        PhysioFile physioFile13 = PhysioFile.builder().fileOpenedBy("David Bašić").patient(p13).patientFunctionalDiagnoses(pfd13).assessment(a13).patientGoal(pg13).patientPlan(pp13).notes("/").patientProcedures(ppd13).physioTest(pt13).build();
+        PhysioFile physioFile14 = PhysioFile.builder().fileOpenedBy("David Bašić").patient(p14).patientFunctionalDiagnoses(pfd14).assessment(a14).patientGoal(pg14).patientPlan(pp14).notes("/").patientProcedures(ppd14).physioTest(pt14).build();
+        PhysioFile physioFile15 = PhysioFile.builder().fileOpenedBy("Iva Mikolić").patient(p15).patientFunctionalDiagnoses(pfd15).assessment(a15).patientGoal(pg15).patientPlan(pp15).notes("/").patientProcedures(ppd15).physioTest(pt15).build();
+        PhysioFile physioFile16 = PhysioFile.builder().fileOpenedBy("Iva Mikolić").patient(p16).patientFunctionalDiagnoses(pfd16).assessment(a16).patientGoal(pg16).patientPlan(pp16).notes("/").patientProcedures(ppd16).physioTest(pt16).build();
+        PhysioFile physioFile17 = PhysioFile.builder().fileOpenedBy("Iva Mikolić").patient(p17).patientFunctionalDiagnoses(pfd17).assessment(a17).patientGoal(pg17).patientPlan(pp17).notes("/").patientProcedures(ppd17).physioTest(pt17).build();
 //        physioFileRepositoryMongo.saveAll(
 //                List.of(
 //                        physioFile1, physioFile2, physioFile3, physioFile4, physioFile5, physioFile6, physioFile7, physioFile8, physioFile9, physioFile10, physioFile11, physioFile12, physioFile13, physioFile14, physioFile15, physioFile16, physioFile17)

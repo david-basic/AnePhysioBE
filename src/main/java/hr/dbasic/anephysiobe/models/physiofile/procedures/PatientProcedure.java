@@ -15,11 +15,15 @@ public class PatientProcedure extends Procedure{
     @NotNull(message = "Procedure has to have a date!")
     private LocalDateTime date;
     
+    @NotNull(message = "Procedure has to have working therapists defined!")
+    private String workingTherapists;
+    
     @Builder(builderMethodName = "patientProcedureBuilder")
-    public static PatientProcedure createPatientProcedure(String description, LocalDateTime date) {
+    public static PatientProcedure createPatientProcedure(String description, LocalDateTime date, String workingTherapists) {
         PatientProcedure patientProcedure = new PatientProcedure();
         patientProcedure.setDescription(description);
         patientProcedure.setDate(date);
+        patientProcedure.setWorkingTherapists(workingTherapists);
         return patientProcedure;
     }
     
