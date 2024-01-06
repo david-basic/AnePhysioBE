@@ -3,7 +3,9 @@ package hr.dbasic.anephysiobe.models.physiofile;
 import hr.dbasic.anephysiobe.models.patients.Patient;
 import hr.dbasic.anephysiobe.models.physiofile.assessment.Assessment;
 import hr.dbasic.anephysiobe.models.physiofile.functionaldiagnoses.PatientFunctionalDiagnosis;
+import hr.dbasic.anephysiobe.models.physiofile.goals.PatientGoal;
 import hr.dbasic.anephysiobe.models.physiofile.physiotests.PhysioTest;
+import hr.dbasic.anephysiobe.models.physiofile.plans.PatientPlan;
 import hr.dbasic.anephysiobe.models.physiofile.procedures.PatientProcedureData;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
@@ -39,11 +41,9 @@ public class PhysioFile implements Serializable {
     @DBRef
     private Assessment assessment;
     
-    @DBRef
-    private Goal goal;
+    private PatientGoal patientGoal;
     
-    @DBRef
-    private Plan plan;
+    private PatientPlan patientPlan;
     
     private String notes;
     

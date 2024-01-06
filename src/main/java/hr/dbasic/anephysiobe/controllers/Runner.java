@@ -9,9 +9,21 @@ import hr.dbasic.anephysiobe.models.departments.Doctor;
 import hr.dbasic.anephysiobe.models.patients.*;
 import hr.dbasic.anephysiobe.models.patients.mkbcodes.*;
 import hr.dbasic.anephysiobe.models.physiofile.PhysioFile;
+import hr.dbasic.anephysiobe.models.physiofile.assessment.Assessment;
+import hr.dbasic.anephysiobe.models.physiofile.assessment.PatientRass;
+import hr.dbasic.anephysiobe.models.physiofile.assessment.Rass;
+import hr.dbasic.anephysiobe.models.physiofile.assessment.RassEnum;
 import hr.dbasic.anephysiobe.models.physiofile.functionaldiagnoses.FunctionalDiagnosesEnum;
 import hr.dbasic.anephysiobe.models.physiofile.functionaldiagnoses.FunctionalDiagnosis;
 import hr.dbasic.anephysiobe.models.physiofile.functionaldiagnoses.PatientFunctionalDiagnosis;
+import hr.dbasic.anephysiobe.models.physiofile.goals.Goal;
+import hr.dbasic.anephysiobe.models.physiofile.goals.GoalsEnum;
+import hr.dbasic.anephysiobe.models.physiofile.goals.PatientGoal;
+import hr.dbasic.anephysiobe.models.physiofile.plans.PatientPlan;
+import hr.dbasic.anephysiobe.models.physiofile.plans.Plan;
+import hr.dbasic.anephysiobe.models.physiofile.plans.PlansEnum;
+import hr.dbasic.anephysiobe.models.physiofile.procedures.PatientProcedureData;
+import hr.dbasic.anephysiobe.models.physiofile.procedures.ProceduresEnum;
 import hr.dbasic.anephysiobe.repositories.*;
 import hr.dbasic.anephysiobe.services.FunctionalDiagnosisService;
 import hr.dbasic.anephysiobe.services.MkbService;
@@ -26,6 +38,7 @@ import java.time.Month;
 import java.util.ArrayList;
 import java.util.List;
 
+@SuppressWarnings({"DuplicatedCode", "SpellCheckingInspection"})
 @Component
 @RequiredArgsConstructor
 public class Runner implements CommandLineRunner {
@@ -46,6 +59,10 @@ public class Runner implements CommandLineRunner {
     private final MkbService mkbService;
     private final FunctionalDiagnosisRepositoryMongo functionalDiagnosisRepositoryMongo;
     private final FunctionalDiagnosisService functionalDiagnosisService;
+    private final AssessmentRepositoryMongo assessmentRepositoryMongo;
+    private final RassRepositoryMongo rassRepositoryMongo;
+    private final GoalRepositoryMongo goalRepositoryMongo;
+    private final PlanRepositoryMongo planRepositoryMongo;
     
     @Override
     public void run(String... args) {
@@ -617,29 +634,187 @@ public class Runner implements CommandLineRunner {
         pfd17.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_5.getDescription()).build());
         pfd17.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_6.getDescription()).selected(true).build());
         
+        Rass r1 = Rass.builder().score(RassEnum.R_POS_4.getScore()).term(RassEnum.R_POS_4.getTerm()).scoreDescription(RassEnum.R_POS_4.getScoreDescription()).build();
+        Rass r2 = Rass.builder().score(RassEnum.R_POS_3.getScore()).term(RassEnum.R_POS_3.getTerm()).scoreDescription(RassEnum.R_POS_3.getScoreDescription()).build();
+        Rass r3 = Rass.builder().score(RassEnum.R_POS_2.getScore()).term(RassEnum.R_POS_2.getTerm()).scoreDescription(RassEnum.R_POS_2.getScoreDescription()).build();
+        Rass r4 = Rass.builder().score(RassEnum.R_POS_1.getScore()).term(RassEnum.R_POS_1.getTerm()).scoreDescription(RassEnum.R_POS_1.getScoreDescription()).build();
+        Rass r5 = Rass.builder().score(RassEnum.R0.getScore()).term(RassEnum.R0.getTerm()).scoreDescription(RassEnum.R0.getScoreDescription()).build();
+        Rass r6 = Rass.builder().score(RassEnum.R_NEG_1.getScore()).term(RassEnum.R_NEG_1.getTerm()).scoreDescription(RassEnum.R_NEG_1.getScoreDescription()).build();
+        Rass r7 = Rass.builder().score(RassEnum.R_NEG_2.getScore()).term(RassEnum.R_NEG_2.getTerm()).scoreDescription(RassEnum.R_NEG_2.getScoreDescription()).build();
+        Rass r8 = Rass.builder().score(RassEnum.R_NEG_3.getScore()).term(RassEnum.R_NEG_3.getTerm()).scoreDescription(RassEnum.R_NEG_3.getScoreDescription()).build();
+        Rass r9 = Rass.builder().score(RassEnum.R_NEG_4.getScore()).term(RassEnum.R_NEG_4.getTerm()).scoreDescription(RassEnum.R_NEG_4.getScoreDescription()).build();
+        Rass r10 = Rass.builder().score(RassEnum.R_NEG_5.getScore()).term(RassEnum.R_NEG_5.getTerm()).scoreDescription(RassEnum.R_NEG_5.getScoreDescription()).build();
+//        rassRepositoryMongo.saveAll(
+//                List.of(
+//                        r1, r2, r3, r4, r5, r6, r7, r8, r9, r10
+//                )
+//        );
         
-        PhysioFile physioFile1 = PhysioFile.builder().fileOpenedBy("Iva Mikolić").patient(p1).patientFunctionalDiagnoses(pfd1).assessment().build();
-        PhysioFile physioFile2 = PhysioFile.builder().fileOpenedBy("David Bašić").patient(p2).patientFunctionalDiagnoses(pfd2).assessment().build();
-        PhysioFile physioFile3 = PhysioFile.builder().fileOpenedBy("Iva Mikolić").patient(p3).patientFunctionalDiagnoses(pfd3).assessment().build();
-        PhysioFile physioFile4 = PhysioFile.builder().fileOpenedBy("Iva Mikolić").patient(p4).patientFunctionalDiagnoses(pfd4).assessment().build();
-        PhysioFile physioFile5 = PhysioFile.builder().fileOpenedBy("Iva Mikolić").patient(p5).patientFunctionalDiagnoses(pfd5).assessment().build();
-        PhysioFile physioFile6 = PhysioFile.builder().fileOpenedBy("Iva Mikolić").patient(p6).patientFunctionalDiagnoses(pfd6).assessment().build();
-        PhysioFile physioFile7 = PhysioFile.builder().fileOpenedBy("Iva Mikolić").patient(p7).patientFunctionalDiagnoses(pfd7).assessment().build();
-        PhysioFile physioFile8 = PhysioFile.builder().fileOpenedBy("Iva Mikolić").patient(p8).patientFunctionalDiagnoses(pfd8).assessment().build();
-        PhysioFile physioFile9 = PhysioFile.builder().fileOpenedBy("David Bašić").patient(p9).patientFunctionalDiagnoses(pfd9).assessment().build();
-        PhysioFile physioFile10 = PhysioFile.builder().fileOpenedBy("David Bašić").patient(p10).patientFunctionalDiagnoses(pfd10).assessment().build();
-        PhysioFile physioFile11 = PhysioFile.builder().fileOpenedBy("David Bašić").patient(p11).patientFunctionalDiagnoses(pfd11).assessment().build();
-        PhysioFile physioFile12 = PhysioFile.builder().fileOpenedBy("David Bašić").patient(p12).patientFunctionalDiagnoses(pfd12).assessment().build();
-        PhysioFile physioFile13 = PhysioFile.builder().fileOpenedBy("David Bašić").patient(p13).patientFunctionalDiagnoses(pfd13).assessment().build();
-        PhysioFile physioFile14 = PhysioFile.builder().fileOpenedBy("David Bašić").patient(p14).patientFunctionalDiagnoses(pfd14).assessment().build();
-        PhysioFile physioFile15 = PhysioFile.builder().fileOpenedBy("Iva Mikolić").patient(p15).patientFunctionalDiagnoses(pfd15).assessment().build();
-        PhysioFile physioFile16 = PhysioFile.builder().fileOpenedBy("Iva Mikolić").patient(p16).patientFunctionalDiagnoses(pfd16).assessment().build();
-        PhysioFile physioFile17 = PhysioFile.builder().fileOpenedBy("Iva Mikolić").patient(p17).patientFunctionalDiagnoses(pfd17).assessment().build();
-
-    
-
-
-
-
+        PatientRass pr1 = PatientRass.builder().score(RassEnum.R0.getScore()).term(RassEnum.R0.getTerm()).scoreDescription(RassEnum.R0.getScoreDescription()).additionalDescription("/").build();
+        PatientRass pr2 = PatientRass.builder().score(RassEnum.R0.getScore()).term(RassEnum.R0.getTerm()).scoreDescription(RassEnum.R0.getScoreDescription()).additionalDescription("/").build();
+        PatientRass pr3 = PatientRass.builder().score(RassEnum.R0.getScore()).term(RassEnum.R0.getTerm()).scoreDescription(RassEnum.R0.getScoreDescription()).additionalDescription("/").build();
+        PatientRass pr4 = PatientRass.builder().score(RassEnum.R0.getScore()).term(RassEnum.R0.getTerm()).scoreDescription(RassEnum.R0.getScoreDescription()).additionalDescription("/").build();
+        PatientRass pr5 = PatientRass.builder().score(RassEnum.R0.getScore()).term(RassEnum.R0.getTerm()).scoreDescription(RassEnum.R0.getScoreDescription()).additionalDescription("/").build();
+        PatientRass pr6 = PatientRass.builder().score(RassEnum.R0.getScore()).term(RassEnum.R0.getTerm()).scoreDescription(RassEnum.R0.getScoreDescription()).additionalDescription("/").build();
+        PatientRass pr7 = PatientRass.builder().score(RassEnum.R0.getScore()).term(RassEnum.R0.getTerm()).scoreDescription(RassEnum.R0.getScoreDescription()).additionalDescription("/").build();
+        PatientRass pr8 = PatientRass.builder().score(RassEnum.R0.getScore()).term(RassEnum.R0.getTerm()).scoreDescription(RassEnum.R0.getScoreDescription()).additionalDescription("/").build();
+        PatientRass pr9 = PatientRass.builder().score(RassEnum.R0.getScore()).term(RassEnum.R0.getTerm()).scoreDescription(RassEnum.R0.getScoreDescription()).additionalDescription("/").build();
+        PatientRass pr10 = PatientRass.builder().score(RassEnum.R0.getScore()).term(RassEnum.R0.getTerm()).scoreDescription(RassEnum.R0.getScoreDescription()).additionalDescription("/").build();
+        PatientRass pr11 = PatientRass.builder().score(RassEnum.R0.getScore()).term(RassEnum.R0.getTerm()).scoreDescription(RassEnum.R0.getScoreDescription()).additionalDescription("/").build();
+        PatientRass pr12 = PatientRass.builder().score(RassEnum.R0.getScore()).term(RassEnum.R0.getTerm()).scoreDescription(RassEnum.R0.getScoreDescription()).additionalDescription("/").build();
+        PatientRass pr13 = PatientRass.builder().score(RassEnum.R0.getScore()).term(RassEnum.R0.getTerm()).scoreDescription(RassEnum.R0.getScoreDescription()).additionalDescription("/").build();
+        PatientRass pr14 = PatientRass.builder().score(RassEnum.R0.getScore()).term(RassEnum.R0.getTerm()).scoreDescription(RassEnum.R0.getScoreDescription()).additionalDescription("/").build();
+        PatientRass pr15 = PatientRass.builder().score(RassEnum.R0.getScore()).term(RassEnum.R0.getTerm()).scoreDescription(RassEnum.R0.getScoreDescription()).additionalDescription("/").build();
+        PatientRass pr16 = PatientRass.builder().score(RassEnum.R0.getScore()).term(RassEnum.R0.getTerm()).scoreDescription(RassEnum.R0.getScoreDescription()).additionalDescription("/").build();
+        PatientRass pr17 = PatientRass.builder().score(RassEnum.R0.getScore()).term(RassEnum.R0.getTerm()).scoreDescription(RassEnum.R0.getScoreDescription()).additionalDescription("/").build();
+        
+        Assessment a1 = Assessment.builder().patientRass(pr1).notes("/").build();
+        Assessment a2 = Assessment.builder().patientRass(pr2).notes("/").build();
+        Assessment a3 = Assessment.builder().patientRass(pr3).notes("/").build();
+        Assessment a4 = Assessment.builder().patientRass(pr4).notes("/").build();
+        Assessment a5 = Assessment.builder().patientRass(pr5).notes("/").build();
+        Assessment a6 = Assessment.builder().patientRass(pr6).notes("/").build();
+        Assessment a7 = Assessment.builder().patientRass(pr7).notes("/").build();
+        Assessment a8 = Assessment.builder().patientRass(pr8).notes("/").build();
+        Assessment a9 = Assessment.builder().patientRass(pr9).notes("/").build();
+        Assessment a10 = Assessment.builder().patientRass(pr10).notes("/").build();
+        Assessment a11 = Assessment.builder().patientRass(pr11).notes("/").build();
+        Assessment a12 = Assessment.builder().patientRass(pr12).notes("/").build();
+        Assessment a13 = Assessment.builder().patientRass(pr13).notes("/").build();
+        Assessment a14 = Assessment.builder().patientRass(pr14).notes("/").build();
+        Assessment a15 = Assessment.builder().patientRass(pr15).notes("/").build();
+        Assessment a16 = Assessment.builder().patientRass(pr16).notes("/").build();
+        Assessment a17 = Assessment.builder().patientRass(pr17).notes("/").build();
+//        assessmentRepositoryMongo.saveAll(
+//                List.of(
+//                        a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17
+//                )
+//        );
+        
+        
+        Goal g1 = Goal.builder().type(GoalsEnum.G_INTUBIRANI.getType()).description(GoalsEnum.G_INTUBIRANI.getDescription()).build();
+        Goal g2 = Goal.builder().type(GoalsEnum.G_EKSTUBIRANI.getType()).description(GoalsEnum.G_EKSTUBIRANI.getDescription()).build();
+//        goalRepositoryMongo.saveAll(
+//                List.of(
+//                        g1, g2
+//                )
+//        );
+        
+        
+        PatientGoal pg1 = PatientGoal.builder().type(g2.getType()).description(g2.getDescription()).build();
+        PatientGoal pg2 = PatientGoal.builder().type(g2.getType()).description(g2.getDescription()).build();
+        PatientGoal pg3 = PatientGoal.builder().type(g2.getType()).description(g2.getDescription()).build();
+        PatientGoal pg4 = PatientGoal.builder().type(g2.getType()).description(g2.getDescription()).build();
+        PatientGoal pg5 = PatientGoal.builder().type(g2.getType()).description(g2.getDescription()).build();
+        PatientGoal pg6 = PatientGoal.builder().type(g2.getType()).description(g2.getDescription()).build();
+        PatientGoal pg7 = PatientGoal.builder().type(g2.getType()).description(g2.getDescription()).build();
+        PatientGoal pg8 = PatientGoal.builder().type(g2.getType()).description(g2.getDescription()).build();
+        PatientGoal pg9 = PatientGoal.builder().type(g2.getType()).description(g2.getDescription()).build();
+        PatientGoal pg10 = PatientGoal.builder().type(g2.getType()).description(g2.getDescription()).build();
+        PatientGoal pg11 = PatientGoal.builder().type(g2.getType()).description(g2.getDescription()).build();
+        PatientGoal pg12 = PatientGoal.builder().type(g2.getType()).description(g2.getDescription()).build();
+        PatientGoal pg13 = PatientGoal.builder().type(g2.getType()).description(g2.getDescription()).build();
+        PatientGoal pg14 = PatientGoal.builder().type(g2.getType()).description(g2.getDescription()).build();
+        PatientGoal pg15 = PatientGoal.builder().type(g2.getType()).description(g2.getDescription()).build();
+        PatientGoal pg16 = PatientGoal.builder().type(g2.getType()).description(g2.getDescription()).build();
+        PatientGoal pg17 = PatientGoal.builder().type(g2.getType()).description(g2.getDescription()).build();
+        
+        Plan pl1 = Plan.builder().type(PlansEnum.P_INTUBIRANI.getType()).description(PlansEnum.P_INTUBIRANI.getDescription()).build();
+        Plan pl2 = Plan.builder().type(PlansEnum.P_EKSTUBIRANI.getType()).description(PlansEnum.P_EKSTUBIRANI.getDescription()).build();
+//        planRepositoryMongo.saveAll(
+//                List.of(
+//                        pl1, pl2
+//                )
+//        );
+        
+        PatientPlan pp1 = PatientPlan.builder().type(pl2.getType()).description(pl2.getDescription()).build();
+        PatientPlan pp2 = PatientPlan.builder().type(pl2.getType()).description(pl2.getDescription()).build();
+        PatientPlan pp3 = PatientPlan.builder().type(pl2.getType()).description(pl2.getDescription()).build();
+        PatientPlan pp4 = PatientPlan.builder().type(pl2.getType()).description(pl2.getDescription()).build();
+        PatientPlan pp5 = PatientPlan.builder().type(pl2.getType()).description(pl2.getDescription()).build();
+        PatientPlan pp6 = PatientPlan.builder().type(pl2.getType()).description(pl2.getDescription()).build();
+        PatientPlan pp7 = PatientPlan.builder().type(pl2.getType()).description(pl2.getDescription()).build();
+        PatientPlan pp8 = PatientPlan.builder().type(pl2.getType()).description(pl2.getDescription()).build();
+        PatientPlan pp9 = PatientPlan.builder().type(pl2.getType()).description(pl2.getDescription()).build();
+        PatientPlan pp10 = PatientPlan.builder().type(pl2.getType()).description(pl2.getDescription()).build();
+        PatientPlan pp11 = PatientPlan.builder().type(pl2.getType()).description(pl2.getDescription()).build();
+        PatientPlan pp12 = PatientPlan.builder().type(pl2.getType()).description(pl2.getDescription()).build();
+        PatientPlan pp13 = PatientPlan.builder().type(pl2.getType()).description(pl2.getDescription()).build();
+        PatientPlan pp14 = PatientPlan.builder().type(pl2.getType()).description(pl2.getDescription()).build();
+        PatientPlan pp15 = PatientPlan.builder().type(pl2.getType()).description(pl2.getDescription()).build();
+        PatientPlan pp16 = PatientPlan.builder().type(pl2.getType()).description(pl2.getDescription()).build();
+        PatientPlan pp17 = PatientPlan.builder().type(pl2.getType()).description(pl2.getDescription()).build();
+        
+        List<PatientProcedureData> ppd1 = new ArrayList<>();
+        ppd1.add(PatientProcedureData.builder().date(LocalDateTime.of(2023, Month.DECEMBER, 15, 0, 0)).description(ProceduresEnum.P_1.getDescription()).build());
+        
+        List<PatientProcedureData> ppd2 = new ArrayList<>();
+        ppd2.add(PatientProcedureData.builder().date(LocalDateTime.of(2023, Month.DECEMBER, 16, 0, 0)).description(ProceduresEnum.P_1.getDescription()).build());
+        
+        List<PatientProcedureData> ppd3 = new ArrayList<>();
+        ppd3.add(PatientProcedureData.builder().date(LocalDateTime.of(2023, Month.DECEMBER, 17, 0, 0)).description(ProceduresEnum.P_1.getDescription()).build());
+        
+        List<PatientProcedureData> ppd4 = new ArrayList<>();
+        ppd4.add(PatientProcedureData.builder().date(LocalDateTime.of(2023, Month.DECEMBER, 18, 0, 0)).description(ProceduresEnum.P_1.getDescription()).build());
+        
+        List<PatientProcedureData> ppd5 = new ArrayList<>();
+        ppd5.add(PatientProcedureData.builder().date(LocalDateTime.of(2023, Month.DECEMBER, 19, 0, 0)).description(ProceduresEnum.P_1.getDescription()).build());
+        
+        List<PatientProcedureData> ppd6 = new ArrayList<>();
+        ppd6.add(PatientProcedureData.builder().date(LocalDateTime.of(2023, Month.DECEMBER, 20, 0, 0)).description(ProceduresEnum.P_1.getDescription()).build());
+        
+        List<PatientProcedureData> ppd7 = new ArrayList<>();
+        ppd7.add(PatientProcedureData.builder().date(LocalDateTime.of(2023, Month.DECEMBER, 21, 0, 0)).description(ProceduresEnum.P_1.getDescription()).build());
+        
+        List<PatientProcedureData> ppd8 = new ArrayList<>();
+        ppd8.add(PatientProcedureData.builder().date(LocalDateTime.of(2023, Month.DECEMBER, 22, 0, 0)).description(ProceduresEnum.P_1.getDescription()).build());
+        
+        List<PatientProcedureData> ppd9 = new ArrayList<>();
+        ppd9.add(PatientProcedureData.builder().date(LocalDateTime.of(2023, Month.DECEMBER, 23, 0, 0)).description(ProceduresEnum.P_1.getDescription()).build());
+        
+        List<PatientProcedureData> ppd10 = new ArrayList<>();
+        ppd10.add(PatientProcedureData.builder().date(LocalDateTime.of(2023, Month.DECEMBER, 24, 0, 0)).description(ProceduresEnum.P_1.getDescription()).build());
+        
+        List<PatientProcedureData> ppd11 = new ArrayList<>();
+        ppd11.add(PatientProcedureData.builder().date(LocalDateTime.of(2023, Month.DECEMBER, 25, 0, 0)).description(ProceduresEnum.P_1.getDescription()).build());
+        
+        List<PatientProcedureData> ppd12 = new ArrayList<>();
+        ppd12.add(PatientProcedureData.builder().date(LocalDateTime.of(2023, Month.DECEMBER, 26, 0, 0)).description(ProceduresEnum.P_1.getDescription()).build());
+        
+        List<PatientProcedureData> ppd13 = new ArrayList<>();
+        ppd13.add(PatientProcedureData.builder().date(LocalDateTime.of(2023, Month.DECEMBER, 27, 0, 0)).description(ProceduresEnum.P_1.getDescription()).build());
+        
+        List<PatientProcedureData> ppd14 = new ArrayList<>();
+        ppd14.add(PatientProcedureData.builder().date(LocalDateTime.of(2023, Month.DECEMBER, 28, 0, 0)).description(ProceduresEnum.P_1.getDescription()).build());
+        
+        List<PatientProcedureData> ppd15 = new ArrayList<>();
+        ppd15.add(PatientProcedureData.builder().date(LocalDateTime.of(2023, Month.DECEMBER, 29, 0, 0)).description(ProceduresEnum.P_1.getDescription()).build());
+        
+        List<PatientProcedureData> ppd16 = new ArrayList<>();
+        ppd16.add(PatientProcedureData.builder().date(LocalDateTime.of(2023, Month.DECEMBER, 30, 0, 0)).description(ProceduresEnum.P_1.getDescription()).build());
+        
+        List<PatientProcedureData> ppd17 = new ArrayList<>();
+        ppd17.add(PatientProcedureData.builder().date(LocalDateTime.of(2023, Month.DECEMBER, 31, 0, 0)).description(ProceduresEnum.P_1.getDescription()).build());
+        
+        
+        PhysioFile physioFile1 = PhysioFile.builder().fileOpenedBy("Iva Mikolić").patient(p1).patientFunctionalDiagnoses(pfd1).assessment(a1).patientGoal(pg1).patientPlan(pp1).notes("/").build();
+        PhysioFile physioFile2 = PhysioFile.builder().fileOpenedBy("David Bašić").patient(p2).patientFunctionalDiagnoses(pfd2).assessment(a2).patientGoal(pg2).patientPlan(pp2).notes("/").build();
+        PhysioFile physioFile3 = PhysioFile.builder().fileOpenedBy("Iva Mikolić").patient(p3).patientFunctionalDiagnoses(pfd3).assessment(a3).patientGoal(pg3).patientPlan(pp3).notes("/").build();
+        PhysioFile physioFile4 = PhysioFile.builder().fileOpenedBy("Iva Mikolić").patient(p4).patientFunctionalDiagnoses(pfd4).assessment(a4).patientGoal(pg4).patientPlan(pp4).notes("/").build();
+        PhysioFile physioFile5 = PhysioFile.builder().fileOpenedBy("Iva Mikolić").patient(p5).patientFunctionalDiagnoses(pfd5).assessment(a5).patientGoal(pg5).patientPlan(pp5).notes("/").build();
+        PhysioFile physioFile6 = PhysioFile.builder().fileOpenedBy("Iva Mikolić").patient(p6).patientFunctionalDiagnoses(pfd6).assessment(a6).patientGoal(pg6).patientPlan(pp6).notes("/").build();
+        PhysioFile physioFile7 = PhysioFile.builder().fileOpenedBy("Iva Mikolić").patient(p7).patientFunctionalDiagnoses(pfd7).assessment(a7).patientGoal(pg7).patientPlan(pp7).notes("/").build();
+        PhysioFile physioFile8 = PhysioFile.builder().fileOpenedBy("Iva Mikolić").patient(p8).patientFunctionalDiagnoses(pfd8).assessment(a8).patientGoal(pg8).patientPlan(pp8).notes("/").build();
+        PhysioFile physioFile9 = PhysioFile.builder().fileOpenedBy("David Bašić").patient(p9).patientFunctionalDiagnoses(pfd9).assessment(a9).patientGoal(pg9).patientPlan(pp9).notes("/").build();
+        PhysioFile physioFile10 = PhysioFile.builder().fileOpenedBy("David Bašić").patient(p10).patientFunctionalDiagnoses(pfd10).assessment(a10).patientGoal(pg10).patientPlan(pp10).notes("/").build();
+        PhysioFile physioFile11 = PhysioFile.builder().fileOpenedBy("David Bašić").patient(p11).patientFunctionalDiagnoses(pfd11).assessment(a11).patientGoal(pg11).patientPlan(pp11).notes("/").build();
+        PhysioFile physioFile12 = PhysioFile.builder().fileOpenedBy("David Bašić").patient(p12).patientFunctionalDiagnoses(pfd12).assessment(a12).patientGoal(pg12).patientPlan(pp12).notes("/").build();
+        PhysioFile physioFile13 = PhysioFile.builder().fileOpenedBy("David Bašić").patient(p13).patientFunctionalDiagnoses(pfd13).assessment(a13).patientGoal(pg13).patientPlan(pp13).notes("/").build();
+        PhysioFile physioFile14 = PhysioFile.builder().fileOpenedBy("David Bašić").patient(p14).patientFunctionalDiagnoses(pfd14).assessment(a14).patientGoal(pg14).patientPlan(pp14).notes("/").build();
+        PhysioFile physioFile15 = PhysioFile.builder().fileOpenedBy("Iva Mikolić").patient(p15).patientFunctionalDiagnoses(pfd15).assessment(a15).patientGoal(pg15).patientPlan(pp15).notes("/").build();
+        PhysioFile physioFile16 = PhysioFile.builder().fileOpenedBy("Iva Mikolić").patient(p16).patientFunctionalDiagnoses(pfd16).assessment(a16).patientGoal(pg16).patientPlan(pp16).notes("/").build();
+        PhysioFile physioFile17 = PhysioFile.builder().fileOpenedBy("Iva Mikolić").patient(p17).patientFunctionalDiagnoses(pfd17).assessment(a17).patientGoal(pg17).patientPlan(pp17).notes("/").build();
+        
+        
     }
 }

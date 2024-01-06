@@ -30,15 +30,15 @@ public enum ProceduresEnum {
     P_24("Mehanička eksuflacija"),
     P_25("Završna procjena");
     
-    private final String name;
+    private final String description;
     
-    ProceduresEnum(String name) {
-        this.name = name;
+    ProceduresEnum(String description) {
+        this.description = description;
     }
     
     @Override
     public String toString() {
-        return name;
+        return description;
     }
     
     

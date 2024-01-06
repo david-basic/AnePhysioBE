@@ -17,7 +17,7 @@ public class Assessment {
     @Id
     private String id;
     
-    private Rass rass;
+    private PatientRass patientRass;
     
     private String notes;
 }

@@ -5,18 +5,20 @@ import lombok.*;
 
 import java.time.LocalDateTime;
 
-@Builder
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor(force = true)
-@EqualsAndHashCode(doNotUseGetters = true, onlyExplicitlyIncluded = true)
-@ToString(doNotUseGetters = true, onlyExplicitlyIncluded = true)
-public class PatientProcedureData {
+@EqualsAndHashCode(doNotUseGetters = true, onlyExplicitlyIncluded = true, callSuper = true)
+public class PatientProcedureData extends Procedure{
+    
     @NotNull(message = "Procedure has to have a date!")
     private LocalDateTime date;
     
-    @NotNull(message = "Procedure description has to be added!")
-    private String description;
+    @Builder
+    public PatientProcedureData(String description, LocalDateTime date) {
+        super.setDescription(description);
+        this.date = date;
+    }
     
 }

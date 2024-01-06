@@ -1,4 +1,4 @@
-package hr.dbasic.anephysiobe.models.physiofile.procedures;
+package hr.dbasic.anephysiobe.models.physiofile.plans;
 
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
@@ -11,13 +11,16 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @AllArgsConstructor
 @NoArgsConstructor(force = true)
 @EqualsAndHashCode(doNotUseGetters = true, onlyExplicitlyIncluded = true)
-@ToString(doNotUseGetters = true, onlyExplicitlyIncluded = true)
-@Document("procedures")
-public class Procedure {
+@ToString(onlyExplicitlyIncluded = true, doNotUseGetters = true)
+@Document("plans")
+public class Plan {
+    
     @Id
     private String id;
     
-    @NotNull(message = "Procedure has to have a description!")
-    @ToString.Include
+    @NotNull(message = "Plan has to have a type defined!")
+    private String type;
+    
+    @NotNull(message = "Plan has to have a description defined!")
     private String description;
 }
