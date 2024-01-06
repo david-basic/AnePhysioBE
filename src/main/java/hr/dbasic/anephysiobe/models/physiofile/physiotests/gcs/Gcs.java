@@ -10,6 +10,7 @@ import lombok.*;
 @NoArgsConstructor(force = true)
 @EqualsAndHashCode(doNotUseGetters = true, onlyExplicitlyIncluded = true)
 public class Gcs {
+    
     @NotNull(message = "Eye opening response has to be defined!")
     private GcsResponse eyeOpeningResponse;
     

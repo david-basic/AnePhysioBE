@@ -1,7 +1,6 @@
 package hr.dbasic.anephysiobe.models.physiofile.physiotests;
 
 
-import hr.dbasic.anephysiobe.models.physiofile.physiotests.Vas;
 import hr.dbasic.anephysiobe.models.physiofile.physiotests.cpax.Cpax;
 import hr.dbasic.anephysiobe.models.physiofile.physiotests.gcs.Gcs;
 import hr.dbasic.anephysiobe.models.physiofile.physiotests.mmt.Mmt;

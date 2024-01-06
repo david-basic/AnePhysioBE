@@ -10,15 +10,17 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor(force = true)
 @EqualsAndHashCode(doNotUseGetters = true, onlyExplicitlyIncluded = true, callSuper = true)
-public class PatientProcedureData extends Procedure{
+public class PatientProcedure extends Procedure{
     
     @NotNull(message = "Procedure has to have a date!")
     private LocalDateTime date;
     
-    @Builder
-    public PatientProcedureData(String description, LocalDateTime date) {
-        super.setDescription(description);
-        this.date = date;
+    @Builder(builderMethodName = "patientProcedureBuilder")
+    public static PatientProcedure createPatientProcedure(String description, LocalDateTime date) {
+        PatientProcedure patientProcedure = new PatientProcedure();
+        patientProcedure.setDescription(description);
+        patientProcedure.setDate(date);
+        return patientProcedure;
     }
     
 }

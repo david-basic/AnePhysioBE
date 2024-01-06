@@ -6,7 +6,7 @@ import hr.dbasic.anephysiobe.models.physiofile.functionaldiagnoses.PatientFuncti
 import hr.dbasic.anephysiobe.models.physiofile.goals.PatientGoal;
 import hr.dbasic.anephysiobe.models.physiofile.physiotests.PhysioTest;
 import hr.dbasic.anephysiobe.models.physiofile.plans.PatientPlan;
-import hr.dbasic.anephysiobe.models.physiofile.procedures.PatientProcedureData;
+import hr.dbasic.anephysiobe.models.physiofile.procedures.PatientProcedure;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
 import org.springframework.data.annotation.Id;
@@ -47,7 +47,7 @@ public class PhysioFile implements Serializable {
     
     private String notes;
     
-    private List<PatientProcedureData> patientProcedureData;
+    private List<PatientProcedure> patientProcedureData;
     
     @DBRef
     private PhysioTest physioTest;
@@ -55,6 +55,5 @@ public class PhysioFile implements Serializable {
     private String conclussion;
     
     private String fileClosedBy;
-    
     
 }

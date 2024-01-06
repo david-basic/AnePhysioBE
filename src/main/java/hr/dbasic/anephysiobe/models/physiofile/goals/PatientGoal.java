@@ -5,14 +5,15 @@ import lombok.*;
 @Getter
 @Setter
 @AllArgsConstructor
-@NoArgsConstructor(force = true)
 @EqualsAndHashCode(doNotUseGetters = true, onlyExplicitlyIncluded = true, callSuper = true)
 public class PatientGoal extends Goal{
     
-    @Builder
-    public PatientGoal(String type, String description) {
-        super.setType(type);
-        super.setDescription(description);
+    @Builder(builderMethodName = "patientGoalBuilder")
+    public static PatientGoal createPatientGoal(String type, String description) {
+        PatientGoal patientGoal = new PatientGoal();
+        patientGoal.setType(type);
+        patientGoal.setDescription(description);
+        return patientGoal;
     }
     
 }

@@ -11,11 +11,13 @@ public class PatientRass extends Rass {
     
     private String additionalDescription;
     
-    @Builder
-    public PatientRass(String score, String term, String scoreDescription, String additionalDescription) {
-        super.setScore(score);
-        super.setTerm(term);
-        super.setScoreDescription(scoreDescription);
-        this.additionalDescription = additionalDescription;
+    @Builder(builderMethodName = "patientRassBuilder")
+    public static PatientRass createPatientRass(String score, String term, String scoreDescription, String additionalDescription) {
+        PatientRass patientRass = new PatientRass();
+        patientRass.setScore(score);
+        patientRass.setTerm(term);
+        patientRass.setScoreDescription(scoreDescription);
+        patientRass.setAdditionalDescription(additionalDescription);
+        return patientRass;
     }
 }
