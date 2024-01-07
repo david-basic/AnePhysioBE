@@ -9,6 +9,8 @@ import hr.dbasic.anephysiobe.services.PhysioFileService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class PhysioFileServiceImpl implements PhysioFileService {
@@ -19,5 +21,12 @@ public class PhysioFileServiceImpl implements PhysioFileService {
     public PhysioFileResponseDto getPhysioFileByPatientId(String id) {
         PhysioFile foundFile = physioFileRepositoryMongo.findPhysioFileByPatientId(id).orElseThrow(EntityNotFoundException.supplier("Physio file"));
         return physioFileToPhysioFileResponseDtoConverter.convert(foundFile);
+    }
+    
+    @Override
+    public List<PhysioFileResponseDto> getAllPhysioFiles() {
+        return physioFileRepositoryMongo.findAll().stream().map(
+                physioFileToPhysioFileResponseDtoConverter::convert
+        ).toList();
     }
 }

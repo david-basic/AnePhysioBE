@@ -10,7 +10,8 @@ public enum FunctionalDiagnosesEnum {
     FD_3("Lijevostrana ili desnostrana oduzetost"),
     FD_4("Generalizirana hipotrofija"),
     FD_5("Imobilizacija uvjetovana operativnim postupkom"),
-    FD_6("Politrauma");
+    FD_6("Politrauma"),
+    FD_7("Poremećaj stanja svijesti");
     
     private final String description;
     

@@ -230,8 +230,8 @@ public class Runner implements CommandLineRunner {
 //                )
 //        );
         
-        PatientOperation op1 = PatientOperation.builder().procedureName("Amputacija potkoljenice").procedureDate(LocalDate.of(2023, Month.NOVEMBER, 28)).build(); //opci susak
-        PatientOperation op2 = PatientOperation.builder().procedureName("Dekompresivna kraniotomija").procedureDate(LocalDate.of(2023, Month.NOVEMBER, 30)).build(); // opci susak
+        PatientOperation op1 = PatientOperation.builder().procedureName("Kraniotomija").procedureDate(LocalDate.of(2024, Month.JANUARY, 2)).build(); //opci susak
+        PatientOperation op2 = PatientOperation.builder().procedureName("Dekompresivna kraniotomija").procedureDate(LocalDate.of(2023, Month.DECEMBER, 30)).build(); // opci susak
         PatientOperation op3 = PatientOperation.builder().procedureName("Postavljanje V-V ECMO").procedureDate(LocalDate.of(2023, Month.OCTOBER, 28)).build(); // izolacija susak
         PatientOperation op4 = PatientOperation.builder().procedureName("Commando operacija, kirurška traheotomija").procedureDate(LocalDate.of(2023, Month.DECEMBER, 2)).build(); // jil rijeka box1
         PatientOperation op5 = PatientOperation.builder().procedureName("Kirurška traheotomija").procedureDate(LocalDate.of(2023, Month.DECEMBER, 5)).build(); // jil rijeka box1
@@ -242,9 +242,9 @@ public class Runner implements CommandLineRunner {
 //        );
         
         
-        PatientMkb pm1 = PatientMkb.builder().mkbCode(mkbService.findMkbByCode(MkbCodesA.A41_9.getCode())).build();
-        PatientMkb pm2 = PatientMkb.builder().mkbCode(mkbService.findMkbByCode(MkbCodesA.A41_9.getCode())).build();
-        PatientMkb pm3 = PatientMkb.builder().mkbCode(mkbService.findMkbByCode(MkbCodesA.A41_9.getCode())).build();
+        PatientMkb pm1 = PatientMkb.builder().mkbCode(mkbService.findMkbByCode(MkbCodesI.I60_2.getCode())).build();
+        PatientMkb pm2 = PatientMkb.builder().mkbCode(mkbService.findMkbByCode(MkbCodesJ.J96_0.getCode())).build();
+        PatientMkb pm3 = PatientMkb.builder().mkbCode(mkbService.findMkbByCode(MkbCodesS.S47_0.getCode())).build();
         PatientMkb pm4 = PatientMkb.builder().mkbCode(mkbService.findMkbByCode(MkbCodesA.A41_9.getCode())).build();
         PatientMkb pm5 = PatientMkb.builder().mkbCode(mkbService.findMkbByCode(MkbCodesA.A41_9.getCode())).build();
         PatientMkb pm6 = PatientMkb.builder().mkbCode(mkbService.findMkbByCode(MkbCodesA.A41_9.getCode())).build();
@@ -265,10 +265,70 @@ public class Runner implements CommandLineRunner {
 //                )
 //        );
         
+        List<PatientMkb> p1_OtherMKBs = new ArrayList<>();
+        p1_OtherMKBs.add(pm1);
+        PatientMkb p1_omkb1 = PatientMkb.builder().mkbCode(mkbService.findMkbByCode(MkbCodesG.G93_6.getCode())).build();
+        p1_OtherMKBs.add(p1_omkb1);
+        PatientMkb p1_omkb2 = PatientMkb.builder().mkbCode(mkbService.findMkbByCode(MkbCodesI.I60_2.getCode())).build();
+        p1_OtherMKBs.add(p1_omkb2);
+        PatientMkb p1_omkb3 = PatientMkb.builder().mkbCode(mkbService.findMkbByCode(MkbCodesI.I67_1.getCode())).build();
+        p1_OtherMKBs.add(p1_omkb3);
+        PatientMkb p1_omkb4 = PatientMkb.builder().mkbCode(mkbService.findMkbByCode(MkbCodesU.U07_2.getCode())).build();
+        p1_OtherMKBs.add(p1_omkb4);
+//        patientMkbRepositoryMongo.saveAll(
+//                List.of(
+//                        p1_omkb1, p1_omkb2, p1_omkb3, p1_omkb4
+//                )
+//        );
         
-        Patient p1 = Patient.builder().firstName("Mirko").lastName("Mirkić").identificationNumber(randomNumberService.generateRandomBigInteger()).dob(LocalDate.of(1987, Month.JANUARY, 8)).sex(male).leadingMkb(pm1).patientMkbs(List.of(pm1)).admissionDateTime(LocalDateTime.of(2023, Month.OCTOBER, 5, 10, 30)).patientAddress(pa1).leadingDoctor(doc1).build();
-        Patient p2 = Patient.builder().firstName("Darko").lastName("Darić").identificationNumber(randomNumberService.generateRandomBigInteger()).dob(LocalDate.of(1968, Month.FEBRUARY, 2)).sex(male).leadingMkb(pm2).patientMkbs(List.of(pm2)).admissionDateTime(LocalDateTime.of(2023, Month.SEPTEMBER, 18, 15, 45)).patientAddress(pa2).leadingDoctor(doc2).build();
-        Patient p3 = Patient.builder().firstName("Frko").lastName("Frkić").identificationNumber(randomNumberService.generateRandomBigInteger()).dob(LocalDate.of(1991, Month.MARCH, 3)).sex(male).leadingMkb(pm3).patientMkbs(List.of(pm3)).operations(List.of(op1)).admissionDateTime(LocalDateTime.of(2023, Month.SEPTEMBER, 29, 11, 0)).patientAddress(pa3).leadingDoctor(doc3).build();
+        List<PatientMkb> p2_OtherMKBs = new ArrayList<>();
+        p2_OtherMKBs.add(pm2);
+        PatientMkb p2_omkb1 = PatientMkb.builder().mkbCode(mkbService.findMkbByCode(MkbCodesI.I10_0.getCode())).build();
+        p2_OtherMKBs.add(p2_omkb1);
+        PatientMkb p2_omkb2 = PatientMkb.builder().mkbCode(mkbService.findMkbByCode(MkbCodesI.I49_9.getCode())).build();
+        p2_OtherMKBs.add(p2_omkb2);
+        PatientMkb p2_omkb3 = PatientMkb.builder().mkbCode(mkbService.findMkbByCode(MkbCodesJ.J96_0.getCode())).build();
+        p2_OtherMKBs.add(p2_omkb3);
+        PatientMkb p2_omkb4 = PatientMkb.builder().mkbCode(mkbService.findMkbByCode(MkbCodesJ.J18_9.getCode())).build();
+        p2_OtherMKBs.add(p2_omkb4);
+        PatientMkb p2_omkb5 = PatientMkb.builder().mkbCode(mkbService.findMkbByCode(MkbCodesJ.J45_9.getCode())).build();
+        p2_OtherMKBs.add(p2_omkb5);
+        PatientMkb p2_omkb6 = PatientMkb.builder().mkbCode(mkbService.findMkbByCode(MkbCodesN.N17.getCode())).build();
+        p2_OtherMKBs.add(p2_omkb6);
+        PatientMkb p2_omkb7 = PatientMkb.builder().mkbCode(mkbService.findMkbByCode(MkbCodesU.U07_2.getCode())).build();
+        p2_OtherMKBs.add(p2_omkb7);
+//        patientMkbRepositoryMongo.saveAll(
+//                List.of(
+//                        p2_omkb1, p2_omkb2, p2_omkb3, p2_omkb4, p2_omkb5, p2_omkb6, p2_omkb7
+//                )
+//        );
+        
+        List<PatientMkb> p3_OtherMKBs = new ArrayList<>();
+        p3_OtherMKBs.add(pm3);
+        PatientMkb p3_omkb1 = PatientMkb.builder().mkbCode(mkbService.findMkbByCode(MkbCodesS.S42_2.getCode())).build();
+        p3_OtherMKBs.add(p3_omkb1);
+        PatientMkb p3_omkb2 = PatientMkb.builder().mkbCode(mkbService.findMkbByCode(MkbCodesS.S52.getCode())).build();
+        p3_OtherMKBs.add(p3_omkb2);
+        PatientMkb p3_omkb3 = PatientMkb.builder().mkbCode(mkbService.findMkbByCode(MkbCodesS.S41_1.getCode())).build();
+        p3_OtherMKBs.add(p3_omkb3);
+        PatientMkb p3_omkb4 = PatientMkb.builder().mkbCode(mkbService.findMkbByCode(MkbCodesS.S27_3.getCode())).build();
+        p3_OtherMKBs.add(p3_omkb4);
+        PatientMkb p3_omkb5 = PatientMkb.builder().mkbCode(mkbService.findMkbByCode(MkbCodesS.S36_0.getCode())).build();
+        p3_OtherMKBs.add(p3_omkb5);
+        PatientMkb p3_omkb6 = PatientMkb.builder().mkbCode(mkbService.findMkbByCode(MkbCodesS.S37_0.getCode())).build();
+        p3_OtherMKBs.add(p3_omkb6);
+        PatientMkb p3_omkb7 = PatientMkb.builder().mkbCode(mkbService.findMkbByCode(MkbCodesY.Y34.getCode())).build();
+        p3_OtherMKBs.add(p3_omkb7);
+//        patientMkbRepositoryMongo.saveAll(
+//                List.of(
+//                        p3_omkb1, p3_omkb2, p3_omkb3, p3_omkb4, p3_omkb5, p3_omkb6, p3_omkb7
+//                )
+//        );
+        
+        
+        Patient p1 = Patient.builder().firstName("Petra").lastName("Perić").identificationNumber(randomNumberService.generateRandomBigInteger()).dob(LocalDate.of(1945, Month.MARCH, 26)).sex(female).leadingMkb(pm1).patientMkbs(p1_OtherMKBs).admissionDateTime(LocalDateTime.of(2024, Month.JANUARY, 2, 5, 30)).patientAddress(pa1).leadingDoctor(doc1).build();
+        Patient p2 = Patient.builder().firstName("Darko").lastName("Darić").identificationNumber(randomNumberService.generateRandomBigInteger()).dob(LocalDate.of(1945, Month.MARCH, 21)).sex(male).leadingMkb(pm2).patientMkbs(p2_OtherMKBs).admissionDateTime(LocalDateTime.of(2023, Month.DECEMBER, 31, 16, 45)).patientAddress(pa2).leadingDoctor(doc2).build();
+        Patient p3 = Patient.builder().firstName("Frko").lastName("Frkić").identificationNumber(randomNumberService.generateRandomBigInteger()).dob(LocalDate.of(1957, Month.APRIL, 7)).sex(male).leadingMkb(pm3).patientMkbs(p3_OtherMKBs).operations(List.of(op1)).admissionDateTime(LocalDateTime.of(2023, Month.SEPTEMBER, 29, 11, 0)).patientAddress(pa3).leadingDoctor(doc3).build();
         Patient p4 = Patient.builder().firstName("Borko").lastName("Borić").identificationNumber(randomNumberService.generateRandomBigInteger()).dob(LocalDate.of(1992, Month.OCTOBER, 15)).sex(male).leadingMkb(pm4).patientMkbs(List.of(pm4)).operations(List.of(op2)).admissionDateTime(LocalDateTime.of(2023, Month.OCTOBER, 12, 13, 20)).patientAddress(pa4).leadingDoctor(doc1).build();
         Patient p5 = Patient.builder().firstName("David").lastName("Davidić").identificationNumber(randomNumberService.generateRandomBigInteger()).dob(LocalDate.of(1993, Month.APRIL, 18)).sex(male).leadingMkb(pm5).patientMkbs(List.of(pm5)).operations(List.of(op3)).admissionDateTime(LocalDateTime.of(2023, Month.NOVEMBER, 7, 9, 45)).patientAddress(pa5).leadingDoctor(doc2).build();
         Patient p6 = Patient.builder().firstName("Iva").lastName("Ivić").identificationNumber(randomNumberService.generateRandomBigInteger()).dob(LocalDate.of(1943, Month.OCTOBER, 8)).sex(female).leadingMkb(pm6).patientMkbs(List.of(pm6)).admissionDateTime(LocalDateTime.of(2023, Month.SEPTEMBER, 7, 16, 0)).patientAddress(pa6).leadingDoctor(doc3).build();
@@ -345,6 +405,44 @@ public class Runner implements CommandLineRunner {
 //                        pm1, pm2, pm3, pm4, pm5, pm6, pm7, pm8, pm8, pm10, pm11, pm12, pm13, pm14, pm15, pm16, pm17
 //                )
 //        );
+        
+        p1_omkb1.setPatient(p1);
+        p1_omkb2.setPatient(p1);
+        p1_omkb3.setPatient(p1);
+        p1_omkb4.setPatient(p1);
+//        patientMkbRepositoryMongo.saveAll(
+//                List.of(
+//                        p1_omkb1, p1_omkb2, p1_omkb3, p1_omkb4
+//                )
+//        );
+        
+        p2_omkb1.setPatient(p2);
+        p2_omkb2.setPatient(p2);
+        p2_omkb3.setPatient(p2);
+        p2_omkb4.setPatient(p2);
+        p2_omkb5.setPatient(p2);
+        p2_omkb6.setPatient(p2);
+        p2_omkb7.setPatient(p2);
+//        patientMkbRepositoryMongo.saveAll(
+//                List.of(
+//                        p2_omkb1, p2_omkb2, p2_omkb3, p2_omkb4, p2_omkb5, p2_omkb6, p2_omkb7
+//                )
+//        );
+        
+        p3_omkb1.setPatient(p3);
+        p3_omkb2.setPatient(p3);
+        p3_omkb3.setPatient(p3);
+        p3_omkb4.setPatient(p3);
+        p3_omkb5.setPatient(p3);
+        p3_omkb6.setPatient(p3);
+        p3_omkb7.setPatient(p3);
+//        patientMkbRepositoryMongo.saveAll(
+//                List.of(
+//                        p3_omkb1, p3_omkb2, p3_omkb3, p3_omkb4, p3_omkb5, p3_omkb6, p3_omkb7
+//                )
+//        );
+        
+        
         
         Bed b1 = Bed.builder().patient(p1).build();
         Bed b2 = Bed.builder().patient(p2).build();
@@ -504,28 +602,31 @@ public class Runner implements CommandLineRunner {
         
         
         List<PatientFunctionalDiagnosis> pfd1 = new ArrayList<>();
-        pfd1.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_1.getDescription()).selected(true).build());
+        pfd1.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_1.getDescription()).build());
         pfd1.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_2.getDescription()).build());
-        pfd1.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_3.getDescription()).selected(true).build());
-        pfd1.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_4.getDescription()).selected(true).build());
-        pfd1.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_5.getDescription()).build());
-        pfd1.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_6.getDescription()).selected(true).build());
+        pfd1.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_3.getDescription()).build());
+        pfd1.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_4.getDescription()).build());
+        pfd1.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_5.getDescription()).selected(true).build());
+        pfd1.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_6.getDescription()).build());
+        pfd1.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_7.getDescription()).selected(true).build());
         
         List<PatientFunctionalDiagnosis> pfd2 = new ArrayList<>();
-        pfd2.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_1.getDescription()).build());
+        pfd2.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_1.getDescription()).selected(true).build());
         pfd2.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_2.getDescription()).build());
         pfd2.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_3.getDescription()).build());
-        pfd2.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_4.getDescription()).selected(true).build());
+        pfd2.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_4.getDescription()).build());
         pfd2.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_5.getDescription()).build());
-        pfd2.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_6.getDescription()).selected(true).build());
+        pfd2.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_6.getDescription()).build());
+        pfd2.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_7.getDescription()).build());
         
         List<PatientFunctionalDiagnosis> pfd3 = new ArrayList<>();
         pfd3.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_1.getDescription()).build());
-        pfd3.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_2.getDescription()).selected(true).build());
+        pfd3.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_2.getDescription()).build());
         pfd3.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_3.getDescription()).build());
-        pfd3.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_4.getDescription()).selected(true).build());
+        pfd3.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_4.getDescription()).build());
         pfd3.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_5.getDescription()).build());
         pfd3.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_6.getDescription()).selected(true).build());
+        pfd3.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_7.getDescription()).build());
         
         List<PatientFunctionalDiagnosis> pfd4 = new ArrayList<>();
         pfd4.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_1.getDescription()).build());
@@ -534,6 +635,7 @@ public class Runner implements CommandLineRunner {
         pfd4.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_4.getDescription()).build());
         pfd4.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_5.getDescription()).build());
         pfd4.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_6.getDescription()).selected(true).build());
+        pfd4.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_7.getDescription()).selected(true).build());
         
         List<PatientFunctionalDiagnosis> pfd5 = new ArrayList<>();
         pfd5.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_1.getDescription()).build());
@@ -542,6 +644,7 @@ public class Runner implements CommandLineRunner {
         pfd5.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_4.getDescription()).selected(true).build());
         pfd5.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_5.getDescription()).build());
         pfd5.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_6.getDescription()).selected(true).build());
+        pfd5.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_7.getDescription()).selected(true).build());
         
         List<PatientFunctionalDiagnosis> pfd6 = new ArrayList<>();
         pfd6.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_1.getDescription()).build());
@@ -550,6 +653,7 @@ public class Runner implements CommandLineRunner {
         pfd6.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_4.getDescription()).selected(true).build());
         pfd6.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_5.getDescription()).build());
         pfd6.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_6.getDescription()).selected(true).build());
+        pfd6.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_7.getDescription()).selected(true).build());
         
         List<PatientFunctionalDiagnosis> pfd7 = new ArrayList<>();
         pfd7.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_1.getDescription()).build());
@@ -558,6 +662,7 @@ public class Runner implements CommandLineRunner {
         pfd7.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_4.getDescription()).build());
         pfd7.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_5.getDescription()).build());
         pfd7.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_6.getDescription()).selected(true).build());
+        pfd7.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_7.getDescription()).selected(true).build());
         
         List<PatientFunctionalDiagnosis> pfd8 = new ArrayList<>();
         pfd8.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_1.getDescription()).selected(true).build());
@@ -566,6 +671,7 @@ public class Runner implements CommandLineRunner {
         pfd8.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_4.getDescription()).selected(true).build());
         pfd8.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_5.getDescription()).build());
         pfd8.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_6.getDescription()).selected(true).build());
+        pfd8.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_7.getDescription()).selected(true).build());
         
         List<PatientFunctionalDiagnosis> pfd9 = new ArrayList<>();
         pfd9.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_1.getDescription()).build());
@@ -574,6 +680,7 @@ public class Runner implements CommandLineRunner {
         pfd9.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_4.getDescription()).selected(true).build());
         pfd9.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_5.getDescription()).build());
         pfd9.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_6.getDescription()).build());
+        pfd9.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_7.getDescription()).build());
         
         List<PatientFunctionalDiagnosis> pfd10 = new ArrayList<>();
         pfd10.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_1.getDescription()).build());
@@ -582,6 +689,7 @@ public class Runner implements CommandLineRunner {
         pfd10.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_4.getDescription()).selected(true).build());
         pfd10.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_5.getDescription()).build());
         pfd10.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_6.getDescription()).build());
+        pfd10.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_7.getDescription()).build());
         
         List<PatientFunctionalDiagnosis> pfd11 = new ArrayList<>();
         pfd11.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_1.getDescription()).build());
@@ -590,6 +698,7 @@ public class Runner implements CommandLineRunner {
         pfd11.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_4.getDescription()).selected(true).build());
         pfd11.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_5.getDescription()).build());
         pfd11.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_6.getDescription()).selected(true).build());
+        pfd11.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_7.getDescription()).selected(true).build());
         
         List<PatientFunctionalDiagnosis> pfd12 = new ArrayList<>();
         pfd12.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_1.getDescription()).build());
@@ -598,6 +707,7 @@ public class Runner implements CommandLineRunner {
         pfd12.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_4.getDescription()).selected(true).build());
         pfd12.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_5.getDescription()).build());
         pfd12.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_6.getDescription()).selected(true).build());
+        pfd12.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_7.getDescription()).selected(true).build());
         
         List<PatientFunctionalDiagnosis> pfd13 = new ArrayList<>();
         pfd13.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_1.getDescription()).selected(true).build());
@@ -606,6 +716,7 @@ public class Runner implements CommandLineRunner {
         pfd13.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_4.getDescription()).selected(true).build());
         pfd13.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_5.getDescription()).build());
         pfd13.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_6.getDescription()).selected(true).build());
+        pfd13.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_7.getDescription()).selected(true).build());
         
         List<PatientFunctionalDiagnosis> pfd14 = new ArrayList<>();
         pfd14.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_1.getDescription()).build());
@@ -614,6 +725,7 @@ public class Runner implements CommandLineRunner {
         pfd14.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_4.getDescription()).selected(true).build());
         pfd14.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_5.getDescription()).build());
         pfd14.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_6.getDescription()).build());
+        pfd14.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_7.getDescription()).build());
         
         List<PatientFunctionalDiagnosis> pfd15 = new ArrayList<>();
         pfd15.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_1.getDescription()).build());
@@ -622,6 +734,7 @@ public class Runner implements CommandLineRunner {
         pfd15.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_4.getDescription()).selected(true).build());
         pfd15.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_5.getDescription()).build());
         pfd15.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_6.getDescription()).selected(true).build());
+        pfd15.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_7.getDescription()).selected(true).build());
         
         List<PatientFunctionalDiagnosis> pfd16 = new ArrayList<>();
         pfd16.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_1.getDescription()).selected(true).build());
@@ -630,6 +743,7 @@ public class Runner implements CommandLineRunner {
         pfd16.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_4.getDescription()).selected(true).build());
         pfd16.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_5.getDescription()).build());
         pfd16.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_6.getDescription()).selected(true).build());
+        pfd16.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_7.getDescription()).selected(true).build());
         
         List<PatientFunctionalDiagnosis> pfd17 = new ArrayList<>();
         pfd17.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_1.getDescription()).build());
@@ -638,6 +752,7 @@ public class Runner implements CommandLineRunner {
         pfd17.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_4.getDescription()).selected(true).build());
         pfd17.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_5.getDescription()).build());
         pfd17.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_6.getDescription()).selected(true).build());
+        pfd17.add(PatientFunctionalDiagnosis.builder().name(FunctionalDiagnosesEnum.FD_7.getDescription()).selected(true).build());
         
         Rass r1 = Rass.builder().score(RassEnum.R_POS_4.getScore()).term(RassEnum.R_POS_4.getTerm()).scoreDescription(RassEnum.R_POS_4.getScoreDescription()).build();
         Rass r2 = Rass.builder().score(RassEnum.R_POS_3.getScore()).term(RassEnum.R_POS_3.getTerm()).scoreDescription(RassEnum.R_POS_3.getScoreDescription()).build();
@@ -655,9 +770,9 @@ public class Runner implements CommandLineRunner {
 //                )
 //        );
         
-        PatientRass pr1 = PatientRass.patientRassBuilder().score(RassEnum.R0.getScore()).term(RassEnum.R0.getTerm()).scoreDescription(RassEnum.R0.getScoreDescription()).additionalDescription("/").build();
-        PatientRass pr2 = PatientRass.patientRassBuilder().score(RassEnum.R0.getScore()).term(RassEnum.R0.getTerm()).scoreDescription(RassEnum.R0.getScoreDescription()).additionalDescription("/").build();
-        PatientRass pr3 = PatientRass.patientRassBuilder().score(RassEnum.R0.getScore()).term(RassEnum.R0.getTerm()).scoreDescription(RassEnum.R0.getScoreDescription()).additionalDescription("/").build();
+        PatientRass pr1 = PatientRass.patientRassBuilder().score(RassEnum.R_NEG_5.getScore()).term(RassEnum.R_NEG_5.getTerm()).scoreDescription(RassEnum.R_NEG_5.getScoreDescription()).additionalDescription("Lošeg općeg stanja \n IMV(FiO2 50% peep 12 SpO2 97% \n Bez kontakta RASS -5").build();
+        PatientRass pr2 = PatientRass.patientRassBuilder().score(RassEnum.R0.getScore()).term(RassEnum.R0.getTerm()).scoreDescription(RassEnum.R0.getScoreDescription()).additionalDescription("U kontaktu").build();
+        PatientRass pr3 = PatientRass.patientRassBuilder().score(RassEnum.R_NEG_5.getScore()).term(RassEnum.R_NEG_5.getTerm()).scoreDescription(RassEnum.R_NEG_5.getScoreDescription()).additionalDescription("/").build();
         PatientRass pr4 = PatientRass.patientRassBuilder().score(RassEnum.R0.getScore()).term(RassEnum.R0.getTerm()).scoreDescription(RassEnum.R0.getScoreDescription()).additionalDescription("/").build();
         PatientRass pr5 = PatientRass.patientRassBuilder().score(RassEnum.R0.getScore()).term(RassEnum.R0.getTerm()).scoreDescription(RassEnum.R0.getScoreDescription()).additionalDescription("/").build();
         PatientRass pr6 = PatientRass.patientRassBuilder().score(RassEnum.R0.getScore()).term(RassEnum.R0.getTerm()).scoreDescription(RassEnum.R0.getScoreDescription()).additionalDescription("/").build();
@@ -706,7 +821,7 @@ public class Runner implements CommandLineRunner {
 //        );
         
         
-        PatientGoal pg1 = PatientGoal.patientGoalBuilder().type(g2.getType()).description(g2.getDescription()).build();
+        PatientGoal pg1 = PatientGoal.patientGoalBuilder().type(g1.getType()).description(g1.getDescription()).build();
         PatientGoal pg2 = PatientGoal.patientGoalBuilder().type(g2.getType()).description(g2.getDescription()).build();
         PatientGoal pg3 = PatientGoal.patientGoalBuilder().type(g2.getType()).description(g2.getDescription()).build();
         PatientGoal pg4 = PatientGoal.patientGoalBuilder().type(g2.getType()).description(g2.getDescription()).build();
@@ -732,7 +847,7 @@ public class Runner implements CommandLineRunner {
 //                )
 //        );
         
-        PatientPlan pp1 = PatientPlan.patientPlanBuilder().type(pl2.getType()).description(pl2.getDescription()).build();
+        PatientPlan pp1 = PatientPlan.patientPlanBuilder().type(pl1.getType()).description(pl1.getDescription()).build();
         PatientPlan pp2 = PatientPlan.patientPlanBuilder().type(pl2.getType()).description(pl2.getDescription()).build();
         PatientPlan pp3 = PatientPlan.patientPlanBuilder().type(pl2.getType()).description(pl2.getDescription()).build();
         PatientPlan pp4 = PatientPlan.patientPlanBuilder().type(pl2.getType()).description(pl2.getDescription()).build();
@@ -758,13 +873,21 @@ public class Runner implements CommandLineRunner {
         
         
         List<PatientProcedure> ppd1 = new ArrayList<>();
-        ppd1.add(PatientProcedure.patientProcedureBuilder().date(LocalDateTime.of(2023, Month.DECEMBER, 15, 0, 0)).description(ProceduresEnum.P_1.getDescription()).workingTherapists("Mikolić, Bašić").build());
+        ppd1.add(PatientProcedure.patientProcedureBuilder().date(LocalDateTime.of(2024, Month.JANUARY, 3, 0, 0)).description(ProceduresEnum.P_1.getDescription()).workingTherapists("Mikolić").build());
+        ppd1.add(PatientProcedure.patientProcedureBuilder().date(LocalDateTime.of(2024, Month.JANUARY, 3, 0, 0)).description(ProceduresEnum.P_10.getDescription()).workingTherapists("Mikolić").build());
+        ppd1.add(PatientProcedure.patientProcedureBuilder().date(LocalDateTime.of(2024, Month.JANUARY, 3, 0, 0)).description(ProceduresEnum.P_8.getDescription()).workingTherapists("Mikolić").build());
         
         List<PatientProcedure> ppd2 = new ArrayList<>();
-        ppd2.add(PatientProcedure.patientProcedureBuilder().date(LocalDateTime.of(2023, Month.DECEMBER, 16, 0, 0)).description(ProceduresEnum.P_1.getDescription()).workingTherapists("Mikolić").build());
+        ppd2.add(PatientProcedure.patientProcedureBuilder().date(LocalDateTime.of(2024, Month.JANUARY, 3, 0, 0)).description(ProceduresEnum.P_1.getDescription()).workingTherapists("Mikolić").build());
+        ppd2.add(PatientProcedure.patientProcedureBuilder().date(LocalDateTime.of(2024, Month.JANUARY, 3, 0, 0)).description(ProceduresEnum.P_2.getDescription()).workingTherapists("Mikolić").build());
+        ppd2.add(PatientProcedure.patientProcedureBuilder().date(LocalDateTime.of(2024, Month.JANUARY, 3, 0, 0)).description(ProceduresEnum.P_3.getDescription()).workingTherapists("Mikolić").build());
+        ppd2.add(PatientProcedure.patientProcedureBuilder().date(LocalDateTime.of(2024, Month.JANUARY, 3, 0, 0)).description(ProceduresEnum.P_6.getDescription()).workingTherapists("Mikolić").build());
+        ppd2.add(PatientProcedure.patientProcedureBuilder().date(LocalDateTime.of(2024, Month.JANUARY, 3, 0, 0)).description(ProceduresEnum.P_10.getDescription()).workingTherapists("Mikolić").build());
         
         List<PatientProcedure> ppd3 = new ArrayList<>();
         ppd3.add(PatientProcedure.patientProcedureBuilder().date(LocalDateTime.of(2023, Month.DECEMBER, 17, 0, 0)).description(ProceduresEnum.P_1.getDescription()).workingTherapists("Mikolić").build());
+        ppd3.add(PatientProcedure.patientProcedureBuilder().date(LocalDateTime.of(2023, Month.DECEMBER, 17, 0, 0)).description(ProceduresEnum.P_10.getDescription()).workingTherapists("Mikolić").build());
+        ppd3.add(PatientProcedure.patientProcedureBuilder().date(LocalDateTime.of(2023, Month.DECEMBER, 17, 0, 0)).description(ProceduresEnum.P_22.getDescription()).workingTherapists("Mikolić").build());
         
         List<PatientProcedure> ppd4 = new ArrayList<>();
         ppd4.add(PatientProcedure.patientProcedureBuilder().date(LocalDateTime.of(2023, Month.DECEMBER, 18, 0, 0)).description(ProceduresEnum.P_1.getDescription()).workingTherapists("Mikolić").build());

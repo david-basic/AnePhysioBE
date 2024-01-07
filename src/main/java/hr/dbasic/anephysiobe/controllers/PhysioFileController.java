@@ -20,19 +20,25 @@ public class PhysioFileController {
     
     private final PhysioFileService physioFileService;
     
+    
+    
     @GetMapping(PhysioFileMappings.getPhysioFileByPatientIdGetMapping)
     public ResponseEntity<ApiResponse<PhysioFileResponseDto>> getPhysioFileByPatientId(@PathVariable String id) {
         return ResponseEntity.ok(
-          ApiResponse.ok(
-                  "Physio file fetched successfully",
-                  physioFileService.getPhysioFileByPatientId(id)
-          )
+                ApiResponse.ok(
+                        "Physio file fetched successfully",
+                        physioFileService.getPhysioFileByPatientId(id)
+                )
         );
     }
+    
+    
     
     @NoArgsConstructor(access = AccessLevel.PRIVATE)
     public static class PhysioFileMappings {
         public static final String physioFileRequestMapping = AppMappings.apiPhysioFileRequestMapping + "/physiofiles";
+        public static final String getAllPhysioFilesGetMapping = "";
         public static final String getPhysioFileByPatientIdGetMapping = "/patient/{id}";
+        public static final String updatePhysioFileByIdPutMapping = "/file/{id}";
     }
 }
