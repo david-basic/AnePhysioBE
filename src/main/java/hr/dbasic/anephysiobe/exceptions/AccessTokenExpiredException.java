@@ -9,6 +9,7 @@ public class AccessTokenExpiredException extends ForbiddenException {
         super(Constants.exceptionMessageFormat);
     }
     
+    @SuppressWarnings("unused")
     public AccessTokenExpiredException(final Throwable cause) {
         super(Constants.exceptionMessageFormat, cause);
     }
