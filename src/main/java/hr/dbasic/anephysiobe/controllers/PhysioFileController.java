@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @RequestMapping(PhysioFileController.PhysioFileMappings.physioFileRequestMapping)
 @RequiredArgsConstructor
@@ -20,7 +22,15 @@ public class PhysioFileController {
     
     private final PhysioFileService physioFileService;
     
-    
+    @GetMapping(PhysioFileMappings.getAllPhysioFilesGetMapping)
+    public ResponseEntity<ApiResponse<List<PhysioFileResponseDto>>> getAllPhysioFiles() {
+        return ResponseEntity.ok(
+                ApiResponse.ok(
+                        "Physio files fetched successfully",
+                        physioFileService.getAllPhysioFiles()
+                )
+        );
+    }
     
     @GetMapping(PhysioFileMappings.getPhysioFileByPatientIdGetMapping)
     public ResponseEntity<ApiResponse<PhysioFileResponseDto>> getPhysioFileByPatientId(@PathVariable String id) {
@@ -31,7 +41,6 @@ public class PhysioFileController {
                 )
         );
     }
-    
     
     
     @NoArgsConstructor(access = AccessLevel.PRIVATE)

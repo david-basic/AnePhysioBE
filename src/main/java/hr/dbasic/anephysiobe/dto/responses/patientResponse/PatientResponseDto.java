@@ -1,6 +1,5 @@
 package hr.dbasic.anephysiobe.dto.responses.patientResponse;
 
-import hr.dbasic.anephysiobe.models.patients.PatientMkb;
 import hr.dbasic.anephysiobe.models.patients.Sex;
 import lombok.Builder;
 
@@ -15,8 +14,8 @@ public record PatientResponseDto(
         String lastName,
         String birthDate,
         Sex sex,
-        PatientMkb leadingMkb,
-        List<PatientMkb> patientMkbs,
+        PRPatientMkbDto leadingMkb,
+        List<PRPatientMkbDto> patientMkbs,
         List<PRPatientOperationDto> operations,
         String admissionDateTime,
         PRPatientAddressDto patientAddress,

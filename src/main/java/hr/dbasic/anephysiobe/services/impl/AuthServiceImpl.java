@@ -41,9 +41,9 @@ public class AuthServiceImpl implements AuthService {
         User user = Objects.requireNonNull(registerRequestDtoToUserConverter.convert(registerRequestDto));
         RefreshToken refreshToken = refreshTokenService.createRefreshToken();
         user.setRefreshToken(refreshToken);
+        userRepositoryMongo.save(user);
         refreshToken.setUser(user);
         refreshTokenRepositoryMongo.save(refreshToken);
-        userRepositoryMongo.save(user);
     }
     
     @Transactional

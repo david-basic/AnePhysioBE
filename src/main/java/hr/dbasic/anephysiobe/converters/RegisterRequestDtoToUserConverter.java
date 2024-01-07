@@ -28,7 +28,7 @@ public class RegisterRequestDtoToUserConverter implements Converter<RegisterRequ
                 .username(source.username())
                 .password(passwordEncoder.encode(source.password()))
                 .enabled(true)
-                .role(userRoleService.getUserRole(RoleEnum.ROLE_USER))
+                .role(userRoleService.getUserRole(RoleEnum.ROLE_ADMIN))
                 .build();
     }
 }
