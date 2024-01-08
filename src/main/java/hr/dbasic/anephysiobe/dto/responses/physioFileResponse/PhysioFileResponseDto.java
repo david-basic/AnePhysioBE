@@ -1,6 +1,7 @@
 package hr.dbasic.anephysiobe.dto.responses.physioFileResponse;
 
 import hr.dbasic.anephysiobe.dto.responses.patientResponse.PatientResponseDto;
+import hr.dbasic.anephysiobe.models.patients.Patient;
 import hr.dbasic.anephysiobe.models.physiofile.assessment.Assessment;
 import hr.dbasic.anephysiobe.models.physiofile.functionaldiagnoses.FunctionalDiagnosis;
 import hr.dbasic.anephysiobe.models.physiofile.functionaldiagnoses.PatientFunctionalDiagnosis;
@@ -24,9 +25,9 @@ public record PhysioFileResponseDto(
         List<PatientFunctionalDiagnosis> patientFunctionalDiagnoses,
         Assessment assessment,
         List<Goal> fullGoalsList,
-        PatientGoal patientGoal,
+        List<PatientGoal> patientGoal,
         List<Plan> fullPlansList,
-        PatientPlan patientPlan,
+        List<PatientPlan> patientPlan,
         String notes,
         List<Procedure> fullProcedureList,
         List<PatientProcedure> patientProcedures,

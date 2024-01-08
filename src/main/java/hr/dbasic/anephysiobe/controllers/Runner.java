@@ -37,11 +37,11 @@ public class Runner implements CommandLineRunner {
         
 //        Sex female = Sex.builder().name(SexEnum.FEMALE.name()).displayName(SexEnum.FEMALE.getDisplayName()).build();
 //        Sex male = Sex.builder().name(SexEnum.MALE.name()).displayName(SexEnum.MALE.getDisplayName()).build();
-////        sexRepositoryMongo.saveAll(
-////                List.of(
-////                        female, male
-////                )
-////        );
+//        sexRepositoryMongo.saveAll(
+//                List.of(
+//                        female, male
+//                )
+//        );
 //
 //        List<Mkb> mkbs = new ArrayList<>();
 //        for (MkbCodesA mkbCode : MkbCodesA.values()) {
@@ -122,7 +122,7 @@ public class Runner implements CommandLineRunner {
 //        for (MkbCodesZ mkbCode : MkbCodesZ.values()) {
 //            mkbs.add(Mkb.builder().code(mkbCode.getCode()).displayName(mkbCode.getDisplayName()).build());
 //        }
-////        mkbRepositoryMongo.saveAll(mkbs);
+//        mkbRepositoryMongo.saveAll(mkbs);
 //
 //        County bjelo_bilo = County.builder().name(CountyEnum.BJELOVARSKO_BILOGORSKA.name()).displayName(CountyEnum.BJELOVARSKO_BILOGORSKA.getDisplayName()).build();
 //        County brod_pos = County.builder().name(CountyEnum.BRODSKO_POSAVSKA.name()).displayName(CountyEnum.BRODSKO_POSAVSKA.getDisplayName()).build();
@@ -145,30 +145,30 @@ public class Runner implements CommandLineRunner {
 //        County zadar = County.builder().name(CountyEnum.ZADARSKA.name()).displayName(CountyEnum.ZADARSKA.getDisplayName()).build();
 //        County zagreba = County.builder().name(CountyEnum.ZAGREBACKA.name()).displayName(CountyEnum.ZAGREBACKA.getDisplayName()).build();
 //        County grad_zagre = County.builder().name(CountyEnum.GRAD_ZAGREB.name()).displayName(CountyEnum.GRAD_ZAGREB.getDisplayName()).build();
-////        countyRepositoryMongo.saveAll(
-////                List.of(
-////                        bjelo_bilo, brod_pos, dubr_nere, istr, karlov, kopr_kriz, krap_zag, lic_senj, medim, osje_bara,
-////                        poze_slav, prim_gor, sis_mos, spli_dal, sib_kni, vara, viro_podr, vuko_sri, zadar, zagreba,
-////                        grad_zagre
-////                )
-////        );
+//        countyRepositoryMongo.saveAll(
+//                List.of(
+//                        bjelo_bilo, brod_pos, dubr_nere, istr, karlov, kopr_kriz, krap_zag, lic_senj, medim, osje_bara,
+//                        poze_slav, prim_gor, sis_mos, spli_dal, sib_kni, vara, viro_podr, vuko_sri, zadar, zagreba,
+//                        grad_zagre
+//                )
+//        );
 //
 //        Doctor doc1 = Doctor.builder().firstName("Pero").lastName("Perić").title("prim.").role("spec. anesteziologije, reanim. i intenzivne med.").build();
 //        Doctor doc2 = Doctor.builder().firstName("Tom").lastName("Tomić").role("spec. anesteziologije, reanim. i intenzivne med.").build();
 //        Doctor doc3 = Doctor.builder().firstName("Ifo").lastName("Ifić").title("doc.").role("spec. anesteziologije, reanim. i intenzivne med.").build();
-////        doctorRepositoryMongo.saveAll(
-////                List.of(
-////                        doc1, doc2, doc3
-////                )
-////        );
+//        doctorRepositoryMongo.saveAll(
+//                List.of(
+//                        doc1, doc2, doc3
+//                )
+//        );
 //
 //        DepartmentLocality loc1 = DepartmentLocality.builder().name(LocalityEnum.SUSAK.name()).displayName(LocalityEnum.SUSAK.getDisplayName()).build();
 //        DepartmentLocality loc2 = DepartmentLocality.builder().name(LocalityEnum.RIJEKA.name()).displayName(LocalityEnum.RIJEKA.getDisplayName()).build();
-////        departmentLocalityRepositoryMongo.saveAll(
-////                List.of(
-////                        loc1, loc2
-////                )
-////        );
+//        departmentLocalityRepositoryMongo.saveAll(
+//                List.of(
+//                        loc1, loc2
+//                )
+//        );
 //
 //        PatientAddress pa1 = PatientAddress.builder().address("Trg Petra Krešimira IV 5").county(grad_zagre).city("Zagreb").zipCode(10000).build();
 //        PatientAddress pa2 = PatientAddress.builder().address("Ulica Kneza Branimira 12").county(spli_dal).city("Split").zipCode(21000).build();
@@ -187,22 +187,22 @@ public class Runner implements CommandLineRunner {
 //        PatientAddress pa15 = PatientAddress.builder().address("Trg Stjepana Radića 6").county(vuko_sri).city("Vinkovci").zipCode(32000).build();
 //        PatientAddress pa16 = PatientAddress.builder().address("Mihanovićeva ulica 14").county(grad_zagre).city("Zagreb").zipCode(10000).build();
 //        PatientAddress pa17 = PatientAddress.builder().address("Dr. Ante Starčevića 29").county(sib_kni).city("Šibenik").zipCode(22100).build();
-////        patientAddressRepositoryMongo.saveAll(
-////                List.of(
-////                        pa1, pa2, pa3, pa4, pa5, pa6, pa7, pa8, pa9, pa10, pa11, pa12, pa13, pa14, pa15, pa16, pa17
-////                )
-////        );
+//        patientAddressRepositoryMongo.saveAll(
+//                List.of(
+//                        pa1, pa2, pa3, pa4, pa5, pa6, pa7, pa8, pa9, pa10, pa11, pa12, pa13, pa14, pa15, pa16, pa17
+//                )
+//        );
 //
 //        PatientOperation op1 = PatientOperation.builder().procedureName("Kraniotomija").procedureDate(LocalDate.of(2024, Month.JANUARY, 2)).build(); //opci susak
 //        PatientOperation op2 = PatientOperation.builder().procedureName("Dekompresivna kraniotomija").procedureDate(LocalDate.of(2023, Month.DECEMBER, 30)).build(); // opci susak
 //        PatientOperation op3 = PatientOperation.builder().procedureName("Postavljanje V-V ECMO").procedureDate(LocalDate.of(2023, Month.OCTOBER, 28)).build(); // izolacija susak
 //        PatientOperation op4 = PatientOperation.builder().procedureName("Commando operacija, kirurška traheotomija").procedureDate(LocalDate.of(2023, Month.DECEMBER, 2)).build(); // jil rijeka box1
 //        PatientOperation op5 = PatientOperation.builder().procedureName("Kirurška traheotomija").procedureDate(LocalDate.of(2023, Month.DECEMBER, 5)).build(); // jil rijeka box1
-////        patientOperationRepositoryMongo.saveAll(
-////                List.of(
-////                        op1, op2, op3, op4, op5
-////                )
-////        );
+//        patientOperationRepositoryMongo.saveAll(
+//                List.of(
+//                        op1, op2, op3, op4, op5
+//                )
+//        );
 //
 //
 //        PatientMkb pm1 = PatientMkb.builder().mkbCode(mkbService.findMkbByCode(MkbCodesI.I60_2.getCode())).build();
@@ -222,11 +222,11 @@ public class Runner implements CommandLineRunner {
 //        PatientMkb pm15 = PatientMkb.builder().mkbCode(mkbService.findMkbByCode(MkbCodesA.A41_9.getCode())).build();
 //        PatientMkb pm16 = PatientMkb.builder().mkbCode(mkbService.findMkbByCode(MkbCodesA.A41_9.getCode())).build();
 //        PatientMkb pm17 = PatientMkb.builder().mkbCode(mkbService.findMkbByCode(MkbCodesA.A41_9.getCode())).build();
-////        patientMkbRepositoryMongo.saveAll(
-////                List.of(
-////                        pm1, pm2, pm3, pm4, pm5, pm6, pm7, pm8, pm9, pm10, pm11, pm12, pm13, pm14, pm15, pm16, pm17
-////                )
-////        );
+//        patientMkbRepositoryMongo.saveAll(
+//                List.of(
+//                        pm1, pm2, pm3, pm4, pm5, pm6, pm7, pm8, pm9, pm10, pm11, pm12, pm13, pm14, pm15, pm16, pm17
+//                )
+//        );
 //
 //        List<PatientMkb> p1_OtherMKBs = new ArrayList<>();
 //        p1_OtherMKBs.add(pm1);
@@ -238,11 +238,11 @@ public class Runner implements CommandLineRunner {
 //        p1_OtherMKBs.add(p1_omkb3);
 //        PatientMkb p1_omkb4 = PatientMkb.builder().mkbCode(mkbService.findMkbByCode(MkbCodesU.U07_2.getCode())).build();
 //        p1_OtherMKBs.add(p1_omkb4);
-////        patientMkbRepositoryMongo.saveAll(
-////                List.of(
-////                        p1_omkb1, p1_omkb2, p1_omkb3, p1_omkb4
-////                )
-////        );
+//        patientMkbRepositoryMongo.saveAll(
+//                List.of(
+//                        p1_omkb1, p1_omkb2, p1_omkb3, p1_omkb4
+//                )
+//        );
 //
 //        List<PatientMkb> p2_OtherMKBs = new ArrayList<>();
 //        p2_OtherMKBs.add(pm2);
@@ -260,11 +260,11 @@ public class Runner implements CommandLineRunner {
 //        p2_OtherMKBs.add(p2_omkb6);
 //        PatientMkb p2_omkb7 = PatientMkb.builder().mkbCode(mkbService.findMkbByCode(MkbCodesU.U07_2.getCode())).build();
 //        p2_OtherMKBs.add(p2_omkb7);
-////        patientMkbRepositoryMongo.saveAll(
-////                List.of(
-////                        p2_omkb1, p2_omkb2, p2_omkb3, p2_omkb4, p2_omkb5, p2_omkb6, p2_omkb7
-////                )
-////        );
+//        patientMkbRepositoryMongo.saveAll(
+//                List.of(
+//                        p2_omkb1, p2_omkb2, p2_omkb3, p2_omkb4, p2_omkb5, p2_omkb6, p2_omkb7
+//                )
+//        );
 //
 //        List<PatientMkb> p3_OtherMKBs = new ArrayList<>();
 //        p3_OtherMKBs.add(pm3);
@@ -282,11 +282,11 @@ public class Runner implements CommandLineRunner {
 //        p3_OtherMKBs.add(p3_omkb6);
 //        PatientMkb p3_omkb7 = PatientMkb.builder().mkbCode(mkbService.findMkbByCode(MkbCodesY.Y34.getCode())).build();
 //        p3_OtherMKBs.add(p3_omkb7);
-////        patientMkbRepositoryMongo.saveAll(
-////                List.of(
-////                        p3_omkb1, p3_omkb2, p3_omkb3, p3_omkb4, p3_omkb5, p3_omkb6, p3_omkb7
-////                )
-////        );
+//        patientMkbRepositoryMongo.saveAll(
+//                List.of(
+//                        p3_omkb1, p3_omkb2, p3_omkb3, p3_omkb4, p3_omkb5, p3_omkb6, p3_omkb7
+//                )
+//        );
 //
 //
 //        Patient p1 = Patient.builder().firstName("Petra").lastName("Perić").identificationNumber(randomNumberService.generateRandomBigInteger()).dob(LocalDate.of(1945, Month.MARCH, 26)).sex(female).leadingMkb(pm1).patientMkbs(p1_OtherMKBs).admissionDateTime(LocalDateTime.of(2024, Month.JANUARY, 2, 5, 30)).patientAddress(pa1).leadingDoctor(doc1).build();
@@ -306,11 +306,11 @@ public class Runner implements CommandLineRunner {
 //        Patient p15 = Patient.builder().firstName("Ukras").lastName("Bornić").identificationNumber(randomNumberService.generateRandomBigInteger()).dob(LocalDate.of(1997, Month.DECEMBER, 7)).sex(male).leadingMkb(pm15).patientMkbs(List.of(pm15)).admissionDateTime(LocalDateTime.of(2023, Month.NOVEMBER, 6, 9, 30)).patientAddress(pa15).leadingDoctor(doc2).build();
 //        Patient p16 = Patient.builder().firstName("Borna").lastName("Ukrasnić").identificationNumber(randomNumberService.generateRandomBigInteger()).dob(LocalDate.of(2001, Month.NOVEMBER, 18)).sex(male).leadingMkb(pm16).patientMkbs(List.of(pm16)).admissionDateTime(LocalDateTime.of(2023, Month.SEPTEMBER, 21, 13, 50)).patientAddress(pa16).leadingDoctor(doc1).build();
 //        Patient p17 = Patient.builder().firstName("Zvjezdica").lastName("Zvikić").identificationNumber(randomNumberService.generateRandomBigInteger()).dob(LocalDate.of(2002, Month.DECEMBER, 8)).sex(female).leadingMkb(pm17).patientMkbs(List.of(pm17)).admissionDateTime(LocalDateTime.of(2023, Month.OCTOBER, 28, 12, 15)).patientAddress(pa17).leadingDoctor(doc3).build();
-////        patientRepositoryMongo.saveAll(
-////                List.of(
-////                        p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17
-////                )
-////        );
+//        patientRepositoryMongo.saveAll(
+//                List.of(
+//                        p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17
+//                )
+//        );
 //
 //        pa1.setPatients(List.of(p1));
 //        pa2.setPatients(List.of(p2));
@@ -329,22 +329,22 @@ public class Runner implements CommandLineRunner {
 //        pa15.setPatients(List.of(p15));
 //        pa16.setPatients(List.of(p16));
 //        pa17.setPatients(List.of(p17));
-////        patientAddressRepositoryMongo.saveAll(
-////                List.of(
-////                        pa1, pa2, pa3, pa4, pa5, pa6, pa7, pa8, pa9, pa10, pa11, pa12, pa13, pa14, pa15, pa16, pa17
-////                )
-////        );
+//        patientAddressRepositoryMongo.saveAll(
+//                List.of(
+//                        pa1, pa2, pa3, pa4, pa5, pa6, pa7, pa8, pa9, pa10, pa11, pa12, pa13, pa14, pa15, pa16, pa17
+//                )
+//        );
 //
 //        op1.setPatient(p3);
 //        op2.setPatient(p4);
 //        op3.setPatient(p5);
 //        op4.setPatient(p7);
 //        op5.setPatient(p8);
-////        patientOperationRepositoryMongo.saveAll(
-////                List.of(
-////                        op1, op2, op3, op4, op5
-////                )
-////        );
+//        patientOperationRepositoryMongo.saveAll(
+//                List.of(
+//                        op1, op2, op3, op4, op5
+//                )
+//        );
 //
 //        pm1.setPatient(p1);
 //        pm2.setPatient(p2);
@@ -363,21 +363,21 @@ public class Runner implements CommandLineRunner {
 //        pm15.setPatient(p15);
 //        pm16.setPatient(p16);
 //        pm17.setPatient(p17);
-////        patientMkbRepositoryMongo.saveAll(
-////                List.of(
-////                        pm1, pm2, pm3, pm4, pm5, pm6, pm7, pm8, pm8, pm10, pm11, pm12, pm13, pm14, pm15, pm16, pm17
-////                )
-////        );
+//        patientMkbRepositoryMongo.saveAll(
+//                List.of(
+//                        pm1, pm2, pm3, pm4, pm5, pm6, pm7, pm8, pm8, pm10, pm11, pm12, pm13, pm14, pm15, pm16, pm17
+//                )
+//        );
 //
 //        p1_omkb1.setPatient(p1);
 //        p1_omkb2.setPatient(p1);
 //        p1_omkb3.setPatient(p1);
 //        p1_omkb4.setPatient(p1);
-////        patientMkbRepositoryMongo.saveAll(
-////                List.of(
-////                        p1_omkb1, p1_omkb2, p1_omkb3, p1_omkb4
-////                )
-////        );
+//        patientMkbRepositoryMongo.saveAll(
+//                List.of(
+//                        p1_omkb1, p1_omkb2, p1_omkb3, p1_omkb4
+//                )
+//        );
 //
 //        p2_omkb1.setPatient(p2);
 //        p2_omkb2.setPatient(p2);
@@ -386,11 +386,11 @@ public class Runner implements CommandLineRunner {
 //        p2_omkb5.setPatient(p2);
 //        p2_omkb6.setPatient(p2);
 //        p2_omkb7.setPatient(p2);
-////        patientMkbRepositoryMongo.saveAll(
-////                List.of(
-////                        p2_omkb1, p2_omkb2, p2_omkb3, p2_omkb4, p2_omkb5, p2_omkb6, p2_omkb7
-////                )
-////        );
+//        patientMkbRepositoryMongo.saveAll(
+//                List.of(
+//                        p2_omkb1, p2_omkb2, p2_omkb3, p2_omkb4, p2_omkb5, p2_omkb6, p2_omkb7
+//                )
+//        );
 //
 //        p3_omkb1.setPatient(p3);
 //        p3_omkb2.setPatient(p3);
@@ -399,11 +399,11 @@ public class Runner implements CommandLineRunner {
 //        p3_omkb5.setPatient(p3);
 //        p3_omkb6.setPatient(p3);
 //        p3_omkb7.setPatient(p3);
-////        patientMkbRepositoryMongo.saveAll(
-////                List.of(
-////                        p3_omkb1, p3_omkb2, p3_omkb3, p3_omkb4, p3_omkb5, p3_omkb6, p3_omkb7
-////                )
-////        );
+//        patientMkbRepositoryMongo.saveAll(
+//                List.of(
+//                        p3_omkb1, p3_omkb2, p3_omkb3, p3_omkb4, p3_omkb5, p3_omkb6, p3_omkb7
+//                )
+//        );
 //
 //
 //        Bed b1 = Bed.builder().patient(p1).build();
@@ -436,11 +436,11 @@ public class Runner implements CommandLineRunner {
 //        Bed b28 = Bed.builder().patient(p17).build();
 //        Bed b29 = Bed.builder().build();
 //        Bed b30 = Bed.builder().build();
-////        bedRepositoryMongo.saveAll(
-////                List.of(
-////                        b1, b2, b3, b4, b5, b6, b7, b8, b9, b10, b11, b12, b13, b14, b15, b16, b17, b18, b19, b20, b21, b22, b23, b24, b25, b26, b27, b28, b29, b30
-////                )
-////        );
+//        bedRepositoryMongo.saveAll(
+//                List.of(
+//                        b1, b2, b3, b4, b5, b6, b7, b8, b9, b10, b11, b12, b13, b14, b15, b16, b17, b18, b19, b20, b21, b22, b23, b24, b25, b26, b27, b28, b29, b30
+//                )
+//        );
 //
 //        // jil susak beds
 //        List<Bed> bedsForOpciBoxSus = new ArrayList<>();
@@ -511,11 +511,11 @@ public class Runner implements CommandLineRunner {
 //
 //        //kardio jil
 //        Box box11 = Box.builder().name("Box").bedList(justBox).build();
-////        boxRepositoryMongo.saveAll(
-////                List.of(
-////                        box1, box2, box3, box4, box5, box6, box7, box8, box9, box10, box11
-////                )
-////        );
+//        boxRepositoryMongo.saveAll(
+//                List.of(
+//                        box1, box2, box3, box4, box5, box6, box7, box8, box9, box10, box11
+//                )
+//        );
 //
 //        List<Box> jilRijekaBoxes = new ArrayList<>();
 //        jilRijekaBoxes.add(box1);
@@ -540,27 +540,27 @@ public class Runner implements CommandLineRunner {
 //        Department dep2 = Department.builder().name("COVID respiratorni centar").boxes(crcBoxes).shorthand("CRC").locality(loc2).build();
 //        Department dep3 = Department.builder().name("Jedinica intenzivnog liječenja Sušak").boxes(jilSusakBoxes).shorthand("JIL Sušak").locality(loc1).build();
 //        Department dep4 = Department.builder().name("Jedinica intenzivnog liječenja kardiokirurških bolesnika").boxes(kardioJilBoxes).shorthand("Kardio JIL").locality(loc1).build();
-////        departmentRepositoryMongo.saveAll(
-////                List.of(
-////                        dep1, dep2, dep3, dep4
-////                )
-////        );
+//        departmentRepositoryMongo.saveAll(
+//                List.of(
+//                        dep1, dep2, dep3, dep4
+//                )
+//        );
 //
 //        doc1.setDepartment(dep1);
 //        doc2.setDepartment(dep2);
 //        doc3.setDepartment(dep3);
-////        doctorRepositoryMongo.saveAll(
-////                List.of(
-////                        doc1, doc2, doc3
-////                )
-////        );
+//        doctorRepositoryMongo.saveAll(
+//                List.of(
+//                        doc1, doc2, doc3
+//                )
+//        );
 //
 //
 //        List<FunctionalDiagnosis> fds = new ArrayList<>();
 //        for (FunctionalDiagnosesEnum fd : FunctionalDiagnosesEnum.values()) {
 //            fds.add(FunctionalDiagnosis.builder().description(fd.toString()).build());
 //        }
-////        functionalDiagnosisRepositoryMongo.saveAll(fds);
+//        functionalDiagnosisRepositoryMongo.saveAll(fds);
 //
 //
 //        List<PatientFunctionalDiagnosis> pfd1 = new ArrayList<>();
@@ -726,11 +726,11 @@ public class Runner implements CommandLineRunner {
 //        Rass r8 = Rass.builder().score(RassEnum.R_NEG_3.getScore()).term(RassEnum.R_NEG_3.getTerm()).scoreDescription(RassEnum.R_NEG_3.getScoreDescription()).build();
 //        Rass r9 = Rass.builder().score(RassEnum.R_NEG_4.getScore()).term(RassEnum.R_NEG_4.getTerm()).scoreDescription(RassEnum.R_NEG_4.getScoreDescription()).build();
 //        Rass r10 = Rass.builder().score(RassEnum.R_NEG_5.getScore()).term(RassEnum.R_NEG_5.getTerm()).scoreDescription(RassEnum.R_NEG_5.getScoreDescription()).build();
-////        rassRepositoryMongo.saveAll(
-////                List.of(
-////                        r1, r2, r3, r4, r5, r6, r7, r8, r9, r10
-////                )
-////        );
+//        rassRepositoryMongo.saveAll(
+//                List.of(
+//                        r1, r2, r3, r4, r5, r6, r7, r8, r9, r10
+//                )
+//        );
 //
 //        PatientRass pr1 = PatientRass.patientRassBuilder().score(RassEnum.R_NEG_5.getScore()).term(RassEnum.R_NEG_5.getTerm()).scoreDescription(RassEnum.R_NEG_5.getScoreDescription()).additionalDescription("Lošeg općeg stanja \n IMV(FiO2 50% peep 12 SpO2 97% \n Bez kontakta RASS -5").build();
 //        PatientRass pr2 = PatientRass.patientRassBuilder().score(RassEnum.R0.getScore()).term(RassEnum.R0.getTerm()).scoreDescription(RassEnum.R0.getScoreDescription()).additionalDescription("U kontaktu").build();
@@ -767,71 +767,170 @@ public class Runner implements CommandLineRunner {
 //        Assessment a15 = Assessment.builder().patientRass(pr15).notes("/").build();
 //        Assessment a16 = Assessment.builder().patientRass(pr16).notes("/").build();
 //        Assessment a17 = Assessment.builder().patientRass(pr17).notes("/").build();
-////        assessmentRepositoryMongo.saveAll(
-////                List.of(
-////                        a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17
-////                )
-////        );
+//        assessmentRepositoryMongo.saveAll(
+//                List.of(
+//                        a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17
+//                )
+//        );
 //
 //
 //        Goal g1 = Goal.builder().type(GoalsEnum.G_INTUBIRANI.getType()).description(GoalsEnum.G_INTUBIRANI.getDescription()).build();
 //        Goal g2 = Goal.builder().type(GoalsEnum.G_EKSTUBIRANI.getType()).description(GoalsEnum.G_EKSTUBIRANI.getDescription()).build();
-////        goalRepositoryMongo.saveAll(
-////                List.of(
-////                        g1, g2
-////                )
-////        );
+//        goalRepositoryMongo.saveAll(
+//                List.of(
+//                        g1, g2
+//                )
+//        );
 //
-//
-//        PatientGoal pg1 = PatientGoal.patientGoalBuilder().type(g1.getType()).description(g1.getDescription()).build();
-//        PatientGoal pg2 = PatientGoal.patientGoalBuilder().type(g2.getType()).description(g2.getDescription()).build();
-//        PatientGoal pg3 = PatientGoal.patientGoalBuilder().type(g2.getType()).description(g2.getDescription()).build();
-//        PatientGoal pg4 = PatientGoal.patientGoalBuilder().type(g2.getType()).description(g2.getDescription()).build();
-//        PatientGoal pg5 = PatientGoal.patientGoalBuilder().type(g2.getType()).description(g2.getDescription()).build();
-//        PatientGoal pg6 = PatientGoal.patientGoalBuilder().type(g2.getType()).description(g2.getDescription()).build();
-//        PatientGoal pg7 = PatientGoal.patientGoalBuilder().type(g2.getType()).description(g2.getDescription()).build();
-//        PatientGoal pg8 = PatientGoal.patientGoalBuilder().type(g2.getType()).description(g2.getDescription()).build();
-//        PatientGoal pg9 = PatientGoal.patientGoalBuilder().type(g2.getType()).description(g2.getDescription()).build();
-//        PatientGoal pg10 = PatientGoal.patientGoalBuilder().type(g2.getType()).description(g2.getDescription()).build();
-//        PatientGoal pg11 = PatientGoal.patientGoalBuilder().type(g2.getType()).description(g2.getDescription()).build();
+//        PatientGoal pg11 = PatientGoal.patientGoalBuilder().type(g1.getType()).description(g1.getDescription()).selected(true).build();
 //        PatientGoal pg12 = PatientGoal.patientGoalBuilder().type(g2.getType()).description(g2.getDescription()).build();
-//        PatientGoal pg13 = PatientGoal.patientGoalBuilder().type(g2.getType()).description(g2.getDescription()).build();
-//        PatientGoal pg14 = PatientGoal.patientGoalBuilder().type(g2.getType()).description(g2.getDescription()).build();
-//        PatientGoal pg15 = PatientGoal.patientGoalBuilder().type(g2.getType()).description(g2.getDescription()).build();
-//        PatientGoal pg16 = PatientGoal.patientGoalBuilder().type(g2.getType()).description(g2.getDescription()).build();
-//        PatientGoal pg17 = PatientGoal.patientGoalBuilder().type(g2.getType()).description(g2.getDescription()).build();
+//        List<PatientGoal> pgl1 = new ArrayList<>(List.of(pg11, pg12));
+//
+//        PatientGoal pg21 = PatientGoal.patientGoalBuilder().type(g1.getType()).description(g1.getDescription()).build();
+//        PatientGoal pg22 = PatientGoal.patientGoalBuilder().type(g2.getType()).description(g2.getDescription()).selected(true).build();
+//        List<PatientGoal> pgl2 = new ArrayList<>(List.of(pg21, pg22));
+//
+//        PatientGoal pg31 = PatientGoal.patientGoalBuilder().type(g1.getType()).description(g1.getDescription()).build();
+//        PatientGoal pg32 = PatientGoal.patientGoalBuilder().type(g2.getType()).description(g2.getDescription()).selected(true).build();
+//        List<PatientGoal> pgl3 = new ArrayList<>(List.of(pg31, pg32));
+//
+//        PatientGoal pg41 = PatientGoal.patientGoalBuilder().type(g1.getType()).description(g1.getDescription()).build();
+//        PatientGoal pg42 = PatientGoal.patientGoalBuilder().type(g2.getType()).description(g2.getDescription()).selected(true).build();
+//        List<PatientGoal> pgl4 = new ArrayList<>(List.of(pg41, pg42));
+//
+//        PatientGoal pg51 = PatientGoal.patientGoalBuilder().type(g1.getType()).description(g1.getDescription()).build();
+//        PatientGoal pg52 = PatientGoal.patientGoalBuilder().type(g2.getType()).description(g2.getDescription()).selected(true).build();
+//        List<PatientGoal> pgl5 = new ArrayList<>(List.of(pg51, pg52));
+//
+//        PatientGoal pg61 = PatientGoal.patientGoalBuilder().type(g1.getType()).description(g1.getDescription()).build();
+//        PatientGoal pg62 = PatientGoal.patientGoalBuilder().type(g2.getType()).description(g2.getDescription()).selected(true).build();
+//        List<PatientGoal> pgl6 = new ArrayList<>(List.of(pg61, pg62));
+//
+//        PatientGoal pg71 = PatientGoal.patientGoalBuilder().type(g1.getType()).description(g1.getDescription()).build();
+//        PatientGoal pg72 = PatientGoal.patientGoalBuilder().type(g2.getType()).description(g2.getDescription()).selected(true).build();
+//        List<PatientGoal> pgl7 = new ArrayList<>(List.of(pg71, pg72));
+//
+//        PatientGoal pg81 = PatientGoal.patientGoalBuilder().type(g1.getType()).description(g1.getDescription()).selected(true).build();
+//        PatientGoal pg82 = PatientGoal.patientGoalBuilder().type(g2.getType()).description(g2.getDescription()).build();
+//        List<PatientGoal> pgl8 = new ArrayList<>(List.of(pg81, pg82));
+//
+//        PatientGoal pg91 = PatientGoal.patientGoalBuilder().type(g1.getType()).description(g1.getDescription()).selected(true).build();
+//        PatientGoal pg92 = PatientGoal.patientGoalBuilder().type(g2.getType()).description(g2.getDescription()).build();
+//        List<PatientGoal> pgl9 = new ArrayList<>(List.of(pg91, pg92));
+//
+//        PatientGoal pg101 = PatientGoal.patientGoalBuilder().type(g1.getType()).description(g1.getDescription()).selected(true).build();
+//        PatientGoal pg102 = PatientGoal.patientGoalBuilder().type(g2.getType()).description(g2.getDescription()).build();
+//        List<PatientGoal> pgl10 = new ArrayList<>(List.of(pg101, pg102));
+//
+//        PatientGoal pg111 = PatientGoal.patientGoalBuilder().type(g1.getType()).description(g1.getDescription()).build();
+//        PatientGoal pg112 = PatientGoal.patientGoalBuilder().type(g2.getType()).description(g2.getDescription()).selected(true).build();
+//        List<PatientGoal> pgl11 = new ArrayList<>(List.of(pg111, pg112));
+//
+//        PatientGoal pg121 = PatientGoal.patientGoalBuilder().type(g1.getType()).description(g1.getDescription()).build();
+//        PatientGoal pg122 = PatientGoal.patientGoalBuilder().type(g2.getType()).description(g2.getDescription()).selected(true).build();
+//        List<PatientGoal> pgl12 = new ArrayList<>(List.of(pg121, pg122));
+//
+//        PatientGoal pg131 = PatientGoal.patientGoalBuilder().type(g1.getType()).description(g1.getDescription()).build();
+//        PatientGoal pg132 = PatientGoal.patientGoalBuilder().type(g2.getType()).description(g2.getDescription()).selected(true).build();
+//        List<PatientGoal> pgl13 = new ArrayList<>(List.of(pg131, pg132));
+//
+//        PatientGoal pg141 = PatientGoal.patientGoalBuilder().type(g1.getType()).description(g1.getDescription()).build();
+//        PatientGoal pg142 = PatientGoal.patientGoalBuilder().type(g2.getType()).description(g2.getDescription()).selected(true).build();
+//        List<PatientGoal> pgl14 = new ArrayList<>(List.of(pg141, pg142));
+//
+//        PatientGoal pg151 = PatientGoal.patientGoalBuilder().type(g1.getType()).description(g1.getDescription()).build();
+//        PatientGoal pg152 = PatientGoal.patientGoalBuilder().type(g2.getType()).description(g2.getDescription()).selected(true).build();
+//        List<PatientGoal> pgl15 = new ArrayList<>(List.of(pg151, pg152));
+//
+//        PatientGoal pg161 = PatientGoal.patientGoalBuilder().type(g1.getType()).description(g1.getDescription()).selected(true).build();
+//        PatientGoal pg162 = PatientGoal.patientGoalBuilder().type(g2.getType()).description(g2.getDescription()).build();
+//        List<PatientGoal> pgl16 = new ArrayList<>(List.of(pg161, pg162));
+//
+//        PatientGoal pg171 = PatientGoal.patientGoalBuilder().type(g1.getType()).description(g1.getDescription()).selected(true).build();
+//        PatientGoal pg172 = PatientGoal.patientGoalBuilder().type(g2.getType()).description(g2.getDescription()).build();
+//        List<PatientGoal> pgl17 = new ArrayList<>(List.of(pg171, pg172));
 //
 //        Plan pl1 = Plan.builder().type(PlansEnum.P_INTUBIRANI.getType()).description(PlansEnum.P_INTUBIRANI.getDescription()).build();
 //        Plan pl2 = Plan.builder().type(PlansEnum.P_EKSTUBIRANI.getType()).description(PlansEnum.P_EKSTUBIRANI.getDescription()).build();
-////        planRepositoryMongo.saveAll(
-////                List.of(
-////                        pl1, pl2
-////                )
-////        );
+//        planRepositoryMongo.saveAll(
+//                List.of(
+//                        pl1, pl2
+//                )
+//        );
 //
-//        PatientPlan pp1 = PatientPlan.patientPlanBuilder().type(pl1.getType()).description(pl1.getDescription()).build();
-//        PatientPlan pp2 = PatientPlan.patientPlanBuilder().type(pl2.getType()).description(pl2.getDescription()).build();
-//        PatientPlan pp3 = PatientPlan.patientPlanBuilder().type(pl2.getType()).description(pl2.getDescription()).build();
-//        PatientPlan pp4 = PatientPlan.patientPlanBuilder().type(pl2.getType()).description(pl2.getDescription()).build();
-//        PatientPlan pp5 = PatientPlan.patientPlanBuilder().type(pl2.getType()).description(pl2.getDescription()).build();
-//        PatientPlan pp6 = PatientPlan.patientPlanBuilder().type(pl2.getType()).description(pl2.getDescription()).build();
-//        PatientPlan pp7 = PatientPlan.patientPlanBuilder().type(pl2.getType()).description(pl2.getDescription()).build();
-//        PatientPlan pp8 = PatientPlan.patientPlanBuilder().type(pl2.getType()).description(pl2.getDescription()).build();
-//        PatientPlan pp9 = PatientPlan.patientPlanBuilder().type(pl2.getType()).description(pl2.getDescription()).build();
-//        PatientPlan pp10 = PatientPlan.patientPlanBuilder().type(pl2.getType()).description(pl2.getDescription()).build();
-//        PatientPlan pp11 = PatientPlan.patientPlanBuilder().type(pl2.getType()).description(pl2.getDescription()).build();
+//        PatientPlan pp11 = PatientPlan.patientPlanBuilder().type(pl1.getType()).description(pl1.getDescription()).selected(true).build();
 //        PatientPlan pp12 = PatientPlan.patientPlanBuilder().type(pl2.getType()).description(pl2.getDescription()).build();
-//        PatientPlan pp13 = PatientPlan.patientPlanBuilder().type(pl2.getType()).description(pl2.getDescription()).build();
-//        PatientPlan pp14 = PatientPlan.patientPlanBuilder().type(pl2.getType()).description(pl2.getDescription()).build();
-//        PatientPlan pp15 = PatientPlan.patientPlanBuilder().type(pl2.getType()).description(pl2.getDescription()).build();
-//        PatientPlan pp16 = PatientPlan.patientPlanBuilder().type(pl2.getType()).description(pl2.getDescription()).build();
-//        PatientPlan pp17 = PatientPlan.patientPlanBuilder().type(pl2.getType()).description(pl2.getDescription()).build();
+//        List<PatientPlan> ppl1 = new ArrayList<>(List.of(pp11, pp12));
+//
+//        PatientPlan pp21 = PatientPlan.patientPlanBuilder().type(pl1.getType()).description(pl1.getDescription()).build();
+//        PatientPlan pp22 = PatientPlan.patientPlanBuilder().type(pl2.getType()).description(pl2.getDescription()).selected(true).build();
+//        List<PatientPlan> ppl2 = new ArrayList<>(List.of(pp21, pp22));
+//
+//        PatientPlan pp31 = PatientPlan.patientPlanBuilder().type(pl1.getType()).description(pl1.getDescription()).build();
+//        PatientPlan pp32 = PatientPlan.patientPlanBuilder().type(pl2.getType()).description(pl2.getDescription()).selected(true).build();
+//        List<PatientPlan> ppl3 = new ArrayList<>(List.of(pp31, pp32));
+//
+//        PatientPlan pp41 = PatientPlan.patientPlanBuilder().type(pl1.getType()).description(pl1.getDescription()).selected(true).build();
+//        PatientPlan pp42 = PatientPlan.patientPlanBuilder().type(pl2.getType()).description(pl2.getDescription()).build();
+//        List<PatientPlan> ppl4 = new ArrayList<>(List.of(pp41, pp42));
+//
+//        PatientPlan pp51 = PatientPlan.patientPlanBuilder().type(pl1.getType()).description(pl1.getDescription()).selected(true).build();
+//        PatientPlan pp52 = PatientPlan.patientPlanBuilder().type(pl2.getType()).description(pl2.getDescription()).build();
+//        List<PatientPlan> ppl5 = new ArrayList<>(List.of(pp51, pp52));
+//
+//        PatientPlan pp61 = PatientPlan.patientPlanBuilder().type(pl1.getType()).description(pl1.getDescription()).build();
+//        PatientPlan pp62 = PatientPlan.patientPlanBuilder().type(pl2.getType()).description(pl2.getDescription()).selected(true).build();
+//        List<PatientPlan> ppl6 = new ArrayList<>(List.of(pp61, pp62));
+//
+//        PatientPlan pp71 = PatientPlan.patientPlanBuilder().type(pl1.getType()).description(pl1.getDescription()).build();
+//        PatientPlan pp72 = PatientPlan.patientPlanBuilder().type(pl2.getType()).description(pl2.getDescription()).selected(true).build();
+//        List<PatientPlan> ppl7 = new ArrayList<>(List.of(pp71, pp72));
+//
+//        PatientPlan pp81 = PatientPlan.patientPlanBuilder().type(pl1.getType()).description(pl1.getDescription()).build();
+//        PatientPlan pp82 = PatientPlan.patientPlanBuilder().type(pl2.getType()).description(pl2.getDescription()).selected(true).build();
+//        List<PatientPlan> ppl8 = new ArrayList<>(List.of(pp81, pp82));
+//
+//        PatientPlan pp91 = PatientPlan.patientPlanBuilder().type(pl1.getType()).description(pl1.getDescription()).build();
+//        PatientPlan pp92 = PatientPlan.patientPlanBuilder().type(pl2.getType()).description(pl2.getDescription()).selected(true).build();
+//        List<PatientPlan> ppl9 = new ArrayList<>(List.of(pp91, pp92));
+//
+//        PatientPlan pp101 = PatientPlan.patientPlanBuilder().type(pl1.getType()).description(pl1.getDescription()).build();
+//        PatientPlan pp102 = PatientPlan.patientPlanBuilder().type(pl2.getType()).description(pl2.getDescription()).selected(true).build();
+//        List<PatientPlan> ppl10 = new ArrayList<>(List.of(pp101, pp102));
+//
+//        PatientPlan pp111 = PatientPlan.patientPlanBuilder().type(pl1.getType()).description(pl1.getDescription()).selected(true).build();
+//        PatientPlan pp112 = PatientPlan.patientPlanBuilder().type(pl2.getType()).description(pl2.getDescription()).build();
+//        List<PatientPlan> ppl11 = new ArrayList<>(List.of(pp111, pp112));
+//
+//        PatientPlan pp121 = PatientPlan.patientPlanBuilder().type(pl1.getType()).description(pl1.getDescription()).selected(true).build();
+//        PatientPlan pp122 = PatientPlan.patientPlanBuilder().type(pl2.getType()).description(pl2.getDescription()).build();
+//        List<PatientPlan> ppl12 = new ArrayList<>(List.of(pp121, pp122));
+//
+//        PatientPlan pp131 = PatientPlan.patientPlanBuilder().type(pl1.getType()).description(pl1.getDescription()).selected(true).build();
+//        PatientPlan pp132 = PatientPlan.patientPlanBuilder().type(pl2.getType()).description(pl2.getDescription()).build();
+//        List<PatientPlan> ppl13 = new ArrayList<>(List.of(pp131, pp132));
+//
+//        PatientPlan pp141 = PatientPlan.patientPlanBuilder().type(pl1.getType()).description(pl1.getDescription()).selected(true).build();
+//        PatientPlan pp142 = PatientPlan.patientPlanBuilder().type(pl2.getType()).description(pl2.getDescription()).build();
+//        List<PatientPlan> ppl14 = new ArrayList<>(List.of(pp141, pp142));
+//
+//        PatientPlan pp151 = PatientPlan.patientPlanBuilder().type(pl1.getType()).description(pl1.getDescription()).build();
+//        PatientPlan pp152 = PatientPlan.patientPlanBuilder().type(pl2.getType()).description(pl2.getDescription()).selected(true).build();
+//        List<PatientPlan> ppl15 = new ArrayList<>(List.of(pp151, pp152));
+//
+//        PatientPlan pp161 = PatientPlan.patientPlanBuilder().type(pl1.getType()).description(pl1.getDescription()).build();
+//        PatientPlan pp162 = PatientPlan.patientPlanBuilder().type(pl2.getType()).description(pl2.getDescription()).selected(true).build();
+//        List<PatientPlan> ppl16 = new ArrayList<>(List.of(pp161, pp162));
+//
+//        PatientPlan pp171 = PatientPlan.patientPlanBuilder().type(pl1.getType()).description(pl1.getDescription()).build();
+//        PatientPlan pp172 = PatientPlan.patientPlanBuilder().type(pl2.getType()).description(pl2.getDescription()).selected(true).build();
+//        List<PatientPlan> ppl17 = new ArrayList<>(List.of(pp171, pp172));
 //
 //        List<Procedure> procList = new ArrayList<>();
 //        for (ProceduresEnum proc : ProceduresEnum.values()) {
 //            procList.add(Procedure.builder().description(proc.getDescription()).build());
 //        }
-////        procedureRepositoryMongo.saveAll(procList);
+//        procedureRepositoryMongo.saveAll(procList);
 //
 //
 //        List<PatientProcedure> ppd1 = new ArrayList<>();
@@ -910,33 +1009,33 @@ public class Runner implements CommandLineRunner {
 //        PhysioTest pt15 = PhysioTest.builder().cpax(null).gcs(null).mmt(null).vas(null).build();
 //        PhysioTest pt16 = PhysioTest.builder().cpax(null).gcs(null).mmt(null).vas(null).build();
 //        PhysioTest pt17 = PhysioTest.builder().cpax(null).gcs(null).mmt(null).vas(null).build();
-////        physioTestRepositoryMongo.saveAll(
-////                List.of(
-////                        pt1, pt2, pt3, pt4, pt5, pt6, pt7, pt8, pt9, pt10, pt11, pt12, pt13, pt14, pt15, pt16, pt17
-////                )
-////        );
+//        physioTestRepositoryMongo.saveAll(
+//                List.of(
+//                        pt1, pt2, pt3, pt4, pt5, pt6, pt7, pt8, pt9, pt10, pt11, pt12, pt13, pt14, pt15, pt16, pt17
+//                )
+//        );
 //
-//        PhysioFile physioFile1 = PhysioFile.builder().fileOpenedBy("Iva Mikolić").patient(p1).patientFunctionalDiagnoses(pfd1).assessment(a1).patientGoal(pg1).patientPlan(pp1).notes("/").patientProcedures(ppd1).physioTest(pt1).build();
-//        PhysioFile physioFile2 = PhysioFile.builder().fileOpenedBy("David Bašić").patient(p2).patientFunctionalDiagnoses(pfd2).assessment(a2).patientGoal(pg2).patientPlan(pp2).notes("/").patientProcedures(ppd2).physioTest(pt2).build();
-//        PhysioFile physioFile3 = PhysioFile.builder().fileOpenedBy("Iva Mikolić").patient(p3).patientFunctionalDiagnoses(pfd3).assessment(a3).patientGoal(pg3).patientPlan(pp3).notes("/").patientProcedures(ppd3).physioTest(pt3).build();
-//        PhysioFile physioFile4 = PhysioFile.builder().fileOpenedBy("Iva Mikolić").patient(p4).patientFunctionalDiagnoses(pfd4).assessment(a4).patientGoal(pg4).patientPlan(pp4).notes("/").patientProcedures(ppd4).physioTest(pt4).build();
-//        PhysioFile physioFile5 = PhysioFile.builder().fileOpenedBy("Iva Mikolić").patient(p5).patientFunctionalDiagnoses(pfd5).assessment(a5).patientGoal(pg5).patientPlan(pp5).notes("/").patientProcedures(ppd5).physioTest(pt5).build();
-//        PhysioFile physioFile6 = PhysioFile.builder().fileOpenedBy("Iva Mikolić").patient(p6).patientFunctionalDiagnoses(pfd6).assessment(a6).patientGoal(pg6).patientPlan(pp6).notes("/").patientProcedures(ppd6).physioTest(pt6).build();
-//        PhysioFile physioFile7 = PhysioFile.builder().fileOpenedBy("Iva Mikolić").patient(p7).patientFunctionalDiagnoses(pfd7).assessment(a7).patientGoal(pg7).patientPlan(pp7).notes("/").patientProcedures(ppd7).physioTest(pt7).build();
-//        PhysioFile physioFile8 = PhysioFile.builder().fileOpenedBy("Iva Mikolić").patient(p8).patientFunctionalDiagnoses(pfd8).assessment(a8).patientGoal(pg8).patientPlan(pp8).notes("/").patientProcedures(ppd8).physioTest(pt8).build();
-//        PhysioFile physioFile9 = PhysioFile.builder().fileOpenedBy("David Bašić").patient(p9).patientFunctionalDiagnoses(pfd9).assessment(a9).patientGoal(pg9).patientPlan(pp9).notes("/").patientProcedures(ppd9).physioTest(pt9).build();
-//        PhysioFile physioFile10 = PhysioFile.builder().fileOpenedBy("David Bašić").patient(p10).patientFunctionalDiagnoses(pfd10).assessment(a10).patientGoal(pg10).patientPlan(pp10).notes("/").patientProcedures(ppd10).physioTest(pt10).build();
-//        PhysioFile physioFile11 = PhysioFile.builder().fileOpenedBy("David Bašić").patient(p11).patientFunctionalDiagnoses(pfd11).assessment(a11).patientGoal(pg11).patientPlan(pp11).notes("/").patientProcedures(ppd11).physioTest(pt11).build();
-//        PhysioFile physioFile12 = PhysioFile.builder().fileOpenedBy("David Bašić").patient(p12).patientFunctionalDiagnoses(pfd12).assessment(a12).patientGoal(pg12).patientPlan(pp12).notes("/").patientProcedures(ppd12).physioTest(pt12).build();
-//        PhysioFile physioFile13 = PhysioFile.builder().fileOpenedBy("David Bašić").patient(p13).patientFunctionalDiagnoses(pfd13).assessment(a13).patientGoal(pg13).patientPlan(pp13).notes("/").patientProcedures(ppd13).physioTest(pt13).build();
-//        PhysioFile physioFile14 = PhysioFile.builder().fileOpenedBy("David Bašić").patient(p14).patientFunctionalDiagnoses(pfd14).assessment(a14).patientGoal(pg14).patientPlan(pp14).notes("/").patientProcedures(ppd14).physioTest(pt14).build();
-//        PhysioFile physioFile15 = PhysioFile.builder().fileOpenedBy("Iva Mikolić").patient(p15).patientFunctionalDiagnoses(pfd15).assessment(a15).patientGoal(pg15).patientPlan(pp15).notes("/").patientProcedures(ppd15).physioTest(pt15).build();
-//        PhysioFile physioFile16 = PhysioFile.builder().fileOpenedBy("Iva Mikolić").patient(p16).patientFunctionalDiagnoses(pfd16).assessment(a16).patientGoal(pg16).patientPlan(pp16).notes("/").patientProcedures(ppd16).physioTest(pt16).build();
-//        PhysioFile physioFile17 = PhysioFile.builder().fileOpenedBy("Iva Mikolić").patient(p17).patientFunctionalDiagnoses(pfd17).assessment(a17).patientGoal(pg17).patientPlan(pp17).notes("/").patientProcedures(ppd17).physioTest(pt17).build();
-////        physioFileRepositoryMongo.saveAll(
-////                List.of(
-////                        physioFile1, physioFile2, physioFile3, physioFile4, physioFile5, physioFile6, physioFile7, physioFile8, physioFile9, physioFile10, physioFile11, physioFile12, physioFile13, physioFile14, physioFile15, physioFile16, physioFile17)
-////        );
-        
+//        PhysioFile physioFile1 = PhysioFile.builder().fileOpenedBy("Iva Mikolić").patient(p1).patientFunctionalDiagnoses(pfd1).assessment(a1).patientGoals(pgl1).patientPlans(ppl1).notes("/").patientProcedures(ppd1).physioTest(pt1).build();
+//        PhysioFile physioFile2 = PhysioFile.builder().fileOpenedBy("David Bašić").patient(p2).patientFunctionalDiagnoses(pfd2).assessment(a2).patientGoals(pgl2).patientPlans(ppl2).notes("/").patientProcedures(ppd2).physioTest(pt2).build();
+//        PhysioFile physioFile3 = PhysioFile.builder().fileOpenedBy("Iva Mikolić").patient(p3).patientFunctionalDiagnoses(pfd3).assessment(a3).patientGoals(pgl3).patientPlans(ppl3).notes("/").patientProcedures(ppd3).physioTest(pt3).build();
+//        PhysioFile physioFile4 = PhysioFile.builder().fileOpenedBy("Iva Mikolić").patient(p4).patientFunctionalDiagnoses(pfd4).assessment(a4).patientGoals(pgl4).patientPlans(ppl4).notes("/").patientProcedures(ppd4).physioTest(pt4).build();
+//        PhysioFile physioFile5 = PhysioFile.builder().fileOpenedBy("Iva Mikolić").patient(p5).patientFunctionalDiagnoses(pfd5).assessment(a5).patientGoals(pgl5).patientPlans(ppl5).notes("/").patientProcedures(ppd5).physioTest(pt5).build();
+//        PhysioFile physioFile6 = PhysioFile.builder().fileOpenedBy("Iva Mikolić").patient(p6).patientFunctionalDiagnoses(pfd6).assessment(a6).patientGoals(pgl6).patientPlans(ppl6).notes("/").patientProcedures(ppd6).physioTest(pt6).build();
+//        PhysioFile physioFile7 = PhysioFile.builder().fileOpenedBy("Iva Mikolić").patient(p7).patientFunctionalDiagnoses(pfd7).assessment(a7).patientGoals(pgl7).patientPlans(ppl7).notes("/").patientProcedures(ppd7).physioTest(pt7).build();
+//        PhysioFile physioFile8 = PhysioFile.builder().fileOpenedBy("Iva Mikolić").patient(p8).patientFunctionalDiagnoses(pfd8).assessment(a8).patientGoals(pgl8).patientPlans(ppl8).notes("/").patientProcedures(ppd8).physioTest(pt8).build();
+//        PhysioFile physioFile9 = PhysioFile.builder().fileOpenedBy("David Bašić").patient(p9).patientFunctionalDiagnoses(pfd9).assessment(a9).patientGoals(pgl9).patientPlans(ppl9).notes("/").patientProcedures(ppd9).physioTest(pt9).build();
+//        PhysioFile physioFile10 = PhysioFile.builder().fileOpenedBy("David Bašić").patient(p10).patientFunctionalDiagnoses(pfd10).assessment(a10).patientGoals(pgl10).patientPlans(ppl10).notes("/").patientProcedures(ppd10).physioTest(pt10).build();
+//        PhysioFile physioFile11 = PhysioFile.builder().fileOpenedBy("David Bašić").patient(p11).patientFunctionalDiagnoses(pfd11).assessment(a11).patientGoals(pgl11).patientPlans(ppl11).notes("/").patientProcedures(ppd11).physioTest(pt11).build();
+//        PhysioFile physioFile12 = PhysioFile.builder().fileOpenedBy("David Bašić").patient(p12).patientFunctionalDiagnoses(pfd12).assessment(a12).patientGoals(pgl12).patientPlans(ppl12).notes("/").patientProcedures(ppd12).physioTest(pt12).build();
+//        PhysioFile physioFile13 = PhysioFile.builder().fileOpenedBy("David Bašić").patient(p13).patientFunctionalDiagnoses(pfd13).assessment(a13).patientGoals(pgl13).patientPlans(ppl13).notes("/").patientProcedures(ppd13).physioTest(pt13).build();
+//        PhysioFile physioFile14 = PhysioFile.builder().fileOpenedBy("David Bašić").patient(p14).patientFunctionalDiagnoses(pfd14).assessment(a14).patientGoals(pgl14).patientPlans(ppl14).notes("/").patientProcedures(ppd14).physioTest(pt14).build();
+//        PhysioFile physioFile15 = PhysioFile.builder().fileOpenedBy("Iva Mikolić").patient(p15).patientFunctionalDiagnoses(pfd15).assessment(a15).patientGoals(pgl15).patientPlans(ppl15).notes("/").patientProcedures(ppd15).physioTest(pt15).build();
+//        PhysioFile physioFile16 = PhysioFile.builder().fileOpenedBy("Iva Mikolić").patient(p16).patientFunctionalDiagnoses(pfd16).assessment(a16).patientGoals(pgl16).patientPlans(ppl16).notes("/").patientProcedures(ppd16).physioTest(pt16).build();
+//        PhysioFile physioFile17 = PhysioFile.builder().fileOpenedBy("Iva Mikolić").patient(p17).patientFunctionalDiagnoses(pfd17).assessment(a17).patientGoals(pgl17).patientPlans(ppl17).notes("/").patientProcedures(ppd17).physioTest(pt17).build();
+//        physioFileRepositoryMongo.saveAll(
+//                List.of(
+//                        physioFile1, physioFile2, physioFile3, physioFile4, physioFile5, physioFile6, physioFile7, physioFile8, physioFile9, physioFile10, physioFile11, physioFile12, physioFile13, physioFile14, physioFile15, physioFile16, physioFile17)
+//        );
+
     }
 }

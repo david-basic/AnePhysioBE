@@ -41,9 +41,9 @@ public class PhysioFile implements Serializable {
     @DBRef
     private Assessment assessment;
     
-    private PatientGoal patientGoal;
+    private List<PatientGoal> patientGoals;
     
-    private PatientPlan patientPlan;
+    private List<PatientPlan> patientPlans;
     
     private String notes;
     
