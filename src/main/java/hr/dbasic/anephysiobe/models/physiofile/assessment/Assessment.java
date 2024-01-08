@@ -4,6 +4,8 @@ import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.List;
+
 @Builder
 @Getter
 @Setter
@@ -17,7 +19,7 @@ public class Assessment {
     @Id
     private String id;
     
-    private PatientRass patientRass;
+    private List<PatientRass> patientRass;
     
     private String notes;
 }

@@ -4,15 +4,18 @@ import hr.dbasic.anephysiobe.dto.responses.patientResponse.PatientResponseDto;
 import hr.dbasic.anephysiobe.dto.responses.physioFileResponse.PFRUserDto;
 import hr.dbasic.anephysiobe.dto.responses.physioFileResponse.PhysioFileResponseDto;
 import hr.dbasic.anephysiobe.models.physiofile.PhysioFile;
+import hr.dbasic.anephysiobe.models.physiofile.assessment.Rass;
 import hr.dbasic.anephysiobe.models.physiofile.functionaldiagnoses.FunctionalDiagnosis;
 import hr.dbasic.anephysiobe.models.physiofile.goals.Goal;
+import hr.dbasic.anephysiobe.models.physiofile.physiotests.cpax.AOP;
+import hr.dbasic.anephysiobe.models.physiofile.physiotests.gcs.EyeOpeningResponse;
+import hr.dbasic.anephysiobe.models.physiofile.physiotests.gcs.MotorResponse;
+import hr.dbasic.anephysiobe.models.physiofile.physiotests.gcs.VerbalResponse;
+import hr.dbasic.anephysiobe.models.physiofile.physiotests.mmt.Mmt;
 import hr.dbasic.anephysiobe.models.physiofile.plans.Plan;
 import hr.dbasic.anephysiobe.models.physiofile.procedures.Procedure;
 import hr.dbasic.anephysiobe.models.users.User;
-import hr.dbasic.anephysiobe.repositories.GoalRepositoryMongo;
-import hr.dbasic.anephysiobe.repositories.PlanRepositoryMongo;
-import hr.dbasic.anephysiobe.repositories.ProcedureRepositoryMongo;
-import hr.dbasic.anephysiobe.repositories.UserRepositoryMongo;
+import hr.dbasic.anephysiobe.repositories.*;
 import hr.dbasic.anephysiobe.services.FunctionalDiagnosisService;
 import hr.dbasic.anephysiobe.services.PatientService;
 import lombok.NonNull;
@@ -32,6 +35,12 @@ public class PhysioFileToPhysioFileResponseDtoConverter implements Converter<Phy
     private final PlanRepositoryMongo planRepositoryMongo;
     private final ProcedureRepositoryMongo procedureRepositoryMongo;
     private final UserRepositoryMongo userRepositoryMongo;
+    private final AopRepositoryMongo aopRepositoryMongo;
+    private final RassRepositoryMongo rassRepositoryMongo;
+    private final EyeOpeningResponseRepositoryMongo eyeOpeningResponseRepositoryMongo;
+    private final MotorResponseRepositoryMongo motorResponseRepositoryMongo;
+    private final VerbalResponseRepositoryMongo verbalResponseRepositoryMongo;
+    private final MmtRepositoryMongo mmtRepositoryMongo;
     
     @Override
     public PhysioFileResponseDto convert(@NonNull PhysioFile source) {
@@ -43,6 +52,12 @@ public class PhysioFileToPhysioFileResponseDtoConverter implements Converter<Phy
         List<User> allUsers = userRepositoryMongo.findAll();
         List<PFRUserDto> allPhysiotherapists = new ArrayList<>();
         allUsers.forEach(user -> allPhysiotherapists.add(PFRUserDto.builder().firstName(user.getFirstName()).lastName(user.getLastName()).build()));
+        List<AOP> allAspectsOfPhysicality = aopRepositoryMongo.findAll();
+        List<Rass> fullRassList = rassRepositoryMongo.findAll();
+        List<EyeOpeningResponse> allEyeOpeningResponses = eyeOpeningResponseRepositoryMongo.findAll();
+        List<MotorResponse> allMotorResponses = motorResponseRepositoryMongo.findAll();
+        List<VerbalResponse> allVerbalResponses = verbalResponseRepositoryMongo.findAll();
+        List<Mmt> mmtList = mmtRepositoryMongo.findAll();
         
         return new PhysioFileResponseDto(
                 source.getId(),
@@ -51,6 +66,7 @@ public class PhysioFileToPhysioFileResponseDtoConverter implements Converter<Phy
                 fullFunctionalDiagnosisList,
                 source.getPatientFunctionalDiagnoses(),
                 source.getAssessment(),
+                fullRassList,
                 fullGoalsList,
                 source.getPatientGoals(),
                 fullPlansList,
@@ -59,6 +75,11 @@ public class PhysioFileToPhysioFileResponseDtoConverter implements Converter<Phy
                 fullProcedureList,
                 source.getPatientProcedures(),
                 source.getPhysioTest(),
+                allAspectsOfPhysicality,
+                allEyeOpeningResponses,
+                allMotorResponses,
+                allVerbalResponses,
+                mmtList,
                 source.getConclussion(),
                 source.getFileClosedBy(),
                 allPhysiotherapists

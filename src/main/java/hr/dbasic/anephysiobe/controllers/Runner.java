@@ -737,41 +737,41 @@ public class Runner implements CommandLineRunner {
 //                )
 //        );
 //
-//        PatientRass pr1 = PatientRass.patientRassBuilder().score(RassEnum.R_NEG_5.getScore()).term(RassEnum.R_NEG_5.getTerm()).scoreDescription(RassEnum.R_NEG_5.getScoreDescription()).additionalDescription("Lošeg općeg stanja \n IMV(FiO2 50% peep 12 SpO2 97% \n Bez kontakta RASS -5").build();
-//        PatientRass pr2 = PatientRass.patientRassBuilder().score(RassEnum.R0.getScore()).term(RassEnum.R0.getTerm()).scoreDescription(RassEnum.R0.getScoreDescription()).additionalDescription("U kontaktu").build();
-//        PatientRass pr3 = PatientRass.patientRassBuilder().score(RassEnum.R_NEG_5.getScore()).term(RassEnum.R_NEG_5.getTerm()).scoreDescription(RassEnum.R_NEG_5.getScoreDescription()).additionalDescription("/").build();
-//        PatientRass pr4 = PatientRass.patientRassBuilder().score(RassEnum.R0.getScore()).term(RassEnum.R0.getTerm()).scoreDescription(RassEnum.R0.getScoreDescription()).additionalDescription("/").build();
-//        PatientRass pr5 = PatientRass.patientRassBuilder().score(RassEnum.R0.getScore()).term(RassEnum.R0.getTerm()).scoreDescription(RassEnum.R0.getScoreDescription()).additionalDescription("/").build();
-//        PatientRass pr6 = PatientRass.patientRassBuilder().score(RassEnum.R0.getScore()).term(RassEnum.R0.getTerm()).scoreDescription(RassEnum.R0.getScoreDescription()).additionalDescription("/").build();
-//        PatientRass pr7 = PatientRass.patientRassBuilder().score(RassEnum.R0.getScore()).term(RassEnum.R0.getTerm()).scoreDescription(RassEnum.R0.getScoreDescription()).additionalDescription("/").build();
-//        PatientRass pr8 = PatientRass.patientRassBuilder().score(RassEnum.R0.getScore()).term(RassEnum.R0.getTerm()).scoreDescription(RassEnum.R0.getScoreDescription()).additionalDescription("/").build();
-//        PatientRass pr9 = PatientRass.patientRassBuilder().score(RassEnum.R0.getScore()).term(RassEnum.R0.getTerm()).scoreDescription(RassEnum.R0.getScoreDescription()).additionalDescription("/").build();
-//        PatientRass pr10 = PatientRass.patientRassBuilder().score(RassEnum.R0.getScore()).term(RassEnum.R0.getTerm()).scoreDescription(RassEnum.R0.getScoreDescription()).additionalDescription("/").build();
-//        PatientRass pr11 = PatientRass.patientRassBuilder().score(RassEnum.R0.getScore()).term(RassEnum.R0.getTerm()).scoreDescription(RassEnum.R0.getScoreDescription()).additionalDescription("/").build();
-//        PatientRass pr12 = PatientRass.patientRassBuilder().score(RassEnum.R0.getScore()).term(RassEnum.R0.getTerm()).scoreDescription(RassEnum.R0.getScoreDescription()).additionalDescription("/").build();
-//        PatientRass pr13 = PatientRass.patientRassBuilder().score(RassEnum.R0.getScore()).term(RassEnum.R0.getTerm()).scoreDescription(RassEnum.R0.getScoreDescription()).additionalDescription("/").build();
-//        PatientRass pr14 = PatientRass.patientRassBuilder().score(RassEnum.R0.getScore()).term(RassEnum.R0.getTerm()).scoreDescription(RassEnum.R0.getScoreDescription()).additionalDescription("/").build();
-//        PatientRass pr15 = PatientRass.patientRassBuilder().score(RassEnum.R0.getScore()).term(RassEnum.R0.getTerm()).scoreDescription(RassEnum.R0.getScoreDescription()).additionalDescription("/").build();
-//        PatientRass pr16 = PatientRass.patientRassBuilder().score(RassEnum.R0.getScore()).term(RassEnum.R0.getTerm()).scoreDescription(RassEnum.R0.getScoreDescription()).additionalDescription("/").build();
-//        PatientRass pr17 = PatientRass.patientRassBuilder().score(RassEnum.R0.getScore()).term(RassEnum.R0.getTerm()).scoreDescription(RassEnum.R0.getScoreDescription()).additionalDescription("/").build();
+//        PatientRass pr1 = PatientRass.patientRassBuilder().score(RassEnum.R_NEG_5.getScore()).term(RassEnum.R_NEG_5.getTerm()).scoreDescription(RassEnum.R_NEG_5.getScoreDescription()).additionalDescription("Lošeg općeg stanja \n IMV(FiO2 50% peep 12 SpO2 97% \n Bez kontakta RASS -5").rassDateTime(LocalDateTime.now()).build();
+//        PatientRass pr2 = PatientRass.patientRassBuilder().score(RassEnum.R0.getScore()).term(RassEnum.R0.getTerm()).scoreDescription(RassEnum.R0.getScoreDescription()).additionalDescription("U kontaktu").rassDateTime(LocalDateTime.now()).build();
+//        PatientRass pr3 = PatientRass.patientRassBuilder().score(RassEnum.R_NEG_5.getScore()).term(RassEnum.R_NEG_5.getTerm()).scoreDescription(RassEnum.R_NEG_5.getScoreDescription()).additionalDescription("/").rassDateTime(LocalDateTime.now()).build();
+//        PatientRass pr4 = PatientRass.patientRassBuilder().score(RassEnum.R0.getScore()).term(RassEnum.R0.getTerm()).scoreDescription(RassEnum.R0.getScoreDescription()).additionalDescription("/").rassDateTime(LocalDateTime.now()).build();
+//        PatientRass pr5 = PatientRass.patientRassBuilder().score(RassEnum.R0.getScore()).term(RassEnum.R0.getTerm()).scoreDescription(RassEnum.R0.getScoreDescription()).additionalDescription("/").rassDateTime(LocalDateTime.now()).build();
+//        PatientRass pr6 = PatientRass.patientRassBuilder().score(RassEnum.R0.getScore()).term(RassEnum.R0.getTerm()).scoreDescription(RassEnum.R0.getScoreDescription()).additionalDescription("/").rassDateTime(LocalDateTime.now()).build();
+//        PatientRass pr7 = PatientRass.patientRassBuilder().score(RassEnum.R0.getScore()).term(RassEnum.R0.getTerm()).scoreDescription(RassEnum.R0.getScoreDescription()).additionalDescription("/").rassDateTime(LocalDateTime.now()).build();
+//        PatientRass pr8 = PatientRass.patientRassBuilder().score(RassEnum.R0.getScore()).term(RassEnum.R0.getTerm()).scoreDescription(RassEnum.R0.getScoreDescription()).additionalDescription("/").rassDateTime(LocalDateTime.now()).build();
+//        PatientRass pr9 = PatientRass.patientRassBuilder().score(RassEnum.R0.getScore()).term(RassEnum.R0.getTerm()).scoreDescription(RassEnum.R0.getScoreDescription()).additionalDescription("/").rassDateTime(LocalDateTime.now()).build();
+//        PatientRass pr10 = PatientRass.patientRassBuilder().score(RassEnum.R0.getScore()).term(RassEnum.R0.getTerm()).scoreDescription(RassEnum.R0.getScoreDescription()).additionalDescription("/").rassDateTime(LocalDateTime.now()).build();
+//        PatientRass pr11 = PatientRass.patientRassBuilder().score(RassEnum.R0.getScore()).term(RassEnum.R0.getTerm()).scoreDescription(RassEnum.R0.getScoreDescription()).additionalDescription("/").rassDateTime(LocalDateTime.now()).build();
+//        PatientRass pr12 = PatientRass.patientRassBuilder().score(RassEnum.R0.getScore()).term(RassEnum.R0.getTerm()).scoreDescription(RassEnum.R0.getScoreDescription()).additionalDescription("/").rassDateTime(LocalDateTime.now()).build();
+//        PatientRass pr13 = PatientRass.patientRassBuilder().score(RassEnum.R0.getScore()).term(RassEnum.R0.getTerm()).scoreDescription(RassEnum.R0.getScoreDescription()).additionalDescription("/").rassDateTime(LocalDateTime.now()).build();
+//        PatientRass pr14 = PatientRass.patientRassBuilder().score(RassEnum.R0.getScore()).term(RassEnum.R0.getTerm()).scoreDescription(RassEnum.R0.getScoreDescription()).additionalDescription("/").rassDateTime(LocalDateTime.now()).build();
+//        PatientRass pr15 = PatientRass.patientRassBuilder().score(RassEnum.R0.getScore()).term(RassEnum.R0.getTerm()).scoreDescription(RassEnum.R0.getScoreDescription()).additionalDescription("/").rassDateTime(LocalDateTime.now()).build();
+//        PatientRass pr16 = PatientRass.patientRassBuilder().score(RassEnum.R0.getScore()).term(RassEnum.R0.getTerm()).scoreDescription(RassEnum.R0.getScoreDescription()).additionalDescription("/").rassDateTime(LocalDateTime.now()).build();
+//        PatientRass pr17 = PatientRass.patientRassBuilder().score(RassEnum.R0.getScore()).term(RassEnum.R0.getTerm()).scoreDescription(RassEnum.R0.getScoreDescription()).additionalDescription("/").rassDateTime(LocalDateTime.now()).build();
 //
-//        Assessment a1 = Assessment.builder().patientRass(pr1).notes("/").build();
-//        Assessment a2 = Assessment.builder().patientRass(pr2).notes("/").build();
-//        Assessment a3 = Assessment.builder().patientRass(pr3).notes("/").build();
-//        Assessment a4 = Assessment.builder().patientRass(pr4).notes("/").build();
-//        Assessment a5 = Assessment.builder().patientRass(pr5).notes("/").build();
-//        Assessment a6 = Assessment.builder().patientRass(pr6).notes("/").build();
-//        Assessment a7 = Assessment.builder().patientRass(pr7).notes("/").build();
-//        Assessment a8 = Assessment.builder().patientRass(pr8).notes("/").build();
-//        Assessment a9 = Assessment.builder().patientRass(pr9).notes("/").build();
-//        Assessment a10 = Assessment.builder().patientRass(pr10).notes("/").build();
-//        Assessment a11 = Assessment.builder().patientRass(pr11).notes("/").build();
-//        Assessment a12 = Assessment.builder().patientRass(pr12).notes("/").build();
-//        Assessment a13 = Assessment.builder().patientRass(pr13).notes("/").build();
-//        Assessment a14 = Assessment.builder().patientRass(pr14).notes("/").build();
-//        Assessment a15 = Assessment.builder().patientRass(pr15).notes("/").build();
-//        Assessment a16 = Assessment.builder().patientRass(pr16).notes("/").build();
-//        Assessment a17 = Assessment.builder().patientRass(pr17).notes("/").build();
+//        Assessment a1 = Assessment.builder().patientRass(List.of(pr1)).notes("/").build();
+//        Assessment a2 = Assessment.builder().patientRass(List.of(pr2)).notes("/").build();
+//        Assessment a3 = Assessment.builder().patientRass(List.of(pr3)).notes("/").build();
+//        Assessment a4 = Assessment.builder().patientRass(List.of(pr4)).notes("/").build();
+//        Assessment a5 = Assessment.builder().patientRass(List.of(pr5)).notes("/").build();
+//        Assessment a6 = Assessment.builder().patientRass(List.of(pr6)).notes("/").build();
+//        Assessment a7 = Assessment.builder().patientRass(List.of(pr7)).notes("/").build();
+//        Assessment a8 = Assessment.builder().patientRass(List.of(pr8)).notes("/").build();
+//        Assessment a9 = Assessment.builder().patientRass(List.of(pr9)).notes("/").build();
+//        Assessment a10 = Assessment.builder().patientRass(List.of(pr10)).notes("/").build();
+//        Assessment a11 = Assessment.builder().patientRass(List.of(pr11)).notes("/").build();
+//        Assessment a12 = Assessment.builder().patientRass(List.of(pr12)).notes("/").build();
+//        Assessment a13 = Assessment.builder().patientRass(List.of(pr13)).notes("/").build();
+//        Assessment a14 = Assessment.builder().patientRass(List.of(pr14)).notes("/").build();
+//        Assessment a15 = Assessment.builder().patientRass(List.of(pr15)).notes("/").build();
+//        Assessment a16 = Assessment.builder().patientRass(List.of(pr16)).notes("/").build();
+//        Assessment a17 = Assessment.builder().patientRass(List.of(pr17)).notes("/").build();
 //        assessmentRepositoryMongo.saveAll(
 //                List.of(
 //                        a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17
@@ -1050,6 +1050,6 @@ public class Runner implements CommandLineRunner {
 //                List.of(
 //                        physioFile1, physioFile2, physioFile3, physioFile4, physioFile5, physioFile6, physioFile7, physioFile8, physioFile9, physioFile10, physioFile11, physioFile12, physioFile13, physioFile14, physioFile15, physioFile16, physioFile17)
 //        );
-    
+//
     }
 }
