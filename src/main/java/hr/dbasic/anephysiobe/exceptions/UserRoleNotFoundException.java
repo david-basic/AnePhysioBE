@@ -6,11 +6,11 @@ import lombok.NoArgsConstructor;
 
 public class UserRoleNotFoundException extends InternalServerErrorException{
     public UserRoleNotFoundException(RoleEnum role) {
-        super(Message.exceptionMessage.formatted(role.getDisplayName())); //TODO might have to change to role.displayName if this doesn't work
+        super(Message.exceptionMessage.formatted(role.getDisplayName()));
     }
 
     public UserRoleNotFoundException(RoleEnum role, Throwable cause) {
-        super(Message.exceptionMessage.formatted(role.getDisplayName()), cause); //TODO might have to change to role.displayName if this doesn't work
+        super(Message.exceptionMessage.formatted(role.getDisplayName()), cause);
     }
 
     @NoArgsConstructor(access = AccessLevel.PRIVATE)
