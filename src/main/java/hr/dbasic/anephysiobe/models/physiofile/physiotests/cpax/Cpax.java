@@ -3,6 +3,8 @@ package hr.dbasic.anephysiobe.models.physiofile.physiotests.cpax;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
+import java.time.LocalDateTime;
+
 @Builder
 @Getter
 @Setter
@@ -13,6 +15,9 @@ public class Cpax {
     
     @NotNull(message = "Aspect of physicality has to be defined!")
     private AspectOfPhysicality aspectOfPhysicality;
+    
+    @NotNull(message = "Cpax has to have a date and time defined!")
+    private LocalDateTime testDateTime;
     
     public Integer getTotalCpaxResult() {
         return aspectOfPhysicality.getRespiratoryFunctionAOP().getLevel() +

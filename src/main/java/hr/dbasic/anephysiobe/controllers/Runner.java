@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 @Component
 @RequiredArgsConstructor
 public class Runner implements CommandLineRunner {
-    
+
 //    private final MkbRepositoryMongo mkbRepositoryMongo;
 //    private final PatientMkbRepositoryMongo patientMkbRepositoryMongo;
 //    private final CountyRepositoryMongo countyRepositoryMongo;
@@ -31,10 +31,15 @@ public class Runner implements CommandLineRunner {
 //    private final PhysioTestRepositoryMongo physioTestRepositoryMongo;
 //    private final PhysioFileRepositoryMongo physioFileRepositoryMongo;
 //    private final ProcedureRepositoryMongo procedureRepositoryMongo;
+//    private final MmtRepositoryMongo mmtRepositoryMongo;
+//    private final EyeOpeningResponseRepositoryMongo eyeOpeningResponseRepositoryMongo;
+//    private final MotorResponseRepositoryMongo motorResponseRepositoryMongo;
+//    private final VerbalResponseRepositoryMongo verbalResponseRepositoryMongo;
+//    private final AopRepositoryMongo aopRepositoryMongo;
     
     @Override
     public void run(String... args) {
-        
+
 //        Sex female = Sex.builder().name(SexEnum.FEMALE.name()).displayName(SexEnum.FEMALE.getDisplayName()).build();
 //        Sex male = Sex.builder().name(SexEnum.MALE.name()).displayName(SexEnum.MALE.getDisplayName()).build();
 //        sexRepositoryMongo.saveAll(
@@ -992,50 +997,59 @@ public class Runner implements CommandLineRunner {
 //        List<PatientProcedure> ppd17 = new ArrayList<>();
 //        ppd17.add(PatientProcedure.patientProcedureBuilder().date(LocalDateTime.of(2023, Month.DECEMBER, 31, 0, 0)).description(ProceduresEnum.P_1.getDescription()).workingTherapists("Mikolić").build());
 //
-//        PhysioTest pt1 = PhysioTest.builder().cpax(null).gcs(null).mmt(null).vas(null).build();
-//        PhysioTest pt2 = PhysioTest.builder().cpax(null).gcs(null).mmt(null).vas(null).build();
-//        PhysioTest pt3 = PhysioTest.builder().cpax(null).gcs(null).mmt(null).vas(null).build();
-//        PhysioTest pt4 = PhysioTest.builder().cpax(null).gcs(null).mmt(null).vas(null).build();
-//        PhysioTest pt5 = PhysioTest.builder().cpax(null).gcs(null).mmt(null).vas(null).build();
-//        PhysioTest pt6 = PhysioTest.builder().cpax(null).gcs(null).mmt(null).vas(null).build();
-//        PhysioTest pt7 = PhysioTest.builder().cpax(null).gcs(null).mmt(null).vas(null).build();
-//        PhysioTest pt8 = PhysioTest.builder().cpax(null).gcs(null).mmt(null).vas(null).build();
-//        PhysioTest pt9 = PhysioTest.builder().cpax(null).gcs(null).mmt(null).vas(null).build();
-//        PhysioTest pt10 = PhysioTest.builder().cpax(null).gcs(null).mmt(null).vas(null).build();
-//        PhysioTest pt11 = PhysioTest.builder().cpax(null).gcs(null).mmt(null).vas(null).build();
-//        PhysioTest pt12 = PhysioTest.builder().cpax(null).gcs(null).mmt(null).vas(null).build();
-//        PhysioTest pt13 = PhysioTest.builder().cpax(null).gcs(null).mmt(null).vas(null).build();
-//        PhysioTest pt14 = PhysioTest.builder().cpax(null).gcs(null).mmt(null).vas(null).build();
-//        PhysioTest pt15 = PhysioTest.builder().cpax(null).gcs(null).mmt(null).vas(null).build();
-//        PhysioTest pt16 = PhysioTest.builder().cpax(null).gcs(null).mmt(null).vas(null).build();
-//        PhysioTest pt17 = PhysioTest.builder().cpax(null).gcs(null).mmt(null).vas(null).build();
-//        physioTestRepositoryMongo.saveAll(
-//                List.of(
-//                        pt1, pt2, pt3, pt4, pt5, pt6, pt7, pt8, pt9, pt10, pt11, pt12, pt13, pt14, pt15, pt16, pt17
-//                )
-//        );
 //
-//        PhysioFile physioFile1 = PhysioFile.builder().fileOpenedBy("Iva Mikolić").patient(p1).patientFunctionalDiagnoses(pfd1).assessment(a1).patientGoals(pgl1).patientPlans(ppl1).notes("/").patientProcedures(ppd1).physioTest(pt1).build();
-//        PhysioFile physioFile2 = PhysioFile.builder().fileOpenedBy("David Bašić").patient(p2).patientFunctionalDiagnoses(pfd2).assessment(a2).patientGoals(pgl2).patientPlans(ppl2).notes("/").patientProcedures(ppd2).physioTest(pt2).build();
-//        PhysioFile physioFile3 = PhysioFile.builder().fileOpenedBy("Iva Mikolić").patient(p3).patientFunctionalDiagnoses(pfd3).assessment(a3).patientGoals(pgl3).patientPlans(ppl3).notes("/").patientProcedures(ppd3).physioTest(pt3).build();
-//        PhysioFile physioFile4 = PhysioFile.builder().fileOpenedBy("Iva Mikolić").patient(p4).patientFunctionalDiagnoses(pfd4).assessment(a4).patientGoals(pgl4).patientPlans(ppl4).notes("/").patientProcedures(ppd4).physioTest(pt4).build();
-//        PhysioFile physioFile5 = PhysioFile.builder().fileOpenedBy("Iva Mikolić").patient(p5).patientFunctionalDiagnoses(pfd5).assessment(a5).patientGoals(pgl5).patientPlans(ppl5).notes("/").patientProcedures(ppd5).physioTest(pt5).build();
-//        PhysioFile physioFile6 = PhysioFile.builder().fileOpenedBy("Iva Mikolić").patient(p6).patientFunctionalDiagnoses(pfd6).assessment(a6).patientGoals(pgl6).patientPlans(ppl6).notes("/").patientProcedures(ppd6).physioTest(pt6).build();
-//        PhysioFile physioFile7 = PhysioFile.builder().fileOpenedBy("Iva Mikolić").patient(p7).patientFunctionalDiagnoses(pfd7).assessment(a7).patientGoals(pgl7).patientPlans(ppl7).notes("/").patientProcedures(ppd7).physioTest(pt7).build();
-//        PhysioFile physioFile8 = PhysioFile.builder().fileOpenedBy("Iva Mikolić").patient(p8).patientFunctionalDiagnoses(pfd8).assessment(a8).patientGoals(pgl8).patientPlans(ppl8).notes("/").patientProcedures(ppd8).physioTest(pt8).build();
-//        PhysioFile physioFile9 = PhysioFile.builder().fileOpenedBy("David Bašić").patient(p9).patientFunctionalDiagnoses(pfd9).assessment(a9).patientGoals(pgl9).patientPlans(ppl9).notes("/").patientProcedures(ppd9).physioTest(pt9).build();
-//        PhysioFile physioFile10 = PhysioFile.builder().fileOpenedBy("David Bašić").patient(p10).patientFunctionalDiagnoses(pfd10).assessment(a10).patientGoals(pgl10).patientPlans(ppl10).notes("/").patientProcedures(ppd10).physioTest(pt10).build();
-//        PhysioFile physioFile11 = PhysioFile.builder().fileOpenedBy("David Bašić").patient(p11).patientFunctionalDiagnoses(pfd11).assessment(a11).patientGoals(pgl11).patientPlans(ppl11).notes("/").patientProcedures(ppd11).physioTest(pt11).build();
-//        PhysioFile physioFile12 = PhysioFile.builder().fileOpenedBy("David Bašić").patient(p12).patientFunctionalDiagnoses(pfd12).assessment(a12).patientGoals(pgl12).patientPlans(ppl12).notes("/").patientProcedures(ppd12).physioTest(pt12).build();
-//        PhysioFile physioFile13 = PhysioFile.builder().fileOpenedBy("David Bašić").patient(p13).patientFunctionalDiagnoses(pfd13).assessment(a13).patientGoals(pgl13).patientPlans(ppl13).notes("/").patientProcedures(ppd13).physioTest(pt13).build();
-//        PhysioFile physioFile14 = PhysioFile.builder().fileOpenedBy("David Bašić").patient(p14).patientFunctionalDiagnoses(pfd14).assessment(a14).patientGoals(pgl14).patientPlans(ppl14).notes("/").patientProcedures(ppd14).physioTest(pt14).build();
-//        PhysioFile physioFile15 = PhysioFile.builder().fileOpenedBy("Iva Mikolić").patient(p15).patientFunctionalDiagnoses(pfd15).assessment(a15).patientGoals(pgl15).patientPlans(ppl15).notes("/").patientProcedures(ppd15).physioTest(pt15).build();
-//        PhysioFile physioFile16 = PhysioFile.builder().fileOpenedBy("Iva Mikolić").patient(p16).patientFunctionalDiagnoses(pfd16).assessment(a16).patientGoals(pgl16).patientPlans(ppl16).notes("/").patientProcedures(ppd16).physioTest(pt16).build();
-//        PhysioFile physioFile17 = PhysioFile.builder().fileOpenedBy("Iva Mikolić").patient(p17).patientFunctionalDiagnoses(pfd17).assessment(a17).patientGoals(pgl17).patientPlans(ppl17).notes("/").patientProcedures(ppd17).physioTest(pt17).build();
+//        List<Mmt> mmts = new ArrayList<>();
+//        for (MmtEnum mt : MmtEnum.values()) {
+//            mmts.add(Mmt.builder().grade(mt.getGrade()).description(mt.getDescription()).build());
+//        }
+//        mmtRepositoryMongo.saveAll(mmts);
+//
+//        List<EyeOpeningResponse> eors = new ArrayList<>();
+//        for (EyeOpeningResponseEnum er : EyeOpeningResponseEnum.values()) {
+//            eors.add(EyeOpeningResponse.eyeOpeningResponseBuilder().score(er.getScore()).scale(er.getScale()).build());
+//        }
+//        eyeOpeningResponseRepositoryMongo.saveAll(eors);
+//
+//        List<MotorResponse> mrs = new ArrayList<>();
+//        for (MotorResponseEnum mr : MotorResponseEnum.values()) {
+//            mrs.add(MotorResponse.motorResponseBuilder().score(mr.getScore()).scale(mr.getScale()).build());
+//        }
+//        motorResponseRepositoryMongo.saveAll(mrs);
+//
+//        List<VerbalResponse> vrs = new ArrayList<>();
+//        for (VerbalResponseEnum vr : VerbalResponseEnum.values()) {
+//            vrs.add(VerbalResponse.verbalResponseBuilder().score(vr.getScore()).scale(vr.getScale()).build());
+//        }
+//        verbalResponseRepositoryMongo.saveAll(vrs);
+//
+//        List<AOP> aops = new ArrayList<>();
+//        for (AOPEnum aop : AOPEnum.values()) {
+//            aops.add(AOP.aopBuilder().aspectName(aop.getAspectName()).level(aop.getLevel()).levelDescription(aop.getLevelDescription()).build());
+//        }
+//        aopRepositoryMongo.saveAll(aops);
+//
+//
+//        PhysioFile physioFile1 = PhysioFile.builder().fileOpenedBy("Iva Mikolić").patient(p1).patientFunctionalDiagnoses(pfd1).assessment(a1).patientGoals(pgl1).patientPlans(ppl1).notes("/").patientProcedures(ppd1).build();
+//        PhysioFile physioFile2 = PhysioFile.builder().fileOpenedBy("David Bašić").patient(p2).patientFunctionalDiagnoses(pfd2).assessment(a2).patientGoals(pgl2).patientPlans(ppl2).notes("/").patientProcedures(ppd2).build();
+//        PhysioFile physioFile3 = PhysioFile.builder().fileOpenedBy("Iva Mikolić").patient(p3).patientFunctionalDiagnoses(pfd3).assessment(a3).patientGoals(pgl3).patientPlans(ppl3).notes("/").patientProcedures(ppd3).build();
+//        PhysioFile physioFile4 = PhysioFile.builder().fileOpenedBy("Iva Mikolić").patient(p4).patientFunctionalDiagnoses(pfd4).assessment(a4).patientGoals(pgl4).patientPlans(ppl4).notes("/").patientProcedures(ppd4).build();
+//        PhysioFile physioFile5 = PhysioFile.builder().fileOpenedBy("Iva Mikolić").patient(p5).patientFunctionalDiagnoses(pfd5).assessment(a5).patientGoals(pgl5).patientPlans(ppl5).notes("/").patientProcedures(ppd5).build();
+//        PhysioFile physioFile6 = PhysioFile.builder().fileOpenedBy("Iva Mikolić").patient(p6).patientFunctionalDiagnoses(pfd6).assessment(a6).patientGoals(pgl6).patientPlans(ppl6).notes("/").patientProcedures(ppd6).build();
+//        PhysioFile physioFile7 = PhysioFile.builder().fileOpenedBy("Iva Mikolić").patient(p7).patientFunctionalDiagnoses(pfd7).assessment(a7).patientGoals(pgl7).patientPlans(ppl7).notes("/").patientProcedures(ppd7).build();
+//        PhysioFile physioFile8 = PhysioFile.builder().fileOpenedBy("Iva Mikolić").patient(p8).patientFunctionalDiagnoses(pfd8).assessment(a8).patientGoals(pgl8).patientPlans(ppl8).notes("/").patientProcedures(ppd8).build();
+//        PhysioFile physioFile9 = PhysioFile.builder().fileOpenedBy("David Bašić").patient(p9).patientFunctionalDiagnoses(pfd9).assessment(a9).patientGoals(pgl9).patientPlans(ppl9).notes("/").patientProcedures(ppd9).build();
+//        PhysioFile physioFile10 = PhysioFile.builder().fileOpenedBy("David Bašić").patient(p10).patientFunctionalDiagnoses(pfd10).assessment(a10).patientGoals(pgl10).patientPlans(ppl10).notes("/").patientProcedures(ppd10).build();
+//        PhysioFile physioFile11 = PhysioFile.builder().fileOpenedBy("David Bašić").patient(p11).patientFunctionalDiagnoses(pfd11).assessment(a11).patientGoals(pgl11).patientPlans(ppl11).notes("/").patientProcedures(ppd11).build();
+//        PhysioFile physioFile12 = PhysioFile.builder().fileOpenedBy("David Bašić").patient(p12).patientFunctionalDiagnoses(pfd12).assessment(a12).patientGoals(pgl12).patientPlans(ppl12).notes("/").patientProcedures(ppd12).build();
+//        PhysioFile physioFile13 = PhysioFile.builder().fileOpenedBy("David Bašić").patient(p13).patientFunctionalDiagnoses(pfd13).assessment(a13).patientGoals(pgl13).patientPlans(ppl13).notes("/").patientProcedures(ppd13).build();
+//        PhysioFile physioFile14 = PhysioFile.builder().fileOpenedBy("David Bašić").patient(p14).patientFunctionalDiagnoses(pfd14).assessment(a14).patientGoals(pgl14).patientPlans(ppl14).notes("/").patientProcedures(ppd14).build();
+//        PhysioFile physioFile15 = PhysioFile.builder().fileOpenedBy("Iva Mikolić").patient(p15).patientFunctionalDiagnoses(pfd15).assessment(a15).patientGoals(pgl15).patientPlans(ppl15).notes("/").patientProcedures(ppd15).build();
+//        PhysioFile physioFile16 = PhysioFile.builder().fileOpenedBy("Iva Mikolić").patient(p16).patientFunctionalDiagnoses(pfd16).assessment(a16).patientGoals(pgl16).patientPlans(ppl16).notes("/").patientProcedures(ppd16).build();
+//        PhysioFile physioFile17 = PhysioFile.builder().fileOpenedBy("Iva Mikolić").patient(p17).patientFunctionalDiagnoses(pfd17).assessment(a17).patientGoals(pgl17).patientPlans(ppl17).notes("/").patientProcedures(ppd17).build();
 //        physioFileRepositoryMongo.saveAll(
 //                List.of(
 //                        physioFile1, physioFile2, physioFile3, physioFile4, physioFile5, physioFile6, physioFile7, physioFile8, physioFile9, physioFile10, physioFile11, physioFile12, physioFile13, physioFile14, physioFile15, physioFile16, physioFile17)
 //        );
-
+    
     }
 }

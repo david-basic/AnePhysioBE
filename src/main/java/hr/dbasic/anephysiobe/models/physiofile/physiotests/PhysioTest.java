@@ -3,10 +3,12 @@ package hr.dbasic.anephysiobe.models.physiofile.physiotests;
 
 import hr.dbasic.anephysiobe.models.physiofile.physiotests.cpax.Cpax;
 import hr.dbasic.anephysiobe.models.physiofile.physiotests.gcs.Gcs;
-import hr.dbasic.anephysiobe.models.physiofile.physiotests.mmt.Mmt;
+import hr.dbasic.anephysiobe.models.physiofile.physiotests.mmt.PatientMmt;
 import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+
+import java.util.List;
 
 @Builder
 @Getter
@@ -21,12 +23,12 @@ public class PhysioTest {
     @Id
     private String id;
 
-    private Cpax cpax;
+    private List<Cpax> cpax;
 
-    private Gcs gcs;
+    private List<Gcs> gcs;
 
-    private Mmt mmt;
+    private List<PatientMmt> mmt;
     
-    private Vas vas;
+    private List<Vas> vas;
     
 }

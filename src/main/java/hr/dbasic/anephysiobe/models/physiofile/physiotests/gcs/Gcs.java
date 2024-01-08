@@ -3,6 +3,8 @@ package hr.dbasic.anephysiobe.models.physiofile.physiotests.gcs;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
+import java.time.LocalDateTime;
+
 @Builder
 @Getter
 @Setter
@@ -19,6 +21,9 @@ public class Gcs {
     
     @NotNull(message = "Motor response has to be defined!")
     private GcsResponse motorResponse;
+    
+    @NotNull(message = "Gcs has to have a date and time defined!")
+    private LocalDateTime gcsDateTime;
     
     public Integer calculateFinalScore() {
         return eyeOpeningResponse.getScore() + verbalResponse.getScore() + motorResponse.getScore();

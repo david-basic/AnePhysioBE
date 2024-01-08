@@ -17,7 +17,7 @@ import lombok.Builder;
 import java.util.List;
 
 @Builder
-public record PhysioFileResponseDto(
+public record PhysioFileResponseDto( // TODO don't return PhysioTest -> return a DTO that contains the result as well for each of the things, check models in FE for reference
         String id,
         String fileOpenedBy,
         PatientResponseDto patient,
