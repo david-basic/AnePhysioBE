@@ -18,8 +18,9 @@ public class PatientRass extends Rass {
     private LocalDateTime rassDateTime;
     
     @Builder(builderMethodName = "patientRassBuilder")
-    public static PatientRass createPatientRass(String score, String term, String scoreDescription, String additionalDescription, LocalDateTime rassDateTime) {
+    public static PatientRass createPatientRass(String id, String score, String term, String scoreDescription, String additionalDescription, LocalDateTime rassDateTime) {
         PatientRass patientRass = new PatientRass();
+        patientRass.setId(id);
         patientRass.setScore(score);
         patientRass.setTerm(term);
         patientRass.setScoreDescription(scoreDescription);

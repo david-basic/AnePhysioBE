@@ -36,7 +36,7 @@ public class Runner implements CommandLineRunner {
 //    private final MotorResponseRepositoryMongo motorResponseRepositoryMongo;
 //    private final VerbalResponseRepositoryMongo verbalResponseRepositoryMongo;
 //    private final AopRepositoryMongo aopRepositoryMongo;
-    
+
     @Override
     public void run(String... args) {
 
@@ -294,23 +294,23 @@ public class Runner implements CommandLineRunner {
 //        );
 //
 //
-//        Patient p1 = Patient.builder().firstName("Petra").lastName("Perić").identificationNumber(randomNumberService.generateRandomBigInteger()).dob(LocalDate.of(1945, Month.MARCH, 26)).sex(female).leadingMkb(pm1).patientMkbs(p1_OtherMKBs).admissionDateTime(LocalDateTime.of(2024, Month.JANUARY, 2, 5, 30)).patientAddress(pa1).leadingDoctor(doc1).build();
-//        Patient p2 = Patient.builder().firstName("Darko").lastName("Darić").identificationNumber(randomNumberService.generateRandomBigInteger()).dob(LocalDate.of(1945, Month.MARCH, 21)).sex(male).leadingMkb(pm2).patientMkbs(p2_OtherMKBs).admissionDateTime(LocalDateTime.of(2023, Month.DECEMBER, 31, 16, 45)).patientAddress(pa2).leadingDoctor(doc2).build();
-//        Patient p3 = Patient.builder().firstName("Frko").lastName("Frkić").identificationNumber(randomNumberService.generateRandomBigInteger()).dob(LocalDate.of(1957, Month.APRIL, 7)).sex(male).leadingMkb(pm3).patientMkbs(p3_OtherMKBs).operations(List.of(op1)).admissionDateTime(LocalDateTime.of(2023, Month.SEPTEMBER, 29, 11, 0)).patientAddress(pa3).leadingDoctor(doc3).build();
-//        Patient p4 = Patient.builder().firstName("Borko").lastName("Borić").identificationNumber(randomNumberService.generateRandomBigInteger()).dob(LocalDate.of(1992, Month.OCTOBER, 15)).sex(male).leadingMkb(pm4).patientMkbs(List.of(pm4)).operations(List.of(op2)).admissionDateTime(LocalDateTime.of(2023, Month.OCTOBER, 12, 13, 20)).patientAddress(pa4).leadingDoctor(doc1).build();
-//        Patient p5 = Patient.builder().firstName("David").lastName("Davidić").identificationNumber(randomNumberService.generateRandomBigInteger()).dob(LocalDate.of(1993, Month.APRIL, 18)).sex(male).leadingMkb(pm5).patientMkbs(List.of(pm5)).operations(List.of(op3)).admissionDateTime(LocalDateTime.of(2023, Month.NOVEMBER, 7, 9, 45)).patientAddress(pa5).leadingDoctor(doc2).build();
-//        Patient p6 = Patient.builder().firstName("Iva").lastName("Ivić").identificationNumber(randomNumberService.generateRandomBigInteger()).dob(LocalDate.of(1943, Month.OCTOBER, 8)).sex(female).leadingMkb(pm6).patientMkbs(List.of(pm6)).admissionDateTime(LocalDateTime.of(2023, Month.SEPTEMBER, 7, 16, 0)).patientAddress(pa6).leadingDoctor(doc3).build();
-//        Patient p7 = Patient.builder().firstName("Matija").lastName("Mirkić").identificationNumber(randomNumberService.generateRandomBigInteger()).dob(LocalDate.of(1956, Month.MAY, 8)).sex(male).leadingMkb(pm7).patientMkbs(List.of(pm7)).operations(List.of(op4)).admissionDateTime(LocalDateTime.of(2023, Month.OCTOBER, 24, 10, 10)).patientAddress(pa7).leadingDoctor(doc1).build();
-//        Patient p8 = Patient.builder().firstName("Mirko").lastName("Matijić").identificationNumber(randomNumberService.generateRandomBigInteger()).dob(LocalDate.of(1969, Month.JULY, 30)).sex(male).leadingMkb(pm8).patientMkbs(List.of(pm8)).operations(List.of(op5)).admissionDateTime(LocalDateTime.of(2023, Month.SEPTEMBER, 13, 14, 30)).patientAddress(pa8).leadingDoctor(doc1).build();
-//        Patient p9 = Patient.builder().firstName("Perica").lastName("Mirkić").identificationNumber(randomNumberService.generateRandomBigInteger()).dob(LocalDate.of(1975, Month.OCTOBER, 8)).sex(male).leadingMkb(pm9).patientMkbs(List.of(pm9)).admissionDateTime(LocalDateTime.of(2023, Month.NOVEMBER, 1, 11, 55)).patientAddress(pa9).leadingDoctor(doc2).build();
-//        Patient p10 = Patient.builder().firstName("Mirko").lastName("Nikolić").identificationNumber(randomNumberService.generateRandomBigInteger()).dob(LocalDate.of(1979, Month.JUNE, 29)).sex(male).leadingMkb(pm10).patientMkbs(List.of(pm10)).admissionDateTime(LocalDateTime.of(2023, Month.OCTOBER, 8, 12, 40)).patientAddress(pa10).leadingDoctor(doc3).build();
-//        Patient p11 = Patient.builder().firstName("Nikola").lastName("Stafić").identificationNumber(randomNumberService.generateRandomBigInteger()).dob(LocalDate.of(1968, Month.MAY, 3)).sex(male).leadingMkb(pm11).patientMkbs(List.of(pm11)).admissionDateTime(LocalDateTime.of(2023, Month.SEPTEMBER, 25, 9, 0)).patientAddress(pa11).leadingDoctor(doc3).build();
-//        Patient p12 = Patient.builder().firstName("Java").lastName("Javić").identificationNumber(randomNumberService.generateRandomBigInteger()).dob(LocalDate.of(1968, Month.MARCH, 6)).sex(female).leadingMkb(pm12).patientMkbs(List.of(pm12)).admissionDateTime(LocalDateTime.of(2023, Month.NOVEMBER, 12, 15, 25)).patientAddress(pa12).leadingDoctor(doc2).build();
-//        Patient p13 = Patient.builder().firstName("Desna").lastName("Lijeva").identificationNumber(randomNumberService.generateRandomBigInteger()).dob(LocalDate.of(1986, Month.NOVEMBER, 19)).sex(female).leadingMkb(pm13).patientMkbs(List.of(pm13)).admissionDateTime(LocalDateTime.of(2023, Month.OCTOBER, 19, 11, 15)).patientAddress(pa13).leadingDoctor(doc2).build();
-//        Patient p14 = Patient.builder().firstName("Gornja").lastName("Donja").identificationNumber(randomNumberService.generateRandomBigInteger()).dob(LocalDate.of(1995, Month.FEBRUARY, 8)).sex(female).leadingMkb(pm14).patientMkbs(List.of(pm14)).admissionDateTime(LocalDateTime.of(2023, Month.SEPTEMBER, 2, 8, 50)).patientAddress(pa14).leadingDoctor(doc2).build();
-//        Patient p15 = Patient.builder().firstName("Ukras").lastName("Bornić").identificationNumber(randomNumberService.generateRandomBigInteger()).dob(LocalDate.of(1997, Month.DECEMBER, 7)).sex(male).leadingMkb(pm15).patientMkbs(List.of(pm15)).admissionDateTime(LocalDateTime.of(2023, Month.NOVEMBER, 6, 9, 30)).patientAddress(pa15).leadingDoctor(doc2).build();
-//        Patient p16 = Patient.builder().firstName("Borna").lastName("Ukrasnić").identificationNumber(randomNumberService.generateRandomBigInteger()).dob(LocalDate.of(2001, Month.NOVEMBER, 18)).sex(male).leadingMkb(pm16).patientMkbs(List.of(pm16)).admissionDateTime(LocalDateTime.of(2023, Month.SEPTEMBER, 21, 13, 50)).patientAddress(pa16).leadingDoctor(doc1).build();
-//        Patient p17 = Patient.builder().firstName("Zvjezdica").lastName("Zvikić").identificationNumber(randomNumberService.generateRandomBigInteger()).dob(LocalDate.of(2002, Month.DECEMBER, 8)).sex(female).leadingMkb(pm17).patientMkbs(List.of(pm17)).admissionDateTime(LocalDateTime.of(2023, Month.OCTOBER, 28, 12, 15)).patientAddress(pa17).leadingDoctor(doc3).build();
+//        Patient p1 = Patient.builder().firstName("Petra").lastName("Perić").identificationNumber(randomNumberService.generateRandomBigInteger(true, 5)).dob(LocalDate.of(1945, Month.MARCH, 26)).sex(female).leadingMkb(pm1).patientMkbs(p1_OtherMKBs).admissionDateTime(LocalDateTime.of(2024, Month.JANUARY, 2, 5, 30)).patientAddress(pa1).leadingDoctor(doc1).build();
+//        Patient p2 = Patient.builder().firstName("Darko").lastName("Darić").identificationNumber(randomNumberService.generateRandomBigInteger(true, 5)).dob(LocalDate.of(1945, Month.MARCH, 21)).sex(male).leadingMkb(pm2).patientMkbs(p2_OtherMKBs).admissionDateTime(LocalDateTime.of(2023, Month.DECEMBER, 31, 16, 45)).patientAddress(pa2).leadingDoctor(doc2).build();
+//        Patient p3 = Patient.builder().firstName("Frko").lastName("Frkić").identificationNumber(randomNumberService.generateRandomBigInteger(true, 5)).dob(LocalDate.of(1957, Month.APRIL, 7)).sex(male).leadingMkb(pm3).patientMkbs(p3_OtherMKBs).operations(List.of(op1)).admissionDateTime(LocalDateTime.of(2023, Month.SEPTEMBER, 29, 11, 0)).patientAddress(pa3).leadingDoctor(doc3).build();
+//        Patient p4 = Patient.builder().firstName("Borko").lastName("Borić").identificationNumber(randomNumberService.generateRandomBigInteger(true, 5)).dob(LocalDate.of(1992, Month.OCTOBER, 15)).sex(male).leadingMkb(pm4).patientMkbs(List.of(pm4)).operations(List.of(op2)).admissionDateTime(LocalDateTime.of(2023, Month.OCTOBER, 12, 13, 20)).patientAddress(pa4).leadingDoctor(doc1).build();
+//        Patient p5 = Patient.builder().firstName("David").lastName("Davidić").identificationNumber(randomNumberService.generateRandomBigInteger(true, 5)).dob(LocalDate.of(1993, Month.APRIL, 18)).sex(male).leadingMkb(pm5).patientMkbs(List.of(pm5)).operations(List.of(op3)).admissionDateTime(LocalDateTime.of(2023, Month.NOVEMBER, 7, 9, 45)).patientAddress(pa5).leadingDoctor(doc2).build();
+//        Patient p6 = Patient.builder().firstName("Iva").lastName("Ivić").identificationNumber(randomNumberService.generateRandomBigInteger(true, 5)).dob(LocalDate.of(1943, Month.OCTOBER, 8)).sex(female).leadingMkb(pm6).patientMkbs(List.of(pm6)).admissionDateTime(LocalDateTime.of(2023, Month.SEPTEMBER, 7, 16, 0)).patientAddress(pa6).leadingDoctor(doc3).build();
+//        Patient p7 = Patient.builder().firstName("Matija").lastName("Mirkić").identificationNumber(randomNumberService.generateRandomBigInteger(true, 5)).dob(LocalDate.of(1956, Month.MAY, 8)).sex(male).leadingMkb(pm7).patientMkbs(List.of(pm7)).operations(List.of(op4)).admissionDateTime(LocalDateTime.of(2023, Month.OCTOBER, 24, 10, 10)).patientAddress(pa7).leadingDoctor(doc1).build();
+//        Patient p8 = Patient.builder().firstName("Mirko").lastName("Matijić").identificationNumber(randomNumberService.generateRandomBigInteger(true, 5)).dob(LocalDate.of(1969, Month.JULY, 30)).sex(male).leadingMkb(pm8).patientMkbs(List.of(pm8)).operations(List.of(op5)).admissionDateTime(LocalDateTime.of(2023, Month.SEPTEMBER, 13, 14, 30)).patientAddress(pa8).leadingDoctor(doc1).build();
+//        Patient p9 = Patient.builder().firstName("Perica").lastName("Mirkić").identificationNumber(randomNumberService.generateRandomBigInteger(true, 5)).dob(LocalDate.of(1975, Month.OCTOBER, 8)).sex(male).leadingMkb(pm9).patientMkbs(List.of(pm9)).admissionDateTime(LocalDateTime.of(2023, Month.NOVEMBER, 1, 11, 55)).patientAddress(pa9).leadingDoctor(doc2).build();
+//        Patient p10 = Patient.builder().firstName("Mirko").lastName("Nikolić").identificationNumber(randomNumberService.generateRandomBigInteger(true, 5)).dob(LocalDate.of(1979, Month.JUNE, 29)).sex(male).leadingMkb(pm10).patientMkbs(List.of(pm10)).admissionDateTime(LocalDateTime.of(2023, Month.OCTOBER, 8, 12, 40)).patientAddress(pa10).leadingDoctor(doc3).build();
+//        Patient p11 = Patient.builder().firstName("Nikola").lastName("Stafić").identificationNumber(randomNumberService.generateRandomBigInteger(true, 5)).dob(LocalDate.of(1968, Month.MAY, 3)).sex(male).leadingMkb(pm11).patientMkbs(List.of(pm11)).admissionDateTime(LocalDateTime.of(2023, Month.SEPTEMBER, 25, 9, 0)).patientAddress(pa11).leadingDoctor(doc3).build();
+//        Patient p12 = Patient.builder().firstName("Java").lastName("Javić").identificationNumber(randomNumberService.generateRandomBigInteger(true, 5)).dob(LocalDate.of(1968, Month.MARCH, 6)).sex(female).leadingMkb(pm12).patientMkbs(List.of(pm12)).admissionDateTime(LocalDateTime.of(2023, Month.NOVEMBER, 12, 15, 25)).patientAddress(pa12).leadingDoctor(doc2).build();
+//        Patient p13 = Patient.builder().firstName("Desna").lastName("Lijeva").identificationNumber(randomNumberService.generateRandomBigInteger(true, 5)).dob(LocalDate.of(1986, Month.NOVEMBER, 19)).sex(female).leadingMkb(pm13).patientMkbs(List.of(pm13)).admissionDateTime(LocalDateTime.of(2023, Month.OCTOBER, 19, 11, 15)).patientAddress(pa13).leadingDoctor(doc2).build();
+//        Patient p14 = Patient.builder().firstName("Gornja").lastName("Donja").identificationNumber(randomNumberService.generateRandomBigInteger(true, 5)).dob(LocalDate.of(1995, Month.FEBRUARY, 8)).sex(female).leadingMkb(pm14).patientMkbs(List.of(pm14)).admissionDateTime(LocalDateTime.of(2023, Month.SEPTEMBER, 2, 8, 50)).patientAddress(pa14).leadingDoctor(doc2).build();
+//        Patient p15 = Patient.builder().firstName("Ukras").lastName("Bornić").identificationNumber(randomNumberService.generateRandomBigInteger(true, 5)).dob(LocalDate.of(1997, Month.DECEMBER, 7)).sex(male).leadingMkb(pm15).patientMkbs(List.of(pm15)).admissionDateTime(LocalDateTime.of(2023, Month.NOVEMBER, 6, 9, 30)).patientAddress(pa15).leadingDoctor(doc2).build();
+//        Patient p16 = Patient.builder().firstName("Borna").lastName("Ukrasnić").identificationNumber(randomNumberService.generateRandomBigInteger(true, 5)).dob(LocalDate.of(2001, Month.NOVEMBER, 18)).sex(male).leadingMkb(pm16).patientMkbs(List.of(pm16)).admissionDateTime(LocalDateTime.of(2023, Month.SEPTEMBER, 21, 13, 50)).patientAddress(pa16).leadingDoctor(doc1).build();
+//        Patient p17 = Patient.builder().firstName("Zvjezdica").lastName("Zvikić").identificationNumber(randomNumberService.generateRandomBigInteger(true, 5)).dob(LocalDate.of(2002, Month.DECEMBER, 8)).sex(female).leadingMkb(pm17).patientMkbs(List.of(pm17)).admissionDateTime(LocalDateTime.of(2023, Month.OCTOBER, 28, 12, 15)).patientAddress(pa17).leadingDoctor(doc3).build();
 //        patientRepositoryMongo.saveAll(
 //                List.of(
 //                        p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12, p13, p14, p15, p16, p17
@@ -737,23 +737,23 @@ public class Runner implements CommandLineRunner {
 //                )
 //        );
 //
-//        PatientRass pr1 = PatientRass.patientRassBuilder().score(RassEnum.R_NEG_5.getScore()).term(RassEnum.R_NEG_5.getTerm()).scoreDescription(RassEnum.R_NEG_5.getScoreDescription()).additionalDescription("Lošeg općeg stanja \n IMV(FiO2 50% peep 12 SpO2 97% \n Bez kontakta RASS -5").rassDateTime(LocalDateTime.now()).build();
-//        PatientRass pr2 = PatientRass.patientRassBuilder().score(RassEnum.R0.getScore()).term(RassEnum.R0.getTerm()).scoreDescription(RassEnum.R0.getScoreDescription()).additionalDescription("U kontaktu").rassDateTime(LocalDateTime.now()).build();
-//        PatientRass pr3 = PatientRass.patientRassBuilder().score(RassEnum.R_NEG_5.getScore()).term(RassEnum.R_NEG_5.getTerm()).scoreDescription(RassEnum.R_NEG_5.getScoreDescription()).additionalDescription("/").rassDateTime(LocalDateTime.now()).build();
-//        PatientRass pr4 = PatientRass.patientRassBuilder().score(RassEnum.R0.getScore()).term(RassEnum.R0.getTerm()).scoreDescription(RassEnum.R0.getScoreDescription()).additionalDescription("/").rassDateTime(LocalDateTime.now()).build();
-//        PatientRass pr5 = PatientRass.patientRassBuilder().score(RassEnum.R0.getScore()).term(RassEnum.R0.getTerm()).scoreDescription(RassEnum.R0.getScoreDescription()).additionalDescription("/").rassDateTime(LocalDateTime.now()).build();
-//        PatientRass pr6 = PatientRass.patientRassBuilder().score(RassEnum.R0.getScore()).term(RassEnum.R0.getTerm()).scoreDescription(RassEnum.R0.getScoreDescription()).additionalDescription("/").rassDateTime(LocalDateTime.now()).build();
-//        PatientRass pr7 = PatientRass.patientRassBuilder().score(RassEnum.R0.getScore()).term(RassEnum.R0.getTerm()).scoreDescription(RassEnum.R0.getScoreDescription()).additionalDescription("/").rassDateTime(LocalDateTime.now()).build();
-//        PatientRass pr8 = PatientRass.patientRassBuilder().score(RassEnum.R0.getScore()).term(RassEnum.R0.getTerm()).scoreDescription(RassEnum.R0.getScoreDescription()).additionalDescription("/").rassDateTime(LocalDateTime.now()).build();
-//        PatientRass pr9 = PatientRass.patientRassBuilder().score(RassEnum.R0.getScore()).term(RassEnum.R0.getTerm()).scoreDescription(RassEnum.R0.getScoreDescription()).additionalDescription("/").rassDateTime(LocalDateTime.now()).build();
-//        PatientRass pr10 = PatientRass.patientRassBuilder().score(RassEnum.R0.getScore()).term(RassEnum.R0.getTerm()).scoreDescription(RassEnum.R0.getScoreDescription()).additionalDescription("/").rassDateTime(LocalDateTime.now()).build();
-//        PatientRass pr11 = PatientRass.patientRassBuilder().score(RassEnum.R0.getScore()).term(RassEnum.R0.getTerm()).scoreDescription(RassEnum.R0.getScoreDescription()).additionalDescription("/").rassDateTime(LocalDateTime.now()).build();
-//        PatientRass pr12 = PatientRass.patientRassBuilder().score(RassEnum.R0.getScore()).term(RassEnum.R0.getTerm()).scoreDescription(RassEnum.R0.getScoreDescription()).additionalDescription("/").rassDateTime(LocalDateTime.now()).build();
-//        PatientRass pr13 = PatientRass.patientRassBuilder().score(RassEnum.R0.getScore()).term(RassEnum.R0.getTerm()).scoreDescription(RassEnum.R0.getScoreDescription()).additionalDescription("/").rassDateTime(LocalDateTime.now()).build();
-//        PatientRass pr14 = PatientRass.patientRassBuilder().score(RassEnum.R0.getScore()).term(RassEnum.R0.getTerm()).scoreDescription(RassEnum.R0.getScoreDescription()).additionalDescription("/").rassDateTime(LocalDateTime.now()).build();
-//        PatientRass pr15 = PatientRass.patientRassBuilder().score(RassEnum.R0.getScore()).term(RassEnum.R0.getTerm()).scoreDescription(RassEnum.R0.getScoreDescription()).additionalDescription("/").rassDateTime(LocalDateTime.now()).build();
-//        PatientRass pr16 = PatientRass.patientRassBuilder().score(RassEnum.R0.getScore()).term(RassEnum.R0.getTerm()).scoreDescription(RassEnum.R0.getScoreDescription()).additionalDescription("/").rassDateTime(LocalDateTime.now()).build();
-//        PatientRass pr17 = PatientRass.patientRassBuilder().score(RassEnum.R0.getScore()).term(RassEnum.R0.getTerm()).scoreDescription(RassEnum.R0.getScoreDescription()).additionalDescription("/").rassDateTime(LocalDateTime.now()).build();
+//        PatientRass pr1 = PatientRass.patientRassBuilder().id(String.valueOf(randomNumberService.generateRandomBigInteger(false, 12))).score(RassEnum.R_NEG_5.getScore()).term(RassEnum.R_NEG_5.getTerm()).scoreDescription(RassEnum.R_NEG_5.getScoreDescription()).additionalDescription("Lošeg općeg stanja \n IMV(FiO2 50% peep 12 SpO2 97% \n Bez kontakta RASS -5").rassDateTime(LocalDateTime.now()).build();
+//        PatientRass pr2 = PatientRass.patientRassBuilder().id(String.valueOf(randomNumberService.generateRandomBigInteger(false, 12))).score(RassEnum.R0.getScore()).term(RassEnum.R0.getTerm()).scoreDescription(RassEnum.R0.getScoreDescription()).additionalDescription("U kontaktu").rassDateTime(LocalDateTime.now()).build();
+//        PatientRass pr3 = PatientRass.patientRassBuilder().id(String.valueOf(randomNumberService.generateRandomBigInteger(false, 12))).score(RassEnum.R_NEG_5.getScore()).term(RassEnum.R_NEG_5.getTerm()).scoreDescription(RassEnum.R_NEG_5.getScoreDescription()).additionalDescription("/").rassDateTime(LocalDateTime.now()).build();
+//        PatientRass pr4 = PatientRass.patientRassBuilder().id(String.valueOf(randomNumberService.generateRandomBigInteger(false, 12))).score(RassEnum.R0.getScore()).term(RassEnum.R0.getTerm()).scoreDescription(RassEnum.R0.getScoreDescription()).additionalDescription("/").rassDateTime(LocalDateTime.now()).build();
+//        PatientRass pr5 = PatientRass.patientRassBuilder().id(String.valueOf(randomNumberService.generateRandomBigInteger(false, 12))).score(RassEnum.R0.getScore()).term(RassEnum.R0.getTerm()).scoreDescription(RassEnum.R0.getScoreDescription()).additionalDescription("/").rassDateTime(LocalDateTime.now()).build();
+//        PatientRass pr6 = PatientRass.patientRassBuilder().id(String.valueOf(randomNumberService.generateRandomBigInteger(false, 12))).score(RassEnum.R0.getScore()).term(RassEnum.R0.getTerm()).scoreDescription(RassEnum.R0.getScoreDescription()).additionalDescription("/").rassDateTime(LocalDateTime.now()).build();
+//        PatientRass pr7 = PatientRass.patientRassBuilder().id(String.valueOf(randomNumberService.generateRandomBigInteger(false, 12))).score(RassEnum.R0.getScore()).term(RassEnum.R0.getTerm()).scoreDescription(RassEnum.R0.getScoreDescription()).additionalDescription("/").rassDateTime(LocalDateTime.now()).build();
+//        PatientRass pr8 = PatientRass.patientRassBuilder().id(String.valueOf(randomNumberService.generateRandomBigInteger(false, 12))).score(RassEnum.R0.getScore()).term(RassEnum.R0.getTerm()).scoreDescription(RassEnum.R0.getScoreDescription()).additionalDescription("/").rassDateTime(LocalDateTime.now()).build();
+//        PatientRass pr9 = PatientRass.patientRassBuilder().id(String.valueOf(randomNumberService.generateRandomBigInteger(false, 12))).score(RassEnum.R0.getScore()).term(RassEnum.R0.getTerm()).scoreDescription(RassEnum.R0.getScoreDescription()).additionalDescription("/").rassDateTime(LocalDateTime.now()).build();
+//        PatientRass pr10 = PatientRass.patientRassBuilder().id(String.valueOf(randomNumberService.generateRandomBigInteger(false, 12))).score(RassEnum.R0.getScore()).term(RassEnum.R0.getTerm()).scoreDescription(RassEnum.R0.getScoreDescription()).additionalDescription("/").rassDateTime(LocalDateTime.now()).build();
+//        PatientRass pr11 = PatientRass.patientRassBuilder().id(String.valueOf(randomNumberService.generateRandomBigInteger(false, 12))).score(RassEnum.R0.getScore()).term(RassEnum.R0.getTerm()).scoreDescription(RassEnum.R0.getScoreDescription()).additionalDescription("/").rassDateTime(LocalDateTime.now()).build();
+//        PatientRass pr12 = PatientRass.patientRassBuilder().id(String.valueOf(randomNumberService.generateRandomBigInteger(false, 12))).score(RassEnum.R0.getScore()).term(RassEnum.R0.getTerm()).scoreDescription(RassEnum.R0.getScoreDescription()).additionalDescription("/").rassDateTime(LocalDateTime.now()).build();
+//        PatientRass pr13 = PatientRass.patientRassBuilder().id(String.valueOf(randomNumberService.generateRandomBigInteger(false, 12))).score(RassEnum.R0.getScore()).term(RassEnum.R0.getTerm()).scoreDescription(RassEnum.R0.getScoreDescription()).additionalDescription("/").rassDateTime(LocalDateTime.now()).build();
+//        PatientRass pr14 = PatientRass.patientRassBuilder().id(String.valueOf(randomNumberService.generateRandomBigInteger(false, 12))).score(RassEnum.R0.getScore()).term(RassEnum.R0.getTerm()).scoreDescription(RassEnum.R0.getScoreDescription()).additionalDescription("/").rassDateTime(LocalDateTime.now()).build();
+//        PatientRass pr15 = PatientRass.patientRassBuilder().id(String.valueOf(randomNumberService.generateRandomBigInteger(false, 12))).score(RassEnum.R0.getScore()).term(RassEnum.R0.getTerm()).scoreDescription(RassEnum.R0.getScoreDescription()).additionalDescription("/").rassDateTime(LocalDateTime.now()).build();
+//        PatientRass pr16 = PatientRass.patientRassBuilder().id(String.valueOf(randomNumberService.generateRandomBigInteger(false, 12))).score(RassEnum.R0.getScore()).term(RassEnum.R0.getTerm()).scoreDescription(RassEnum.R0.getScoreDescription()).additionalDescription("/").rassDateTime(LocalDateTime.now()).build();
+//        PatientRass pr17 = PatientRass.patientRassBuilder().id(String.valueOf(randomNumberService.generateRandomBigInteger(false, 12))).score(RassEnum.R0.getScore()).term(RassEnum.R0.getTerm()).scoreDescription(RassEnum.R0.getScoreDescription()).additionalDescription("/").rassDateTime(LocalDateTime.now()).build();
 //
 //        Assessment a1 = Assessment.builder().patientRass(List.of(pr1)).notes("/").build();
 //        Assessment a2 = Assessment.builder().patientRass(List.of(pr2)).notes("/").build();
@@ -939,63 +939,80 @@ public class Runner implements CommandLineRunner {
 //
 //
 //        List<PatientProcedure> ppd1 = new ArrayList<>();
-//        ppd1.add(PatientProcedure.patientProcedureBuilder().date(LocalDateTime.of(2024, Month.JANUARY, 3, 0, 0)).description(ProceduresEnum.P_1.getDescription()).workingTherapists("Mikolić").build());
-//        ppd1.add(PatientProcedure.patientProcedureBuilder().date(LocalDateTime.of(2024, Month.JANUARY, 3, 0, 0)).description(ProceduresEnum.P_10.getDescription()).workingTherapists("Mikolić").build());
-//        ppd1.add(PatientProcedure.patientProcedureBuilder().date(LocalDateTime.of(2024, Month.JANUARY, 3, 0, 0)).description(ProceduresEnum.P_8.getDescription()).workingTherapists("Mikolić").build());
+//        BigInteger randp1 = randomNumberService.generateRandomBigInteger(false, 12);
+//        ppd1.add(PatientProcedure.patientProcedureBuilder().id(String.valueOf(randp1)).date(LocalDateTime.of(2024, Month.JANUARY, 3, 0, 0)).description(ProceduresEnum.P_1.getDescription()).workingTherapists("Mikolić").build());
+//        ppd1.add(PatientProcedure.patientProcedureBuilder().id(String.valueOf(randp1.add(BigInteger.ONE))).date(LocalDateTime.of(2024, Month.JANUARY, 3, 0, 0)).description(ProceduresEnum.P_10.getDescription()).workingTherapists("Mikolić").build());
+//        ppd1.add(PatientProcedure.patientProcedureBuilder().id(String.valueOf(randp1.add(BigInteger.TWO))).date(LocalDateTime.of(2024, Month.JANUARY, 3, 0, 0)).description(ProceduresEnum.P_8.getDescription()).workingTherapists("Mikolić").build());
 //
 //        List<PatientProcedure> ppd2 = new ArrayList<>();
-//        ppd2.add(PatientProcedure.patientProcedureBuilder().date(LocalDateTime.of(2024, Month.JANUARY, 3, 0, 0)).description(ProceduresEnum.P_1.getDescription()).workingTherapists("Mikolić").build());
-//        ppd2.add(PatientProcedure.patientProcedureBuilder().date(LocalDateTime.of(2024, Month.JANUARY, 3, 0, 0)).description(ProceduresEnum.P_2.getDescription()).workingTherapists("Mikolić").build());
-//        ppd2.add(PatientProcedure.patientProcedureBuilder().date(LocalDateTime.of(2024, Month.JANUARY, 3, 0, 0)).description(ProceduresEnum.P_3.getDescription()).workingTherapists("Mikolić").build());
-//        ppd2.add(PatientProcedure.patientProcedureBuilder().date(LocalDateTime.of(2024, Month.JANUARY, 3, 0, 0)).description(ProceduresEnum.P_6.getDescription()).workingTherapists("Mikolić").build());
-//        ppd2.add(PatientProcedure.patientProcedureBuilder().date(LocalDateTime.of(2024, Month.JANUARY, 3, 0, 0)).description(ProceduresEnum.P_10.getDescription()).workingTherapists("Mikolić").build());
+//        BigInteger randp2 = randomNumberService.generateRandomBigInteger(false, 12);
+//        ppd2.add(PatientProcedure.patientProcedureBuilder().id(String.valueOf(randp2)).date(LocalDateTime.of(2024, Month.JANUARY, 3, 0, 0)).description(ProceduresEnum.P_1.getDescription()).workingTherapists("Mikolić").build());
+//        ppd2.add(PatientProcedure.patientProcedureBuilder().id(String.valueOf(randp2.add(BigInteger.ONE))).date(LocalDateTime.of(2024, Month.JANUARY, 3, 0, 0)).description(ProceduresEnum.P_2.getDescription()).workingTherapists("Mikolić").build());
+//        ppd2.add(PatientProcedure.patientProcedureBuilder().id(String.valueOf(randp2.add(BigInteger.TWO))).date(LocalDateTime.of(2024, Month.JANUARY, 3, 0, 0)).description(ProceduresEnum.P_3.getDescription()).workingTherapists("Mikolić").build());
+//        ppd2.add(PatientProcedure.patientProcedureBuilder().id(String.valueOf(randp2.add(BigInteger.valueOf(3)))).date(LocalDateTime.of(2024, Month.JANUARY, 3, 0, 0)).description(ProceduresEnum.P_6.getDescription()).workingTherapists("Mikolić").build());
+//        ppd2.add(PatientProcedure.patientProcedureBuilder().id(String.valueOf(randp2.add(BigInteger.valueOf(4)))).date(LocalDateTime.of(2024, Month.JANUARY, 3, 0, 0)).description(ProceduresEnum.P_10.getDescription()).workingTherapists("Mikolić").build());
 //
 //        List<PatientProcedure> ppd3 = new ArrayList<>();
-//        ppd3.add(PatientProcedure.patientProcedureBuilder().date(LocalDateTime.of(2023, Month.DECEMBER, 17, 0, 0)).description(ProceduresEnum.P_1.getDescription()).workingTherapists("Mikolić").build());
-//        ppd3.add(PatientProcedure.patientProcedureBuilder().date(LocalDateTime.of(2023, Month.DECEMBER, 17, 0, 0)).description(ProceduresEnum.P_10.getDescription()).workingTherapists("Mikolić").build());
-//        ppd3.add(PatientProcedure.patientProcedureBuilder().date(LocalDateTime.of(2023, Month.DECEMBER, 17, 0, 0)).description(ProceduresEnum.P_22.getDescription()).workingTherapists("Mikolić").build());
+//        BigInteger randp3 = randomNumberService.generateRandomBigInteger(false, 12);
+//        ppd3.add(PatientProcedure.patientProcedureBuilder().id(String.valueOf(randp3)).date(LocalDateTime.of(2023, Month.DECEMBER, 17, 0, 0)).description(ProceduresEnum.P_1.getDescription()).workingTherapists("Mikolić").build());
+//        ppd3.add(PatientProcedure.patientProcedureBuilder().id(String.valueOf(randp2.add(BigInteger.ONE))).date(LocalDateTime.of(2023, Month.DECEMBER, 17, 0, 0)).description(ProceduresEnum.P_10.getDescription()).workingTherapists("Mikolić").build());
+//        ppd3.add(PatientProcedure.patientProcedureBuilder().id(String.valueOf(randp2.add(BigInteger.TWO))).date(LocalDateTime.of(2023, Month.DECEMBER, 17, 0, 0)).description(ProceduresEnum.P_22.getDescription()).workingTherapists("Mikolić").build());
 //
 //        List<PatientProcedure> ppd4 = new ArrayList<>();
-//        ppd4.add(PatientProcedure.patientProcedureBuilder().date(LocalDateTime.of(2023, Month.DECEMBER, 18, 0, 0)).description(ProceduresEnum.P_1.getDescription()).workingTherapists("Mikolić").build());
+//        BigInteger randp4 = randomNumberService.generateRandomBigInteger(false, 12);
+//        ppd4.add(PatientProcedure.patientProcedureBuilder().id(String.valueOf(randp4)).date(LocalDateTime.of(2023, Month.DECEMBER, 18, 0, 0)).description(ProceduresEnum.P_1.getDescription()).workingTherapists("Mikolić").build());
 //
 //        List<PatientProcedure> ppd5 = new ArrayList<>();
-//        ppd5.add(PatientProcedure.patientProcedureBuilder().date(LocalDateTime.of(2023, Month.DECEMBER, 19, 0, 0)).description(ProceduresEnum.P_1.getDescription()).workingTherapists("Mikolić").build());
+//        BigInteger randp5 = randomNumberService.generateRandomBigInteger(false, 12);
+//        ppd5.add(PatientProcedure.patientProcedureBuilder().id(String.valueOf(randp5)).date(LocalDateTime.of(2023, Month.DECEMBER, 19, 0, 0)).description(ProceduresEnum.P_1.getDescription()).workingTherapists("Mikolić").build());
 //
 //        List<PatientProcedure> ppd6 = new ArrayList<>();
-//        ppd6.add(PatientProcedure.patientProcedureBuilder().date(LocalDateTime.of(2023, Month.DECEMBER, 20, 0, 0)).description(ProceduresEnum.P_1.getDescription()).workingTherapists("Mikolić").build());
+//        BigInteger randp6 = randomNumberService.generateRandomBigInteger(false, 12);
+//        ppd6.add(PatientProcedure.patientProcedureBuilder().id(String.valueOf(randp6)).date(LocalDateTime.of(2023, Month.DECEMBER, 20, 0, 0)).description(ProceduresEnum.P_1.getDescription()).workingTherapists("Mikolić").build());
 //
 //        List<PatientProcedure> ppd7 = new ArrayList<>();
-//        ppd7.add(PatientProcedure.patientProcedureBuilder().date(LocalDateTime.of(2023, Month.DECEMBER, 21, 0, 0)).description(ProceduresEnum.P_1.getDescription()).workingTherapists("Mikolić").build());
+//        BigInteger randp7 = randomNumberService.generateRandomBigInteger(false, 12);
+//        ppd7.add(PatientProcedure.patientProcedureBuilder().id(String.valueOf(randp7)).date(LocalDateTime.of(2023, Month.DECEMBER, 21, 0, 0)).description(ProceduresEnum.P_1.getDescription()).workingTherapists("Mikolić").build());
 //
 //        List<PatientProcedure> ppd8 = new ArrayList<>();
-//        ppd8.add(PatientProcedure.patientProcedureBuilder().date(LocalDateTime.of(2023, Month.DECEMBER, 22, 0, 0)).description(ProceduresEnum.P_1.getDescription()).workingTherapists("Mikolić").build());
+//        BigInteger randp8 = randomNumberService.generateRandomBigInteger(false, 12);
+//        ppd8.add(PatientProcedure.patientProcedureBuilder().id(String.valueOf(randp8)).date(LocalDateTime.of(2023, Month.DECEMBER, 22, 0, 0)).description(ProceduresEnum.P_1.getDescription()).workingTherapists("Mikolić").build());
 //
 //        List<PatientProcedure> ppd9 = new ArrayList<>();
-//        ppd9.add(PatientProcedure.patientProcedureBuilder().date(LocalDateTime.of(2023, Month.DECEMBER, 23, 0, 0)).description(ProceduresEnum.P_1.getDescription()).workingTherapists("Mikolić").build());
+//        BigInteger randp9 = randomNumberService.generateRandomBigInteger(false, 12);
+//        ppd9.add(PatientProcedure.patientProcedureBuilder().id(String.valueOf(randp9)).date(LocalDateTime.of(2023, Month.DECEMBER, 23, 0, 0)).description(ProceduresEnum.P_1.getDescription()).workingTherapists("Mikolić").build());
 //
 //        List<PatientProcedure> ppd10 = new ArrayList<>();
-//        ppd10.add(PatientProcedure.patientProcedureBuilder().date(LocalDateTime.of(2023, Month.DECEMBER, 24, 0, 0)).description(ProceduresEnum.P_1.getDescription()).workingTherapists("Mikolić").build());
+//        BigInteger randp10 = randomNumberService.generateRandomBigInteger(false, 12);
+//        ppd10.add(PatientProcedure.patientProcedureBuilder().id(String.valueOf(randp10)).date(LocalDateTime.of(2023, Month.DECEMBER, 24, 0, 0)).description(ProceduresEnum.P_1.getDescription()).workingTherapists("Mikolić").build());
 //
 //        List<PatientProcedure> ppd11 = new ArrayList<>();
-//        ppd11.add(PatientProcedure.patientProcedureBuilder().date(LocalDateTime.of(2023, Month.DECEMBER, 25, 0, 0)).description(ProceduresEnum.P_1.getDescription()).workingTherapists("Mikolić").build());
+//        BigInteger randp11 = randomNumberService.generateRandomBigInteger(false, 12);
+//        ppd11.add(PatientProcedure.patientProcedureBuilder().id(String.valueOf(randp11)).date(LocalDateTime.of(2023, Month.DECEMBER, 25, 0, 0)).description(ProceduresEnum.P_1.getDescription()).workingTherapists("Mikolić").build());
 //
 //        List<PatientProcedure> ppd12 = new ArrayList<>();
-//        ppd12.add(PatientProcedure.patientProcedureBuilder().date(LocalDateTime.of(2023, Month.DECEMBER, 26, 0, 0)).description(ProceduresEnum.P_1.getDescription()).workingTherapists("Mikolić").build());
+//        BigInteger randp12 = randomNumberService.generateRandomBigInteger(false, 12);
+//        ppd12.add(PatientProcedure.patientProcedureBuilder().id(String.valueOf(randp12)).date(LocalDateTime.of(2023, Month.DECEMBER, 26, 0, 0)).description(ProceduresEnum.P_1.getDescription()).workingTherapists("Mikolić").build());
 //
 //        List<PatientProcedure> ppd13 = new ArrayList<>();
-//        ppd13.add(PatientProcedure.patientProcedureBuilder().date(LocalDateTime.of(2023, Month.DECEMBER, 27, 0, 0)).description(ProceduresEnum.P_1.getDescription()).workingTherapists("Mikolić").build());
+//        BigInteger randp13 = randomNumberService.generateRandomBigInteger(false, 12);
+//        ppd13.add(PatientProcedure.patientProcedureBuilder().id(String.valueOf(randp13)).date(LocalDateTime.of(2023, Month.DECEMBER, 27, 0, 0)).description(ProceduresEnum.P_1.getDescription()).workingTherapists("Mikolić").build());
 //
 //        List<PatientProcedure> ppd14 = new ArrayList<>();
-//        ppd14.add(PatientProcedure.patientProcedureBuilder().date(LocalDateTime.of(2023, Month.DECEMBER, 28, 0, 0)).description(ProceduresEnum.P_1.getDescription()).workingTherapists("Mikolić").build());
+//        BigInteger randp14 = randomNumberService.generateRandomBigInteger(false, 12);
+//        ppd14.add(PatientProcedure.patientProcedureBuilder().id(String.valueOf(randp14)).date(LocalDateTime.of(2023, Month.DECEMBER, 28, 0, 0)).description(ProceduresEnum.P_1.getDescription()).workingTherapists("Mikolić").build());
 //
 //        List<PatientProcedure> ppd15 = new ArrayList<>();
-//        ppd15.add(PatientProcedure.patientProcedureBuilder().date(LocalDateTime.of(2023, Month.DECEMBER, 29, 0, 0)).description(ProceduresEnum.P_1.getDescription()).workingTherapists("Mikolić").build());
+//        BigInteger randp15 = randomNumberService.generateRandomBigInteger(false, 12);
+//        ppd15.add(PatientProcedure.patientProcedureBuilder().id(String.valueOf(randp15)).date(LocalDateTime.of(2023, Month.DECEMBER, 29, 0, 0)).description(ProceduresEnum.P_1.getDescription()).workingTherapists("Mikolić").build());
 //
 //        List<PatientProcedure> ppd16 = new ArrayList<>();
-//        ppd16.add(PatientProcedure.patientProcedureBuilder().date(LocalDateTime.of(2023, Month.DECEMBER, 30, 0, 0)).description(ProceduresEnum.P_1.getDescription()).workingTherapists("Mikolić").build());
+//        BigInteger randp16 = randomNumberService.generateRandomBigInteger(false, 12);
+//        ppd16.add(PatientProcedure.patientProcedureBuilder().id(String.valueOf(randp16)).date(LocalDateTime.of(2023, Month.DECEMBER, 30, 0, 0)).description(ProceduresEnum.P_1.getDescription()).workingTherapists("Mikolić").build());
 //
 //        List<PatientProcedure> ppd17 = new ArrayList<>();
-//        ppd17.add(PatientProcedure.patientProcedureBuilder().date(LocalDateTime.of(2023, Month.DECEMBER, 31, 0, 0)).description(ProceduresEnum.P_1.getDescription()).workingTherapists("Mikolić").build());
+//        BigInteger randp17 = randomNumberService.generateRandomBigInteger(false, 12);
+//        ppd17.add(PatientProcedure.patientProcedureBuilder().id(String.valueOf(randp17)).date(LocalDateTime.of(2023, Month.DECEMBER, 31, 0, 0)).description(ProceduresEnum.P_1.getDescription()).workingTherapists("Mikolić").build());
 //
 //
 //        List<Mmt> mmts = new ArrayList<>();
@@ -1050,6 +1067,6 @@ public class Runner implements CommandLineRunner {
 //                List.of(
 //                        physioFile1, physioFile2, physioFile3, physioFile4, physioFile5, physioFile6, physioFile7, physioFile8, physioFile9, physioFile10, physioFile11, physioFile12, physioFile13, physioFile14, physioFile15, physioFile16, physioFile17)
 //        );
-//
+
     }
 }

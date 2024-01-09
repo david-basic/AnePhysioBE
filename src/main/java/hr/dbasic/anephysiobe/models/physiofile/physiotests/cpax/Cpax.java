@@ -13,6 +13,8 @@ import java.time.LocalDateTime;
 @EqualsAndHashCode(doNotUseGetters = true, onlyExplicitlyIncluded = true)
 public class Cpax {
     
+    private String id;
+    
     @NotNull(message = "Aspect of physicality has to be defined!")
     private AspectOfPhysicality aspectOfPhysicality;
     

@@ -13,6 +13,8 @@ import java.time.LocalDateTime;
 @EqualsAndHashCode(doNotUseGetters = true, onlyExplicitlyIncluded = true)
 public class Gcs {
     
+    private String id;
+    
     @NotNull(message = "Eye opening response has to be defined!")
     private GcsResponse eyeOpeningResponse;
     

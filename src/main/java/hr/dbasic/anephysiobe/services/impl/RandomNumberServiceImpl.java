@@ -12,18 +12,21 @@ import java.util.Random;
 @RequiredArgsConstructor
 public class RandomNumberServiceImpl implements RandomNumberService {
     @Override
-    public BigInteger generateRandomBigInteger() {
+    public BigInteger generateRandomBigInteger(Boolean yearIsPrefix, Integer numberOfDigits) {
         Random random = new Random();
-        BigInteger minLimit = BigInteger.TEN.pow(4);
-        BigInteger maxLimit = BigInteger.TEN.pow(5).subtract(BigInteger.ONE);
+        BigInteger minLimit = BigInteger.TEN.pow(numberOfDigits - 1);
+        BigInteger maxLimit = BigInteger.TEN.pow(numberOfDigits).subtract(BigInteger.ONE);
         
         BigInteger randomBigInt = new BigInteger(maxLimit.bitLength(), random);
         while (randomBigInt.compareTo(minLimit) < 0) {
             randomBigInt = new BigInteger(maxLimit.bitLength(), random);
         }
         
-        String str = LocalDate.now().getYear() + String.valueOf(randomBigInt);
+        if (yearIsPrefix) {
+            String str = LocalDate.now().getYear() + String.valueOf(randomBigInt);
+            return BigInteger.valueOf(Integer.parseInt(str));
+        }
         
-        return BigInteger.valueOf(Integer.parseInt(str));
+        return randomBigInt;
     }
 }

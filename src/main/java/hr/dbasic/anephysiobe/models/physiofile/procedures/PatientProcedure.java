@@ -19,8 +19,9 @@ public class PatientProcedure extends Procedure{
     private String workingTherapists;
     
     @Builder(builderMethodName = "patientProcedureBuilder")
-    public static PatientProcedure createPatientProcedure(String description, LocalDateTime date, String workingTherapists) {
+    public static PatientProcedure createPatientProcedure(String id, String description, LocalDateTime date, String workingTherapists) {
         PatientProcedure patientProcedure = new PatientProcedure();
+        patientProcedure.setId(id);
         patientProcedure.setDescription(description);
         patientProcedure.setDate(date);
         patientProcedure.setWorkingTherapists(workingTherapists);

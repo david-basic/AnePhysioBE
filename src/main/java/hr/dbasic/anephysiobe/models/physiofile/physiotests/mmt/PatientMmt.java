@@ -16,8 +16,9 @@ public class PatientMmt extends Mmt {
     private LocalDateTime mmtDateTime;
     
     @Builder(builderMethodName = "patientMmtBuilder")
-    public static PatientMmt createPatientMmt(Integer grade, String description, LocalDateTime mmtDateTime) {
+    public static PatientMmt createPatientMmt(String id, Integer grade, String description, LocalDateTime mmtDateTime) {
         PatientMmt patientMmt = new PatientMmt();
+        patientMmt.setId(id);
         patientMmt.setGrade(grade);
         patientMmt.setDescription(description);
         patientMmt.setMmtDateTime(mmtDateTime);
