@@ -370,7 +370,7 @@ public class Runner implements CommandLineRunner {
 //        pm17.setPatient(p17);
 //        patientMkbRepositoryMongo.saveAll(
 //                List.of(
-//                        pm1, pm2, pm3, pm4, pm5, pm6, pm7, pm8, pm8, pm10, pm11, pm12, pm13, pm14, pm15, pm16, pm17
+//                        pm1, pm2, pm3, pm4, pm5, pm6, pm7, pm8, pm9, pm10, pm11, pm12, pm13, pm14, pm15, pm16, pm17
 //                )
 //        );
 //
