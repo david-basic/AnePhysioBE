@@ -7,4 +7,5 @@ import java.util.Optional;
 
 public interface PhysioFileRepositoryMongo extends MongoRepository<PhysioFile, String> {
     Optional<PhysioFile> findPhysioFileByPatientId(String id);
+    Optional<PhysioFile> findPhysioFileByAssessmentId(String id);
 }

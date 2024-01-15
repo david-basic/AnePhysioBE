@@ -12,6 +12,10 @@ public record ApiResponse<T>(LocalDateTime timestamp, Integer status, Boolean su
     public static <T> ApiResponse<T> ok(String message, T data) {
         return of(HttpStatus.OK.value(), true, message, data);
     }
+    
+    public static <T> ApiResponse<T> ok(String message) {
+        return ok(message, null);
+    }
 
     public static <T> ApiResponse<T> created(T data, String message) {
         return of(HttpStatus.CREATED.value(), true, message, data);
