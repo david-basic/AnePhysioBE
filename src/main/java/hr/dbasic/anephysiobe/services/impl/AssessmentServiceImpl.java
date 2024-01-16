@@ -1,6 +1,6 @@
 package hr.dbasic.anephysiobe.services.impl;
 
-import hr.dbasic.anephysiobe.dto.requests.DeletePatientRassRequestDto;
+import hr.dbasic.anephysiobe.dto.requests.physiofile.assessment.DeletePatientRassRequestDto;
 import hr.dbasic.anephysiobe.exceptions.EntityNotFoundException;
 import hr.dbasic.anephysiobe.models.physiofile.assessment.Assessment;
 import hr.dbasic.anephysiobe.repositories.AssessmentRepositoryMongo;

@@ -1,6 +1,6 @@
 package hr.dbasic.anephysiobe.services;
 
-import hr.dbasic.anephysiobe.dto.requests.CreatePatientRassRequestDto;
+import hr.dbasic.anephysiobe.dto.requests.physiofile.assessment.CreatePatientRassRequestDto;
 import hr.dbasic.anephysiobe.dto.responses.physioFileResponse.PhysioFileResponseDto;
 
 import java.util.List;

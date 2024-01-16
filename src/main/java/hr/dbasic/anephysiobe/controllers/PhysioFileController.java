@@ -1,7 +1,7 @@
 package hr.dbasic.anephysiobe.controllers;
 
-import hr.dbasic.anephysiobe.dto.requests.CreatePatientRassRequestDto;
-import hr.dbasic.anephysiobe.dto.requests.DeletePatientRassRequestDto;
+import hr.dbasic.anephysiobe.dto.requests.physiofile.assessment.CreatePatientRassRequestDto;
+import hr.dbasic.anephysiobe.dto.requests.physiofile.assessment.DeletePatientRassRequestDto;
 import hr.dbasic.anephysiobe.dto.responses.ApiResponse;
 import hr.dbasic.anephysiobe.dto.responses.physioFileResponse.PhysioFileResponseDto;
 import hr.dbasic.anephysiobe.mappings.AppMappings;
@@ -64,7 +64,7 @@ public class PhysioFileController {
 //        );
 //    }
     
-    @DeleteMapping(PhysioFileMappings.deletePatientRassByIdDeleteMapping)
+    @DeleteMapping(PhysioFileMappings.deletePatientRassDeleteMapping)
     public ResponseEntity<ApiResponse<?>> deletePatientRassById(@Valid @RequestBody DeletePatientRassRequestDto deletePatientRassRequestDto) {
         assessmentService.deletePatientRassByIdInAssessmentById(deletePatientRassRequestDto);
         
@@ -82,7 +82,7 @@ public class PhysioFileController {
         public static final String getPhysioFileByPatientIdGetMapping = "/patient/{id}";
         public static final String createPatientRassPostMapping = "/new-patient-rass";
         public static final String updatePatientRassByIdPutMapping = "/update-patient-rass/{id}";
-        public static final String deletePatientRassByIdDeleteMapping = "/delete-patient-rass/{id}";
+        public static final String deletePatientRassDeleteMapping = "/delete-patient-rass";
         public static final String updatePhysioFileByIdPutMapping = "/update-file/{id}";
     }
 }

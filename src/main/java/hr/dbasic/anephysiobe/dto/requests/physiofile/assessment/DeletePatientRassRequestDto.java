@@ -1,4 +1,4 @@
-package hr.dbasic.anephysiobe.dto.requests;
+package hr.dbasic.anephysiobe.dto.requests.physiofile.assessment;
 
 import jakarta.validation.constraints.NotNull;
 import lombok.Builder;

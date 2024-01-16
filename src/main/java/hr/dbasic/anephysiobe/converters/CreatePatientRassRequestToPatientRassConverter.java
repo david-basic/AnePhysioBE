@@ -1,6 +1,6 @@
 package hr.dbasic.anephysiobe.converters;
 
-import hr.dbasic.anephysiobe.dto.requests.CreatePatientRassRequestDto;
+import hr.dbasic.anephysiobe.dto.requests.physiofile.assessment.CreatePatientRassRequestDto;
 import hr.dbasic.anephysiobe.exceptions.EntityNotFoundException;
 import hr.dbasic.anephysiobe.models.physiofile.assessment.Assessment;
 import hr.dbasic.anephysiobe.models.physiofile.assessment.PatientRass;
