@@ -20,6 +20,9 @@ public class Vas {
     @Size(min = 0, max = 10, message = "Pain level has to be a number number in [0,10] interval!")
     private Integer painLevel;
     
+    @NotNull(message = "Vas scale has to have a note added!")
+    private String note;
+    
     @NotNull(message = "Vas has to have date and time defined!")
     private LocalDateTime vasDateTime;
 }

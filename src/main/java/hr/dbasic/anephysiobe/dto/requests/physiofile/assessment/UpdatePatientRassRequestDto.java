@@ -4,7 +4,7 @@ import jakarta.validation.constraints.NotNull;
 import lombok.Builder;
 
 @Builder
-public record CreatePatientRassRequestDto(
+public record UpdatePatientRassRequestDto(
         @NotNull(message = "Assessment id has to be provided!")
         String assessmentId,
         @NotNull(message = "Score of the new RASS has to be provided!")

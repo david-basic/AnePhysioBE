@@ -10,4 +10,6 @@ public class AppMappings {
     public static final String apiDepartmentRequestMapping = apiMapping + "/department-management";
     public static final String apiPatientRequestMapping = apiMapping + "/patient-management";
     public static final String apiPhysioFileRequestMapping = apiMapping + "/physiofile-management";
+    public static final String apiAssessmentRequestMapping = apiMapping + "/assessment-management";
+    public static final String apiPhysioTestsRequestMapping = apiMapping + "/physiotest-management";
 }
