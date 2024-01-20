@@ -1,5 +1,8 @@
 package hr.dbasic.anephysiobe.controllers;
 
+import hr.dbasic.anephysiobe.dto.requests.physiofile.physiotests.mmt.CreateMmtRequestDto;
+import hr.dbasic.anephysiobe.dto.requests.physiofile.physiotests.mmt.DeleteMmtRequestDto;
+import hr.dbasic.anephysiobe.dto.requests.physiofile.physiotests.mmt.UpdateMmtRequestDto;
 import hr.dbasic.anephysiobe.dto.requests.physiofile.physiotests.vas.CreateVasRequestDto;
 import hr.dbasic.anephysiobe.dto.requests.physiofile.physiotests.vas.DeleteVasRequestDto;
 import hr.dbasic.anephysiobe.dto.requests.physiofile.physiotests.vas.UpdateVasRequestDto;
@@ -84,6 +87,37 @@ public class PhysioTestsController {
         );
     }
     
+    
+    @PostMapping(PhysioTestMappings.createMmtPostMapping)
+    public ResponseEntity<ApiResponse<PhysioFileResponseDto>> createMmtInPhysioTestWithId(@Valid @RequestBody CreateMmtRequestDto createMmtRequestDto) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(
+                ApiResponse.created(
+                        physioTestService.createMmt(createMmtRequestDto),
+                        "MMT successfully added"
+                )
+        );
+    }
+    
+    @PutMapping(PhysioTestMappings.updateMmtByIdPutMapping)
+    public ResponseEntity<ApiResponse<PhysioFileResponseDto>> updateMmtById(@PathVariable String id, @Valid @RequestBody UpdateMmtRequestDto updateMmtRequestDto) {
+        return ResponseEntity.ok(
+                ApiResponse.ok(
+                        "MMT successfully updated",
+                        physioTestService.updateMmtById(id, updateMmtRequestDto)
+                )
+        );
+    }
+    
+    @DeleteMapping(PhysioTestMappings.deleteMmtDeleteMapping)
+    public ResponseEntity<ApiResponse<?>> deleteMmtById(@Valid @RequestBody DeleteMmtRequestDto deleteMmtRequestDto) {
+        physioTestService.deleteMmtByIdInPhysioTestById(deleteMmtRequestDto);
+        
+        return ResponseEntity.ok(
+                ApiResponse.ok("MMT successfully deleted!")
+        );
+    }
+    
+    
     @NoArgsConstructor(access = AccessLevel.PRIVATE)
     public static class PhysioTestMappings {
         public static final String physioTestRequestMapping = AppMappings.apiPhysioTestsRequestMapping + "/physiotests";
@@ -93,5 +127,8 @@ public class PhysioTestsController {
         public static final String createVasPostMapping = "/new-vas";
         public static final String updateVasByIdPutMapping = "/update-vas/{id}";
         public static final String deleteVasDeleteMapping = "/delete-vas";
+        public static final String createMmtPostMapping = "/new-mmt";
+        public static final String updateMmtByIdPutMapping = "/update-mmt/{id}";
+        public static final String deleteMmtDeleteMapping = "/delete-mmt";
     }
 }

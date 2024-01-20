@@ -1,10 +1,8 @@
 package hr.dbasic.anephysiobe.dto.responses.physioFileResponse;
 
 import hr.dbasic.anephysiobe.dto.responses.patientResponse.PatientResponseDto;
-import hr.dbasic.anephysiobe.models.patients.Patient;
 import hr.dbasic.anephysiobe.models.physiofile.assessment.Assessment;
 import hr.dbasic.anephysiobe.models.physiofile.assessment.Rass;
-import hr.dbasic.anephysiobe.models.physiofile.functionaldiagnoses.FunctionalDiagnosis;
 import hr.dbasic.anephysiobe.models.physiofile.functionaldiagnoses.PatientFunctionalDiagnosis;
 import hr.dbasic.anephysiobe.models.physiofile.goals.Goal;
 import hr.dbasic.anephysiobe.models.physiofile.goals.PatientGoal;
@@ -23,11 +21,10 @@ import lombok.Builder;
 import java.util.List;
 
 @Builder
-public record PhysioFileResponseDto( // TODO don't return PhysioTest -> return a DTO that contains the result as well for each of the things, check models in FE for reference
+public record PhysioFileResponseDto(
         String id,
         String fileOpenedBy,
         PatientResponseDto patient,
-        List<FunctionalDiagnosis> fullFunctionalDiagnosisList,
         List<PatientFunctionalDiagnosis> patientFunctionalDiagnoses,
         Assessment assessment,
         List<Rass> fullRassList,

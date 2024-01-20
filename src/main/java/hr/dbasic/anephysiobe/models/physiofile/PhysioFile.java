@@ -36,6 +36,7 @@ public class PhysioFile implements Serializable {
     @DBRef
     private Patient patient;
     
+    @DBRef
     private List<PatientFunctionalDiagnosis> patientFunctionalDiagnoses;
     
     @DBRef

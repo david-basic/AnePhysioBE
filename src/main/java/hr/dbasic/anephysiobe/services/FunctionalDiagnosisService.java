@@ -1,10 +1,16 @@
 package hr.dbasic.anephysiobe.services;
 
-import hr.dbasic.anephysiobe.models.physiofile.functionaldiagnoses.FunctionalDiagnosis;
+import hr.dbasic.anephysiobe.dto.responses.physioFileResponse.PhysioFileResponseDto;
+import hr.dbasic.anephysiobe.dto.responses.physioFileResponse.functionalDiagnosisResponse.CreateFunctionalDiagnosisRequestDto;
+import hr.dbasic.anephysiobe.dto.responses.physioFileResponse.functionalDiagnosisResponse.DeleteFunctionalDiagnosisRequestDto;
+import hr.dbasic.anephysiobe.dto.responses.physioFileResponse.functionalDiagnosisResponse.FunctionalDiagnosisResponseDto;
+import hr.dbasic.anephysiobe.dto.responses.physioFileResponse.functionalDiagnosisResponse.UpdateFunctionalDiagnosisRequestDto;
 
 import java.util.List;
 
 public interface FunctionalDiagnosisService {
-    FunctionalDiagnosis findFunctionalDiagnosisByDescription(String description);
-    List<FunctionalDiagnosis> findAllFunctionalDiagnoses();
+    List<FunctionalDiagnosisResponseDto> findAllFunctionalDiagnoses();
+    PhysioFileResponseDto createFunctionalDiagnosis(CreateFunctionalDiagnosisRequestDto createFunctionalDiagnosisRequestDto);
+    PhysioFileResponseDto updateFunctionalDiagnosisById(String id, UpdateFunctionalDiagnosisRequestDto updateFunctionalDiagnosisRequestDto);
+    void deleteFunctionalDiagnosisById(DeleteFunctionalDiagnosisRequestDto deleteFunctionalDiagnosisRequestDto);
 }

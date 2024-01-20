@@ -5,7 +5,6 @@ import hr.dbasic.anephysiobe.dto.responses.physioFileResponse.PFRUserDto;
 import hr.dbasic.anephysiobe.dto.responses.physioFileResponse.PhysioFileResponseDto;
 import hr.dbasic.anephysiobe.models.physiofile.PhysioFile;
 import hr.dbasic.anephysiobe.models.physiofile.assessment.Rass;
-import hr.dbasic.anephysiobe.models.physiofile.functionaldiagnoses.FunctionalDiagnosis;
 import hr.dbasic.anephysiobe.models.physiofile.goals.Goal;
 import hr.dbasic.anephysiobe.models.physiofile.physiotests.cpax.AOP;
 import hr.dbasic.anephysiobe.models.physiofile.physiotests.gcs.EyeOpeningResponse;
@@ -16,7 +15,6 @@ import hr.dbasic.anephysiobe.models.physiofile.plans.Plan;
 import hr.dbasic.anephysiobe.models.physiofile.procedures.Procedure;
 import hr.dbasic.anephysiobe.models.users.User;
 import hr.dbasic.anephysiobe.repositories.*;
-import hr.dbasic.anephysiobe.services.FunctionalDiagnosisService;
 import hr.dbasic.anephysiobe.services.PatientService;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
@@ -30,7 +28,6 @@ import java.util.List;
 @RequiredArgsConstructor
 public class PhysioFileToPhysioFileResponseDtoConverter implements Converter<PhysioFile, PhysioFileResponseDto> {
     private final PatientService patientService;
-    private final FunctionalDiagnosisService functionalDiagnosisService;
     private final GoalRepositoryMongo goalRepositoryMongo;
     private final PlanRepositoryMongo planRepositoryMongo;
     private final ProcedureRepositoryMongo procedureRepositoryMongo;
@@ -45,7 +42,6 @@ public class PhysioFileToPhysioFileResponseDtoConverter implements Converter<Phy
     @Override
     public PhysioFileResponseDto convert(@NonNull PhysioFile source) {
         PatientResponseDto patientResponseDto = patientService.getPatientById(source.getPatient().getId());
-        List<FunctionalDiagnosis> fullFunctionalDiagnosisList = functionalDiagnosisService.findAllFunctionalDiagnoses();
         List<Goal> fullGoalsList = goalRepositoryMongo.findAll();
         List<Plan> fullPlansList = planRepositoryMongo.findAll();
         List<Procedure> fullProcedureList = procedureRepositoryMongo.findAll();
@@ -63,7 +59,6 @@ public class PhysioFileToPhysioFileResponseDtoConverter implements Converter<Phy
                 source.getId(),
                 source.getFileOpenedBy(),
                 patientResponseDto,
-                fullFunctionalDiagnosisList,
                 source.getPatientFunctionalDiagnoses(),
                 source.getAssessment(),
                 fullRassList,

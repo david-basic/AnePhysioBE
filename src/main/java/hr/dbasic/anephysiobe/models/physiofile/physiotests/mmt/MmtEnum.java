@@ -9,7 +9,7 @@ public enum MmtEnum {
     MMT_3(3, "Mišićnom kontrakcijom moguće je savladati pun opseg pokreta protiv sile Zemljine teže (antigravitacijski pokret)"),
     MMT_2(2, "Mišić je sposoban savladati pun opseg pokreta u zglobu u rasteretnom položaju (suspenzija, kosina…)"),
     MMT_1(1, "Prisutna palpabilna kontrakcija mišića"),
-    MMT_0(0, "Nema mišićne aktivnosti.");
+    MMT_0(0, "Nema mišićne aktivnosti");
     
     private final Integer grade;
     private final String description;
