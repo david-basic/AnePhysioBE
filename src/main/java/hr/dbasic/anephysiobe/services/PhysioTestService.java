@@ -1,5 +1,8 @@
 package hr.dbasic.anephysiobe.services;
 
+import hr.dbasic.anephysiobe.dto.requests.physiofile.physiotests.gcs.CreateGcsRequestDto;
+import hr.dbasic.anephysiobe.dto.requests.physiofile.physiotests.gcs.DeleteGcsRequestDto;
+import hr.dbasic.anephysiobe.dto.requests.physiofile.physiotests.gcs.UpdateGcsRequestDto;
 import hr.dbasic.anephysiobe.dto.requests.physiofile.physiotests.mmt.CreateMmtRequestDto;
 import hr.dbasic.anephysiobe.dto.requests.physiofile.physiotests.mmt.DeleteMmtRequestDto;
 import hr.dbasic.anephysiobe.dto.requests.physiofile.physiotests.mmt.UpdateMmtRequestDto;
@@ -21,4 +24,7 @@ public interface PhysioTestService {
     PhysioFileResponseDto createMmt(CreateMmtRequestDto createMmtRequestDto);
     PhysioFileResponseDto updateMmtById(String id, UpdateMmtRequestDto updateMmtRequestDto);
     void deleteMmtByIdInPhysioTestById(DeleteMmtRequestDto deleteMmtRequestDto);
+    PhysioFileResponseDto createGcs(CreateGcsRequestDto createGcsRequestDto);
+    PhysioFileResponseDto updateGcsById(String id, UpdateGcsRequestDto updateGcsRequestDto);
+    void deleteGcsByIdInPhysioTestById(DeleteGcsRequestDto deleteGcsRequestDto);
 }

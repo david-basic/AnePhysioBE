@@ -1,5 +1,8 @@
 package hr.dbasic.anephysiobe.controllers;
 
+import hr.dbasic.anephysiobe.dto.requests.physiofile.physiotests.gcs.CreateGcsRequestDto;
+import hr.dbasic.anephysiobe.dto.requests.physiofile.physiotests.gcs.DeleteGcsRequestDto;
+import hr.dbasic.anephysiobe.dto.requests.physiofile.physiotests.gcs.UpdateGcsRequestDto;
 import hr.dbasic.anephysiobe.dto.requests.physiofile.physiotests.mmt.CreateMmtRequestDto;
 import hr.dbasic.anephysiobe.dto.requests.physiofile.physiotests.mmt.DeleteMmtRequestDto;
 import hr.dbasic.anephysiobe.dto.requests.physiofile.physiotests.mmt.UpdateMmtRequestDto;
@@ -117,6 +120,34 @@ public class PhysioTestsController {
         );
     }
     
+    @PostMapping(PhysioTestMappings.createGcsPostMapping)
+    public ResponseEntity<ApiResponse<PhysioFileResponseDto>> createGcsInPhysioFileWithId(@Valid @RequestBody CreateGcsRequestDto createGcsRequestDto) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(
+                ApiResponse.created(
+                        physioTestService.createGcs(createGcsRequestDto),
+                        "GCS successfully added"
+                )
+        );
+    }
+    
+    @PutMapping(PhysioTestMappings.updateGcsByIdPutMapping)
+    public ResponseEntity<ApiResponse<PhysioFileResponseDto>> updateGcsById(@PathVariable String id, @Valid @RequestBody UpdateGcsRequestDto updateGcsRequestDto) {
+        return ResponseEntity.ok(
+                ApiResponse.ok(
+                        "GCS successfully updated",
+                        physioTestService.updateGcsById(id, updateGcsRequestDto)
+                )
+        );
+    }
+    
+    @DeleteMapping(PhysioTestMappings.deleteGcsDeleteMapping)
+    public ResponseEntity<ApiResponse<?>> deleteGcsById(@Valid @RequestBody DeleteGcsRequestDto deleteGcsRequestDto) {
+        physioTestService.deleteGcsByIdInPhysioTestById(deleteGcsRequestDto);
+        
+        return ResponseEntity.ok(
+                ApiResponse.ok("GCS successfully deleted!")
+        );
+    }
     
     @NoArgsConstructor(access = AccessLevel.PRIVATE)
     public static class PhysioTestMappings {
@@ -130,5 +161,11 @@ public class PhysioTestsController {
         public static final String createMmtPostMapping = "/new-mmt";
         public static final String updateMmtByIdPutMapping = "/update-mmt/{id}";
         public static final String deleteMmtDeleteMapping = "/delete-mmt";
+        public static final String createGcsPostMapping = "/new-gcs";
+        public static final String updateGcsByIdPutMapping = "/update-gcs/{id}";
+        public static final String deleteGcsDeleteMapping = "/delete-gcs";
+        public static final String createCpaxPostMapping = "/new-cpax";
+        public static final String updateCpaxByIdPutMapping = "/update-cpax/{id}";
+        public static final String deleteCpaxDeleteMapping = "/delete-cpax";
     }
 }

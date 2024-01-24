@@ -1,11 +1,12 @@
 package hr.dbasic.anephysiobe.controllers;
 
+import hr.dbasic.anephysiobe.dto.requests.physiofile.functionalDiagnosisRequest.UpdatePatientFunctionalDiagnosisSelectedStateRequestDto;
 import hr.dbasic.anephysiobe.dto.responses.ApiResponse;
 import hr.dbasic.anephysiobe.dto.responses.physioFileResponse.PhysioFileResponseDto;
-import hr.dbasic.anephysiobe.dto.responses.physioFileResponse.functionalDiagnosisResponse.CreateFunctionalDiagnosisRequestDto;
-import hr.dbasic.anephysiobe.dto.responses.physioFileResponse.functionalDiagnosisResponse.DeleteFunctionalDiagnosisRequestDto;
+import hr.dbasic.anephysiobe.dto.requests.physiofile.functionalDiagnosisRequest.CreateFunctionalDiagnosisRequestDto;
+import hr.dbasic.anephysiobe.dto.requests.physiofile.functionalDiagnosisRequest.DeleteFunctionalDiagnosisRequestDto;
 import hr.dbasic.anephysiobe.dto.responses.physioFileResponse.functionalDiagnosisResponse.FunctionalDiagnosisResponseDto;
-import hr.dbasic.anephysiobe.dto.responses.physioFileResponse.functionalDiagnosisResponse.UpdateFunctionalDiagnosisRequestDto;
+import hr.dbasic.anephysiobe.dto.requests.physiofile.functionalDiagnosisRequest.UpdateFunctionalDiagnosisRequestDto;
 import hr.dbasic.anephysiobe.mappings.AppMappings;
 import hr.dbasic.anephysiobe.services.FunctionalDiagnosisService;
 import jakarta.validation.Valid;
@@ -55,11 +56,21 @@ public class FunctionalDiagnosisController {
     }
     
     @DeleteMapping(FunctionalDiagnosisMappings.deleteFunctionalDiagnosisDeleteMapping)
-    public ResponseEntity<ApiResponse<?>> deleteFdById(@Valid @RequestBody DeleteFunctionalDiagnosisRequestDto deleteFunctionalDiagnosisRequestDto) {
-        functionalDiagnosisService.deleteFunctionalDiagnosisById(deleteFunctionalDiagnosisRequestDto);
-        
+    public ResponseEntity<ApiResponse<PhysioFileResponseDto>> deleteFdById(@Valid @RequestBody DeleteFunctionalDiagnosisRequestDto deleteFunctionalDiagnosisRequestDto) {
         return ResponseEntity.ok(
-                ApiResponse.ok("Functional diagnosis successfully deleted!")
+                ApiResponse.ok("Functional diagnosis successfully deleted!",
+                               functionalDiagnosisService.deleteFunctionalDiagnosisById(deleteFunctionalDiagnosisRequestDto)
+                )
+        );
+    }
+    
+    @PutMapping(FunctionalDiagnosisMappings.updatePatientFunctionalDiagnosisByIdPutMapping)
+    public ResponseEntity<ApiResponse<PhysioFileResponseDto>> updatePfdById(@PathVariable String id, @Valid @RequestBody UpdatePatientFunctionalDiagnosisSelectedStateRequestDto updatePatientFunctionalDiagnosisSelectedStateRequestDto) {
+        return ResponseEntity.ok(
+                ApiResponse.ok(
+                        "Patient functional diagnosis successfully updated!",
+                        functionalDiagnosisService.updatePatientFunctionalDiagnosisSelectedStateById(id, updatePatientFunctionalDiagnosisSelectedStateRequestDto)
+                )
         );
     }
     
@@ -70,5 +81,6 @@ public class FunctionalDiagnosisController {
         public static final String createFunctionalDiagnosisGetMapping = "/new-fd";
         public static final String updateFunctionalDiagnosisByIdPutMapping = "/update-fd/{id}";
         public static final String deleteFunctionalDiagnosisDeleteMapping = "/delete-fd";
+        public static final String updatePatientFunctionalDiagnosisByIdPutMapping = "/update-pfd/{id}";
     }
 }

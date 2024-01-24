@@ -1,9 +1,9 @@
 package hr.dbasic.anephysiobe.services.impl;
 
-import hr.dbasic.anephysiobe.converters.CreateMmtRequestDtoToPatientMmtConverter;
-import hr.dbasic.anephysiobe.converters.CreateVasRequestDtoToVasConverter;
-import hr.dbasic.anephysiobe.converters.PhysioFileToPhysioFileResponseDtoConverter;
-import hr.dbasic.anephysiobe.converters.PhysioTestToPhysioTestResponseDtoConverter;
+import hr.dbasic.anephysiobe.converters.*;
+import hr.dbasic.anephysiobe.dto.requests.physiofile.physiotests.gcs.CreateGcsRequestDto;
+import hr.dbasic.anephysiobe.dto.requests.physiofile.physiotests.gcs.DeleteGcsRequestDto;
+import hr.dbasic.anephysiobe.dto.requests.physiofile.physiotests.gcs.UpdateGcsRequestDto;
 import hr.dbasic.anephysiobe.dto.requests.physiofile.physiotests.mmt.CreateMmtRequestDto;
 import hr.dbasic.anephysiobe.dto.requests.physiofile.physiotests.mmt.DeleteMmtRequestDto;
 import hr.dbasic.anephysiobe.dto.requests.physiofile.physiotests.mmt.UpdateMmtRequestDto;
@@ -16,6 +16,8 @@ import hr.dbasic.anephysiobe.exceptions.EntityNotFoundException;
 import hr.dbasic.anephysiobe.models.physiofile.PhysioFile;
 import hr.dbasic.anephysiobe.models.physiofile.physiotests.PhysioTest;
 import hr.dbasic.anephysiobe.models.physiofile.physiotests.Vas;
+import hr.dbasic.anephysiobe.models.physiofile.physiotests.gcs.Gcs;
+import hr.dbasic.anephysiobe.models.physiofile.physiotests.gcs.GcsResponse;
 import hr.dbasic.anephysiobe.models.physiofile.physiotests.mmt.PatientMmt;
 import hr.dbasic.anephysiobe.repositories.PhysioFileRepositoryMongo;
 import hr.dbasic.anephysiobe.repositories.PhysioTestRepositoryMongo;
@@ -40,6 +42,7 @@ public class PhysioTestServiceImpl implements PhysioTestService {
     private final PhysioFileToPhysioFileResponseDtoConverter physioFileToPhysioFileResponseDtoConverter;
     private final CreateVasRequestDtoToVasConverter createVasRequestDtoToVasConverter;
     private final CreateMmtRequestDtoToPatientMmtConverter createMmtRequestDtoToPatientMmtConverter;
+    private final CreateGcsRequestDtoToGcsConverter createGcsRequestDtoToGcsConverter;
     
     @Override
     public List<PhysioTestResponseDto> getAllPhysioTests() {
@@ -145,4 +148,60 @@ public class PhysioTestServiceImpl implements PhysioTestService {
         foundTest.getMmt().removeIf(mmt -> Objects.equals(mmt.getId(), deleteMmtRequestDto.patientMmtId()));
         physioTestRepositoryMongo.save(foundTest);
     }
+    
+    @Override
+    public PhysioFileResponseDto createGcs(CreateGcsRequestDto createGcsRequestDto) {
+        Gcs newGcs = createGcsRequestDtoToGcsConverter.convert(createGcsRequestDto);
+        PhysioTest foundTest = physioTestRepositoryMongo.findById(createGcsRequestDto.physioTestId()).orElseThrow(EntityNotFoundException.supplier("Physio test"));
+        
+        foundTest.getGcs().add(newGcs);
+        physioTestRepositoryMongo.save(foundTest);
+        
+        PhysioFile physioFile = physioFileRepositoryMongo.findPhysioFileByPhysioTestId(createGcsRequestDto.physioTestId()).orElseThrow(EntityNotFoundException.supplier("Physio test"));
+        return physioFileToPhysioFileResponseDtoConverter.convert(physioFile);
+    }
+    
+    @Override
+    public PhysioFileResponseDto updateGcsById(String gcsId, UpdateGcsRequestDto updateGcsRequestDto) {
+        PhysioTest foundTest = physioTestRepositoryMongo.findById(updateGcsRequestDto.physioTestId()).orElseThrow(EntityNotFoundException.supplier("Physio test"));
+        List<Gcs> newGcsListState = new ArrayList<>();
+        for (Gcs g : foundTest.getGcs()) {
+            if (Objects.equals(g.getId(), gcsId)) {
+                g.setEyeOpeningResponse(
+                        GcsResponse.builder()
+                                .scale(updateGcsRequestDto.eyeOpeningResponse().getScale())
+                                .score(updateGcsRequestDto.eyeOpeningResponse().getScore())
+                                .build()
+                );
+                g.setVerbalResponse(
+                        GcsResponse.builder()
+                                .scale(updateGcsRequestDto.verbalResponse().getScale())
+                                .score(updateGcsRequestDto.verbalResponse().getScore())
+                                .build()
+                );
+                g.setMotorResponse(
+                        GcsResponse.builder()
+                                .scale(updateGcsRequestDto.motorResponse().getScale())
+                                .score(updateGcsRequestDto.motorResponse().getScore())
+                                .build()
+                );
+                g.setGcsDateTime(LocalDateTime.parse(updateGcsRequestDto.gcsDateTime(), DateTimeFormatter.ISO_LOCAL_DATE_TIME));
+            }
+            newGcsListState.add(g);
+        }
+        
+        foundTest.setGcs(newGcsListState);
+        physioTestRepositoryMongo.save(foundTest);
+        
+        PhysioFile physioFile = physioFileRepositoryMongo.findPhysioFileByPhysioTestId(updateGcsRequestDto.physioTestId()).orElseThrow(EntityNotFoundException.supplier("Physio file"));
+        return physioFileToPhysioFileResponseDtoConverter.convert(physioFile);
+    }
+    
+    @Override
+    public void deleteGcsByIdInPhysioTestById(DeleteGcsRequestDto deleteGcsRequestDto) {
+        PhysioTest foundTest = physioTestRepositoryMongo.findById(deleteGcsRequestDto.physioTestId()).orElseThrow(EntityNotFoundException.supplier("Physio test"));
+        foundTest.getGcs().removeIf(gcs -> Objects.equals(gcs.getId(), deleteGcsRequestDto.gcsId()));
+        physioTestRepositoryMongo.save(foundTest);
+    }
+    
 }
