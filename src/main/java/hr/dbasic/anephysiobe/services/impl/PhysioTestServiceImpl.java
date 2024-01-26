@@ -1,6 +1,9 @@
 package hr.dbasic.anephysiobe.services.impl;
 
 import hr.dbasic.anephysiobe.converters.*;
+import hr.dbasic.anephysiobe.dto.requests.physiofile.physiotests.cpax.CreateCpaxRequestDto;
+import hr.dbasic.anephysiobe.dto.requests.physiofile.physiotests.cpax.DeleteCpaxRequestDto;
+import hr.dbasic.anephysiobe.dto.requests.physiofile.physiotests.cpax.UpdateCpaxRequestDto;
 import hr.dbasic.anephysiobe.dto.requests.physiofile.physiotests.gcs.CreateGcsRequestDto;
 import hr.dbasic.anephysiobe.dto.requests.physiofile.physiotests.gcs.DeleteGcsRequestDto;
 import hr.dbasic.anephysiobe.dto.requests.physiofile.physiotests.gcs.UpdateGcsRequestDto;
@@ -16,6 +19,9 @@ import hr.dbasic.anephysiobe.exceptions.EntityNotFoundException;
 import hr.dbasic.anephysiobe.models.physiofile.PhysioFile;
 import hr.dbasic.anephysiobe.models.physiofile.physiotests.PhysioTest;
 import hr.dbasic.anephysiobe.models.physiofile.physiotests.Vas;
+import hr.dbasic.anephysiobe.models.physiofile.physiotests.cpax.AspectOfPhysicality;
+import hr.dbasic.anephysiobe.models.physiofile.physiotests.cpax.Cpax;
+import hr.dbasic.anephysiobe.models.physiofile.physiotests.cpax.DefinitionAOP;
 import hr.dbasic.anephysiobe.models.physiofile.physiotests.gcs.Gcs;
 import hr.dbasic.anephysiobe.models.physiofile.physiotests.gcs.GcsResponse;
 import hr.dbasic.anephysiobe.models.physiofile.physiotests.mmt.PatientMmt;
@@ -43,6 +49,7 @@ public class PhysioTestServiceImpl implements PhysioTestService {
     private final CreateVasRequestDtoToVasConverter createVasRequestDtoToVasConverter;
     private final CreateMmtRequestDtoToPatientMmtConverter createMmtRequestDtoToPatientMmtConverter;
     private final CreateGcsRequestDtoToGcsConverter createGcsRequestDtoToGcsConverter;
+    private final CreateCpaxRequestDtoToCpaxConverter createCpaxRequestDtoToCpaxConverter;
     
     @Override
     public List<PhysioTestResponseDto> getAllPhysioTests() {
@@ -157,7 +164,7 @@ public class PhysioTestServiceImpl implements PhysioTestService {
         foundTest.getGcs().add(newGcs);
         physioTestRepositoryMongo.save(foundTest);
         
-        PhysioFile physioFile = physioFileRepositoryMongo.findPhysioFileByPhysioTestId(createGcsRequestDto.physioTestId()).orElseThrow(EntityNotFoundException.supplier("Physio test"));
+        PhysioFile physioFile = physioFileRepositoryMongo.findPhysioFileByPhysioTestId(createGcsRequestDto.physioTestId()).orElseThrow(EntityNotFoundException.supplier("Physio file"));
         return physioFileToPhysioFileResponseDtoConverter.convert(physioFile);
     }
     
@@ -204,4 +211,55 @@ public class PhysioTestServiceImpl implements PhysioTestService {
         physioTestRepositoryMongo.save(foundTest);
     }
     
+    @Override
+    public PhysioFileResponseDto createCpax(CreateCpaxRequestDto createCpaxRequestDto) {
+        Cpax newCpax = createCpaxRequestDtoToCpaxConverter.convert(createCpaxRequestDto);
+        PhysioTest foundTest = physioTestRepositoryMongo.findById(createCpaxRequestDto.physioTestId()).orElseThrow(EntityNotFoundException.supplier("Physio test"));
+        
+        foundTest.getCpax().add(newCpax);
+        physioTestRepositoryMongo.save(foundTest);
+        
+        PhysioFile physioFile = physioFileRepositoryMongo.findPhysioFileByPhysioTestId(createCpaxRequestDto.physioTestId()).orElseThrow(EntityNotFoundException.supplier("Physio file"));
+        return physioFileToPhysioFileResponseDtoConverter.convert(physioFile);
+    }
+    
+    @Override
+    public PhysioFileResponseDto updateCpaxById(String cpaxId, UpdateCpaxRequestDto updateCpaxRequestDto) {
+        PhysioTest foundTest = physioTestRepositoryMongo.findById(updateCpaxRequestDto.physioTestId()).orElseThrow(EntityNotFoundException.supplier("Physio test"));
+        List<Cpax> newCpaxListState = new ArrayList<>();
+        
+        for (Cpax cpax : foundTest.getCpax()) {
+            if (Objects.equals(cpax.getId(), cpaxId)) {
+                AspectOfPhysicality aop = AspectOfPhysicality.builder()
+                        .respiratoryFunctionAOP(updateCpaxRequestDto.respiratoryAop())
+                        .coughAOP(updateCpaxRequestDto.coughAop())
+                        .dynamicSittingAOP(updateCpaxRequestDto.dynamicSittingAop())
+                        .gripStrengthAOP(updateCpaxRequestDto.gripStrengthAop())
+                        .movingWithinBedAOP(updateCpaxRequestDto.movingWithinBedAop())
+                        .sitToStandAOP(updateCpaxRequestDto.sitToStandAop())
+                        .standingBalanceAOP(updateCpaxRequestDto.standingBalanceAop())
+                        .steppingAOP(updateCpaxRequestDto.steppingAop())
+                        .transferringFromBedToChairAOP(updateCpaxRequestDto.transferringFromBedAop())
+                        .supineToSittingOnTheEdgeOfTheBedAOP(updateCpaxRequestDto.supineToSittingAop())
+                        .build();
+                
+                cpax.setAspectOfPhysicality(aop);
+                cpax.setTestDateTime(LocalDateTime.parse(updateCpaxRequestDto.cpaxDateTime(), DateTimeFormatter.ISO_LOCAL_DATE_TIME));
+            }
+            newCpaxListState.add(cpax);
+        }
+        
+        foundTest.setCpax(newCpaxListState);
+        physioTestRepositoryMongo.save(foundTest);
+        
+        PhysioFile physioFile = physioFileRepositoryMongo.findPhysioFileByPhysioTestId(updateCpaxRequestDto.physioTestId()).orElseThrow(EntityNotFoundException.supplier("Physio file"));
+        return physioFileToPhysioFileResponseDtoConverter.convert(physioFile);
+    }
+    
+    @Override
+    public void deleteCpaxByIdInPhysioTestById(DeleteCpaxRequestDto deleteCpaxRequestDto) {
+        PhysioTest foundTest = physioTestRepositoryMongo.findById(deleteCpaxRequestDto.physioTestId()).orElseThrow(EntityNotFoundException.supplier("Physio test"));
+        foundTest.getCpax().removeIf(cpax -> Objects.equals(cpax.getId(), deleteCpaxRequestDto.cpaxId()));
+        physioTestRepositoryMongo.save(foundTest);
+    }
 }

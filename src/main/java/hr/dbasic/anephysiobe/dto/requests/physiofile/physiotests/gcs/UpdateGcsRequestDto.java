@@ -4,7 +4,9 @@ import hr.dbasic.anephysiobe.models.physiofile.physiotests.gcs.EyeOpeningRespons
 import hr.dbasic.anephysiobe.models.physiofile.physiotests.gcs.MotorResponse;
 import hr.dbasic.anephysiobe.models.physiofile.physiotests.gcs.VerbalResponse;
 import jakarta.validation.constraints.NotNull;
+import lombok.Builder;
 
+@Builder
 public record UpdateGcsRequestDto(
         @NotNull(message = "Physio test id has to be provided")
         String physioTestId,

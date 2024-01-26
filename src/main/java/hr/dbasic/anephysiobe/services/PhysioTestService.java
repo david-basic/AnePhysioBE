@@ -1,5 +1,8 @@
 package hr.dbasic.anephysiobe.services;
 
+import hr.dbasic.anephysiobe.dto.requests.physiofile.physiotests.cpax.CreateCpaxRequestDto;
+import hr.dbasic.anephysiobe.dto.requests.physiofile.physiotests.cpax.DeleteCpaxRequestDto;
+import hr.dbasic.anephysiobe.dto.requests.physiofile.physiotests.cpax.UpdateCpaxRequestDto;
 import hr.dbasic.anephysiobe.dto.requests.physiofile.physiotests.gcs.CreateGcsRequestDto;
 import hr.dbasic.anephysiobe.dto.requests.physiofile.physiotests.gcs.DeleteGcsRequestDto;
 import hr.dbasic.anephysiobe.dto.requests.physiofile.physiotests.gcs.UpdateGcsRequestDto;
@@ -27,4 +30,7 @@ public interface PhysioTestService {
     PhysioFileResponseDto createGcs(CreateGcsRequestDto createGcsRequestDto);
     PhysioFileResponseDto updateGcsById(String id, UpdateGcsRequestDto updateGcsRequestDto);
     void deleteGcsByIdInPhysioTestById(DeleteGcsRequestDto deleteGcsRequestDto);
+    PhysioFileResponseDto createCpax(CreateCpaxRequestDto createCpaxRequestDto);
+    PhysioFileResponseDto updateCpaxById(String id, UpdateCpaxRequestDto updateCpaxRequestDto);
+    void deleteCpaxByIdInPhysioTestById(DeleteCpaxRequestDto deleteCpaxRequestDto);
 }

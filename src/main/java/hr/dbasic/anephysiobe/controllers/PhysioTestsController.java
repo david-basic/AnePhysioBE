@@ -1,5 +1,8 @@
 package hr.dbasic.anephysiobe.controllers;
 
+import hr.dbasic.anephysiobe.dto.requests.physiofile.physiotests.cpax.CreateCpaxRequestDto;
+import hr.dbasic.anephysiobe.dto.requests.physiofile.physiotests.cpax.DeleteCpaxRequestDto;
+import hr.dbasic.anephysiobe.dto.requests.physiofile.physiotests.cpax.UpdateCpaxRequestDto;
 import hr.dbasic.anephysiobe.dto.requests.physiofile.physiotests.gcs.CreateGcsRequestDto;
 import hr.dbasic.anephysiobe.dto.requests.physiofile.physiotests.gcs.DeleteGcsRequestDto;
 import hr.dbasic.anephysiobe.dto.requests.physiofile.physiotests.gcs.UpdateGcsRequestDto;
@@ -146,6 +149,35 @@ public class PhysioTestsController {
         
         return ResponseEntity.ok(
                 ApiResponse.ok("GCS successfully deleted!")
+        );
+    }
+    
+    @PostMapping(PhysioTestMappings.createCpaxPostMapping)
+    public ResponseEntity<ApiResponse<PhysioFileResponseDto>> createCpaxInPhysioFileWithId(@Valid @RequestBody CreateCpaxRequestDto createCpaxRequestDto) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(
+                ApiResponse.created(
+                        physioTestService.createCpax(createCpaxRequestDto),
+                        "CPAx successfully added"
+                )
+        );
+    }
+    
+    @PutMapping(PhysioTestMappings.updateCpaxByIdPutMapping)
+    public ResponseEntity<ApiResponse<PhysioFileResponseDto>> updateCpaxById(@PathVariable String id, @Valid @RequestBody UpdateCpaxRequestDto updateCpaxRequestDto) {
+        return ResponseEntity.ok(
+                ApiResponse.ok(
+                        "CPAx successfully updated",
+                        physioTestService.updateCpaxById(id, updateCpaxRequestDto)
+                )
+        );
+    }
+    
+    @DeleteMapping(PhysioTestMappings.deleteCpaxDeleteMapping)
+    public ResponseEntity<ApiResponse<?>> deleteCpaxById(@Valid @RequestBody DeleteCpaxRequestDto deleteCpaxRequestDto) {
+        physioTestService.deleteCpaxByIdInPhysioTestById(deleteCpaxRequestDto);
+        
+        return ResponseEntity.ok(
+                ApiResponse.ok("CPAx successfully deleted")
         );
     }
     
