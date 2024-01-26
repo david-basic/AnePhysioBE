@@ -12,8 +12,9 @@ public class PatientGoal extends Goal {
     private Boolean selected;
     
     @Builder(builderMethodName = "patientGoalBuilder")
-    public static PatientGoal createPatientGoal(String type, String description, Boolean selected) {
+    public static PatientGoal createPatientGoal(String id, String type, String description, Boolean selected) {
         PatientGoal patientGoal = new PatientGoal();
+        patientGoal.setId(id);
         patientGoal.setType(type);
         patientGoal.setDescription(description);
         Boolean defaultSelected = (selected != null) ? selected : false;

@@ -7,13 +7,14 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor(force = true)
 @EqualsAndHashCode(doNotUseGetters = true, onlyExplicitlyIncluded = true, callSuper = true)
-public class PatientPlan extends Plan{
+public class PatientPlan extends Plan {
     
     private Boolean selected;
     
     @Builder(builderMethodName = "patientPlanBuilder")
-    public static PatientPlan createPatientPlan(String type, String description, Boolean selected) {
+    public static PatientPlan createPatientPlan(String id, String type, String description, Boolean selected) {
         PatientPlan patientPlan = new PatientPlan();
+        patientPlan.setId(id);
         patientPlan.setType(type);
         patientPlan.setDescription(description);
         Boolean defaultSelected = (selected != null) ? selected : false;

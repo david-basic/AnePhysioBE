@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 @Component
 @RequiredArgsConstructor
 public class Runner implements CommandLineRunner {
-    
+
 //    private final MkbRepositoryMongo mkbRepositoryMongo;
 //    private final PatientMkbRepositoryMongo patientMkbRepositoryMongo;
 //    private final CountyRepositoryMongo countyRepositoryMongo;
@@ -40,7 +40,7 @@ public class Runner implements CommandLineRunner {
     
     @Override
     public void run(String... args) {
-        
+
 //        Sex female = Sex.builder().name(SexEnum.FEMALE.name()).displayName(SexEnum.FEMALE.getDisplayName()).build();
 //        Sex male = Sex.builder().name(SexEnum.MALE.name()).displayName(SexEnum.MALE.getDisplayName()).build();
 //        sexRepositoryMongo.saveAll(
@@ -872,72 +872,72 @@ public class Runner implements CommandLineRunner {
 //                )
 //        );
 //
-//        PatientGoal pg11 = PatientGoal.patientGoalBuilder().type(g1.getType()).description(g1.getDescription()).selected(true).build();
-//        PatientGoal pg12 = PatientGoal.patientGoalBuilder().type(g2.getType()).description(g2.getDescription()).build();
+//        PatientGoal pg11 = PatientGoal.patientGoalBuilder().id(String.valueOf(randomNumberService.generateRandomBigInteger(false, 12))).type(g1.getType()).description(g1.getDescription()).selected(true).build();
+//        PatientGoal pg12 = PatientGoal.patientGoalBuilder().id(String.valueOf(randomNumberService.generateRandomBigInteger(false, 12))).type(g2.getType()).description(g2.getDescription()).build();
 //        List<PatientGoal> pgl1 = new ArrayList<>(List.of(pg11, pg12));
 //
-//        PatientGoal pg21 = PatientGoal.patientGoalBuilder().type(g1.getType()).description(g1.getDescription()).build();
-//        PatientGoal pg22 = PatientGoal.patientGoalBuilder().type(g2.getType()).description(g2.getDescription()).selected(true).build();
+//        PatientGoal pg21 = PatientGoal.patientGoalBuilder().id(String.valueOf(randomNumberService.generateRandomBigInteger(false, 12))).type(g1.getType()).description(g1.getDescription()).build();
+//        PatientGoal pg22 = PatientGoal.patientGoalBuilder().id(String.valueOf(randomNumberService.generateRandomBigInteger(false, 12))).type(g2.getType()).description(g2.getDescription()).selected(true).build();
 //        List<PatientGoal> pgl2 = new ArrayList<>(List.of(pg21, pg22));
 //
-//        PatientGoal pg31 = PatientGoal.patientGoalBuilder().type(g1.getType()).description(g1.getDescription()).build();
-//        PatientGoal pg32 = PatientGoal.patientGoalBuilder().type(g2.getType()).description(g2.getDescription()).selected(true).build();
+//        PatientGoal pg31 = PatientGoal.patientGoalBuilder().id(String.valueOf(randomNumberService.generateRandomBigInteger(false, 12))).type(g1.getType()).description(g1.getDescription()).build();
+//        PatientGoal pg32 = PatientGoal.patientGoalBuilder().id(String.valueOf(randomNumberService.generateRandomBigInteger(false, 12))).type(g2.getType()).description(g2.getDescription()).selected(true).build();
 //        List<PatientGoal> pgl3 = new ArrayList<>(List.of(pg31, pg32));
 //
-//        PatientGoal pg41 = PatientGoal.patientGoalBuilder().type(g1.getType()).description(g1.getDescription()).build();
-//        PatientGoal pg42 = PatientGoal.patientGoalBuilder().type(g2.getType()).description(g2.getDescription()).selected(true).build();
+//        PatientGoal pg41 = PatientGoal.patientGoalBuilder().id(String.valueOf(randomNumberService.generateRandomBigInteger(false, 12))).type(g1.getType()).description(g1.getDescription()).build();
+//        PatientGoal pg42 = PatientGoal.patientGoalBuilder().id(String.valueOf(randomNumberService.generateRandomBigInteger(false, 12))).type(g2.getType()).description(g2.getDescription()).selected(true).build();
 //        List<PatientGoal> pgl4 = new ArrayList<>(List.of(pg41, pg42));
 //
-//        PatientGoal pg51 = PatientGoal.patientGoalBuilder().type(g1.getType()).description(g1.getDescription()).build();
-//        PatientGoal pg52 = PatientGoal.patientGoalBuilder().type(g2.getType()).description(g2.getDescription()).selected(true).build();
+//        PatientGoal pg51 = PatientGoal.patientGoalBuilder().id(String.valueOf(randomNumberService.generateRandomBigInteger(false, 12))).type(g1.getType()).description(g1.getDescription()).build();
+//        PatientGoal pg52 = PatientGoal.patientGoalBuilder().id(String.valueOf(randomNumberService.generateRandomBigInteger(false, 12))).type(g2.getType()).description(g2.getDescription()).selected(true).build();
 //        List<PatientGoal> pgl5 = new ArrayList<>(List.of(pg51, pg52));
 //
-//        PatientGoal pg61 = PatientGoal.patientGoalBuilder().type(g1.getType()).description(g1.getDescription()).build();
-//        PatientGoal pg62 = PatientGoal.patientGoalBuilder().type(g2.getType()).description(g2.getDescription()).selected(true).build();
+//        PatientGoal pg61 = PatientGoal.patientGoalBuilder().id(String.valueOf(randomNumberService.generateRandomBigInteger(false, 12))).type(g1.getType()).description(g1.getDescription()).build();
+//        PatientGoal pg62 = PatientGoal.patientGoalBuilder().id(String.valueOf(randomNumberService.generateRandomBigInteger(false, 12))).type(g2.getType()).description(g2.getDescription()).selected(true).build();
 //        List<PatientGoal> pgl6 = new ArrayList<>(List.of(pg61, pg62));
 //
-//        PatientGoal pg71 = PatientGoal.patientGoalBuilder().type(g1.getType()).description(g1.getDescription()).build();
-//        PatientGoal pg72 = PatientGoal.patientGoalBuilder().type(g2.getType()).description(g2.getDescription()).selected(true).build();
+//        PatientGoal pg71 = PatientGoal.patientGoalBuilder().id(String.valueOf(randomNumberService.generateRandomBigInteger(false, 12))).type(g1.getType()).description(g1.getDescription()).build();
+//        PatientGoal pg72 = PatientGoal.patientGoalBuilder().id(String.valueOf(randomNumberService.generateRandomBigInteger(false, 12))).type(g2.getType()).description(g2.getDescription()).selected(true).build();
 //        List<PatientGoal> pgl7 = new ArrayList<>(List.of(pg71, pg72));
 //
-//        PatientGoal pg81 = PatientGoal.patientGoalBuilder().type(g1.getType()).description(g1.getDescription()).selected(true).build();
-//        PatientGoal pg82 = PatientGoal.patientGoalBuilder().type(g2.getType()).description(g2.getDescription()).build();
+//        PatientGoal pg81 = PatientGoal.patientGoalBuilder().id(String.valueOf(randomNumberService.generateRandomBigInteger(false, 12))).type(g1.getType()).description(g1.getDescription()).selected(true).build();
+//        PatientGoal pg82 = PatientGoal.patientGoalBuilder().id(String.valueOf(randomNumberService.generateRandomBigInteger(false, 12))).type(g2.getType()).description(g2.getDescription()).build();
 //        List<PatientGoal> pgl8 = new ArrayList<>(List.of(pg81, pg82));
 //
-//        PatientGoal pg91 = PatientGoal.patientGoalBuilder().type(g1.getType()).description(g1.getDescription()).selected(true).build();
-//        PatientGoal pg92 = PatientGoal.patientGoalBuilder().type(g2.getType()).description(g2.getDescription()).build();
+//        PatientGoal pg91 = PatientGoal.patientGoalBuilder().id(String.valueOf(randomNumberService.generateRandomBigInteger(false, 12))).type(g1.getType()).description(g1.getDescription()).selected(true).build();
+//        PatientGoal pg92 = PatientGoal.patientGoalBuilder().id(String.valueOf(randomNumberService.generateRandomBigInteger(false, 12))).type(g2.getType()).description(g2.getDescription()).build();
 //        List<PatientGoal> pgl9 = new ArrayList<>(List.of(pg91, pg92));
 //
-//        PatientGoal pg101 = PatientGoal.patientGoalBuilder().type(g1.getType()).description(g1.getDescription()).selected(true).build();
-//        PatientGoal pg102 = PatientGoal.patientGoalBuilder().type(g2.getType()).description(g2.getDescription()).build();
+//        PatientGoal pg101 = PatientGoal.patientGoalBuilder().id(String.valueOf(randomNumberService.generateRandomBigInteger(false, 12))).type(g1.getType()).description(g1.getDescription()).selected(true).build();
+//        PatientGoal pg102 = PatientGoal.patientGoalBuilder().id(String.valueOf(randomNumberService.generateRandomBigInteger(false, 12))).type(g2.getType()).description(g2.getDescription()).build();
 //        List<PatientGoal> pgl10 = new ArrayList<>(List.of(pg101, pg102));
 //
-//        PatientGoal pg111 = PatientGoal.patientGoalBuilder().type(g1.getType()).description(g1.getDescription()).build();
-//        PatientGoal pg112 = PatientGoal.patientGoalBuilder().type(g2.getType()).description(g2.getDescription()).selected(true).build();
+//        PatientGoal pg111 = PatientGoal.patientGoalBuilder().id(String.valueOf(randomNumberService.generateRandomBigInteger(false, 12))).type(g1.getType()).description(g1.getDescription()).build();
+//        PatientGoal pg112 = PatientGoal.patientGoalBuilder().id(String.valueOf(randomNumberService.generateRandomBigInteger(false, 12))).type(g2.getType()).description(g2.getDescription()).selected(true).build();
 //        List<PatientGoal> pgl11 = new ArrayList<>(List.of(pg111, pg112));
 //
-//        PatientGoal pg121 = PatientGoal.patientGoalBuilder().type(g1.getType()).description(g1.getDescription()).build();
-//        PatientGoal pg122 = PatientGoal.patientGoalBuilder().type(g2.getType()).description(g2.getDescription()).selected(true).build();
+//        PatientGoal pg121 = PatientGoal.patientGoalBuilder().id(String.valueOf(randomNumberService.generateRandomBigInteger(false, 12))).type(g1.getType()).description(g1.getDescription()).build();
+//        PatientGoal pg122 = PatientGoal.patientGoalBuilder().id(String.valueOf(randomNumberService.generateRandomBigInteger(false, 12))).type(g2.getType()).description(g2.getDescription()).selected(true).build();
 //        List<PatientGoal> pgl12 = new ArrayList<>(List.of(pg121, pg122));
 //
-//        PatientGoal pg131 = PatientGoal.patientGoalBuilder().type(g1.getType()).description(g1.getDescription()).build();
-//        PatientGoal pg132 = PatientGoal.patientGoalBuilder().type(g2.getType()).description(g2.getDescription()).selected(true).build();
+//        PatientGoal pg131 = PatientGoal.patientGoalBuilder().id(String.valueOf(randomNumberService.generateRandomBigInteger(false, 12))).type(g1.getType()).description(g1.getDescription()).build();
+//        PatientGoal pg132 = PatientGoal.patientGoalBuilder().id(String.valueOf(randomNumberService.generateRandomBigInteger(false, 12))).type(g2.getType()).description(g2.getDescription()).selected(true).build();
 //        List<PatientGoal> pgl13 = new ArrayList<>(List.of(pg131, pg132));
 //
-//        PatientGoal pg141 = PatientGoal.patientGoalBuilder().type(g1.getType()).description(g1.getDescription()).build();
-//        PatientGoal pg142 = PatientGoal.patientGoalBuilder().type(g2.getType()).description(g2.getDescription()).selected(true).build();
+//        PatientGoal pg141 = PatientGoal.patientGoalBuilder().id(String.valueOf(randomNumberService.generateRandomBigInteger(false, 12))).type(g1.getType()).description(g1.getDescription()).build();
+//        PatientGoal pg142 = PatientGoal.patientGoalBuilder().id(String.valueOf(randomNumberService.generateRandomBigInteger(false, 12))).type(g2.getType()).description(g2.getDescription()).selected(true).build();
 //        List<PatientGoal> pgl14 = new ArrayList<>(List.of(pg141, pg142));
 //
-//        PatientGoal pg151 = PatientGoal.patientGoalBuilder().type(g1.getType()).description(g1.getDescription()).build();
-//        PatientGoal pg152 = PatientGoal.patientGoalBuilder().type(g2.getType()).description(g2.getDescription()).selected(true).build();
+//        PatientGoal pg151 = PatientGoal.patientGoalBuilder().id(String.valueOf(randomNumberService.generateRandomBigInteger(false, 12))).type(g1.getType()).description(g1.getDescription()).build();
+//        PatientGoal pg152 = PatientGoal.patientGoalBuilder().id(String.valueOf(randomNumberService.generateRandomBigInteger(false, 12))).type(g2.getType()).description(g2.getDescription()).selected(true).build();
 //        List<PatientGoal> pgl15 = new ArrayList<>(List.of(pg151, pg152));
 //
-//        PatientGoal pg161 = PatientGoal.patientGoalBuilder().type(g1.getType()).description(g1.getDescription()).selected(true).build();
-//        PatientGoal pg162 = PatientGoal.patientGoalBuilder().type(g2.getType()).description(g2.getDescription()).build();
+//        PatientGoal pg161 = PatientGoal.patientGoalBuilder().id(String.valueOf(randomNumberService.generateRandomBigInteger(false, 12))).type(g1.getType()).description(g1.getDescription()).selected(true).build();
+//        PatientGoal pg162 = PatientGoal.patientGoalBuilder().id(String.valueOf(randomNumberService.generateRandomBigInteger(false, 12))).type(g2.getType()).description(g2.getDescription()).build();
 //        List<PatientGoal> pgl16 = new ArrayList<>(List.of(pg161, pg162));
 //
-//        PatientGoal pg171 = PatientGoal.patientGoalBuilder().type(g1.getType()).description(g1.getDescription()).selected(true).build();
-//        PatientGoal pg172 = PatientGoal.patientGoalBuilder().type(g2.getType()).description(g2.getDescription()).build();
+//        PatientGoal pg171 = PatientGoal.patientGoalBuilder().id(String.valueOf(randomNumberService.generateRandomBigInteger(false, 12))).type(g1.getType()).description(g1.getDescription()).selected(true).build();
+//        PatientGoal pg172 = PatientGoal.patientGoalBuilder().id(String.valueOf(randomNumberService.generateRandomBigInteger(false, 12))).type(g2.getType()).description(g2.getDescription()).build();
 //        List<PatientGoal> pgl17 = new ArrayList<>(List.of(pg171, pg172));
 //
 //        Plan pl1 = Plan.builder().type(PlansEnum.P_INTUBIRANI.getType()).description(PlansEnum.P_INTUBIRANI.getDescription()).build();
@@ -948,72 +948,72 @@ public class Runner implements CommandLineRunner {
 //                )
 //        );
 //
-//        PatientPlan pp11 = PatientPlan.patientPlanBuilder().type(pl1.getType()).description(pl1.getDescription()).selected(true).build();
-//        PatientPlan pp12 = PatientPlan.patientPlanBuilder().type(pl2.getType()).description(pl2.getDescription()).build();
+//        PatientPlan pp11 = PatientPlan.patientPlanBuilder().id(String.valueOf(randomNumberService.generateRandomBigInteger(false, 12))).type(pl1.getType()).description(pl1.getDescription()).selected(true).build();
+//        PatientPlan pp12 = PatientPlan.patientPlanBuilder().id(String.valueOf(randomNumberService.generateRandomBigInteger(false, 12))).type(pl2.getType()).description(pl2.getDescription()).build();
 //        List<PatientPlan> ppl1 = new ArrayList<>(List.of(pp11, pp12));
 //
-//        PatientPlan pp21 = PatientPlan.patientPlanBuilder().type(pl1.getType()).description(pl1.getDescription()).build();
-//        PatientPlan pp22 = PatientPlan.patientPlanBuilder().type(pl2.getType()).description(pl2.getDescription()).selected(true).build();
+//        PatientPlan pp21 = PatientPlan.patientPlanBuilder().id(String.valueOf(randomNumberService.generateRandomBigInteger(false, 12))).type(pl1.getType()).description(pl1.getDescription()).build();
+//        PatientPlan pp22 = PatientPlan.patientPlanBuilder().id(String.valueOf(randomNumberService.generateRandomBigInteger(false, 12))).type(pl2.getType()).description(pl2.getDescription()).selected(true).build();
 //        List<PatientPlan> ppl2 = new ArrayList<>(List.of(pp21, pp22));
 //
-//        PatientPlan pp31 = PatientPlan.patientPlanBuilder().type(pl1.getType()).description(pl1.getDescription()).build();
-//        PatientPlan pp32 = PatientPlan.patientPlanBuilder().type(pl2.getType()).description(pl2.getDescription()).selected(true).build();
+//        PatientPlan pp31 = PatientPlan.patientPlanBuilder().id(String.valueOf(randomNumberService.generateRandomBigInteger(false, 12))).type(pl1.getType()).description(pl1.getDescription()).build();
+//        PatientPlan pp32 = PatientPlan.patientPlanBuilder().id(String.valueOf(randomNumberService.generateRandomBigInteger(false, 12))).type(pl2.getType()).description(pl2.getDescription()).selected(true).build();
 //        List<PatientPlan> ppl3 = new ArrayList<>(List.of(pp31, pp32));
 //
-//        PatientPlan pp41 = PatientPlan.patientPlanBuilder().type(pl1.getType()).description(pl1.getDescription()).selected(true).build();
-//        PatientPlan pp42 = PatientPlan.patientPlanBuilder().type(pl2.getType()).description(pl2.getDescription()).build();
+//        PatientPlan pp41 = PatientPlan.patientPlanBuilder().id(String.valueOf(randomNumberService.generateRandomBigInteger(false, 12))).type(pl1.getType()).description(pl1.getDescription()).selected(true).build();
+//        PatientPlan pp42 = PatientPlan.patientPlanBuilder().id(String.valueOf(randomNumberService.generateRandomBigInteger(false, 12))).type(pl2.getType()).description(pl2.getDescription()).build();
 //        List<PatientPlan> ppl4 = new ArrayList<>(List.of(pp41, pp42));
 //
-//        PatientPlan pp51 = PatientPlan.patientPlanBuilder().type(pl1.getType()).description(pl1.getDescription()).selected(true).build();
-//        PatientPlan pp52 = PatientPlan.patientPlanBuilder().type(pl2.getType()).description(pl2.getDescription()).build();
+//        PatientPlan pp51 = PatientPlan.patientPlanBuilder().id(String.valueOf(randomNumberService.generateRandomBigInteger(false, 12))).type(pl1.getType()).description(pl1.getDescription()).selected(true).build();
+//        PatientPlan pp52 = PatientPlan.patientPlanBuilder().id(String.valueOf(randomNumberService.generateRandomBigInteger(false, 12))).type(pl2.getType()).description(pl2.getDescription()).build();
 //        List<PatientPlan> ppl5 = new ArrayList<>(List.of(pp51, pp52));
 //
-//        PatientPlan pp61 = PatientPlan.patientPlanBuilder().type(pl1.getType()).description(pl1.getDescription()).build();
-//        PatientPlan pp62 = PatientPlan.patientPlanBuilder().type(pl2.getType()).description(pl2.getDescription()).selected(true).build();
+//        PatientPlan pp61 = PatientPlan.patientPlanBuilder().id(String.valueOf(randomNumberService.generateRandomBigInteger(false, 12))).type(pl1.getType()).description(pl1.getDescription()).build();
+//        PatientPlan pp62 = PatientPlan.patientPlanBuilder().id(String.valueOf(randomNumberService.generateRandomBigInteger(false, 12))).type(pl2.getType()).description(pl2.getDescription()).selected(true).build();
 //        List<PatientPlan> ppl6 = new ArrayList<>(List.of(pp61, pp62));
 //
-//        PatientPlan pp71 = PatientPlan.patientPlanBuilder().type(pl1.getType()).description(pl1.getDescription()).build();
-//        PatientPlan pp72 = PatientPlan.patientPlanBuilder().type(pl2.getType()).description(pl2.getDescription()).selected(true).build();
+//        PatientPlan pp71 = PatientPlan.patientPlanBuilder().id(String.valueOf(randomNumberService.generateRandomBigInteger(false, 12))).type(pl1.getType()).description(pl1.getDescription()).build();
+//        PatientPlan pp72 = PatientPlan.patientPlanBuilder().id(String.valueOf(randomNumberService.generateRandomBigInteger(false, 12))).type(pl2.getType()).description(pl2.getDescription()).selected(true).build();
 //        List<PatientPlan> ppl7 = new ArrayList<>(List.of(pp71, pp72));
 //
-//        PatientPlan pp81 = PatientPlan.patientPlanBuilder().type(pl1.getType()).description(pl1.getDescription()).build();
-//        PatientPlan pp82 = PatientPlan.patientPlanBuilder().type(pl2.getType()).description(pl2.getDescription()).selected(true).build();
+//        PatientPlan pp81 = PatientPlan.patientPlanBuilder().id(String.valueOf(randomNumberService.generateRandomBigInteger(false, 12))).type(pl1.getType()).description(pl1.getDescription()).build();
+//        PatientPlan pp82 = PatientPlan.patientPlanBuilder().id(String.valueOf(randomNumberService.generateRandomBigInteger(false, 12))).type(pl2.getType()).description(pl2.getDescription()).selected(true).build();
 //        List<PatientPlan> ppl8 = new ArrayList<>(List.of(pp81, pp82));
 //
-//        PatientPlan pp91 = PatientPlan.patientPlanBuilder().type(pl1.getType()).description(pl1.getDescription()).build();
-//        PatientPlan pp92 = PatientPlan.patientPlanBuilder().type(pl2.getType()).description(pl2.getDescription()).selected(true).build();
+//        PatientPlan pp91 = PatientPlan.patientPlanBuilder().id(String.valueOf(randomNumberService.generateRandomBigInteger(false, 12))).type(pl1.getType()).description(pl1.getDescription()).build();
+//        PatientPlan pp92 = PatientPlan.patientPlanBuilder().id(String.valueOf(randomNumberService.generateRandomBigInteger(false, 12))).type(pl2.getType()).description(pl2.getDescription()).selected(true).build();
 //        List<PatientPlan> ppl9 = new ArrayList<>(List.of(pp91, pp92));
 //
-//        PatientPlan pp101 = PatientPlan.patientPlanBuilder().type(pl1.getType()).description(pl1.getDescription()).build();
-//        PatientPlan pp102 = PatientPlan.patientPlanBuilder().type(pl2.getType()).description(pl2.getDescription()).selected(true).build();
+//        PatientPlan pp101 = PatientPlan.patientPlanBuilder().id(String.valueOf(randomNumberService.generateRandomBigInteger(false, 12))).type(pl1.getType()).description(pl1.getDescription()).build();
+//        PatientPlan pp102 = PatientPlan.patientPlanBuilder().id(String.valueOf(randomNumberService.generateRandomBigInteger(false, 12))).type(pl2.getType()).description(pl2.getDescription()).selected(true).build();
 //        List<PatientPlan> ppl10 = new ArrayList<>(List.of(pp101, pp102));
 //
-//        PatientPlan pp111 = PatientPlan.patientPlanBuilder().type(pl1.getType()).description(pl1.getDescription()).selected(true).build();
-//        PatientPlan pp112 = PatientPlan.patientPlanBuilder().type(pl2.getType()).description(pl2.getDescription()).build();
+//        PatientPlan pp111 = PatientPlan.patientPlanBuilder().id(String.valueOf(randomNumberService.generateRandomBigInteger(false, 12))).type(pl1.getType()).description(pl1.getDescription()).selected(true).build();
+//        PatientPlan pp112 = PatientPlan.patientPlanBuilder().id(String.valueOf(randomNumberService.generateRandomBigInteger(false, 12))).type(pl2.getType()).description(pl2.getDescription()).build();
 //        List<PatientPlan> ppl11 = new ArrayList<>(List.of(pp111, pp112));
 //
-//        PatientPlan pp121 = PatientPlan.patientPlanBuilder().type(pl1.getType()).description(pl1.getDescription()).selected(true).build();
-//        PatientPlan pp122 = PatientPlan.patientPlanBuilder().type(pl2.getType()).description(pl2.getDescription()).build();
+//        PatientPlan pp121 = PatientPlan.patientPlanBuilder().id(String.valueOf(randomNumberService.generateRandomBigInteger(false, 12))).type(pl1.getType()).description(pl1.getDescription()).selected(true).build();
+//        PatientPlan pp122 = PatientPlan.patientPlanBuilder().id(String.valueOf(randomNumberService.generateRandomBigInteger(false, 12))).type(pl2.getType()).description(pl2.getDescription()).build();
 //        List<PatientPlan> ppl12 = new ArrayList<>(List.of(pp121, pp122));
 //
-//        PatientPlan pp131 = PatientPlan.patientPlanBuilder().type(pl1.getType()).description(pl1.getDescription()).selected(true).build();
-//        PatientPlan pp132 = PatientPlan.patientPlanBuilder().type(pl2.getType()).description(pl2.getDescription()).build();
+//        PatientPlan pp131 = PatientPlan.patientPlanBuilder().id(String.valueOf(randomNumberService.generateRandomBigInteger(false, 12))).type(pl1.getType()).description(pl1.getDescription()).selected(true).build();
+//        PatientPlan pp132 = PatientPlan.patientPlanBuilder().id(String.valueOf(randomNumberService.generateRandomBigInteger(false, 12))).type(pl2.getType()).description(pl2.getDescription()).build();
 //        List<PatientPlan> ppl13 = new ArrayList<>(List.of(pp131, pp132));
 //
-//        PatientPlan pp141 = PatientPlan.patientPlanBuilder().type(pl1.getType()).description(pl1.getDescription()).selected(true).build();
-//        PatientPlan pp142 = PatientPlan.patientPlanBuilder().type(pl2.getType()).description(pl2.getDescription()).build();
+//        PatientPlan pp141 = PatientPlan.patientPlanBuilder().id(String.valueOf(randomNumberService.generateRandomBigInteger(false, 12))).type(pl1.getType()).description(pl1.getDescription()).selected(true).build();
+//        PatientPlan pp142 = PatientPlan.patientPlanBuilder().id(String.valueOf(randomNumberService.generateRandomBigInteger(false, 12))).type(pl2.getType()).description(pl2.getDescription()).build();
 //        List<PatientPlan> ppl14 = new ArrayList<>(List.of(pp141, pp142));
 //
-//        PatientPlan pp151 = PatientPlan.patientPlanBuilder().type(pl1.getType()).description(pl1.getDescription()).build();
-//        PatientPlan pp152 = PatientPlan.patientPlanBuilder().type(pl2.getType()).description(pl2.getDescription()).selected(true).build();
+//        PatientPlan pp151 = PatientPlan.patientPlanBuilder().id(String.valueOf(randomNumberService.generateRandomBigInteger(false, 12))).type(pl1.getType()).description(pl1.getDescription()).build();
+//        PatientPlan pp152 = PatientPlan.patientPlanBuilder().id(String.valueOf(randomNumberService.generateRandomBigInteger(false, 12))).type(pl2.getType()).description(pl2.getDescription()).selected(true).build();
 //        List<PatientPlan> ppl15 = new ArrayList<>(List.of(pp151, pp152));
 //
-//        PatientPlan pp161 = PatientPlan.patientPlanBuilder().type(pl1.getType()).description(pl1.getDescription()).build();
-//        PatientPlan pp162 = PatientPlan.patientPlanBuilder().type(pl2.getType()).description(pl2.getDescription()).selected(true).build();
+//        PatientPlan pp161 = PatientPlan.patientPlanBuilder().id(String.valueOf(randomNumberService.generateRandomBigInteger(false, 12))).type(pl1.getType()).description(pl1.getDescription()).build();
+//        PatientPlan pp162 = PatientPlan.patientPlanBuilder().id(String.valueOf(randomNumberService.generateRandomBigInteger(false, 12))).type(pl2.getType()).description(pl2.getDescription()).selected(true).build();
 //        List<PatientPlan> ppl16 = new ArrayList<>(List.of(pp161, pp162));
 //
-//        PatientPlan pp171 = PatientPlan.patientPlanBuilder().type(pl1.getType()).description(pl1.getDescription()).build();
-//        PatientPlan pp172 = PatientPlan.patientPlanBuilder().type(pl2.getType()).description(pl2.getDescription()).selected(true).build();
+//        PatientPlan pp171 = PatientPlan.patientPlanBuilder().id(String.valueOf(randomNumberService.generateRandomBigInteger(false, 12))).type(pl1.getType()).description(pl1.getDescription()).build();
+//        PatientPlan pp172 = PatientPlan.patientPlanBuilder().id(String.valueOf(randomNumberService.generateRandomBigInteger(false, 12))).type(pl2.getType()).description(pl2.getDescription()).selected(true).build();
 //        List<PatientPlan> ppl17 = new ArrayList<>(List.of(pp171, pp172));
 //
 //        List<Procedure> procList = new ArrayList<>();
