@@ -7,6 +7,7 @@ import hr.dbasic.anephysiobe.models.physiofile.goals.PatientGoal;
 import hr.dbasic.anephysiobe.models.physiofile.physiotests.PhysioTest;
 import hr.dbasic.anephysiobe.models.physiofile.plans.PatientPlan;
 import hr.dbasic.anephysiobe.models.physiofile.procedures.PatientProcedure;
+import hr.dbasic.anephysiobe.models.users.User;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
 import org.springframework.data.annotation.Id;
@@ -29,8 +30,9 @@ public class PhysioFile implements Serializable {
     @Id
     private String id;
     
+    @DBRef
     @NotNull(message = "Person who opened the file has to be defined on the file!")
-    private String fileOpenedBy;
+    private User fileOpenedBy;
     
     @NotNull(message = "Patient has to exist on the file!")
     @DBRef
@@ -55,6 +57,6 @@ public class PhysioFile implements Serializable {
     
     private String conclussion;
     
-    private String fileClosedBy;
-    
+    @DBRef
+    private User fileClosedBy;
 }

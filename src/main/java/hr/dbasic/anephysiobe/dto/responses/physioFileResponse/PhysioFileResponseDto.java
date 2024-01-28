@@ -23,7 +23,7 @@ import java.util.List;
 @Builder
 public record PhysioFileResponseDto(
         String id,
-        String fileOpenedBy,
+        PFRUserDto fileOpenedBy,
         PatientResponseDto patient,
         List<PatientFunctionalDiagnosis> patientFunctionalDiagnoses,
         Assessment assessment,
@@ -42,7 +42,7 @@ public record PhysioFileResponseDto(
         List<VerbalResponse> allVerbalResponses,
         List<Mmt> mmtList,
         String conclussion,
-        String fileClosedBy,
+        PFRUserDto fileClosedBy,
         List<PFRUserDto> allPhysiotherapists
 ) {
 }
