@@ -3,6 +3,7 @@ package hr.dbasic.anephysiobe.converters;
 import hr.dbasic.anephysiobe.dto.responses.patientResponse.PatientResponseDto;
 import hr.dbasic.anephysiobe.dto.responses.physioFileResponse.PFRUserDto;
 import hr.dbasic.anephysiobe.dto.responses.physioFileResponse.PhysioFileResponseDto;
+import hr.dbasic.anephysiobe.dto.responses.physioFileResponse.procedures.PatientProcedureResponseDto;
 import hr.dbasic.anephysiobe.exceptions.EntityNotFoundException;
 import hr.dbasic.anephysiobe.models.physiofile.PhysioFile;
 import hr.dbasic.anephysiobe.models.physiofile.assessment.Rass;
@@ -22,6 +23,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
 
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -71,7 +73,20 @@ public class PhysioFileToPhysioFileResponseDtoConverter implements Converter<Phy
                 source.getPatientPlans(),
                 source.getNotes(),
                 fullProcedureList,
-                source.getPatientProcedures(),
+                source.getPatientProcedures().stream().map(pp -> PatientProcedureResponseDto.builder()
+                        .id(pp.getId())
+                        .description(pp.getDescription())
+                        .dateTime(DateTimeFormatter.ISO_LOCAL_DATE.format(pp.getDate()))
+                        .workingTherapists(
+                                pp.getWorkingTherapists().stream().map(t -> PFRUserDto.builder()
+                                        .id(t.getId())
+                                        .firstName(t.getFirstName())
+                                        .lastName(t.getLastName())
+                                        .build()
+                                ).toList()
+                        )
+                        .build()
+                ).toList(),
                 source.getPhysioTest(),
                 allAspectsOfPhysicality,
                 allEyeOpeningResponses,

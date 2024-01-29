@@ -16,13 +16,10 @@ import org.springframework.stereotype.Component;
 @RequiredArgsConstructor
 public class UserToAuthResponseDtoConverter implements Converter<User, AuthResponseDto> {
     private final JwtTokenService jwtTokenService;
-    private final UserRepositoryMongo userRepositoryMongo;
     
     @Override
     public AuthResponseDto convert(@NonNull User source) {
-        
-        User user = userRepositoryMongo.findById(source.getId()).orElseThrow(EntityNotFoundException.supplier("User"));
-        PFRUserDto loggedInUser = PFRUserDto.builder().id(user.getId()).firstName(user.getFirstName()).lastName(user.getLastName()).build();
+        PFRUserDto loggedInUser = PFRUserDto.builder().id(source.getId()).firstName(source.getFirstName()).lastName(source.getLastName()).build();
         
         return new AuthResponseDto(
                 jwtTokenService.generate(source),
