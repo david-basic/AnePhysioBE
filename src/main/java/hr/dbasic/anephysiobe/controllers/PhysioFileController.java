@@ -48,6 +48,7 @@ public class PhysioFileController {
         public static final String getAllPhysioFilesGetMapping = "";
         public static final String getPhysioFileById = "/{id}";
         public static final String getPhysioFileByPatientIdGetMapping = "/patient/{id}";
+        public static final String createPhysioFilePostMapping = "/create-file";
         public static final String updatePhysioFileByIdPutMapping = "/update-file/{id}";
     }
 }

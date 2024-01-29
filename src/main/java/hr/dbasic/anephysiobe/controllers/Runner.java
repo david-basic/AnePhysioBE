@@ -1028,23 +1028,15 @@ public class Runner implements CommandLineRunner {
 //
 //        List<PatientProcedure> ppd1 = new ArrayList<>();
 //        BigInteger randp1 = randomNumberService.generateRandomBigInteger(false, 12);
-//        ppd1.add(PatientProcedure.patientProcedureBuilder().id(String.valueOf(randp1)).date(LocalDateTime.of(2024, Month.JANUARY, 3, 0, 0)).description(ProceduresEnum.P_1.getDescription()).workingTherapists(List.of(physio2)).build());
-//        ppd1.add(PatientProcedure.patientProcedureBuilder().id(String.valueOf(randp1.add(BigInteger.ONE))).date(LocalDateTime.of(2024, Month.JANUARY, 3, 0, 0)).description(ProceduresEnum.P_10.getDescription()).workingTherapists(List.of(physio2)).build());
-//        ppd1.add(PatientProcedure.patientProcedureBuilder().id(String.valueOf(randp1.add(BigInteger.TWO))).date(LocalDateTime.of(2024, Month.JANUARY, 3, 0, 0)).description(ProceduresEnum.P_8.getDescription()).workingTherapists(List.of(physio2)).build());
+//        ppd1.add(PatientProcedure.patientProcedureBuilder().id(String.valueOf(randp1)).date(LocalDateTime.of(2024, Month.JANUARY, 3, 0, 0)).description(ProceduresEnum.P_1.getDescription() + ", " + ProceduresEnum.P_10.getDescription() + ", " + ProceduresEnum.P_8.getDescription()).workingTherapists(List.of(physio2)).build());
 //
 //        List<PatientProcedure> ppd2 = new ArrayList<>();
 //        BigInteger randp2 = randomNumberService.generateRandomBigInteger(false, 12);
-//        ppd2.add(PatientProcedure.patientProcedureBuilder().id(String.valueOf(randp2)).date(LocalDateTime.of(2024, Month.JANUARY, 3, 0, 0)).description(ProceduresEnum.P_1.getDescription()).workingTherapists(List.of(physio2)).build());
-//        ppd2.add(PatientProcedure.patientProcedureBuilder().id(String.valueOf(randp2.add(BigInteger.ONE))).date(LocalDateTime.of(2024, Month.JANUARY, 3, 0, 0)).description(ProceduresEnum.P_2.getDescription()).workingTherapists(List.of(physio2)).build());
-//        ppd2.add(PatientProcedure.patientProcedureBuilder().id(String.valueOf(randp2.add(BigInteger.TWO))).date(LocalDateTime.of(2024, Month.JANUARY, 3, 0, 0)).description(ProceduresEnum.P_3.getDescription()).workingTherapists(List.of(physio2)).build());
-//        ppd2.add(PatientProcedure.patientProcedureBuilder().id(String.valueOf(randp2.add(BigInteger.valueOf(3)))).date(LocalDateTime.of(2024, Month.JANUARY, 3, 0, 0)).description(ProceduresEnum.P_6.getDescription()).workingTherapists(List.of(physio2)).build());
-//        ppd2.add(PatientProcedure.patientProcedureBuilder().id(String.valueOf(randp2.add(BigInteger.valueOf(4)))).date(LocalDateTime.of(2024, Month.JANUARY, 3, 0, 0)).description(ProceduresEnum.P_10.getDescription()).workingTherapists(List.of(physio2)).build());
+//        ppd2.add(PatientProcedure.patientProcedureBuilder().id(String.valueOf(randp2)).date(LocalDateTime.of(2024, Month.JANUARY, 3, 0, 0)).description(ProceduresEnum.P_1.getDescription() + ", " + ProceduresEnum.P_2.getDescription() + ", " + ProceduresEnum.P_3.getDescription() + ", " + ProceduresEnum.P_6.getDescription() + ", " + ProceduresEnum.P_10.getDescription()).workingTherapists(List.of(physio2)).build());
 //
 //        List<PatientProcedure> ppd3 = new ArrayList<>();
 //        BigInteger randp3 = randomNumberService.generateRandomBigInteger(false, 12);
-//        ppd3.add(PatientProcedure.patientProcedureBuilder().id(String.valueOf(randp3)).date(LocalDateTime.of(2023, Month.DECEMBER, 17, 0, 0)).description(ProceduresEnum.P_1.getDescription()).workingTherapists(List.of(physio2)).build());
-//        ppd3.add(PatientProcedure.patientProcedureBuilder().id(String.valueOf(randp2.add(BigInteger.ONE))).date(LocalDateTime.of(2023, Month.DECEMBER, 17, 0, 0)).description(ProceduresEnum.P_10.getDescription()).workingTherapists(List.of(physio2)).build());
-//        ppd3.add(PatientProcedure.patientProcedureBuilder().id(String.valueOf(randp2.add(BigInteger.TWO))).date(LocalDateTime.of(2023, Month.DECEMBER, 17, 0, 0)).description(ProceduresEnum.P_22.getDescription()).workingTherapists(List.of(physio2)).build());
+//        ppd3.add(PatientProcedure.patientProcedureBuilder().id(String.valueOf(randp3)).date(LocalDateTime.of(2023, Month.DECEMBER, 17, 0, 0)).description(ProceduresEnum.P_1.getDescription() + ", " + ProceduresEnum.P_10.getDescription() + ", " + ProceduresEnum.P_22.getDescription()).workingTherapists(List.of(physio2)).build());
 //
 //        List<PatientProcedure> ppd4 = new ArrayList<>();
 //        BigInteger randp4 = randomNumberService.generateRandomBigInteger(false, 12);

@@ -2,10 +2,8 @@ package hr.dbasic.anephysiobe.converters;
 
 import hr.dbasic.anephysiobe.dto.responses.AuthResponseDto;
 import hr.dbasic.anephysiobe.dto.responses.physioFileResponse.PFRUserDto;
-import hr.dbasic.anephysiobe.exceptions.EntityNotFoundException;
 import hr.dbasic.anephysiobe.mappings.JwtMappings;
 import hr.dbasic.anephysiobe.models.users.User;
-import hr.dbasic.anephysiobe.repositories.UserRepositoryMongo;
 import hr.dbasic.anephysiobe.services.JwtTokenService;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;

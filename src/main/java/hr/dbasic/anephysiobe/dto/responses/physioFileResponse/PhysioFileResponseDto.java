@@ -15,7 +15,6 @@ import hr.dbasic.anephysiobe.models.physiofile.physiotests.gcs.VerbalResponse;
 import hr.dbasic.anephysiobe.models.physiofile.physiotests.mmt.Mmt;
 import hr.dbasic.anephysiobe.models.physiofile.plans.PatientPlan;
 import hr.dbasic.anephysiobe.models.physiofile.plans.Plan;
-import hr.dbasic.anephysiobe.models.physiofile.procedures.PatientProcedure;
 import hr.dbasic.anephysiobe.models.physiofile.procedures.Procedure;
 import lombok.Builder;
 

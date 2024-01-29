@@ -13,4 +13,5 @@ public class AppMappings {
     public static final String apiAssessmentRequestMapping = apiMapping + "/assessment-management";
     public static final String apiPhysioTestsRequestMapping = apiMapping + "/physiotest-management";
     public static final String apiFunctionalDiagnosisRequestMapping = apiMapping + "/functional-diagnosis-management";
+    public static final String apiProcedureRequestMapping = apiMapping + "/procedure-management";
 }
