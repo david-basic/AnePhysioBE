@@ -9,5 +9,5 @@ public interface ProcedureService {
     void deletePatientProcedureByIdInPhysioFileById(DeletePatientProcedureRequestDto deletePatientProcedureRequestDto);
     PhysioFileResponseDto createProcedure(CreateProcedureRequestDto createProcedureRequestDto);
     PhysioFileResponseDto updateProcedureById(String id, UpdateProcedureRequestDto updateProcedureRequestDto);
-    void deleteProcedureById(DeleteProcedureRequestDto deleteProcedureRequestDto);
+    PhysioFileResponseDto deleteProcedureById(DeleteProcedureRequestDto deleteProcedureRequestDto);
 }

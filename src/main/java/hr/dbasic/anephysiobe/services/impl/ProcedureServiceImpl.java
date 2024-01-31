@@ -51,7 +51,7 @@ public class ProcedureServiceImpl implements ProcedureService {
             if (Objects.equals(pp.getId(), patientProcedureId)) {
                 pp.setDescription(updatePatientProcedureRequestDto.description());
                 pp.setDate(LocalDateTime.parse(updatePatientProcedureRequestDto.dateTime(), DateTimeFormatter.ISO_LOCAL_DATE_TIME));
-                pp.setWorkingTherapists(updatePatientProcedureRequestDto.workingTherapistsIds().stream().map(id -> userRepositoryMongo.findById(patientProcedureId).orElseThrow(EntityNotFoundException.supplier("User"))).toList());
+                pp.setWorkingTherapists(updatePatientProcedureRequestDto.workingTherapistsIds().stream().map(id -> userRepositoryMongo.findById(id).orElseThrow(EntityNotFoundException.supplier("User"))).toList());
             }
             newPatientProcedureListState.add(pp);
         }
@@ -89,7 +89,10 @@ public class ProcedureServiceImpl implements ProcedureService {
     }
     
     @Override
-    public void deleteProcedureById(DeleteProcedureRequestDto deleteProcedureRequestDto) {
+    public PhysioFileResponseDto deleteProcedureById(DeleteProcedureRequestDto deleteProcedureRequestDto) {
         procedureRepositoryMongo.deleteById(deleteProcedureRequestDto.procedureId());
+        
+        PhysioFile physioFile = physioFileRepositoryMongo.findById(deleteProcedureRequestDto.physioFileId()).orElseThrow(EntityNotFoundException.supplier("Physio file"));
+        return physioFileToPhysioFileResponseDtoConverter.convert(physioFile);
     }
 }

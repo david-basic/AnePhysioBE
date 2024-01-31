@@ -69,11 +69,12 @@ public class ProcedureController {
     }
     
     @DeleteMapping(ProcedureMappings.deleteProcedureDeleteMapping)
-    public ResponseEntity<ApiResponse<?>> deleteProcedureById(@Valid @RequestBody DeleteProcedureRequestDto deleteProcedureRequestDto) {
-        procedureService.deleteProcedureById(deleteProcedureRequestDto);
-        
+    public ResponseEntity<ApiResponse<PhysioFileResponseDto>> deleteProcedureById(@Valid @RequestBody DeleteProcedureRequestDto deleteProcedureRequestDto) {
         return ResponseEntity.ok(
-                ApiResponse.ok("Procedure successfully deleted")
+                ApiResponse.ok(
+                        "Procedure successfully deleted",
+                        procedureService.deleteProcedureById(deleteProcedureRequestDto)
+                )
         );
     }
     
