@@ -1,6 +1,7 @@
 package hr.dbasic.anephysiobe.dto.responses.physioFileResponse;
 
 import hr.dbasic.anephysiobe.dto.responses.patientResponse.PatientResponseDto;
+import hr.dbasic.anephysiobe.dto.responses.physioFileResponse.procedures.PatientProcedureResponseDto;
 import hr.dbasic.anephysiobe.models.physiofile.assessment.Assessment;
 import hr.dbasic.anephysiobe.models.physiofile.assessment.Rass;
 import hr.dbasic.anephysiobe.models.physiofile.functionaldiagnoses.PatientFunctionalDiagnosis;
@@ -14,7 +15,6 @@ import hr.dbasic.anephysiobe.models.physiofile.physiotests.gcs.VerbalResponse;
 import hr.dbasic.anephysiobe.models.physiofile.physiotests.mmt.Mmt;
 import hr.dbasic.anephysiobe.models.physiofile.plans.PatientPlan;
 import hr.dbasic.anephysiobe.models.physiofile.plans.Plan;
-import hr.dbasic.anephysiobe.models.physiofile.procedures.PatientProcedure;
 import hr.dbasic.anephysiobe.models.physiofile.procedures.Procedure;
 import lombok.Builder;
 
@@ -23,7 +23,7 @@ import java.util.List;
 @Builder
 public record PhysioFileResponseDto(
         String id,
-        String fileOpenedBy,
+        PFRUserDto fileOpenedBy,
         PatientResponseDto patient,
         List<PatientFunctionalDiagnosis> patientFunctionalDiagnoses,
         Assessment assessment,
@@ -34,7 +34,7 @@ public record PhysioFileResponseDto(
         List<PatientPlan> patientPlans,
         String notes,
         List<Procedure> fullProcedureList,
-        List<PatientProcedure> patientProcedures,
+        List<PatientProcedureResponseDto> patientProcedures,
         PhysioTest physioTest,
         List<AOP> allAspectsOfPhysicality,
         List<EyeOpeningResponse> allEyeOpeningResponses,
@@ -42,7 +42,7 @@ public record PhysioFileResponseDto(
         List<VerbalResponse> allVerbalResponses,
         List<Mmt> mmtList,
         String conclussion,
-        String fileClosedBy,
+        PFRUserDto fileClosedBy,
         List<PFRUserDto> allPhysiotherapists
 ) {
 }

@@ -3,6 +3,8 @@ package hr.dbasic.anephysiobe.converters;
 import hr.dbasic.anephysiobe.dto.responses.patientResponse.PatientResponseDto;
 import hr.dbasic.anephysiobe.dto.responses.physioFileResponse.PFRUserDto;
 import hr.dbasic.anephysiobe.dto.responses.physioFileResponse.PhysioFileResponseDto;
+import hr.dbasic.anephysiobe.dto.responses.physioFileResponse.procedures.PatientProcedureResponseDto;
+import hr.dbasic.anephysiobe.exceptions.EntityNotFoundException;
 import hr.dbasic.anephysiobe.models.physiofile.PhysioFile;
 import hr.dbasic.anephysiobe.models.physiofile.assessment.Rass;
 import hr.dbasic.anephysiobe.models.physiofile.goals.Goal;
@@ -21,7 +23,10 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 @Component
@@ -47,7 +52,9 @@ public class PhysioFileToPhysioFileResponseDtoConverter implements Converter<Phy
         List<Procedure> fullProcedureList = procedureRepositoryMongo.findAll();
         List<User> allUsers = userRepositoryMongo.findAll();
         List<PFRUserDto> allPhysiotherapists = new ArrayList<>();
-        allUsers.forEach(user -> allPhysiotherapists.add(PFRUserDto.builder().firstName(user.getFirstName()).lastName(user.getLastName()).build()));
+        allUsers.forEach(user -> allPhysiotherapists.add(PFRUserDto.builder().id(user.getId()).firstName(user.getFirstName()).lastName(user.getLastName()).build()));
+        User foundUserOpened = userRepositoryMongo.findById(source.getFileOpenedBy().getId()).orElseThrow(EntityNotFoundException::new);
+        PFRUserDto fileOpenedBy = PFRUserDto.builder().id(foundUserOpened.getId()).firstName(foundUserOpened.getFirstName()).lastName(foundUserOpened.getLastName()).build();
         List<AOP> allAspectsOfPhysicality = aopRepositoryMongo.findAll();
         List<Rass> fullRassList = rassRepositoryMongo.findAll();
         List<EyeOpeningResponse> allEyeOpeningResponses = eyeOpeningResponseRepositoryMongo.findAll();
@@ -57,7 +64,7 @@ public class PhysioFileToPhysioFileResponseDtoConverter implements Converter<Phy
         
         return new PhysioFileResponseDto(
                 source.getId(),
-                source.getFileOpenedBy(),
+                fileOpenedBy,
                 patientResponseDto,
                 source.getPatientFunctionalDiagnoses(),
                 source.getAssessment(),
@@ -68,7 +75,20 @@ public class PhysioFileToPhysioFileResponseDtoConverter implements Converter<Phy
                 source.getPatientPlans(),
                 source.getNotes(),
                 fullProcedureList,
-                source.getPatientProcedures(),
+                source.getPatientProcedures().stream().map(pp -> PatientProcedureResponseDto.builder()
+                        .id(pp.getId())
+                        .description(pp.getDescription())
+                        .dateTime(DateTimeFormatter.ISO_LOCAL_DATE.format(pp.getDate()))
+                        .workingTherapists(
+                                pp.getWorkingTherapists().stream().map(t -> PFRUserDto.builder()
+                                        .id(t.getId())
+                                        .firstName(t.getFirstName())
+                                        .lastName(t.getLastName())
+                                        .build()
+                                ).toList()
+                        )
+                        .build()
+                ).toList(),
                 source.getPhysioTest(),
                 allAspectsOfPhysicality,
                 allEyeOpeningResponses,
@@ -76,7 +96,13 @@ public class PhysioFileToPhysioFileResponseDtoConverter implements Converter<Phy
                 allVerbalResponses,
                 mmtList,
                 source.getConclussion(),
-                source.getFileClosedBy(),
+                source.getFileClosedBy() != null ?
+                        PFRUserDto.builder()
+                                .id(source.getFileClosedBy().getId())
+                                .firstName(source.getFileClosedBy().getFirstName())
+                                .lastName(source.getFileClosedBy().getLastName())
+                                .build()
+                        : null,
                 allPhysiotherapists
         );
     }

@@ -37,10 +37,11 @@ public class Runner implements CommandLineRunner {
 //    private final VerbalResponseRepositoryMongo verbalResponseRepositoryMongo;
 //    private final AopRepositoryMongo aopRepositoryMongo;
 //    private final PatientFunctionalDiagnosesRepositoryMongo patientFunctionalDiagnosesRepositoryMongo;
+//    private final UserRepositoryMongo userRepositoryMongo;
     
     @Override
     public void run(String... args) {
-
+    
 //        Sex female = Sex.builder().name(SexEnum.FEMALE.name()).displayName(SexEnum.FEMALE.getDisplayName()).build();
 //        Sex male = Sex.builder().name(SexEnum.MALE.name()).displayName(SexEnum.MALE.getDisplayName()).build();
 //        sexRepositoryMongo.saveAll(
@@ -1022,82 +1023,76 @@ public class Runner implements CommandLineRunner {
 //        }
 //        procedureRepositoryMongo.saveAll(procList);
 //
+//        User physio1 = userRepositoryMongo.findAll().getFirst();
+//        User physio2 = userRepositoryMongo.findAll().getLast();
 //
 //        List<PatientProcedure> ppd1 = new ArrayList<>();
 //        BigInteger randp1 = randomNumberService.generateRandomBigInteger(false, 12);
-//        ppd1.add(PatientProcedure.patientProcedureBuilder().id(String.valueOf(randp1)).date(LocalDateTime.of(2024, Month.JANUARY, 3, 0, 0)).description(ProceduresEnum.P_1.getDescription()).workingTherapists("Mikolić").build());
-//        ppd1.add(PatientProcedure.patientProcedureBuilder().id(String.valueOf(randp1.add(BigInteger.ONE))).date(LocalDateTime.of(2024, Month.JANUARY, 3, 0, 0)).description(ProceduresEnum.P_10.getDescription()).workingTherapists("Mikolić").build());
-//        ppd1.add(PatientProcedure.patientProcedureBuilder().id(String.valueOf(randp1.add(BigInteger.TWO))).date(LocalDateTime.of(2024, Month.JANUARY, 3, 0, 0)).description(ProceduresEnum.P_8.getDescription()).workingTherapists("Mikolić").build());
+//        ppd1.add(PatientProcedure.patientProcedureBuilder().id(String.valueOf(randp1)).date(LocalDateTime.of(2024, Month.JANUARY, 3, 0, 0)).description(ProceduresEnum.P_1.getDescription() + ", " + ProceduresEnum.P_10.getDescription() + ", " + ProceduresEnum.P_8.getDescription()).workingTherapists(List.of(physio2)).build());
 //
 //        List<PatientProcedure> ppd2 = new ArrayList<>();
 //        BigInteger randp2 = randomNumberService.generateRandomBigInteger(false, 12);
-//        ppd2.add(PatientProcedure.patientProcedureBuilder().id(String.valueOf(randp2)).date(LocalDateTime.of(2024, Month.JANUARY, 3, 0, 0)).description(ProceduresEnum.P_1.getDescription()).workingTherapists("Mikolić").build());
-//        ppd2.add(PatientProcedure.patientProcedureBuilder().id(String.valueOf(randp2.add(BigInteger.ONE))).date(LocalDateTime.of(2024, Month.JANUARY, 3, 0, 0)).description(ProceduresEnum.P_2.getDescription()).workingTherapists("Mikolić").build());
-//        ppd2.add(PatientProcedure.patientProcedureBuilder().id(String.valueOf(randp2.add(BigInteger.TWO))).date(LocalDateTime.of(2024, Month.JANUARY, 3, 0, 0)).description(ProceduresEnum.P_3.getDescription()).workingTherapists("Mikolić").build());
-//        ppd2.add(PatientProcedure.patientProcedureBuilder().id(String.valueOf(randp2.add(BigInteger.valueOf(3)))).date(LocalDateTime.of(2024, Month.JANUARY, 3, 0, 0)).description(ProceduresEnum.P_6.getDescription()).workingTherapists("Mikolić").build());
-//        ppd2.add(PatientProcedure.patientProcedureBuilder().id(String.valueOf(randp2.add(BigInteger.valueOf(4)))).date(LocalDateTime.of(2024, Month.JANUARY, 3, 0, 0)).description(ProceduresEnum.P_10.getDescription()).workingTherapists("Mikolić").build());
+//        ppd2.add(PatientProcedure.patientProcedureBuilder().id(String.valueOf(randp2)).date(LocalDateTime.of(2024, Month.JANUARY, 3, 0, 0)).description(ProceduresEnum.P_1.getDescription() + ", " + ProceduresEnum.P_2.getDescription() + ", " + ProceduresEnum.P_3.getDescription() + ", " + ProceduresEnum.P_6.getDescription() + ", " + ProceduresEnum.P_10.getDescription()).workingTherapists(List.of(physio2)).build());
 //
 //        List<PatientProcedure> ppd3 = new ArrayList<>();
 //        BigInteger randp3 = randomNumberService.generateRandomBigInteger(false, 12);
-//        ppd3.add(PatientProcedure.patientProcedureBuilder().id(String.valueOf(randp3)).date(LocalDateTime.of(2023, Month.DECEMBER, 17, 0, 0)).description(ProceduresEnum.P_1.getDescription()).workingTherapists("Mikolić").build());
-//        ppd3.add(PatientProcedure.patientProcedureBuilder().id(String.valueOf(randp2.add(BigInteger.ONE))).date(LocalDateTime.of(2023, Month.DECEMBER, 17, 0, 0)).description(ProceduresEnum.P_10.getDescription()).workingTherapists("Mikolić").build());
-//        ppd3.add(PatientProcedure.patientProcedureBuilder().id(String.valueOf(randp2.add(BigInteger.TWO))).date(LocalDateTime.of(2023, Month.DECEMBER, 17, 0, 0)).description(ProceduresEnum.P_22.getDescription()).workingTherapists("Mikolić").build());
+//        ppd3.add(PatientProcedure.patientProcedureBuilder().id(String.valueOf(randp3)).date(LocalDateTime.of(2023, Month.DECEMBER, 17, 0, 0)).description(ProceduresEnum.P_1.getDescription() + ", " + ProceduresEnum.P_10.getDescription() + ", " + ProceduresEnum.P_22.getDescription()).workingTherapists(List.of(physio2)).build());
 //
 //        List<PatientProcedure> ppd4 = new ArrayList<>();
 //        BigInteger randp4 = randomNumberService.generateRandomBigInteger(false, 12);
-//        ppd4.add(PatientProcedure.patientProcedureBuilder().id(String.valueOf(randp4)).date(LocalDateTime.of(2023, Month.DECEMBER, 18, 0, 0)).description(ProceduresEnum.P_1.getDescription()).workingTherapists("Mikolić").build());
+//        ppd4.add(PatientProcedure.patientProcedureBuilder().id(String.valueOf(randp4)).date(LocalDateTime.of(2023, Month.DECEMBER, 18, 0, 0)).description(ProceduresEnum.P_1.getDescription()).workingTherapists(List.of(physio2)).build());
 //
 //        List<PatientProcedure> ppd5 = new ArrayList<>();
 //        BigInteger randp5 = randomNumberService.generateRandomBigInteger(false, 12);
-//        ppd5.add(PatientProcedure.patientProcedureBuilder().id(String.valueOf(randp5)).date(LocalDateTime.of(2023, Month.DECEMBER, 19, 0, 0)).description(ProceduresEnum.P_1.getDescription()).workingTherapists("Mikolić").build());
+//        ppd5.add(PatientProcedure.patientProcedureBuilder().id(String.valueOf(randp5)).date(LocalDateTime.of(2023, Month.DECEMBER, 19, 0, 0)).description(ProceduresEnum.P_1.getDescription()).workingTherapists(List.of(physio2)).build());
 //
 //        List<PatientProcedure> ppd6 = new ArrayList<>();
 //        BigInteger randp6 = randomNumberService.generateRandomBigInteger(false, 12);
-//        ppd6.add(PatientProcedure.patientProcedureBuilder().id(String.valueOf(randp6)).date(LocalDateTime.of(2023, Month.DECEMBER, 20, 0, 0)).description(ProceduresEnum.P_1.getDescription()).workingTherapists("Mikolić").build());
+//        ppd6.add(PatientProcedure.patientProcedureBuilder().id(String.valueOf(randp6)).date(LocalDateTime.of(2023, Month.DECEMBER, 20, 0, 0)).description(ProceduresEnum.P_1.getDescription()).workingTherapists(List.of(physio2)).build());
 //
 //        List<PatientProcedure> ppd7 = new ArrayList<>();
 //        BigInteger randp7 = randomNumberService.generateRandomBigInteger(false, 12);
-//        ppd7.add(PatientProcedure.patientProcedureBuilder().id(String.valueOf(randp7)).date(LocalDateTime.of(2023, Month.DECEMBER, 21, 0, 0)).description(ProceduresEnum.P_1.getDescription()).workingTherapists("Mikolić").build());
+//        ppd7.add(PatientProcedure.patientProcedureBuilder().id(String.valueOf(randp7)).date(LocalDateTime.of(2023, Month.DECEMBER, 21, 0, 0)).description(ProceduresEnum.P_1.getDescription()).workingTherapists(List.of(physio2)).build());
 //
 //        List<PatientProcedure> ppd8 = new ArrayList<>();
 //        BigInteger randp8 = randomNumberService.generateRandomBigInteger(false, 12);
-//        ppd8.add(PatientProcedure.patientProcedureBuilder().id(String.valueOf(randp8)).date(LocalDateTime.of(2023, Month.DECEMBER, 22, 0, 0)).description(ProceduresEnum.P_1.getDescription()).workingTherapists("Mikolić").build());
+//        ppd8.add(PatientProcedure.patientProcedureBuilder().id(String.valueOf(randp8)).date(LocalDateTime.of(2023, Month.DECEMBER, 22, 0, 0)).description(ProceduresEnum.P_1.getDescription()).workingTherapists(List.of(physio2)).build());
 //
 //        List<PatientProcedure> ppd9 = new ArrayList<>();
 //        BigInteger randp9 = randomNumberService.generateRandomBigInteger(false, 12);
-//        ppd9.add(PatientProcedure.patientProcedureBuilder().id(String.valueOf(randp9)).date(LocalDateTime.of(2023, Month.DECEMBER, 23, 0, 0)).description(ProceduresEnum.P_1.getDescription()).workingTherapists("Mikolić").build());
+//        ppd9.add(PatientProcedure.patientProcedureBuilder().id(String.valueOf(randp9)).date(LocalDateTime.of(2023, Month.DECEMBER, 23, 0, 0)).description(ProceduresEnum.P_1.getDescription()).workingTherapists(List.of(physio2)).build());
 //
 //        List<PatientProcedure> ppd10 = new ArrayList<>();
 //        BigInteger randp10 = randomNumberService.generateRandomBigInteger(false, 12);
-//        ppd10.add(PatientProcedure.patientProcedureBuilder().id(String.valueOf(randp10)).date(LocalDateTime.of(2023, Month.DECEMBER, 24, 0, 0)).description(ProceduresEnum.P_1.getDescription()).workingTherapists("Mikolić").build());
+//        ppd10.add(PatientProcedure.patientProcedureBuilder().id(String.valueOf(randp10)).date(LocalDateTime.of(2023, Month.DECEMBER, 24, 0, 0)).description(ProceduresEnum.P_1.getDescription()).workingTherapists(List.of(physio2)).build());
 //
 //        List<PatientProcedure> ppd11 = new ArrayList<>();
 //        BigInteger randp11 = randomNumberService.generateRandomBigInteger(false, 12);
-//        ppd11.add(PatientProcedure.patientProcedureBuilder().id(String.valueOf(randp11)).date(LocalDateTime.of(2023, Month.DECEMBER, 25, 0, 0)).description(ProceduresEnum.P_1.getDescription()).workingTherapists("Mikolić").build());
+//        ppd11.add(PatientProcedure.patientProcedureBuilder().id(String.valueOf(randp11)).date(LocalDateTime.of(2023, Month.DECEMBER, 25, 0, 0)).description(ProceduresEnum.P_1.getDescription()).workingTherapists(List.of(physio2)).build());
 //
 //        List<PatientProcedure> ppd12 = new ArrayList<>();
 //        BigInteger randp12 = randomNumberService.generateRandomBigInteger(false, 12);
-//        ppd12.add(PatientProcedure.patientProcedureBuilder().id(String.valueOf(randp12)).date(LocalDateTime.of(2023, Month.DECEMBER, 26, 0, 0)).description(ProceduresEnum.P_1.getDescription()).workingTherapists("Mikolić").build());
+//        ppd12.add(PatientProcedure.patientProcedureBuilder().id(String.valueOf(randp12)).date(LocalDateTime.of(2023, Month.DECEMBER, 26, 0, 0)).description(ProceduresEnum.P_1.getDescription()).workingTherapists(List.of(physio2)).build());
 //
 //        List<PatientProcedure> ppd13 = new ArrayList<>();
 //        BigInteger randp13 = randomNumberService.generateRandomBigInteger(false, 12);
-//        ppd13.add(PatientProcedure.patientProcedureBuilder().id(String.valueOf(randp13)).date(LocalDateTime.of(2023, Month.DECEMBER, 27, 0, 0)).description(ProceduresEnum.P_1.getDescription()).workingTherapists("Mikolić").build());
+//        ppd13.add(PatientProcedure.patientProcedureBuilder().id(String.valueOf(randp13)).date(LocalDateTime.of(2023, Month.DECEMBER, 27, 0, 0)).description(ProceduresEnum.P_1.getDescription()).workingTherapists(List.of(physio2)).build());
 //
 //        List<PatientProcedure> ppd14 = new ArrayList<>();
 //        BigInteger randp14 = randomNumberService.generateRandomBigInteger(false, 12);
-//        ppd14.add(PatientProcedure.patientProcedureBuilder().id(String.valueOf(randp14)).date(LocalDateTime.of(2023, Month.DECEMBER, 28, 0, 0)).description(ProceduresEnum.P_1.getDescription()).workingTherapists("Mikolić").build());
+//        ppd14.add(PatientProcedure.patientProcedureBuilder().id(String.valueOf(randp14)).date(LocalDateTime.of(2023, Month.DECEMBER, 28, 0, 0)).description(ProceduresEnum.P_1.getDescription()).workingTherapists(List.of(physio2)).build());
 //
 //        List<PatientProcedure> ppd15 = new ArrayList<>();
 //        BigInteger randp15 = randomNumberService.generateRandomBigInteger(false, 12);
-//        ppd15.add(PatientProcedure.patientProcedureBuilder().id(String.valueOf(randp15)).date(LocalDateTime.of(2023, Month.DECEMBER, 29, 0, 0)).description(ProceduresEnum.P_1.getDescription()).workingTherapists("Mikolić").build());
+//        ppd15.add(PatientProcedure.patientProcedureBuilder().id(String.valueOf(randp15)).date(LocalDateTime.of(2023, Month.DECEMBER, 29, 0, 0)).description(ProceduresEnum.P_1.getDescription()).workingTherapists(List.of(physio2)).build());
 //
 //        List<PatientProcedure> ppd16 = new ArrayList<>();
 //        BigInteger randp16 = randomNumberService.generateRandomBigInteger(false, 12);
-//        ppd16.add(PatientProcedure.patientProcedureBuilder().id(String.valueOf(randp16)).date(LocalDateTime.of(2023, Month.DECEMBER, 30, 0, 0)).description(ProceduresEnum.P_1.getDescription()).workingTherapists("Mikolić").build());
+//        ppd16.add(PatientProcedure.patientProcedureBuilder().id(String.valueOf(randp16)).date(LocalDateTime.of(2023, Month.DECEMBER, 30, 0, 0)).description(ProceduresEnum.P_1.getDescription()).workingTherapists(List.of(physio2)).build());
 //
 //        List<PatientProcedure> ppd17 = new ArrayList<>();
 //        BigInteger randp17 = randomNumberService.generateRandomBigInteger(false, 12);
-//        ppd17.add(PatientProcedure.patientProcedureBuilder().id(String.valueOf(randp17)).date(LocalDateTime.of(2023, Month.DECEMBER, 31, 0, 0)).description(ProceduresEnum.P_1.getDescription()).workingTherapists("Mikolić").build());
+//        ppd17.add(PatientProcedure.patientProcedureBuilder().id(String.valueOf(randp17)).date(LocalDateTime.of(2023, Month.DECEMBER, 31, 0, 0)).description(ProceduresEnum.P_1.getDescription()).workingTherapists(List.of(physio2)).build());
 //
 //
 //        List<Mmt> mmts = new ArrayList<>();
@@ -1130,24 +1125,23 @@ public class Runner implements CommandLineRunner {
 //        }
 //        aopRepositoryMongo.saveAll(aops);
 //
-//
-//        PhysioFile physioFile1 = PhysioFile.builder().fileOpenedBy("Iva Mikolić").patient(p1).patientFunctionalDiagnoses(pfdlist1).assessment(a1).patientGoals(pgl1).patientPlans(ppl1).notes("/").patientProcedures(ppd1).build();
-//        PhysioFile physioFile2 = PhysioFile.builder().fileOpenedBy("David Bašić").patient(p2).patientFunctionalDiagnoses(pfdlist2).assessment(a2).patientGoals(pgl2).patientPlans(ppl2).notes("/").patientProcedures(ppd2).build();
-//        PhysioFile physioFile3 = PhysioFile.builder().fileOpenedBy("Iva Mikolić").patient(p3).patientFunctionalDiagnoses(pfdlist3).assessment(a3).patientGoals(pgl3).patientPlans(ppl3).notes("/").patientProcedures(ppd3).build();
-//        PhysioFile physioFile4 = PhysioFile.builder().fileOpenedBy("Iva Mikolić").patient(p4).patientFunctionalDiagnoses(pfdlist4).assessment(a4).patientGoals(pgl4).patientPlans(ppl4).notes("/").patientProcedures(ppd4).build();
-//        PhysioFile physioFile5 = PhysioFile.builder().fileOpenedBy("Iva Mikolić").patient(p5).patientFunctionalDiagnoses(pfdlist5).assessment(a5).patientGoals(pgl5).patientPlans(ppl5).notes("/").patientProcedures(ppd5).build();
-//        PhysioFile physioFile6 = PhysioFile.builder().fileOpenedBy("Iva Mikolić").patient(p6).patientFunctionalDiagnoses(pfdlist6).assessment(a6).patientGoals(pgl6).patientPlans(ppl6).notes("/").patientProcedures(ppd6).build();
-//        PhysioFile physioFile7 = PhysioFile.builder().fileOpenedBy("Iva Mikolić").patient(p7).patientFunctionalDiagnoses(pfdlist7).assessment(a7).patientGoals(pgl7).patientPlans(ppl7).notes("/").patientProcedures(ppd7).build();
-//        PhysioFile physioFile8 = PhysioFile.builder().fileOpenedBy("Iva Mikolić").patient(p8).patientFunctionalDiagnoses(pfdlist8).assessment(a8).patientGoals(pgl8).patientPlans(ppl8).notes("/").patientProcedures(ppd8).build();
-//        PhysioFile physioFile9 = PhysioFile.builder().fileOpenedBy("David Bašić").patient(p9).patientFunctionalDiagnoses(pfdlist9).assessment(a9).patientGoals(pgl9).patientPlans(ppl9).notes("/").patientProcedures(ppd9).build();
-//        PhysioFile physioFile10 = PhysioFile.builder().fileOpenedBy("David Bašić").patient(p10).patientFunctionalDiagnoses(pfdlist10).assessment(a10).patientGoals(pgl10).patientPlans(ppl10).notes("/").patientProcedures(ppd10).build();
-//        PhysioFile physioFile11 = PhysioFile.builder().fileOpenedBy("David Bašić").patient(p11).patientFunctionalDiagnoses(pfdlist11).assessment(a11).patientGoals(pgl11).patientPlans(ppl11).notes("/").patientProcedures(ppd11).build();
-//        PhysioFile physioFile12 = PhysioFile.builder().fileOpenedBy("David Bašić").patient(p12).patientFunctionalDiagnoses(pfdlist12).assessment(a12).patientGoals(pgl12).patientPlans(ppl12).notes("/").patientProcedures(ppd12).build();
-//        PhysioFile physioFile13 = PhysioFile.builder().fileOpenedBy("David Bašić").patient(p13).patientFunctionalDiagnoses(pfdlist13).assessment(a13).patientGoals(pgl13).patientPlans(ppl13).notes("/").patientProcedures(ppd13).build();
-//        PhysioFile physioFile14 = PhysioFile.builder().fileOpenedBy("David Bašić").patient(p14).patientFunctionalDiagnoses(pfdlist14).assessment(a14).patientGoals(pgl14).patientPlans(ppl14).notes("/").patientProcedures(ppd14).build();
-//        PhysioFile physioFile15 = PhysioFile.builder().fileOpenedBy("Iva Mikolić").patient(p15).patientFunctionalDiagnoses(pfdlist15).assessment(a15).patientGoals(pgl15).patientPlans(ppl15).notes("/").patientProcedures(ppd15).build();
-//        PhysioFile physioFile16 = PhysioFile.builder().fileOpenedBy("Iva Mikolić").patient(p16).patientFunctionalDiagnoses(pfdlist16).assessment(a16).patientGoals(pgl16).patientPlans(ppl16).notes("/").patientProcedures(ppd16).build();
-//        PhysioFile physioFile17 = PhysioFile.builder().fileOpenedBy("Iva Mikolić").patient(p17).patientFunctionalDiagnoses(pfdlist17).assessment(a17).patientGoals(pgl17).patientPlans(ppl17).notes("/").patientProcedures(ppd17).build();
+//        PhysioFile physioFile1 = PhysioFile.builder().fileOpenedBy(physio1).patient(p1).patientFunctionalDiagnoses(pfdlist1).assessment(a1).patientGoals(pgl1).patientPlans(ppl1).notes("/").patientProcedures(ppd1).build();
+//        PhysioFile physioFile2 = PhysioFile.builder().fileOpenedBy(physio2).patient(p2).patientFunctionalDiagnoses(pfdlist2).assessment(a2).patientGoals(pgl2).patientPlans(ppl2).notes("/").patientProcedures(ppd2).build();
+//        PhysioFile physioFile3 = PhysioFile.builder().fileOpenedBy(physio2).patient(p3).patientFunctionalDiagnoses(pfdlist3).assessment(a3).patientGoals(pgl3).patientPlans(ppl3).notes("/").patientProcedures(ppd3).build();
+//        PhysioFile physioFile4 = PhysioFile.builder().fileOpenedBy(physio1).patient(p4).patientFunctionalDiagnoses(pfdlist4).assessment(a4).patientGoals(pgl4).patientPlans(ppl4).notes("/").patientProcedures(ppd4).build();
+//        PhysioFile physioFile5 = PhysioFile.builder().fileOpenedBy(physio2).patient(p5).patientFunctionalDiagnoses(pfdlist5).assessment(a5).patientGoals(pgl5).patientPlans(ppl5).notes("/").patientProcedures(ppd5).build();
+//        PhysioFile physioFile6 = PhysioFile.builder().fileOpenedBy(physio2).patient(p6).patientFunctionalDiagnoses(pfdlist6).assessment(a6).patientGoals(pgl6).patientPlans(ppl6).notes("/").patientProcedures(ppd6).build();
+//        PhysioFile physioFile7 = PhysioFile.builder().fileOpenedBy(physio1).patient(p7).patientFunctionalDiagnoses(pfdlist7).assessment(a7).patientGoals(pgl7).patientPlans(ppl7).notes("/").patientProcedures(ppd7).build();
+//        PhysioFile physioFile8 = PhysioFile.builder().fileOpenedBy(physio2).patient(p8).patientFunctionalDiagnoses(pfdlist8).assessment(a8).patientGoals(pgl8).patientPlans(ppl8).notes("/").patientProcedures(ppd8).build();
+//        PhysioFile physioFile9 = PhysioFile.builder().fileOpenedBy(physio2).patient(p9).patientFunctionalDiagnoses(pfdlist9).assessment(a9).patientGoals(pgl9).patientPlans(ppl9).notes("/").patientProcedures(ppd9).build();
+//        PhysioFile physioFile10 = PhysioFile.builder().fileOpenedBy(physio2).patient(p10).patientFunctionalDiagnoses(pfdlist10).assessment(a10).patientGoals(pgl10).patientPlans(ppl10).notes("/").patientProcedures(ppd10).build();
+//        PhysioFile physioFile11 = PhysioFile.builder().fileOpenedBy(physio2).patient(p11).patientFunctionalDiagnoses(pfdlist11).assessment(a11).patientGoals(pgl11).patientPlans(ppl11).notes("/").patientProcedures(ppd11).build();
+//        PhysioFile physioFile12 = PhysioFile.builder().fileOpenedBy(physio1).patient(p12).patientFunctionalDiagnoses(pfdlist12).assessment(a12).patientGoals(pgl12).patientPlans(ppl12).notes("/").patientProcedures(ppd12).build();
+//        PhysioFile physioFile13 = PhysioFile.builder().fileOpenedBy(physio2).patient(p13).patientFunctionalDiagnoses(pfdlist13).assessment(a13).patientGoals(pgl13).patientPlans(ppl13).notes("/").patientProcedures(ppd13).build();
+//        PhysioFile physioFile14 = PhysioFile.builder().fileOpenedBy(physio2).patient(p14).patientFunctionalDiagnoses(pfdlist14).assessment(a14).patientGoals(pgl14).patientPlans(ppl14).notes("/").patientProcedures(ppd14).build();
+//        PhysioFile physioFile15 = PhysioFile.builder().fileOpenedBy(physio2).patient(p15).patientFunctionalDiagnoses(pfdlist15).assessment(a15).patientGoals(pgl15).patientPlans(ppl15).notes("/").patientProcedures(ppd15).build();
+//        PhysioFile physioFile16 = PhysioFile.builder().fileOpenedBy(physio2).patient(p16).patientFunctionalDiagnoses(pfdlist16).assessment(a16).patientGoals(pgl16).patientPlans(ppl16).notes("/").patientProcedures(ppd16).build();
+//        PhysioFile physioFile17 = PhysioFile.builder().fileOpenedBy(physio1).patient(p17).patientFunctionalDiagnoses(pfdlist17).assessment(a17).patientGoals(pgl17).patientPlans(ppl17).notes("/").patientProcedures(ppd17).build();
 //        physioFileRepositoryMongo.saveAll(
 //                List.of(
 //                        physioFile1, physioFile2, physioFile3, physioFile4, physioFile5, physioFile6, physioFile7, physioFile8, physioFile9, physioFile10, physioFile11, physioFile12, physioFile13, physioFile14, physioFile15, physioFile16, physioFile17)
