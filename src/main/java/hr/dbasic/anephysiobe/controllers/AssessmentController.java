@@ -1,5 +1,6 @@
 package hr.dbasic.anephysiobe.controllers;
 
+import hr.dbasic.anephysiobe.dto.requests.physiofile.assessment.CreateOrUpdatePointsOfPainRequestDto;
 import hr.dbasic.anephysiobe.dto.requests.physiofile.assessment.CreatePatientRassRequestDto;
 import hr.dbasic.anephysiobe.dto.requests.physiofile.assessment.DeletePatientRassRequestDto;
 import hr.dbasic.anephysiobe.dto.requests.physiofile.assessment.UpdatePatientRassRequestDto;
@@ -72,6 +73,16 @@ public class AssessmentController {
         );
     }
     
+    @PutMapping(AssessmentMappings.createOrUpdatePointsOfPainPutMapping)
+    public ResponseEntity<ApiResponse<PhysioFileResponseDto>> updatePointsOfPainById(@PathVariable String id, @Valid @RequestBody CreateOrUpdatePointsOfPainRequestDto updatePatientRassRequestDto) {
+        return ResponseEntity.ok(
+                ApiResponse.ok(
+                        "Points of pain successfully updated",
+                        assessmentService.updatePointsOfPainByAssessmentId(id, updatePatientRassRequestDto)
+                )
+        );
+    }
+    
     @NoArgsConstructor(access = AccessLevel.PRIVATE)
     public static class AssessmentMappings {
         public static final String assessmentRequestMapping = AppMappings.apiAssessmentRequestMapping + "/assessments";
@@ -80,5 +91,6 @@ public class AssessmentController {
         public static final String createPatientRassPostMapping = "/new-patient-rass";
         public static final String updatePatientRassByIdPutMapping = "/update-patient-rass/{id}";
         public static final String deletePatientRassDeleteMapping = "/delete-patient-rass";
+        public static final String createOrUpdatePointsOfPainPutMapping = "/create-or-update-points-of-pain/{id}";
     }
 }
