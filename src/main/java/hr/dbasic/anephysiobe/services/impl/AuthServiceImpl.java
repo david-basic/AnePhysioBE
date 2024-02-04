@@ -38,8 +38,8 @@ public class AuthServiceImpl implements AuthService {
     @Override
     public void register(RegisterRequestDto registerRequestDto) {
         registerDtoValidator.validate(registerRequestDto);
-        User user = Objects.requireNonNull(registerRequestDtoToUserConverter.convert(registerRequestDto));
         RefreshToken refreshToken = refreshTokenService.createRefreshToken();
+        User user = Objects.requireNonNull(registerRequestDtoToUserConverter.convert(registerRequestDto));
         user.setRefreshToken(refreshToken);
         userRepositoryMongo.save(user);
         refreshToken.setUser(user);

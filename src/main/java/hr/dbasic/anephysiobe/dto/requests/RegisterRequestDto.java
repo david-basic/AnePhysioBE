@@ -13,6 +13,11 @@ public record RegisterRequestDto(
         @NotNull(message = "Last name must be input!")
         @Size(min = 2, max = 70, message = "Last name must have at least 2 characters and 70 at most!")
         String lastName,
+        @NotNull(message = "Title has to be defined!")
+        @Size(min = 4, message = "Title has to have at least 4 characters!")
+        String title,
+        @NotNull(message = "Sex has to be defined!")
+        String sex,
         @NotNull(message = "Username must be input!")
         @Size(min = 4, max = 20, message = "Username must have 4 characters at least and 20 at most!")
         String username,

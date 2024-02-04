@@ -1,5 +1,6 @@
 package hr.dbasic.anephysiobe.models.users;
 
+import hr.dbasic.anephysiobe.models.patients.Sex;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.*;
@@ -25,71 +26,79 @@ import java.util.Set;
 @ToString(doNotUseGetters = true, onlyExplicitlyIncluded = true)
 @Document("users")
 public class User implements UserDetails {
-
+    
     @Id
     @EqualsAndHashCode.Include
     private String id;
-
+    
     @CreatedDate
     private LocalDate createDate;
-
+    
     @LastModifiedDate
     private LocalDate updateDate;
-
+    
     private LocalDate deleteDate;
-
+    
     @ToString.Include
     @NotNull(message = "First name must exist!")
     @Size(min = 2, max = 70, message = "First name must have at least 2 characters and 70 at most!")
     private String firstName;
-
+    
     @ToString.Include
     @NotNull(message = "Last name must exist!")
     @Size(min = 2, max = 70, message = "Last name must have at least 2 characters and 70 at most!")
     private String lastName;
-
+    
+    @NotNull(message = "Title has to be defined!")
+    @Size(min = 4, message = "Title has to have at least 4 characters!")
+    private String title;
+    
+    @NotNull(message = "Sex has to be defined!")
+    @DBRef
+    private Sex sex;
+    
     @NotNull(message = "Username must exist!")
     @Size(min = 4, max = 20, message = "Username must have 4 characters at least and 20 at most!")
     @EqualsAndHashCode.Include
     private String username;
-
+    
     @NotNull(message = "Password must exist!")
     @Size(min = 8, message = "Password must have 8 characters at least!")
     private String password;
-
+    
     @Builder.Default
     private Boolean enabled = true;
-
+    
     @Builder.Default
     private Boolean locked = false;
-
+    
     @NotNull(message = "User has to have at least 1 role!")
     @DBRef
     private UserRole role;
     
     @DBRef
     private RefreshToken refreshToken;
-
+    
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return Set.of(new SimpleGrantedAuthority(role.getName()));
     }
-
+    
     @Override
     public boolean isAccountNonExpired() {
         return true;
     }
-
+    
     @Override
     public boolean isAccountNonLocked() {
         return !locked;
     }
-
+    
     @Override
     public boolean isCredentialsNonExpired() {
         return true;
     }
-
+    
     @Override
     public boolean isEnabled() {
         return enabled;

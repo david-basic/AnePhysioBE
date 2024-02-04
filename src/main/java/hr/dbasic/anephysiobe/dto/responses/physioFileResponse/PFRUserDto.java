@@ -6,6 +6,9 @@ import lombok.Builder;
 public record PFRUserDto(
         String id,
         String firstName,
-        String lastName
+        String lastName,
+        String role,
+        String title,
+        String sex
 ) {
 }

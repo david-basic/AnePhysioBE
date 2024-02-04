@@ -41,14 +41,8 @@ public class Runner implements CommandLineRunner {
     
     @Override
     public void run(String... args) {
-    
-//        Sex female = Sex.builder().name(SexEnum.FEMALE.name()).displayName(SexEnum.FEMALE.getDisplayName()).build();
-//        Sex male = Sex.builder().name(SexEnum.MALE.name()).displayName(SexEnum.MALE.getDisplayName()).build();
-//        sexRepositoryMongo.saveAll(
-//                List.of(
-//                        female, male
-//                )
-//        );
+//        Sex female = sexRepositoryMongo.findByName(SexEnum.FEMALE.name()).orElseThrow(EntityNotFoundException.supplier(SexEnum.FEMALE.name()));
+//        Sex male = sexRepositoryMongo.findByName(SexEnum.MALE.name()).orElseThrow(EntityNotFoundException.supplier(SexEnum.MALE.name()));
 //
 //        List<Mkb> mkbs = new ArrayList<>();
 //        for (MkbCodesA mkbCode : MkbCodesA.values()) {
@@ -1146,6 +1140,6 @@ public class Runner implements CommandLineRunner {
 //                List.of(
 //                        physioFile1, physioFile2, physioFile3, physioFile4, physioFile5, physioFile6, physioFile7, physioFile8, physioFile9, physioFile10, physioFile11, physioFile12, physioFile13, physioFile14, physioFile15, physioFile16, physioFile17)
 //        );
-        
+    
     }
 }
