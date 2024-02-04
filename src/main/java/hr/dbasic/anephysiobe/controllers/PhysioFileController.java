@@ -1,17 +1,16 @@
 package hr.dbasic.anephysiobe.controllers;
 
+import hr.dbasic.anephysiobe.dto.requests.physiofile.UpdatePhysioFileRequestDto;
 import hr.dbasic.anephysiobe.dto.responses.ApiResponse;
 import hr.dbasic.anephysiobe.dto.responses.physioFileResponse.PhysioFileResponseDto;
 import hr.dbasic.anephysiobe.mappings.AppMappings;
 import hr.dbasic.anephysiobe.services.PhysioFileService;
+import jakarta.validation.Valid;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -42,6 +41,16 @@ public class PhysioFileController {
         );
     }
     
+    @PutMapping(PhysioFileMappings.updatePhysioFileByIdPutMapping)
+    public ResponseEntity<ApiResponse<PhysioFileResponseDto>> updatePhysioFileById(@PathVariable String id, @Valid @RequestBody UpdatePhysioFileRequestDto updatePhysioFileRequestDto) {
+        return ResponseEntity.ok(
+                ApiResponse.ok(
+                        "Physio file saved successfully",
+                        physioFileService.updatePhysioFileById(id, updatePhysioFileRequestDto)
+                )
+        );
+    }
+    
     @NoArgsConstructor(access = AccessLevel.PRIVATE)
     public static class PhysioFileMappings {
         public static final String physioFileRequestMapping = AppMappings.apiPhysioFileRequestMapping + "/physiofiles";
@@ -49,6 +58,6 @@ public class PhysioFileController {
         public static final String getPhysioFileById = "/{id}";
         public static final String getPhysioFileByPatientIdGetMapping = "/patient/{id}";
         public static final String createPhysioFilePostMapping = "/create-file";
-        public static final String updatePhysioFileByIdPutMapping = "/update-file/{id}";
+        public static final String updatePhysioFileByIdPutMapping = "/update-physiofile/{id}";
     }
 }

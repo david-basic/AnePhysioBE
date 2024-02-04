@@ -114,4 +114,14 @@ public class AssessmentServiceImpl implements AssessmentService {
         PhysioFile physioFile = physioFileRepositoryMongo.findById(updatePatientRassRequestDto.physioFileId()).orElseThrow(EntityNotFoundException.supplier("Physio file"));
         return physioFileToPhysioFileResponseDtoConverter.convert(physioFile);
     }
+    
+    @Override
+    public Assessment getAssessmentById(String id) {
+        return assessmentRepositoryMongo.findById(id).orElseThrow(EntityNotFoundException.supplier("Assessment"));
+    }
+    
+    @Override
+    public Assessment saveAssessment(Assessment assessment) {
+        return assessmentRepositoryMongo.save(assessment);
+    }
 }

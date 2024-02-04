@@ -6,6 +6,7 @@ import hr.dbasic.anephysiobe.dto.requests.physiofile.assessment.DeletePatientRas
 import hr.dbasic.anephysiobe.dto.requests.physiofile.assessment.UpdatePatientRassRequestDto;
 import hr.dbasic.anephysiobe.dto.responses.physioFileResponse.PhysioFileResponseDto;
 import hr.dbasic.anephysiobe.dto.responses.physioFileResponse.assessmentResponse.AssessmentResponseDto;
+import hr.dbasic.anephysiobe.models.physiofile.assessment.Assessment;
 
 import java.util.List;
 
@@ -16,4 +17,6 @@ public interface AssessmentService {
     void deletePatientRassByIdInAssessmentById(DeletePatientRassRequestDto deletePatientRassRequestDto);
     PhysioFileResponseDto createAssessmentOnPhysioFileWithId(String id);
     PhysioFileResponseDto updatePointsOfPainByAssessmentId(String id, CreateOrUpdatePointsOfPainRequestDto updatePatientRassRequestDto);
+    Assessment getAssessmentById(String id);
+    Assessment saveAssessment(Assessment assessment);
 }
