@@ -1,5 +1,6 @@
 package hr.dbasic.anephysiobe.controllers;
 
+import hr.dbasic.anephysiobe.dto.requests.physiofile.CloseFileRequestDto;
 import hr.dbasic.anephysiobe.dto.requests.physiofile.UpdatePhysioFileRequestDto;
 import hr.dbasic.anephysiobe.dto.responses.ApiResponse;
 import hr.dbasic.anephysiobe.dto.responses.physioFileResponse.PhysioFileResponseDto;
@@ -51,6 +52,16 @@ public class PhysioFileController {
         );
     }
     
+    @PutMapping(PhysioFileMappings.closePhysioFileByIdPutMapping)
+    public ResponseEntity<ApiResponse<PhysioFileResponseDto>> closePhysioFileById(@PathVariable String id, @Valid @RequestBody CloseFileRequestDto closeFileRequestDto) {
+        return ResponseEntity.ok(
+                ApiResponse.ok(
+                        "Physio file closed successfully",
+                        physioFileService.closePhysioFileById(id, closeFileRequestDto)
+                )
+        );
+    }
+    
     @NoArgsConstructor(access = AccessLevel.PRIVATE)
     public static class PhysioFileMappings {
         public static final String physioFileRequestMapping = AppMappings.apiPhysioFileRequestMapping + "/physiofiles";
@@ -59,5 +70,6 @@ public class PhysioFileController {
         public static final String getPhysioFileByPatientIdGetMapping = "/patient/{id}";
         public static final String createPhysioFilePostMapping = "/create-file";
         public static final String updatePhysioFileByIdPutMapping = "/update-physiofile/{id}";
+        public static final String closePhysioFileByIdPutMapping = "/close-physiofile/{id}";
     }
 }

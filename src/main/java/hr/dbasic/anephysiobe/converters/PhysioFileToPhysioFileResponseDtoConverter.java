@@ -126,6 +126,9 @@ public class PhysioFileToPhysioFileResponseDtoConverter implements Converter<Phy
                                 .id(source.getFileClosedBy().getId())
                                 .firstName(source.getFileClosedBy().getFirstName())
                                 .lastName(source.getFileClosedBy().getLastName())
+                                .title(source.getFileClosedBy().getTitle())
+                                .sex(source.getFileClosedBy().getSex().getDisplayName())
+                                .role(source.getFileClosedBy().getRole().getDisplayName())
                                 .build()
                         : null,
                 allPhysiotherapists,
