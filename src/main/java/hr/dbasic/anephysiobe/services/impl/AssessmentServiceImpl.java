@@ -3,6 +3,8 @@ package hr.dbasic.anephysiobe.services.impl;
 import hr.dbasic.anephysiobe.converters.AssessmentToAssessmentResponseDtoConverter;
 import hr.dbasic.anephysiobe.converters.CreatePatientRassRequestToPatientRassConverter;
 import hr.dbasic.anephysiobe.converters.PhysioFileToPhysioFileResponseDtoConverter;
+import hr.dbasic.anephysiobe.converters.PointDtoToPointConverter;
+import hr.dbasic.anephysiobe.dto.requests.physiofile.assessment.CreateOrUpdatePointsOfPainRequestDto;
 import hr.dbasic.anephysiobe.dto.requests.physiofile.assessment.CreatePatientRassRequestDto;
 import hr.dbasic.anephysiobe.dto.requests.physiofile.assessment.DeletePatientRassRequestDto;
 import hr.dbasic.anephysiobe.dto.requests.physiofile.assessment.UpdatePatientRassRequestDto;
@@ -12,6 +14,7 @@ import hr.dbasic.anephysiobe.exceptions.EntityNotFoundException;
 import hr.dbasic.anephysiobe.models.physiofile.PhysioFile;
 import hr.dbasic.anephysiobe.models.physiofile.assessment.Assessment;
 import hr.dbasic.anephysiobe.models.physiofile.assessment.PatientRass;
+import hr.dbasic.anephysiobe.models.physiofile.assessment.Point;
 import hr.dbasic.anephysiobe.repositories.AssessmentRepositoryMongo;
 import hr.dbasic.anephysiobe.repositories.PhysioFileRepositoryMongo;
 import hr.dbasic.anephysiobe.services.AssessmentService;
@@ -34,6 +37,7 @@ public class AssessmentServiceImpl implements AssessmentService {
     private final PhysioFileToPhysioFileResponseDtoConverter physioFileToPhysioFileResponseDtoConverter;
     private final AssessmentToAssessmentResponseDtoConverter assessmentToAssessmentResponseDtoConverter;
     private final CreateAssessmentOnPhysioFileValidator createAssessmentOnPhysioFileValidator;
+    private final PointDtoToPointConverter pointDtoToPointConverter;
     
     @Override
     public List<AssessmentResponseDto> getAllAssessments() {
@@ -94,5 +98,30 @@ public class AssessmentServiceImpl implements AssessmentService {
         physioFileRepositoryMongo.save(physioFile);
         
         return physioFileToPhysioFileResponseDtoConverter.convert(physioFile);
+    }
+    
+    @Override
+    public PhysioFileResponseDto updatePointsOfPainByAssessmentId(String assessmentId, CreateOrUpdatePointsOfPainRequestDto updatePatientRassRequestDto) {
+        Assessment foundAssessment = assessmentRepositoryMongo.findById(assessmentId).orElseThrow(EntityNotFoundException.supplier("Assessment"));
+        
+        List<Point> pointList = updatePatientRassRequestDto.pointsOfPain().stream().map(
+                pointDtoToPointConverter::convert
+        ).toList();
+        foundAssessment.setPointsOfPain(pointList);
+        
+        assessmentRepositoryMongo.save(foundAssessment);
+        
+        PhysioFile physioFile = physioFileRepositoryMongo.findById(updatePatientRassRequestDto.physioFileId()).orElseThrow(EntityNotFoundException.supplier("Physio file"));
+        return physioFileToPhysioFileResponseDtoConverter.convert(physioFile);
+    }
+    
+    @Override
+    public Assessment getAssessmentById(String id) {
+        return assessmentRepositoryMongo.findById(id).orElseThrow(EntityNotFoundException.supplier("Assessment"));
+    }
+    
+    @Override
+    public Assessment saveAssessment(Assessment assessment) {
+        return assessmentRepositoryMongo.save(assessment);
     }
 }

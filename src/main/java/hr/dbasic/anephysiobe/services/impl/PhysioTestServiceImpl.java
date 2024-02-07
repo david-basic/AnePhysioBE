@@ -21,7 +21,6 @@ import hr.dbasic.anephysiobe.models.physiofile.physiotests.PhysioTest;
 import hr.dbasic.anephysiobe.models.physiofile.physiotests.Vas;
 import hr.dbasic.anephysiobe.models.physiofile.physiotests.cpax.AspectOfPhysicality;
 import hr.dbasic.anephysiobe.models.physiofile.physiotests.cpax.Cpax;
-import hr.dbasic.anephysiobe.models.physiofile.physiotests.cpax.DefinitionAOP;
 import hr.dbasic.anephysiobe.models.physiofile.physiotests.gcs.Gcs;
 import hr.dbasic.anephysiobe.models.physiofile.physiotests.gcs.GcsResponse;
 import hr.dbasic.anephysiobe.models.physiofile.physiotests.mmt.PatientMmt;

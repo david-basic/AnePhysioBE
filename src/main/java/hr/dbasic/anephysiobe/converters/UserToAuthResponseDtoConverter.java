@@ -17,7 +17,14 @@ public class UserToAuthResponseDtoConverter implements Converter<User, AuthRespo
     
     @Override
     public AuthResponseDto convert(@NonNull User source) {
-        PFRUserDto loggedInUser = PFRUserDto.builder().id(source.getId()).firstName(source.getFirstName()).lastName(source.getLastName()).build();
+        PFRUserDto loggedInUser = PFRUserDto.builder()
+                .id(source.getId())
+                .firstName(source.getFirstName())
+                .lastName(source.getLastName())
+                .role(source.getRole().getDisplayName())
+                .title(source.getTitle())
+                .sex(source.getSex().getDisplayName())
+                .build();
         
         return new AuthResponseDto(
                 jwtTokenService.generate(source),

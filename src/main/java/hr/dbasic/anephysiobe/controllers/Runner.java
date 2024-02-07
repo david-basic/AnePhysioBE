@@ -41,14 +41,8 @@ public class Runner implements CommandLineRunner {
     
     @Override
     public void run(String... args) {
-    
-//        Sex female = Sex.builder().name(SexEnum.FEMALE.name()).displayName(SexEnum.FEMALE.getDisplayName()).build();
-//        Sex male = Sex.builder().name(SexEnum.MALE.name()).displayName(SexEnum.MALE.getDisplayName()).build();
-//        sexRepositoryMongo.saveAll(
-//                List.of(
-//                        female, male
-//                )
-//        );
+//        Sex female = sexRepositoryMongo.findByName(SexEnum.FEMALE.name()).orElseThrow(EntityNotFoundException.supplier(SexEnum.FEMALE.name()));
+//        Sex male = sexRepositoryMongo.findByName(SexEnum.MALE.name()).orElseThrow(EntityNotFoundException.supplier(SexEnum.MALE.name()));
 //
 //        List<Mkb> mkbs = new ArrayList<>();
 //        for (MkbCodesA mkbCode : MkbCodesA.values()) {
@@ -841,23 +835,23 @@ public class Runner implements CommandLineRunner {
 //        PatientRass pr16 = PatientRass.patientRassBuilder().id(String.valueOf(randomNumberService.generateRandomBigInteger(false, 12))).score(RassEnum.R0.getScore()).term(RassEnum.R0.getTerm()).scoreDescription(RassEnum.R0.getScoreDescription()).additionalDescription("/").rassDateTime(LocalDateTime.now()).build();
 //        PatientRass pr17 = PatientRass.patientRassBuilder().id(String.valueOf(randomNumberService.generateRandomBigInteger(false, 12))).score(RassEnum.R0.getScore()).term(RassEnum.R0.getTerm()).scoreDescription(RassEnum.R0.getScoreDescription()).additionalDescription("/").rassDateTime(LocalDateTime.now()).build();
 //
-//        Assessment a1 = Assessment.builder().patientRass(List.of(pr1)).notes("/").build();
-//        Assessment a2 = Assessment.builder().patientRass(List.of(pr2)).notes("/").build();
-//        Assessment a3 = Assessment.builder().patientRass(List.of(pr3)).notes("/").build();
-//        Assessment a4 = Assessment.builder().patientRass(List.of(pr4)).notes("/").build();
-//        Assessment a5 = Assessment.builder().patientRass(List.of(pr5)).notes("/").build();
-//        Assessment a6 = Assessment.builder().patientRass(List.of(pr6)).notes("/").build();
-//        Assessment a7 = Assessment.builder().patientRass(List.of(pr7)).notes("/").build();
-//        Assessment a8 = Assessment.builder().patientRass(List.of(pr8)).notes("/").build();
-//        Assessment a9 = Assessment.builder().patientRass(List.of(pr9)).notes("/").build();
-//        Assessment a10 = Assessment.builder().patientRass(List.of(pr10)).notes("/").build();
-//        Assessment a11 = Assessment.builder().patientRass(List.of(pr11)).notes("/").build();
-//        Assessment a12 = Assessment.builder().patientRass(List.of(pr12)).notes("/").build();
-//        Assessment a13 = Assessment.builder().patientRass(List.of(pr13)).notes("/").build();
-//        Assessment a14 = Assessment.builder().patientRass(List.of(pr14)).notes("/").build();
-//        Assessment a15 = Assessment.builder().patientRass(List.of(pr15)).notes("/").build();
-//        Assessment a16 = Assessment.builder().patientRass(List.of(pr16)).notes("/").build();
-//        Assessment a17 = Assessment.builder().patientRass(List.of(pr17)).notes("/").build();
+//        Assessment a1 = Assessment.builder().patientRass(List.of(pr1)).notes("/").pointsOfPain(new ArrayList<>()).build();
+//        Assessment a2 = Assessment.builder().patientRass(List.of(pr2)).notes("/").pointsOfPain(new ArrayList<>()).build();
+//        Assessment a3 = Assessment.builder().patientRass(List.of(pr3)).notes("/").pointsOfPain(new ArrayList<>()).build();
+//        Assessment a4 = Assessment.builder().patientRass(List.of(pr4)).notes("/").pointsOfPain(new ArrayList<>()).build();
+//        Assessment a5 = Assessment.builder().patientRass(List.of(pr5)).notes("/").pointsOfPain(new ArrayList<>()).build();
+//        Assessment a6 = Assessment.builder().patientRass(List.of(pr6)).notes("/").pointsOfPain(new ArrayList<>()).build();
+//        Assessment a7 = Assessment.builder().patientRass(List.of(pr7)).notes("/").pointsOfPain(new ArrayList<>()).build();
+//        Assessment a8 = Assessment.builder().patientRass(List.of(pr8)).notes("/").pointsOfPain(new ArrayList<>()).build();
+//        Assessment a9 = Assessment.builder().patientRass(List.of(pr9)).notes("/").pointsOfPain(new ArrayList<>()).build();
+//        Assessment a10 = Assessment.builder().patientRass(List.of(pr10)).notes("/").pointsOfPain(new ArrayList<>()).build();
+//        Assessment a11 = Assessment.builder().patientRass(List.of(pr11)).notes("/").pointsOfPain(new ArrayList<>()).build();
+//        Assessment a12 = Assessment.builder().patientRass(List.of(pr12)).notes("/").pointsOfPain(new ArrayList<>()).build();
+//        Assessment a13 = Assessment.builder().patientRass(List.of(pr13)).notes("/").pointsOfPain(new ArrayList<>()).build();
+//        Assessment a14 = Assessment.builder().patientRass(List.of(pr14)).notes("/").pointsOfPain(new ArrayList<>()).build();
+//        Assessment a15 = Assessment.builder().patientRass(List.of(pr15)).notes("/").pointsOfPain(new ArrayList<>()).build();
+//        Assessment a16 = Assessment.builder().patientRass(List.of(pr16)).notes("/").pointsOfPain(new ArrayList<>()).build();
+//        Assessment a17 = Assessment.builder().patientRass(List.of(pr17)).notes("/").pointsOfPain(new ArrayList<>()).build();
 //        assessmentRepositoryMongo.saveAll(
 //                List.of(
 //                        a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, a11, a12, a13, a14, a15, a16, a17
@@ -1146,6 +1140,6 @@ public class Runner implements CommandLineRunner {
 //                List.of(
 //                        physioFile1, physioFile2, physioFile3, physioFile4, physioFile5, physioFile6, physioFile7, physioFile8, physioFile9, physioFile10, physioFile11, physioFile12, physioFile13, physioFile14, physioFile15, physioFile16, physioFile17)
 //        );
-        
+    
     }
 }

@@ -1,10 +1,7 @@
 package hr.dbasic.anephysiobe.models.physiofile.assessment;
 
 import lombok.*;
-import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
-
-import java.util.List;
 
 @Builder
 @Getter
@@ -13,15 +10,8 @@ import java.util.List;
 @NoArgsConstructor(force = true)
 @EqualsAndHashCode(doNotUseGetters = true, onlyExplicitlyIncluded = true)
 @ToString(doNotUseGetters = true, onlyExplicitlyIncluded = true)
-@Document("assessments")
-public class Assessment {
-    
-    @Id
+public class Point {
     private String id;
-    
-    private List<PatientRass> patientRass;
-    
-    private String notes;
-    
-    private List<Point> pointsOfPain;
+    private Integer x;
+    private Integer y;
 }
