@@ -37,7 +37,7 @@ public class PatientController {
         return ResponseEntity.ok(
                 ApiResponse.ok(
                         "Patient fetched successfully",
-                        patientService.getPatientById(id)
+                        patientService.getPatientResponseDtoById(id)
                 )
         );
     }

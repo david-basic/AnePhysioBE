@@ -32,12 +32,32 @@ public class PhysioFileController {
         );
     }
     
+    @GetMapping(PhysioFileMappings.getPhysioFileById)
+    public ResponseEntity<ApiResponse<PhysioFileResponseDto>> getPhysioFileById(@PathVariable String id) {
+        return ResponseEntity.ok(
+                ApiResponse.ok(
+                        "Physio file fetched successfully",
+                        physioFileService.getPhysioFileById(id)
+                )
+        );
+    }
+    
+    @GetMapping(PhysioFileMappings.getAllPhysioFilesByPatientIdGetMapping)
+    public ResponseEntity<ApiResponse<List<PhysioFileResponseDto>>> getAllPhysioFilesOfPatientWithId(@PathVariable String id) {
+        return ResponseEntity.ok(
+                ApiResponse.ok(
+                        "Physio files fetched successfully",
+                        physioFileService.getAllPhysioFilesOfPatientWithId(id)
+                )
+        );
+    }
+    
     @GetMapping(PhysioFileMappings.getPhysioFileByPatientIdGetMapping)
     public ResponseEntity<ApiResponse<PhysioFileResponseDto>> getPhysioFileByPatientId(@PathVariable String id) {
         return ResponseEntity.ok(
                 ApiResponse.ok(
-                        "Physio file fetched successfully",
-                        physioFileService.getPhysioFileByPatientId(id)
+                        "Physio file created successfully",
+                        physioFileService.getActivePhysioFileByPatientIdOrCreateNewOne(id)
                 )
         );
     }
@@ -66,9 +86,9 @@ public class PhysioFileController {
     public static class PhysioFileMappings {
         public static final String physioFileRequestMapping = AppMappings.apiPhysioFileRequestMapping + "/physiofiles";
         public static final String getAllPhysioFilesGetMapping = "";
-        public static final String getPhysioFileById = "/{id}";
+        public static final String getAllPhysioFilesByPatientIdGetMapping = "/all-of-patient/{id}";
+        public static final String getPhysioFileById = "/file/{id}";
         public static final String getPhysioFileByPatientIdGetMapping = "/patient/{id}";
-        public static final String createPhysioFilePostMapping = "/create-file";
         public static final String updatePhysioFileByIdPutMapping = "/update-physiofile/{id}";
         public static final String closePhysioFileByIdPutMapping = "/close-physiofile/{id}";
     }

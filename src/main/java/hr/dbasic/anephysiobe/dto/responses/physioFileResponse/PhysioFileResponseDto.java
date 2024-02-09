@@ -43,6 +43,7 @@ public record PhysioFileResponseDto(
         List<Mmt> mmtList,
         String conclussion,
         PFRUserDto fileClosedBy,
+        String fileClosedAt,
         List<PFRUserDto> allPhysiotherapists,
         String departmentId
 ) {

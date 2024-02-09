@@ -6,7 +6,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Builder
 @Getter
@@ -25,7 +25,7 @@ public class PatientOperation {
     private String procedureName;
     
     @NotNull(message = "Operation has to have a procedure date!")
-    private LocalDate procedureDate;
+    private LocalDateTime procedureDate;
     
     @DBRef
     private Patient patient;

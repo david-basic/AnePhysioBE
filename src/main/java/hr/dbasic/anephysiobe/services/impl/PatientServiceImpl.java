@@ -25,8 +25,13 @@ public class PatientServiceImpl implements PatientService {
     }
     
     @Override
-    public PatientResponseDto getPatientById(String id) {
+    public PatientResponseDto getPatientResponseDtoById(String id) {
         Patient foundPatient = patientRepositoryMongo.findById(id).orElseThrow(EntityNotFoundException.supplier("Patient"));
         return patientToPatientResponseDtoConverter.convert(foundPatient);
+    }
+    
+    @Override
+    public Patient getPatientById(String id) {
+        return patientRepositoryMongo.findById(id).orElseThrow(EntityNotFoundException.supplier("Patient"));
     }
 }

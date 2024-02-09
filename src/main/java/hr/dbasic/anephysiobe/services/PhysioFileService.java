@@ -7,8 +7,10 @@ import hr.dbasic.anephysiobe.dto.responses.physioFileResponse.PhysioFileResponse
 import java.util.List;
 
 public interface PhysioFileService {
-    PhysioFileResponseDto getPhysioFileByPatientId(String id);
+    PhysioFileResponseDto getActivePhysioFileByPatientIdOrCreateNewOne(String id);
     List<PhysioFileResponseDto> getAllPhysioFiles();
     PhysioFileResponseDto updatePhysioFileById(String id, UpdatePhysioFileRequestDto updatePhysioFileRequestDto);
     PhysioFileResponseDto closePhysioFileById(String id, CloseFileRequestDto closeFileRequestDto);
+    List<PhysioFileResponseDto> getAllPhysioFilesOfPatientWithId(String id);
+    PhysioFileResponseDto getPhysioFileById(String id);
 }

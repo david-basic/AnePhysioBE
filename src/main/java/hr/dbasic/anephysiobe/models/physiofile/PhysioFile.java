@@ -15,6 +15,7 @@ import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Builder
@@ -59,4 +60,6 @@ public class PhysioFile implements Serializable {
     
     @DBRef
     private User fileClosedBy;
+    
+    private LocalDateTime fileClosedAt;
 }

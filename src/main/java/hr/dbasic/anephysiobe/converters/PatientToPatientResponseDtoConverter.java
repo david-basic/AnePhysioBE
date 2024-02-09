@@ -40,7 +40,7 @@ public class PatientToPatientResponseDtoConverter implements Converter<Patient, 
                 Objects.isNull(source.getOperations()) ? null : source.getOperations().stream().map(op -> PRPatientOperationDto.builder()
                         .id(op.getId())
                         .procedureName(op.getProcedureName())
-                        .procedureDate(DateTimeFormatter.ISO_LOCAL_DATE.format(op.getProcedureDate()))
+                        .procedureDate(DateTimeFormatter.ISO_LOCAL_DATE_TIME.format(op.getProcedureDate()))
                         .build()
                 ).toList(),
                 DateTimeFormatter.ISO_LOCAL_DATE_TIME.format(source.getAdmissionDateTime()),
