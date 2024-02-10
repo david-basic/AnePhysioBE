@@ -37,7 +37,7 @@ public class PhysioTestsController {
     public ResponseEntity<ApiResponse<List<PhysioTestResponseDto>>> getAllPhysioTests() {
         return ResponseEntity.ok(
                 ApiResponse.ok(
-                        "Physio tests fetched successfully",
+                        "Testovi uspješno dohvaćeni!",
                         physioTestService.getAllPhysioTests()
                 
                 )
@@ -48,7 +48,7 @@ public class PhysioTestsController {
     public ResponseEntity<ApiResponse<PhysioTestResponseDto>> getPhysioTestById(@PathVariable String id) {
         return ResponseEntity.ok(
                 ApiResponse.ok(
-                        "Physio test fetched successfully",
+                        "Test uspješno dohvaćen!",
                         physioTestService.getPhysioTestById(id)
                 )
         );
@@ -59,7 +59,7 @@ public class PhysioTestsController {
         return ResponseEntity.status(HttpStatus.CREATED).body(
                 ApiResponse.created(
                         physioTestService.createPhysioTestInPhysioFileWithId(id),
-                        "Physio test successfully created"
+                        "Test uspješno dodan!"
                 )
         );
     }
@@ -69,7 +69,7 @@ public class PhysioTestsController {
         return ResponseEntity.status(HttpStatus.CREATED).body(
                 ApiResponse.created(
                         physioTestService.createVas(createVasRequestDto),
-                        "VAS successfully added"
+                        "VAS test uspješno dodan!"
                 )
         );
     }
@@ -78,7 +78,7 @@ public class PhysioTestsController {
     public ResponseEntity<ApiResponse<PhysioFileResponseDto>> updateVasById(@PathVariable String id, @Valid @RequestBody UpdateVasRequestDto updateVasRequestDto) {
         return ResponseEntity.ok(
                 ApiResponse.ok(
-                        "VAS successfully updated",
+                        "VAS test uspješno ažuriran!",
                         physioTestService.updateVasById(id, updateVasRequestDto)
                 )
         );
@@ -89,7 +89,7 @@ public class PhysioTestsController {
         physioTestService.deleteVasByIdInPhysioTestById(deleteVasRequestDto);
         
         return ResponseEntity.ok(
-                ApiResponse.ok("VAS successfully deleted!")
+                ApiResponse.ok("VAS test uspješno obrisan!")
         );
     }
     
@@ -99,7 +99,7 @@ public class PhysioTestsController {
         return ResponseEntity.status(HttpStatus.CREATED).body(
                 ApiResponse.created(
                         physioTestService.createMmt(createMmtRequestDto),
-                        "MMT successfully added"
+                        "MMT test uspješno dodan!"
                 )
         );
     }
@@ -108,7 +108,7 @@ public class PhysioTestsController {
     public ResponseEntity<ApiResponse<PhysioFileResponseDto>> updateMmtById(@PathVariable String id, @Valid @RequestBody UpdateMmtRequestDto updateMmtRequestDto) {
         return ResponseEntity.ok(
                 ApiResponse.ok(
-                        "MMT successfully updated",
+                        "MMT test uspješno ažuriran!",
                         physioTestService.updateMmtById(id, updateMmtRequestDto)
                 )
         );
@@ -119,7 +119,7 @@ public class PhysioTestsController {
         physioTestService.deleteMmtByIdInPhysioTestById(deleteMmtRequestDto);
         
         return ResponseEntity.ok(
-                ApiResponse.ok("MMT successfully deleted!")
+                ApiResponse.ok("MMT test uspješno obrisan!")
         );
     }
     
@@ -128,7 +128,7 @@ public class PhysioTestsController {
         return ResponseEntity.status(HttpStatus.CREATED).body(
                 ApiResponse.created(
                         physioTestService.createGcs(createGcsRequestDto),
-                        "GCS successfully added"
+                        "GCS test uspješno dodan!"
                 )
         );
     }
@@ -137,7 +137,7 @@ public class PhysioTestsController {
     public ResponseEntity<ApiResponse<PhysioFileResponseDto>> updateGcsById(@PathVariable String id, @Valid @RequestBody UpdateGcsRequestDto updateGcsRequestDto) {
         return ResponseEntity.ok(
                 ApiResponse.ok(
-                        "GCS successfully updated",
+                        "GCS test uspješno ažuriran!",
                         physioTestService.updateGcsById(id, updateGcsRequestDto)
                 )
         );
@@ -148,7 +148,7 @@ public class PhysioTestsController {
         physioTestService.deleteGcsByIdInPhysioTestById(deleteGcsRequestDto);
         
         return ResponseEntity.ok(
-                ApiResponse.ok("GCS successfully deleted!")
+                ApiResponse.ok("GCS test uspješno obrisan!")
         );
     }
     
@@ -157,7 +157,7 @@ public class PhysioTestsController {
         return ResponseEntity.status(HttpStatus.CREATED).body(
                 ApiResponse.created(
                         physioTestService.createCpax(createCpaxRequestDto),
-                        "CPAx successfully added"
+                        "CPAx test uspješno dodan!"
                 )
         );
     }
@@ -166,7 +166,7 @@ public class PhysioTestsController {
     public ResponseEntity<ApiResponse<PhysioFileResponseDto>> updateCpaxById(@PathVariable String id, @Valid @RequestBody UpdateCpaxRequestDto updateCpaxRequestDto) {
         return ResponseEntity.ok(
                 ApiResponse.ok(
-                        "CPAx successfully updated",
+                        "CPAx test uspješno ažuriran!",
                         physioTestService.updateCpaxById(id, updateCpaxRequestDto)
                 )
         );
@@ -177,7 +177,7 @@ public class PhysioTestsController {
         physioTestService.deleteCpaxByIdInPhysioTestById(deleteCpaxRequestDto);
         
         return ResponseEntity.ok(
-                ApiResponse.ok("CPAx successfully deleted")
+                ApiResponse.ok("CPAx test uspješno obrisan!")
         );
     }
     

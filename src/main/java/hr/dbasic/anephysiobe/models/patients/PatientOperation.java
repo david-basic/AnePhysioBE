@@ -21,10 +21,10 @@ public class PatientOperation {
     @Id
     private String id;
     
-    @NotNull(message = "Operation has to have a procedure name!")
+    @NotNull(message = "Operacija mora imati definiran naziv!")
     private String procedureName;
     
-    @NotNull(message = "Operation has to have a procedure date!")
+    @NotNull(message = "Datum i vrijeme operacije moraju biti definirani!")
     private LocalDateTime procedureDate;
     
     @DBRef

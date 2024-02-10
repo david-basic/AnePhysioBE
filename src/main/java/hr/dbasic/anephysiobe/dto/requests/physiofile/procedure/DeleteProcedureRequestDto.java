@@ -5,9 +5,9 @@ import lombok.Builder;
 
 @Builder
 public record DeleteProcedureRequestDto(
-        @NotNull(message = "Physio file id has to be provided!")
+        @NotNull(message = "Id fizioterapijskog kartona mora biti definiran!")
         String physioFileId,
-        @NotNull(message = "Procedure id has to be provided!")
+        @NotNull(message = "Id procedure mora biti definiran!")
         String procedureId
 ) {
 }

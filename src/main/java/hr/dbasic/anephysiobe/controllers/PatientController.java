@@ -26,7 +26,7 @@ public class PatientController {
     public ResponseEntity<ApiResponse<List<PatientResponseDto>>> getAllPatients() {
         return ResponseEntity.ok(
                 ApiResponse.ok(
-                        "Patients fetched successfully",
+                        "Pacijenti uspješno dohvaćeni!",
                         patientService.getAllPatients()
                 )
         );
@@ -36,7 +36,7 @@ public class PatientController {
     public ResponseEntity<ApiResponse<PatientResponseDto>> getPatientById(@PathVariable String id) {
         return ResponseEntity.ok(
                 ApiResponse.ok(
-                        "Patient fetched successfully",
+                        "Pacijent uspješno dohvaćen!",
                         patientService.getPatientResponseDtoById(id)
                 )
         );

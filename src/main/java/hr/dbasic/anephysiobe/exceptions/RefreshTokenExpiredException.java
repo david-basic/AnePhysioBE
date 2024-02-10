@@ -16,7 +16,7 @@ public class RefreshTokenExpiredException extends ForbiddenException {
     @NoArgsConstructor(access = AccessLevel.PRIVATE)
     public static class Constants {
         
-        public static final String exceptionMessageFormat = "Refresh token expired! Login again!";
+        public static final String exceptionMessageFormat = "Token za osvježavanje je istekao! Prijavite se ponovno!";
         
     }
     

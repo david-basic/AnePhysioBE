@@ -5,9 +5,9 @@ import lombok.Builder;
 
 @Builder
 public record DeletePatientRassRequestDto(
-        @NotNull(message = "Patient RASS id has to be provided!")
+        @NotNull(message = "RASS id mora biti definiran!")
         String patientRassId,
-        @NotNull(message = "Assessment id has to be provided!")
+        @NotNull(message = "Id procjene mora biti definiran!")
         String assessmentId
 ) {
 }

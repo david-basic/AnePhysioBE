@@ -18,9 +18,9 @@ public class Plan {
     @Id
     private String id;
     
-    @NotNull(message = "Plan has to have a type defined!")
+    @NotNull(message = "Plan mora imati definiran tip!")
     private String type;
     
-    @NotNull(message = "Plan has to have a description defined!")
+    @NotNull(message = "Plan mora imati definiran opis!")
     private String description;
 }

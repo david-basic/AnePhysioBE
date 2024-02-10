@@ -10,17 +10,17 @@ import java.util.List;
 
 @Builder
 public record UpdatePhysioFileRequestDto(
-        @NotNull(message = "Patient functional diagnoses have to be provided")
+        @NotNull(message = "Funkcionalne dijagnoze moraju biti definirane!")
         List<PatientFunctionalDiagnosis> patientFunctionalDiagnoses,
-        @NotNull(message = "Assessment notes have to be provided")
+        @NotNull(message = "Početna procjena mora biti definirana!")
         String assessmentNotes,
-        @NotNull(message = "Patient goals have to be provided")
+        @NotNull(message = "Ciljevi moraju biti definirani!")
         List<PatientGoal> patientGoals,
-        @NotNull(message = "Patient plans have to be provided")
+        @NotNull(message = "Planovi moraju biti definirani!")
         List<PatientPlan> patientPlans,
-        @NotNull(message = "Notes have to be provided")
+        @NotNull(message = "Zabilješke moraju biti definirane!")
         String notes,
-        @NotNull(message = "Conclussion has to be provided")
+        @NotNull(message = "Završna procjena i zaključak moraju biti definirani!")
         String conclussion
 ) {
 }

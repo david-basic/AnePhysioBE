@@ -22,18 +22,18 @@ public class Department {
     @Id
     private String id;
     
-    @NotNull(message = "Department has to have a name!")
-    @Size(min = 3, message = "Department name has to be at least 3 characters long!")
+    @NotNull(message = "Odjel mora imati definirano ime!")
+    @Size(min = 3, message = "Ime odjela mora biti najmanje 3 znaka dugačko!")
     private String name;
     
-    @NotNull(message = "Department has to have a shorthand")
+    @NotNull(message = "Odjelu mora biti definirana kratica!")
     private String shorthand;
     
     @DBRef
-    @NotNull(message = "Department has to have at least one box!")
+    @NotNull(message = "Odjel mora imati barem jedan box definiran!")
     private List<Box> boxes;
     
     @DBRef
-    @NotNull(message = "Department has to have a locality attached!")
+    @NotNull(message = "Odjel mora imati definiran lokalitet!")
     private DepartmentLocality locality;
 }

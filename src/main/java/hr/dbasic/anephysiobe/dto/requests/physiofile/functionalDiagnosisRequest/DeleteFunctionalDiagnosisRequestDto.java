@@ -5,9 +5,9 @@ import lombok.Builder;
 
 @Builder
 public record DeleteFunctionalDiagnosisRequestDto(
-        @NotNull(message = "Functional diagnosis id has to be provided!")
+        @NotNull(message = "Id funkcionalne dijagnoze mora biti definiran!")
         String fdId,
-        @NotNull(message = "Physio file id has to be provided!")
+        @NotNull(message = "Id fizioterapijskog kartona mora biti definiran!")
         String physioFileId
 ) {
 }

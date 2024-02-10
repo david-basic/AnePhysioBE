@@ -32,10 +32,10 @@ public class PhysioFile implements Serializable {
     private String id;
     
     @DBRef
-    @NotNull(message = "Person who opened the file has to be defined on the file!")
+    @NotNull(message = "Fizioterapeut koji je otvorio karton mora biti definiran!")
     private User fileOpenedBy;
     
-    @NotNull(message = "Patient has to exist on the file!")
+    @NotNull(message = "Pacijent mora biti definiran na kartonu!")
     @DBRef
     private Patient patient;
     

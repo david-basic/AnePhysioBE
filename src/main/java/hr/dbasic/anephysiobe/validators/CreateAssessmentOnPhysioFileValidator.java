@@ -12,7 +12,7 @@ public class CreateAssessmentOnPhysioFileValidator implements Validator<PhysioFi
     @Override
     public void validate(PhysioFile target) {
         if (!Objects.isNull(target.getAssessment())) {
-            throw new UniquenessViolatedException("An assessment for the requested Physio file already exists!");
+            throw new UniquenessViolatedException("Početna procjena za trenutni karton već postoji!");
         }
     }
 }

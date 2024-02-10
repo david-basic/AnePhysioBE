@@ -20,7 +20,7 @@ public class PatientFunctionalDiagnosis {
     @Builder.Default
     private Boolean selected = false;
     
-    @NotNull(message = "Functional diagnosis has to be referenced!")
+    @NotNull(message = "Funkcionalna dijagnoza mora biti referencirana!")
     @DBRef
     private FunctionalDiagnosis functionalDiagnosis;
     

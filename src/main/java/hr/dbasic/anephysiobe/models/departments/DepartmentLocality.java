@@ -17,10 +17,10 @@ public class DepartmentLocality {
     @Id
     private String id;
     
-    @NotNull(message = "Locality must have a name!")
+    @NotNull(message = "Lokalitet mora imati definirano ime!")
     private String name;
     
     @ToString.Include
-    @NotNull(message = "County must have a display name!")
+    @NotNull(message = "Lokalitet mora imati definirano ime za prikaz!")
     private String displayName;
 }

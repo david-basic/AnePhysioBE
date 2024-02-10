@@ -34,9 +34,9 @@ public class EntityNotFoundException extends NotFoundException{
     @NoArgsConstructor(access = AccessLevel.PRIVATE)
     public static class Constants {
         
-        public static final String exceptionMessageFormat = "Entity with given id does not exist!";
+        public static final String exceptionMessageFormat = "Entitet sa danim identifikatorom ne postoji!";
         
-        public static final String genericExceptionMessageFormat = "%s with given id does not exist!";
+        public static final String genericExceptionMessageFormat = "%s sa danim identifikatorom ne postoji!";
         
     }
 }

@@ -15,6 +15,6 @@ public class UserRoleNotFoundException extends InternalServerErrorException{
 
     @NoArgsConstructor(access = AccessLevel.PRIVATE)
     public static class Message {
-        public static final String exceptionMessage = "Role %s was not found!";
+        public static final String exceptionMessage = "Rola %s nije pronađena!";
     }
 }

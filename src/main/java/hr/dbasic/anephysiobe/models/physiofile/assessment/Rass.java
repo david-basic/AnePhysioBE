@@ -1,7 +1,6 @@
 package hr.dbasic.anephysiobe.models.physiofile.assessment;
 
 import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
 import lombok.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -17,12 +16,12 @@ public class Rass {
     @Id
     private String id;
     
-    @NotNull(message = "Score has to be added!")
+    @NotNull(message = "Ocjena mora biti definirana!")
     private String score;
     
-    @NotNull(message = "Term has to be added!")
+    @NotNull(message = "Naziv ocjene mora biti definiran!")
     private String term;
     
-    @NotNull(message = "Description has to be added!")
+    @NotNull(message = "Opis mora biti definiran!")
     private String scoreDescription;
 }

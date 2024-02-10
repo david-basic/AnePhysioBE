@@ -10,6 +10,6 @@ public class JwtTokenNotPresentException extends UnauthorizedException {
     
     @NoArgsConstructor(access = AccessLevel.PRIVATE)
     public static class Constants {
-        public static final String exceptionMessageFormat = "JWT token was not provided.";
+        public static final String exceptionMessageFormat = "JWT token nije definiran!";
     }
 }

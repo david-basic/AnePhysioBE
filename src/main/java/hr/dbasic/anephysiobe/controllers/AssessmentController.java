@@ -28,7 +28,7 @@ public class AssessmentController {
     public ResponseEntity<ApiResponse<List<AssessmentResponseDto>>> getAllAssessments() {
         return ResponseEntity.ok(
                 ApiResponse.ok(
-                        "Assessments fetched successfully",
+                        "Procjena uspješno dohvaćena!",
                         assessmentService.getAllAssessments()
                 )
         );
@@ -38,7 +38,7 @@ public class AssessmentController {
     public ResponseEntity<ApiResponse<PhysioFileResponseDto>> createAssessmentOnPhysioFileWithId(@PathVariable String id) {
         return ResponseEntity.ok(
                 ApiResponse.ok(
-                        "Assessment successfully created",
+                        "Procjena uspješno dodana!",
                         assessmentService.createAssessmentOnPhysioFileWithId(id)
                 )
         );
@@ -48,7 +48,7 @@ public class AssessmentController {
     public ResponseEntity<ApiResponse<PhysioFileResponseDto>> createPatientRass(@Valid @RequestBody CreatePatientRassRequestDto createPatientRassRequestDto) {
         return ResponseEntity.ok(
                 ApiResponse.ok(
-                        "Patient RASS successfully added",
+                        "RASS uspješno dodan!",
                         assessmentService.createPatientRass(createPatientRassRequestDto)
                 )
         );
@@ -58,7 +58,7 @@ public class AssessmentController {
     public ResponseEntity<ApiResponse<PhysioFileResponseDto>> updatePatientRassById(@PathVariable String id, @Valid @RequestBody UpdatePatientRassRequestDto updatePatientRassRequestDto) {
         return ResponseEntity.ok(
                 ApiResponse.ok(
-                        "Patient RASS successfully updated",
+                        "RASS uspješno ažuriran!",
                         assessmentService.updatePatientRassById(id, updatePatientRassRequestDto)
                 )
         );
@@ -69,7 +69,7 @@ public class AssessmentController {
         assessmentService.deletePatientRassByIdInAssessmentById(deletePatientRassRequestDto);
         
         return ResponseEntity.ok(
-                ApiResponse.ok("Patient RASS successfully deleted!")
+                ApiResponse.ok("RASS uspješno izbrisan!")
         );
     }
     
@@ -77,7 +77,7 @@ public class AssessmentController {
     public ResponseEntity<ApiResponse<PhysioFileResponseDto>> updatePointsOfPainById(@PathVariable String id, @Valid @RequestBody CreateOrUpdatePointsOfPainRequestDto updatePatientRassRequestDto) {
         return ResponseEntity.ok(
                 ApiResponse.ok(
-                        "Points of pain successfully updated",
+                        "Točke boli uspješno ažurirane!",
                         assessmentService.updatePointsOfPainByAssessmentId(id, updatePatientRassRequestDto)
                 )
         );

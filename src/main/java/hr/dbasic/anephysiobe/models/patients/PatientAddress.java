@@ -23,20 +23,20 @@ public class PatientAddress {
     @Id
     private String id;
     
-    @NotNull(message = "Address must be input!")
-    @Size(min = 3, max = 150, message = "Address must be between 3 and 150 characters long")
+    @NotNull(message = "Adresa mora biti definirana!")
+    @Size(min = 3, max = 150, message = "Adresa mora imati između 3 i 150 znakova!")
     private String address;
     
-    @NotNull(message = "County name must be input!")
+    @NotNull(message = "Županija mora biti definirana!")
     @DBRef
     private County county;
     
-    @NotNull(message = "City name must be input!")
-    @Size(min = 2, max = 50, message = "City name must be between 2 and 50 characters long")
+    @NotNull(message = "Grad mora biti definiran!")
+    @Size(min = 2, max = 50, message = "Ime grada mora imati između 2 i 50 znaka!")
     private String city;
     
-    @NotNull(message = "Zipcode must be input!")
-    @Positive(message = "Zipcode can not be a negative number!")
+    @NotNull(message = "Poštanski broj mora biti definiran!")
+    @Positive(message = "Poštanski broj ne smije biti negativan broj!")
     @ZipCodeLength
     private Integer zipCode;
     

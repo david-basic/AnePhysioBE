@@ -5,9 +5,9 @@ import lombok.Builder;
 
 @Builder
 public record CreateFunctionalDiagnosisRequestDto(
-        @NotNull(message = "Physio file id has to be provided")
+        @NotNull(message = "Id fizioterapijskog kartona mora biti definiran!")
         String physioFileId,
-        @NotNull(message = "Functional diagnosis description has to be provided")
+        @NotNull(message = "Opis funkcionalne dijagnoze mora biti definiran!")
         String description
 ) {
 }

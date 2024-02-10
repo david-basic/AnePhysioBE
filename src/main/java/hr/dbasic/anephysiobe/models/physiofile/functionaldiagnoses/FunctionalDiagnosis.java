@@ -17,7 +17,7 @@ public class FunctionalDiagnosis {
     @Id
     private String id;
     
-    @NotNull(message = "Functional diagnosis has to have a description!")
+    @NotNull(message = "Funkcionalna dijagnoza mora imati definiran opis!")
     @ToString.Include
     private String description;
 }

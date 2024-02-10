@@ -17,7 +17,7 @@ public class AccessTokenExpiredException extends ForbiddenException {
     @NoArgsConstructor(access = AccessLevel.PRIVATE)
     public static class Constants {
         
-        public static final String exceptionMessageFormat = "Access token expired! Use refresh token to refresh it!";
+        public static final String exceptionMessageFormat = "Pristupnom token je istekao rok! Iskoristite token za osvježavanje da bi ga osvježili!";
         
     }
     

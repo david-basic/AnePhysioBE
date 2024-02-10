@@ -23,7 +23,7 @@ public class DepartmentController {
     public ResponseEntity<ApiResponse<List<DepartmentResponseDto>>> getAllDepartments() {
         return ResponseEntity.ok(
                 ApiResponse.ok(
-                        "Departments fetched successfully",
+                        "Odjeli uspješno dohvaćeni!",
                         departmentService.getAllDepartments()
                 )
         );
@@ -33,7 +33,7 @@ public class DepartmentController {
     public ResponseEntity<ApiResponse<DepartmentResponseDto>> getDepartmentById(@PathVariable String id) {
         return ResponseEntity.ok(
                 ApiResponse.ok(
-                        "Department fetched successfully",
+                        "Odjel uspješno dohvaćen!",
                         departmentService.getDepartmentById(id)
                 )
         );

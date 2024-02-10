@@ -19,7 +19,7 @@ public class PatientMkb implements Serializable {
     @Id
     private String id;
     
-    @NotNull(message = "MKB has to be added!")
+    @NotNull(message = "MKB mora biti definiran!")
     @DBRef
     private Mkb mkbCode;
     

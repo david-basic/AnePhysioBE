@@ -30,7 +30,7 @@ public class AuthController {
         return ResponseEntity
                 .status(HttpStatus.CREATED)
                 .body(
-                        ApiResponse.created("User registered successfully!")
+                        ApiResponse.created("Korisnik uspješno registriran!")
                 );
     }
     
@@ -38,7 +38,8 @@ public class AuthController {
     public ResponseEntity<ApiResponse<AuthResponseDto>> loginUser(@Valid @RequestBody LoginRequestDto loginRequestDto) {
         return ResponseEntity.ok(
                 ApiResponse.ok(
-                        "User logged in successfully!", authService.login(loginRequestDto)
+                        "Uspješna prijava!",
+                        authService.login(loginRequestDto)
                 )
         );
     }
@@ -47,7 +48,7 @@ public class AuthController {
     public ResponseEntity<ApiResponse<AuthResponseDto>> refreshToken(@Valid @RequestBody RefreshTokenRequestDto refreshTokenRequestDto) {
         return ResponseEntity.ok(
                 ApiResponse.ok(
-                        "Token refresh successful!", authService.refreshToken(refreshTokenRequestDto)
+                        "Osvježavanje tokena uspješno", authService.refreshToken(refreshTokenRequestDto)
                 )
         );
     }

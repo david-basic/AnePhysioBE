@@ -16,7 +16,7 @@ public class InvalidAccessTokenException extends ForbiddenException {
     @NoArgsConstructor(access = AccessLevel.PRIVATE)
     public static class Constants {
         
-        public static final String exceptionMessageFormat = "Access token is invalid!";
+        public static final String exceptionMessageFormat = "Token pristupa nije važeći!";
         
     }
     
