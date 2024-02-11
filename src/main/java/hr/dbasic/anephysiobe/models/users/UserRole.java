@@ -21,10 +21,10 @@ public class UserRole implements Serializable {
     private String id;
 
     @ToString.Include
-    @NotNull(message = "Role name must exist!")
+    @NotNull(message = "Rola mora imati definirano ime!")
     private String name;
 
-    @NotNull(message = "Role must have a display name!")
+    @NotNull(message = "Rola mora imati definirano ime za prikaz!")
     private String displayName;
 
     private Set<User> users;

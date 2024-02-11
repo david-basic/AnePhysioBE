@@ -5,9 +5,9 @@ import lombok.Builder;
 
 @Builder
 public record UpdateProcedureRequestDto(
-        @NotNull(message = "Physio file id has to be provided")
+        @NotNull(message = "Id fizioterapijskog kartona mora biti definiran!")
         String physioFileId,
-        @NotNull(message = "Description has to be provided")
+        @NotNull(message = "Opis procedure mora biti definiran!")
         String description
 ) {
 }

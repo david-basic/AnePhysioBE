@@ -5,7 +5,7 @@ import lombok.Builder;
 
 @Builder
 public record CloseFileRequestDto(
-        @NotNull(message = "Therapist id has to be defined!")
+        @NotNull(message = "Id fizioterapeuta koji zatvara fizioterapijski karton mora biti definiran!")
         String therapistId
 ) {
 }

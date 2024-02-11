@@ -26,8 +26,28 @@ public class PhysioFileController {
     public ResponseEntity<ApiResponse<List<PhysioFileResponseDto>>> getAllPhysioFiles() {
         return ResponseEntity.ok(
                 ApiResponse.ok(
-                        "Physio files fetched successfully",
+                        "Fizioterapijski kartoni uspješno dohvaćeni!",
                         physioFileService.getAllPhysioFiles()
+                )
+        );
+    }
+    
+    @GetMapping(PhysioFileMappings.getPhysioFileById)
+    public ResponseEntity<ApiResponse<PhysioFileResponseDto>> getPhysioFileById(@PathVariable String id) {
+        return ResponseEntity.ok(
+                ApiResponse.ok(
+                        "Fizioterapijski karton uspješno dohvaćen!",
+                        physioFileService.getPhysioFileById(id)
+                )
+        );
+    }
+    
+    @GetMapping(PhysioFileMappings.getAllPhysioFilesByPatientIdGetMapping)
+    public ResponseEntity<ApiResponse<List<PhysioFileResponseDto>>> getAllPhysioFilesOfPatientWithId(@PathVariable String id) {
+        return ResponseEntity.ok(
+                ApiResponse.ok(
+                        "Fizioterapijski kartoni uspješno dohvaćeni!",
+                        physioFileService.getAllPhysioFilesOfPatientWithId(id)
                 )
         );
     }
@@ -36,8 +56,8 @@ public class PhysioFileController {
     public ResponseEntity<ApiResponse<PhysioFileResponseDto>> getPhysioFileByPatientId(@PathVariable String id) {
         return ResponseEntity.ok(
                 ApiResponse.ok(
-                        "Physio file fetched successfully",
-                        physioFileService.getPhysioFileByPatientId(id)
+                        "Fizioterapijski karton uspješno kreiran!",
+                        physioFileService.getActivePhysioFileByPatientIdOrCreateNewOne(id)
                 )
         );
     }
@@ -46,7 +66,7 @@ public class PhysioFileController {
     public ResponseEntity<ApiResponse<PhysioFileResponseDto>> updatePhysioFileById(@PathVariable String id, @Valid @RequestBody UpdatePhysioFileRequestDto updatePhysioFileRequestDto) {
         return ResponseEntity.ok(
                 ApiResponse.ok(
-                        "Physio file saved successfully",
+                        "Fizioterapijski karton uspješno ažuriran!",
                         physioFileService.updatePhysioFileById(id, updatePhysioFileRequestDto)
                 )
         );
@@ -56,7 +76,7 @@ public class PhysioFileController {
     public ResponseEntity<ApiResponse<PhysioFileResponseDto>> closePhysioFileById(@PathVariable String id, @Valid @RequestBody CloseFileRequestDto closeFileRequestDto) {
         return ResponseEntity.ok(
                 ApiResponse.ok(
-                        "Physio file closed successfully",
+                        "Fizioterapijski karton uspješno zatvoren!",
                         physioFileService.closePhysioFileById(id, closeFileRequestDto)
                 )
         );
@@ -66,9 +86,9 @@ public class PhysioFileController {
     public static class PhysioFileMappings {
         public static final String physioFileRequestMapping = AppMappings.apiPhysioFileRequestMapping + "/physiofiles";
         public static final String getAllPhysioFilesGetMapping = "";
-        public static final String getPhysioFileById = "/{id}";
+        public static final String getAllPhysioFilesByPatientIdGetMapping = "/all-of-patient/{id}";
+        public static final String getPhysioFileById = "/file/{id}";
         public static final String getPhysioFileByPatientIdGetMapping = "/patient/{id}";
-        public static final String createPhysioFilePostMapping = "/create-file";
         public static final String updatePhysioFileByIdPutMapping = "/update-physiofile/{id}";
         public static final String closePhysioFileByIdPutMapping = "/close-physiofile/{id}";
     }

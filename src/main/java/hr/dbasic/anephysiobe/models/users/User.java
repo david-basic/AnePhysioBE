@@ -40,30 +40,30 @@ public class User implements UserDetails {
     private LocalDate deleteDate;
     
     @ToString.Include
-    @NotNull(message = "First name must exist!")
-    @Size(min = 2, max = 70, message = "First name must have at least 2 characters and 70 at most!")
+    @NotNull(message = "Ime mora biti definirano!")
+    @Size(min = 2, max = 70, message = "Ime mora imati najmanje 2, najviše 70 znakova!")
     private String firstName;
     
     @ToString.Include
-    @NotNull(message = "Last name must exist!")
-    @Size(min = 2, max = 70, message = "Last name must have at least 2 characters and 70 at most!")
+    @NotNull(message = "Prezime mora biti definirano!")
+    @Size(min = 2, max = 70, message = "Prezime mora imati najmanje 2, najviše 70 znakova!")
     private String lastName;
     
-    @NotNull(message = "Title has to be defined!")
-    @Size(min = 4, message = "Title has to have at least 4 characters!")
+    @NotNull(message = "Titula mora biti definirana!")
+    @Size(min = 4, message = "Titula mora imati najmanje 4 znaka!")
     private String title;
     
-    @NotNull(message = "Sex has to be defined!")
+    @NotNull(message = "Spol mora biti definiran!")
     @DBRef
     private Sex sex;
     
-    @NotNull(message = "Username must exist!")
-    @Size(min = 4, max = 20, message = "Username must have 4 characters at least and 20 at most!")
+    @NotNull(message = "Korisničko ime mora biti definirano!")
+    @Size(min = 4, max = 20, message = "Korisničko ime mora imati najmanje 4, najviše 20 znakova!")
     @EqualsAndHashCode.Include
     private String username;
     
-    @NotNull(message = "Password must exist!")
-    @Size(min = 8, message = "Password must have 8 characters at least!")
+    @NotNull(message = "Zaporka mora biti definirana!")
+    @Size(min = 8, message = "Zaporka mora imati najmanje 8 znakova!")
     private String password;
     
     @Builder.Default
@@ -72,7 +72,7 @@ public class User implements UserDetails {
     @Builder.Default
     private Boolean locked = false;
     
-    @NotNull(message = "User has to have at least 1 role!")
+    @NotNull(message = "Korisnik mora imati definirano rolu!")
     @DBRef
     private UserRole role;
     

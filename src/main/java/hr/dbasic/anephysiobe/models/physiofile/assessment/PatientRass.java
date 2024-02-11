@@ -14,7 +14,7 @@ public class PatientRass extends Rass {
     
     private String additionalDescription;
     
-    @NotNull(message = "Rass has to have date and time defined!")
+    @NotNull(message = "RASS mora imati definiran datum!")
     private LocalDateTime rassDateTime;
     
     @Builder(builderMethodName = "patientRassBuilder")

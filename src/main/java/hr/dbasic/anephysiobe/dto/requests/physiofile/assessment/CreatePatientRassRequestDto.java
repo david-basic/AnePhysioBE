@@ -5,15 +5,15 @@ import lombok.Builder;
 
 @Builder
 public record CreatePatientRassRequestDto(
-        @NotNull(message = "Assessment id has to be provided!")
+        @NotNull(message = "Id procjene mora biti definiran!")
         String assessmentId,
-        @NotNull(message = "Score of the new RASS has to be provided!")
+        @NotNull(message = "Ocjena novog RASS testa mora biti definirana!")
         String score,
-        @NotNull(message = "Term of the new RASS has to be provided!")
+        @NotNull(message = "Naziv ocjene novog RASS testa mora biti definiran!")
         String term,
-        @NotNull(message = "Description of the new RASS has to be provided!")
+        @NotNull(message = "Opis novog RASS testa mora biti definiran!")
         String scoreDescription,
-        @NotNull(message = "Date and time of the new RASS have to be provided!")
+        @NotNull(message = "Datum novog RASS testa mora biti definiran!")
         String rassDateTime,
         String additionalDescription
 ) {

@@ -24,7 +24,7 @@ public class ProcedureController {
         return ResponseEntity.status(HttpStatus.CREATED).body(
                 ApiResponse.created(
                         procedureService.createPatientProcedure(createPatientProcedureRequestDto),
-                        "Patient procedure successfully added"
+                        "Procedura uspješno dodana!"
                 )
         );
     }
@@ -33,7 +33,7 @@ public class ProcedureController {
     public ResponseEntity<ApiResponse<PhysioFileResponseDto>> updatePatientProcedureById(@PathVariable String id, @Valid @RequestBody UpdatePatientProcedureRequestDto updatePatientProcedureRequestDto) {
         return ResponseEntity.ok(
                 ApiResponse.ok(
-                        "Patient procedure successfully updated",
+                        "Procedura uspješno ažurirana!",
                         procedureService.updatePatientProcedureById(id, updatePatientProcedureRequestDto)
                 )
         );
@@ -44,7 +44,7 @@ public class ProcedureController {
         procedureService.deletePatientProcedureByIdInPhysioFileById(deletePatientProcedureRequestDto);
         
         return ResponseEntity.ok(
-                ApiResponse.ok("Patient procedure successfully deleted")
+                ApiResponse.ok("Procedura uspješno obrisana!")
         );
     }
     
@@ -53,7 +53,7 @@ public class ProcedureController {
         return ResponseEntity.status(HttpStatus.CREATED).body(
                 ApiResponse.created(
                         procedureService.createProcedure(createProcedureRequestDto),
-                        "Procedure successfully added"
+                        "Procedura uspješno dodana!"
                 )
         );
     }
@@ -62,7 +62,7 @@ public class ProcedureController {
     public ResponseEntity<ApiResponse<PhysioFileResponseDto>> updateProcedureById(@PathVariable String id, @Valid @RequestBody UpdateProcedureRequestDto updateProcedureRequestDto) {
         return ResponseEntity.ok(
                 ApiResponse.ok(
-                        "Procedure successfully updated",
+                        "Procedura uspješno ažurirana!",
                         procedureService.updateProcedureById(id, updateProcedureRequestDto)
                 )
         );
@@ -72,7 +72,7 @@ public class ProcedureController {
     public ResponseEntity<ApiResponse<PhysioFileResponseDto>> deleteProcedureById(@Valid @RequestBody DeleteProcedureRequestDto deleteProcedureRequestDto) {
         return ResponseEntity.ok(
                 ApiResponse.ok(
-                        "Procedure successfully deleted",
+                        "Procedura uspješno obrisana!",
                         procedureService.deleteProcedureById(deleteProcedureRequestDto)
                 )
         );

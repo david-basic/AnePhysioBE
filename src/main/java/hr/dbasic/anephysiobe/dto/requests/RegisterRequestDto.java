@@ -7,23 +7,23 @@ import lombok.Builder;
 
 @Builder
 public record RegisterRequestDto(
-        @NotNull(message = "First name must be input!")
-        @Size(min = 2, max = 70, message = "First name must have at least 2 characters and 70 at most!")
+        @NotNull(message = "Ime mora biti definirano!")
+        @Size(min = 2, max = 70, message = "Ime mora imati najmanje 2, najviše 70 znakova!")
         String firstName,
-        @NotNull(message = "Last name must be input!")
-        @Size(min = 2, max = 70, message = "Last name must have at least 2 characters and 70 at most!")
+        @NotNull(message = "Prezime mora biti definirano!")
+        @Size(min = 2, max = 70, message = "Prezime mora imati najmanje 2, najviše 70 znakova!")
         String lastName,
-        @NotNull(message = "Title has to be defined!")
-        @Size(min = 4, message = "Title has to have at least 4 characters!")
+        @NotNull(message = "Titula mora biti definirana!")
+        @Size(min = 4, message = "Titula mora imati najmanje 4 znaka!")
         String title,
-        @NotNull(message = "Sex has to be defined!")
+        @NotNull(message = "Spol mora biti definiran!")
         String sex,
-        @NotNull(message = "Username must be input!")
-        @Size(min = 4, max = 20, message = "Username must have 4 characters at least and 20 at most!")
+        @NotNull(message = "Korisničko ime mora biti definirano!")
+        @Size(min = 4, max = 20, message = "Korisničko ime mora imati najmanje 4, najviše 20 znakova!")
         String username,
-        @NotNull(message = "Password must be input!")
-        @Size(min = 8, message = "Password must have 8 characters at least!")
-        @Pattern(regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,255}$", message = "Password must contain at least 1 number, 1 lowercase, 1 uppercase and 1 special character and it must not contain spaces!")
+        @NotNull(message = "Zaporka mora biti definirana!")
+        @Size(min = 8, message = "Zaporka mora imati najmanje 8 znakova!")
+        @Pattern(regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,255}$", message = "Zaporka se mora sastojati od najmanje 1 broja, 1 malog, 1 velikog slova i jednog posebnog znaka te ne smije sadržavati razmake!")
         String password
 ) {
 

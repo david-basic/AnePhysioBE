@@ -18,10 +18,10 @@ public class Mkb implements Serializable {
     @Id
     private String id;
     
-    @NotNull(message = "Mkb code must exist!")
+    @NotNull(message = "MKB kod mora imati naziv!")
     private String code;
     
-    @NotNull(message = "Mkb must have a display name!")
+    @NotNull(message = "MKB kod mora imati ime za prikaz!")
     private String displayName;
     
     @Override

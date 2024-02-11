@@ -28,45 +28,45 @@ public class Patient implements Serializable {
     @Id
     private String id;
     
-    @NotNull(message = "Patient must have identification number!")
+    @NotNull(message = "Pacijent mora imati identifikacijski broj!")
     private BigInteger identificationNumber;
     
     @ToString.Include
-    @NotNull(message = "Patient must have a first name!")
-    @Size(min = 2, max = 70, message = "First name must have at least 2 characters and 70 at most!")
+    @NotNull(message = "Ime pacijenta mora biti definirano!")
+    @Size(min = 2, max = 70, message = "Ime mora imati najmanje 2, a najviše 70 znakova!")
     private String firstName;
     
     @ToString.Include
-    @NotNull(message = "Patient must have a last name!")
-    @Size(min = 2, max = 70, message = "Last name must have at least 2 characters and 70 at most!")
+    @NotNull(message = "Prezime pacijenta mora biti definirano!")
+    @Size(min = 2, max = 70, message = "Prezime mora imati najmanje 2, a najviše 70 znakova!")
     private String lastName;
     
-    @NotNull(message = "Patient must have a date of birth!")
+    @NotNull(message = "Datum rođena pacijenta mora biti definirano!")
     private LocalDate dob;
     
-    @NotNull(message = "Patient must have a sex!")
+    @NotNull(message = "Spol pacijenta mora biti definiran!")
     @DBRef
     private Sex sex;
     
-    @NotNull(message = "Patient must have a leading MKB!")
+    @NotNull(message = "Vodeća dijagnoza pacijenta mora biti definirana!")
     @DBRef
     private PatientMkb leadingMkb;
     
-    @NotNull(message = "Patient must have at least 1 MKB!")
+    @NotNull(message = "Pacijent mora imati barem 1 dijagnozu!")
     @DBRef
     private List<PatientMkb> patientMkbs;
     
     @DBRef
     private List<PatientOperation> operations;
     
-    @NotNull(message = "Patient must have admission date time defined!")
+    @NotNull(message = "Datum i vrijeme prijema pacijenta mora biti definirano!")
     private LocalDateTime admissionDateTime;
     
-    @NotNull(message = "Patient must have an address attached!")
+    @NotNull(message = "Adresa stanovanja pacijenta mora biti definirana!")
     @DBRef
     private PatientAddress patientAddress;
     
-    @NotNull(message = "Patient must have a leading doctor attached!")
+    @NotNull(message = "Doktor mora biti definiran pacijentu!")
     @DBRef
     private Doctor leadingDoctor;
     

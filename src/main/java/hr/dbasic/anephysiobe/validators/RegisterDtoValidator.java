@@ -15,7 +15,7 @@ public class RegisterDtoValidator implements Validator<RegisterRequestDto> {
     @Override
     public void validate(RegisterRequestDto target) {
         if (userRepositoryMongo.existsByUsername(target.username())) {
-            throw new UserExistsException("Username is already taken!");
+            throw new UserExistsException("Korisničko ime je zauzeto!");
         }
     }
 }

@@ -41,7 +41,7 @@ public class AppAdvice {
                 .body(
                         ApiErrorResponse.of(
                                 HttpStatus.BAD_REQUEST,
-                                "Sent parameter is not of correct type!",
+                                "Poslani parametar nije ispravnog tipa!",
                                 request.getRequestURL().toString()
                         )
                 );
@@ -148,7 +148,7 @@ public class AppAdvice {
                 .body(
                         ApiErrorResponse.of(
                                 HttpStatus.INTERNAL_SERVER_ERROR,
-                                "Internal server error! Contact your admin!",
+                                "Interna greška na serveru! Kontaktirajte admina!",
                                 request.getRequestURL().toString()
                         )
                 );

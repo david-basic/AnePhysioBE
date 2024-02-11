@@ -1,6 +1,5 @@
 package hr.dbasic.anephysiobe.models.departments;
 
-import hr.dbasic.anephysiobe.models.departments.Department;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
 import org.springframework.data.annotation.Id;
@@ -19,16 +18,16 @@ public class Doctor {
     @Id
     private String id;
     
-    @NotNull(message = "Doctor has to have a first name!")
+    @NotNull(message = "Doktor mora imati definirano ime!")
     private String firstName;
     
-    @NotNull(message = "Doctor has to have a last name!")
+    @NotNull(message = "Doktor mora imati definirano prezime!")
     private String lastName;
     
     @Builder.Default
     private String title = "";
     
-    @NotNull(message = "Doctor has to have a role, e.g. spec. anesteziologije, reanim. i intenzivne med.")
+    @NotNull(message = "Doktor mora imati definiranu ulogu, npr. spec. anesteziologije, reanim. i intenzivne med.")
     private String role;
     
     @DBRef

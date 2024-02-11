@@ -29,7 +29,7 @@ public class FunctionalDiagnosisController {
     public ResponseEntity<ApiResponse<List<FunctionalDiagnosisResponseDto>>> getAllFunctionalDiagnoses() {
         return ResponseEntity.ok(
                 ApiResponse.ok(
-                        "Functional diagnoses fetched successfully!",
+                        "Funkcionalne dijagnoze uspješno dohvaćene!",
                         functionalDiagnosisService.findAllFunctionalDiagnoses()
                 )
         );
@@ -40,7 +40,7 @@ public class FunctionalDiagnosisController {
         return ResponseEntity.status(HttpStatus.CREATED).body(
                 ApiResponse.created(
                         functionalDiagnosisService.createFunctionalDiagnosis(createFunctionalDiagnosisRequestDto),
-                        "Functional diagnosis successfully created!"
+                        "Funkcionalna dijagnoza uspješno kreirana!"
                 )
         );
     }
@@ -49,7 +49,7 @@ public class FunctionalDiagnosisController {
     public ResponseEntity<ApiResponse<PhysioFileResponseDto>> updateFdById(@PathVariable String id, @Valid @RequestBody UpdateFunctionalDiagnosisRequestDto updateFunctionalDiagnosisRequestDto) {
         return ResponseEntity.ok(
                 ApiResponse.ok(
-                        "Functional diagnosis successfully updated!",
+                        "Funkcionalna dijagnoza uspješno ažurirana!",
                         functionalDiagnosisService.updateFunctionalDiagnosisById(id, updateFunctionalDiagnosisRequestDto)
                 )
         );
@@ -58,7 +58,7 @@ public class FunctionalDiagnosisController {
     @DeleteMapping(FunctionalDiagnosisMappings.deleteFunctionalDiagnosisDeleteMapping)
     public ResponseEntity<ApiResponse<PhysioFileResponseDto>> deleteFdById(@Valid @RequestBody DeleteFunctionalDiagnosisRequestDto deleteFunctionalDiagnosisRequestDto) {
         return ResponseEntity.ok(
-                ApiResponse.ok("Functional diagnosis successfully deleted!",
+                ApiResponse.ok("Funkcionalna dijagnoza uspješno obrisana!",
                                functionalDiagnosisService.deleteFunctionalDiagnosisById(deleteFunctionalDiagnosisRequestDto)
                 )
         );
@@ -68,7 +68,7 @@ public class FunctionalDiagnosisController {
     public ResponseEntity<ApiResponse<PhysioFileResponseDto>> updatePfdById(@PathVariable String id, @Valid @RequestBody UpdatePatientFunctionalDiagnosisSelectedStateRequestDto updatePatientFunctionalDiagnosisSelectedStateRequestDto) {
         return ResponseEntity.ok(
                 ApiResponse.ok(
-                        "Patient functional diagnosis successfully updated!",
+                        "Funkcionalna dijagnoza uspješno ažurirana!",
                         functionalDiagnosisService.updatePatientFunctionalDiagnosisSelectedStateById(id, updatePatientFunctionalDiagnosisSelectedStateRequestDto)
                 )
         );

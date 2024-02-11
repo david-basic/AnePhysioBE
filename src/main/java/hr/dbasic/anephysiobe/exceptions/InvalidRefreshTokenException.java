@@ -16,7 +16,7 @@ public class InvalidRefreshTokenException extends NotFoundException {
     @NoArgsConstructor(access = AccessLevel.PRIVATE)
     public static class Constants {
         
-        public static final String exceptionMessageFormat = "Refresh token is invalid!";
+        public static final String exceptionMessageFormat = "Token za osvježavanje nije važeći!";
         
     }
     

@@ -17,10 +17,10 @@ public class Sex {
     @Id
     private String id;
     
-    @NotNull(message = "Sex must have a name!")
+    @NotNull(message = "Spol mora imati definirano ime!")
     private String name;
     
     @ToString.Include
-    @NotNull(message = "Sex must have a display name!")
+    @NotNull(message = "Spol mora imati definirano ime za prikaz!")
     private String displayName;
 }

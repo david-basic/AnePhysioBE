@@ -1,6 +1,5 @@
 package hr.dbasic.anephysiobe.models.departments;
 
-import hr.dbasic.anephysiobe.models.departments.Bed;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
 import org.springframework.data.annotation.Id;
@@ -22,11 +21,11 @@ public class Box {
     @Id
     private String id;
     
-    @NotNull(message = "Box has to have a name!")
+    @NotNull(message = "Box mora imati definirano ime!")
     private String name;
     
     @DBRef
-    @NotNull(message = "Box has to have at least one bed!")
+    @NotNull(message = "Box mora imati najmanje 1 krevet!")
     private List<Bed> bedList;
     
 }

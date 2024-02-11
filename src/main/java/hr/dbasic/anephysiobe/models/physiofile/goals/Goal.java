@@ -18,9 +18,9 @@ public class Goal {
     @Id
     private String id;
     
-    @NotNull(message = "Goal has to have a type defined!")
+    @NotNull(message = "Cilj mora imati definiran tip!")
     private String type;
     
-    @NotNull(message = "Goal has to have a description defined!")
+    @NotNull(message = "Cilj mora imati definiran opis!")
     private String description;
 }

@@ -5,7 +5,7 @@ import lombok.Builder;
 
 @Builder
 public record RefreshTokenRequestDto(
-        @NotNull(message = "Refresh token has to exist!")
+        @NotNull(message = "Token za osvježavanje mora biti definiran!")
         String refreshToken
 ) {
 }

@@ -62,15 +62,15 @@ public class AuthServiceImpl implements AuthService {
                     .ifPresentOrElse(
                             user -> {
                                 if (!user.isEnabled()) {
-                                    throw new DisabledException("User is not enabled!");
+                                    throw new DisabledException("Korisniku nije omogućen pristup!");
                                 }
                                 if (!user.isAccountNonLocked()) {
-                                    throw new LockedException("User is locked!");
+                                    throw new LockedException("Korisnik je zaključan!");
                                 }
-                                throw new BadCredentialsException("Credentials are invalid!");
+                                throw new BadCredentialsException("Kredencijali nisu valjani!");
                             },
                             () -> {
-                                throw new BadCredentialsException("User with %s username is not registered!".formatted(loginRequestDto.username()));
+                                throw new BadCredentialsException("Korisnik %s ne postoji!".formatted(loginRequestDto.username()));
                             }
                     );
             throw new IllegalStateException();

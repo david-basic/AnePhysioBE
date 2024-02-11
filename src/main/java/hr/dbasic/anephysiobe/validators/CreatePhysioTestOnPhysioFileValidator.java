@@ -11,7 +11,7 @@ public class CreatePhysioTestOnPhysioFileValidator implements Validator<PhysioFi
     @Override
     public void validate(PhysioFile target) {
         if (!Objects.isNull(target.getPhysioTest())) {
-            throw new UniquenessViolatedException("A physio test for the requested Physio file already exists!");
+            throw new UniquenessViolatedException("Test za trenutni karton već postoji!");
         }
     }
 }

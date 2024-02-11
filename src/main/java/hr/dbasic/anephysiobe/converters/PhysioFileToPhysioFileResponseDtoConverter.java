@@ -50,7 +50,7 @@ public class PhysioFileToPhysioFileResponseDtoConverter implements Converter<Phy
     
     @Override
     public PhysioFileResponseDto convert(@NonNull PhysioFile source) {
-        PatientResponseDto patientResponseDto = patientService.getPatientById(source.getPatient().getId());
+        PatientResponseDto patientResponseDto = patientService.getPatientResponseDtoById(source.getPatient().getId());
         
         List<Goal> fullGoalsList = goalRepositoryMongo.findAll();
         List<Plan> fullPlansList = planRepositoryMongo.findAll();
@@ -103,7 +103,7 @@ public class PhysioFileToPhysioFileResponseDtoConverter implements Converter<Phy
                 source.getPatientProcedures().stream().map(pp -> PatientProcedureResponseDto.builder()
                         .id(pp.getId())
                         .description(pp.getDescription())
-                        .dateTime(DateTimeFormatter.ISO_LOCAL_DATE.format(pp.getDate()))
+                        .dateTime(DateTimeFormatter.ISO_LOCAL_DATE_TIME.format(pp.getDate()))
                         .workingTherapists(
                                 pp.getWorkingTherapists().stream().map(t -> PFRUserDto.builder()
                                         .id(t.getId())
@@ -130,6 +130,9 @@ public class PhysioFileToPhysioFileResponseDtoConverter implements Converter<Phy
                                 .sex(source.getFileClosedBy().getSex().getDisplayName())
                                 .role(source.getFileClosedBy().getRole().getDisplayName())
                                 .build()
+                        : null,
+                source.getFileClosedAt() != null ?
+                        DateTimeFormatter.ISO_LOCAL_DATE_TIME.format(source.getFileClosedAt())
                         : null,
                 allPhysiotherapists,
                 foundDeptId

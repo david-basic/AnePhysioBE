@@ -6,11 +6,11 @@ import lombok.Builder;
 
 @Builder
 public record LoginRequestDto(
-        @NotNull(message = "Username must be input!")
-        @Size(min = 4, max = 20, message = "Username must have 4 characters at least and 20 at most!")
+        @NotNull(message = "Korisničko ime mora biti definirano!")
+        @Size(min = 4, max = 20, message = "Korisničko ime mora imati najmanje 4 znaka a najviše 20!")
         String username,
-        @NotNull(message = "Password must be input!")
-        @Size(min = 8, message = "Password must have 8 characters at least!")
+        @NotNull(message = "Zaporka mora biti definirana!")
+        @Size(min = 8, message = "Zaporka mora imati najmanje 8 znakova!")
         String password
 ) {
 

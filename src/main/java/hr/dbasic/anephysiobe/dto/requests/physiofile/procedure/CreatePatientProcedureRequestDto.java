@@ -7,13 +7,13 @@ import java.util.List;
 
 @Builder
 public record CreatePatientProcedureRequestDto(
-        @NotNull(message = "Parent physio file id has to be provided")
+        @NotNull(message = "Id fizioterapijskog kartona mora biti definiran!")
         String physioFileId,
-        @NotNull(message = "Description has to be provided")
+        @NotNull(message = "Opis procedure mora biti definiran!")
         String description,
-        @NotNull(message = "Date time has to be provided")
+        @NotNull(message = "Datum procedure mora biti definiran!")
         String dateTime,
-        @NotNull(message = "Id of therapists on the procedure has to be provided")
+        @NotNull(message = "Id-evi fizioterapeuta koji su vršili proceduru moraju biti definirani!")
         List<String> workingTherapistsIds
 ) {
 }

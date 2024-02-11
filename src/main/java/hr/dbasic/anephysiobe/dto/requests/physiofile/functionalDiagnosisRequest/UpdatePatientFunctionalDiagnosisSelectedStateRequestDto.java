@@ -5,9 +5,9 @@ import lombok.Builder;
 
 @Builder
 public record UpdatePatientFunctionalDiagnosisSelectedStateRequestDto(
-        @NotNull(message = "Physio file id has to be provided")
+        @NotNull(message = "Id fizioterapijskog kartona mora biti definiran!")
         String physioFileId,
-        @NotNull(message = "Patient functional diagnosis selected state has to be provided")
+        @NotNull(message = "Status selekcije funkcionalne dijagnoze mora biti definiran!")
         Boolean selected
 ) {
 }
