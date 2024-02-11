@@ -70,7 +70,7 @@ public class AuthServiceImpl implements AuthService {
                                 throw new BadCredentialsException("Kredencijali nisu valjani!");
                             },
                             () -> {
-                                throw new BadCredentialsException("Korisnik sa %s korisničkim imenom ne postoji!".formatted(loginRequestDto.username()));
+                                throw new BadCredentialsException("Korisnik %s ne postoji!".formatted(loginRequestDto.username()));
                             }
                     );
             throw new IllegalStateException();
