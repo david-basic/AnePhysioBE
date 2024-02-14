@@ -20,4 +20,4 @@ hr:
           public-key: classpath:certs/public.pem
         jwt:
           validity-duration-in-ms: 3600000 # 1h
-          refresh-validity-duration-in-ms: 86400000 # one day
+          refresh-validity-duration-in-ms: 3600000 # 1h
