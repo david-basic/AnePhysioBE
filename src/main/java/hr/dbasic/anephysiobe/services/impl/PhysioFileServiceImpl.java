@@ -47,17 +47,6 @@ public class PhysioFileServiceImpl implements PhysioFileService {
         List<PhysioFile> foundFiles = physioFileRepositoryMongo.findPhysioFilesByPatientId(patientId);
         
         List<PhysioFile> activePhysioFilesList = foundFiles.stream().filter(pf -> Objects.isNull(pf.getFileOpenedBy())).toList();
-        System.out.println();
-        System.out.println();
-        System.out.println();
-        System.out.println();
-        System.out.println(activePhysioFilesList.size());
-        System.out.println();
-        System.out.println();
-        System.out.println();
-        System.out.println();
-        System.out.println();
-        System.out.println();
         
         if (!activePhysioFilesList.isEmpty()) {
             return physioFileToPhysioFileResponseDtoConverter.convert(activePhysioFilesList.getFirst());
